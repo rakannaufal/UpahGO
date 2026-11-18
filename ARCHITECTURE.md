@@ -25,6 +25,10 @@ Cloudflare memvalidasi format/batas body, operasi allowlist, origin web tepat, r
 
 Auth OAuth/SMS tetap langsung ke Supabase, sehingga tidak tercakup limiter Worker. Konfigurasi provider dan kontrol penyalahgunaan Auth wajib terpisah. Lihat [setup layanan](docs/SERVICES.md).
 
+OPS-001 menambah UUIDv4 server pada `X-Request-ID`/error, diteruskan ke RPC dan Edge setelah gateway tervalidasi. Helper `shared/observability.mjs` hanya menyusun field JSON allowlist; tidak menyerialisasikan body/header/URL/Error. Event terminal dan transport dependency menyediakan status, outcome dan durasi; tidak ada tabel log atau perubahan skema. Worker memakai redirect manual yang didukung workerd dan menolak non-2xx, bukan mengikuti Location. Kesalahan dependency tak dikenal menjadi5xx; DELETE foto tetap202.
+
+Monitor eksternal `scripts/monitor-service.mjs` memakai health liveness dan bootstrap akun sintetis, tanpa service role. State/lock single-host privat mendukung3 kegagalan, repeat15 menit dan recovery lewat receiver webhook idempoten. Ia tidak memantau antrean admin/ledger. Source observability/private source-map upload tersedia; belum di-deploy. Owner, scheduler/deadman, dashboard/alert dan metadata provider perlu penerimaan terpisah. [Kontrak, privasi dan batas](docs/OPERATIONS.md).
+
 ## Data dan otorisasi
 
 Migrasi berurutan tanggal 17 November: core, onboarding, location_reviews, discovery_design, work_details_suggestions, profile_photos. Tanggal 18 November: `202611180001_profile_prices.sql`, `202611180002_history_pagination.sql`, `202611180003_account_erasure.sql`. Tanggal 19 November: `202611190001_media_reconciliation.sql`. Wrapper berlapis menyimpan implementasi terdahulu di schema privat dengan execute klien dicabut; wrapper publik tetap memvalidasi sesi, gateway, ACL dan input sebelum delegasi.

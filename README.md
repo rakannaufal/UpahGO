@@ -34,6 +34,7 @@ Panduan lengkap: [Pengembangan](docs/DEVELOPMENT.md), [Konfigurasi Google/Supaba
 - Penilaian kedua pihak setelah kesepakatan selesai, terpisah dari pengakuan COD.
 - Notifikasi dalam aplikasi, blokir, pengiriman laporan, permintaan penghapusan. Finalizer akun/Auth/Storage dan retensi tersedia lokal, nonaktif sampai kebijakan disetujui; [runbook](docs/ACCOUNT-DELETION.md). Operator dan penerimaan cloud belum tersedia.
 - Rekonsiliasi foto: reservasi upload, antrean penghapusan dengan lease/retry dan sweep objek yatim tersedia lokal, runner default nonaktif. Hapus foto mengakui antrean melalui HTTP202; [runbook MEDIA-001](docs/MEDIA-CLEANUP.md). Scheduler/alarm dan Storage nyata belum diterima.
+- Operasi: ID permintaan server, event JSON terbatas, metrik dependency/latensi dan monitor API sintetis dengan state privat, retry alarm/recovery tersedia source. [Runbook OPS-001](docs/OPERATIONS.md). Belum diaktifkan remote; owner, kanal alarm, metadata provider dan scheduler masih perlu penerimaan.
 
 Publikasi lowongan/lamaran terpisah, chat internal, wallet/escrow, push, admin web tidak ditambahkan pada slice ini. `SCREENS.md` tetap katalog rancangan yang lebih luas, bukan daftar fitur selesai.
 

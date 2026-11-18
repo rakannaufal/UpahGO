@@ -29,7 +29,7 @@ Hanya bucket `profile-photos` dan pasangan `<UUID akun>/<worker|employer>/<UUID 
 2. Jeda write foto. Terapkan migrasi, siapkan pinned WASM melalui `npm run photo:prepare`, lalu deploy Edge baru sebelum menerima upload. Edge lama tidak memiliki reservasi sehingga commit upload ditolak skema baru. Jangan membuka traffic dengan kombinasi versi tersebut. Jalankan smoke test upload detail/thumb, replacement, pending/access, DELETE202 dan kegagalan terkontrol; baru buka write.
 3. Sediakan runtime server Node22.x dan secret store `SUPABASE_URL` HTTPS serta `SUPABASE_SERVICE_ROLE_KEY`. Jangan memakai `EXPO_PUBLIC_*`, argumen terminal, log, screenshot atau Git untuk service key. Client server tidak menyimpan sesi, menolak redirect, timeout fetch15 detik. Worker/mobile tidak mendapat service key.
 4. Catat approval privat pada singleton `upahgo_private.media_cleanup_config`: `approved_by`, `approved_at`, lalu `enabled=true`. Default false; singleton hilang juga menolak pemrosesan. Jangan mengaktifkan hanya untuk menghilangkan error tanpa penerimaan staging dan operator.
-5. Jalankan satu invokasi pada fixture sintetis, periksa hasil provider dan statistik, lalu hubungkan scheduler/monitor. Scheduler dan pengiriman alarm belum dibuat pada slice ini (OPS-001).
+5. Jalankan satu invokasi pada fixture sintetis, periksa hasil provider dan statistik, lalu hubungkan scheduler/monitor. [OPS-001](OPERATIONS.md) menyediakan telemetry/monitor API dan panduan integrasi; scheduler/pengiriman alarm antrean tetap belum diprovisi, tidak dicakup oleh probe API.
 
 ```sh
 # Hanya lingkungan yang diotorisasi; runtime server menyuntikkan secrets.

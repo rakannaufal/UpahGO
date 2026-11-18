@@ -1,0 +1,61 @@
+> upahgo@0.1.0 test:ops-local
+> node scripts/test-ops-local.mjs
+
+
+ ⛅️ wrangler 4.163.0 (update available 4.165.0)
+───────────────────────────────────────────────
+Using secrets defined in ../../../../../../../var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/upahgo-ops-runtime-gOYwCt/empty.env
+Your Worker has access to the following bindings:
+Binding                                                                        Resource                  Mode
+env.LIMITER (RateLimiter)                                                      Durable Object            local
+env.ENVIRONMENT ("development")                                                Environment Variable      local
+env.TELEMETRY_ENABLED ("true")                                                 Environment Variable      local
+env.SUPABASE_URL ("http://127.0.0.1:56032")                                    Environment Variable      local
+env.SUPABASE_PUBLISHABLE_KEY ("synthetic-public-key")                          Environment Variable      local
+env.GATEWAY_SECRET ("synthetic-private-gateway-secret-loca...")                Environment Variable      local
+env.ALLOWED_ORIGINS ("")                                                       Environment Variable      local
+
+⎔ Starting local server...
+Wrangler detected this dev session is running in an AI agent.
+The Local Explorer API is available at http://127.0.0.1:56033/cdn-cgi/local/explorer/api
+Useful routes:
+  GET http://127.0.0.1:56033/cdn-cgi/local/explorer/api/local/workers - local Workers and bindings
+  POST http://127.0.0.1:56033/cdn-cgi/local/explorer/api/local/scheduled?worker=<name> - invoke a Worker's scheduled handler; cron is required (see the OpenAPI schema for the full request)
+  GET http://127.0.0.1:56033/cdn-cgi/local/explorer/api/storage/kv/namespaces - KV namespaces
+  GET http://127.0.0.1:56033/cdn-cgi/local/explorer/api/d1/database - D1 databases
+  GET http://127.0.0.1:56033/cdn-cgi/local/explorer/api/r2/buckets - R2 buckets
+  GET http://127.0.0.1:56033/cdn-cgi/local/explorer/api/workers/durable_objects/namespaces - Durable Object namespaces
+  GET http://127.0.0.1:56033/cdn-cgi/local/explorer/api/workflows - Workflows
+  POST http://127.0.0.1:56033/cdn-cgi/local/explorer/api/local/observability/query - run a read-only SQL query (SELECT/WITH only) over captured request traces and console logs. Tables: spans, logs (read attributes via json(attributes)). Example:
+    curl -X POST http://127.0.0.1:56033/cdn-cgi/local/explorer/api/local/observability/query -H 'Content-Type: application/json' -d '{"sql":"SELECT service, name, outcome, duration_ms FROM spans WHERE parent_id IS NULL LIMIT 20"}'
+  POST http://127.0.0.1:56033/cdn-cgi/local/explorer/api/local/observability/clear - clear all captured traces and logs
+If the routes above don't cover what you need, fetch the full OpenAPI schema (large - use only as a last resort):
+  GET http://127.0.0.1:56033/cdn-cgi/local/explorer/api - OpenAPI schema
+[wrangler:info] Ready on http://127.0.0.1:56033
+{"version":1,"service":"gateway","environment":"development","route":"health","method":"GET","timestamp":"2026-11-18T23:44:02.073Z","requestId":"9c1aaa8a-eff7-4466-a162-7a3edf8e230e","operation":"unknown","kind":"request","status":204,"code":null,"durationMs":0}
+[wrangler:info] GET /healthz 204 No Content (171ms)
+{"version":1,"service":"gateway","environment":"development","route":"action","method":"POST","timestamp":"2026-11-18T23:44:02.110Z","requestId":"6a894232-1730-4878-a305-93253af208b7","operation":"unknown","kind":"dependency","dependency":"limiter","status":200,"outcome":"ok","durationMs":6}
+LOCAL_FIXTURE_FETCH_ERROR TypeError Invalid redirect value, must be one of "follow" or "manual" ("error" won't be implemented since it does not make sense at the edge; use "manual" and check the response status code).
+{"version":1,"service":"gateway","environment":"development","route":"action","method":"POST","timestamp":"2026-11-18T23:44:02.115Z","requestId":"6a894232-1730-4878-a305-93253af208b7","operation":"bootstrap","kind":"dependency","dependency":"auth","status":0,"outcome":"error","durationMs":2}
+{"version":1,"service":"gateway","environment":"development","route":"action","method":"POST","timestamp":"2026-11-18T23:44:02.115Z","requestId":"6a894232-1730-4878-a305-93253af208b7","operation":"bootstrap","kind":"request","status":502,"code":"NETWORK_ERROR","durationMs":12}
+[wrangler:info] POST /v1/action 502 Bad Gateway (18ms)
+
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+502 !== 200
+
+    at file:///Users/rakan/Documents/UpahGo/scripts/test-ops-local.mjs:159:12
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 502,
+  expected: 200,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.23.3

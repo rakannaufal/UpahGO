@@ -26,6 +26,10 @@ Bila sandbox menolak folder preferensi Wrangler, gunakan `XDG_CONFIG_HOME=/priva
 
 `node scripts/test-worker-local.mjs` mengirim 190 permintaan dengan operasi tidak dikenal ke localhost:8787; operasi ditolak sebelum menghubungi Supabase. Jalankan pada penyimpanan limiter lokal yang baru untuk pemeriksaan tepat 180/10. Penyimpanan berada di `.wrangler/`, bukan layanan produksi.
 
+`npm run test:ops-local` menjalankan Worker/workerd dan SQLite Durable Object asli pada port loopback sementara, mengganti Auth/PostgREST dengan server sintetis. Konfigurasi/.env/state terisolasi, tidak memuat `.dev.vars` proyek atau men-deploy. Menguji sukses, Auth503, DB400 tak dikenal dan redirect302 yang tidak diikuti, korelasi ID serta redaksi event aplikasi. Memerlukan izin localhost; membersihkan hanya proses/direktori milik tes. Ini menemukan incompatibility `redirect: error` di workerd; gateway kini manual dan gagal tertutup pada non-2xx. Deno/Node tetap mendukung error.
+
+`npm test` mencakup telemetry/monitor dengan upstream sintetis dan filesystem privat sementara; `npm run test:photo-edge` juga memeriksa ID gateway, Auth outage dan redaksi. Tidak mengirim webhook nyata. CLI `npm run ops:monitor -- /private/ops/ops-monitor.json --apply` hanya untuk server/kanal terotorisasi, bukan dijalankan sebagai tes development. [Environment, state, jadwal dan penerimaan](OPERATIONS.md).
+
 ## Database pengujian
 
 Gunakan PostgreSQL 17 lokal yang dapat dibuang. Script menghapus schema `auth`, `storage`, `upahgo_private`, dan fungsi API pada database target. Nama database harus diawali `upahgo_test`. **Jangan menggunakan URL database produksi.**

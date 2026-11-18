@@ -36,7 +36,7 @@ Satu panggilan memproses satu job dan satu batch maintenance; bukan daemon. Sche
 
 Output hanya status/kode error/jumlah, tanpa UUID/nama/nomor. Runner gagal dengan exit nonzero pada error/retry; `pending` memerlukan invokasi berikutnya. `attempts`, `last_error`, `next_attempt_at`, `lease_until` privat mendukung triase; lease kedaluwarsa dapat diklaim ulang. Retry memakai backoff 60 detik sampai maksimal satu hari; setelah 12 claim yang melaporkan error job menjadi `failed`. `defer` batch besar tidak menghabiskan jatah retry. Timeout dengan hasil tak pasti dilanjutkan dari tahap database yang sudah commit.
 
-Alarm usulan: setiap job `failed`, invalid key, ekspor gagal/basi, lease terus kedaluwarsa, umur antrean >24 jam; eskalasi sebelum target 7 hari terlewati. Tetapkan petugas dan jalur bantuan nyata sebelum rilis. Tidak ada telemetry/alert otomatis ditambahkan pada slice ini (OPS-001).
+Alarm usulan: setiap job `failed`, invalid key, ekspor gagal/basi, lease terus kedaluwarsa, umur antrean >24 jam; eskalasi sebelum target 7 hari terlewati. Tetapkan petugas dan jalur bantuan nyata sebelum rilis. [OPS-001](OPERATIONS.md) menyediakan telemetry/monitor API dan panduan integrasi; scheduler serta alarm antrean/ledger tetap belum diprovisi, tidak dicakup oleh probe API.
 
 ## Ledger dan restore
 

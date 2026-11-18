@@ -84,3 +84,7 @@ Tile standar OSM memberi geografi aktual pada preview web, atribusi tetap terlih
 
 Foto live tetap tertahan sampai operasi tersebut siap; screenshot pending dan tes mock tidak membuktikan layanan moderasi/storage remote. Audit high tooling terbaru juga perlu disposition sebelum rilis, lihat [TESTING.md](../TESTING.md).
 
+## Operasi OPS-001 sebelum aktivasi
+
+Source Worker menyiapkan custom telemetry, query redaction, invocation logs/traces nonaktif dan upload source map privat; Edge memakai flag server terpisah. Monitor eksternal hanya memeriksa liveness+bootstrap akun sintetis, tanpa service role. Tidak ada deploy, scheduler, kanal alarm atau petugas yang diaktifkan oleh perubahan source ini. Ikuti [OPERATIONS.md](OPERATIONS.md) untuk env, retensi/akses/biaya, pemeriksaan raw metadata provider, private state/lock, receiver idempoten, token expiry, deadman serta fault drill staging. Hubungkan alarm terpisah pada runner PRIV/MEDIA dan ekspor ledger; API sehat tidak membuktikan penghapusan berjalan. Aktivasi tetap memerlukan otorisasi lingkungan dan penerimaan operator.
+

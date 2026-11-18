@@ -8,18 +8,27 @@ Deno.test(
   async () => {
     const user = "11111111-1111-4111-8111-111111111111";
     const secret = "synthetic-gateway-secret-for-local-edge-tests";
+    const requestId = "77777777-7777-4777-8777-777777777777";
     const keys = {
       UPAHGO_GATEWAY_SECRET: secret,
       SUPABASE_URL: "https://synthetic.supabase.co",
       SUPABASE_ANON_KEY: "synthetic-public-key",
       SUPABASE_SERVICE_ROLE_KEY: "synthetic-service-key-for-local-test",
+      UPAHGO_TELEMETRY_ENABLED: "true",
+      UPAHGO_ENVIRONMENT: "staging",
     };
     const oldEnv = new Map(
       Object.keys(keys).map((key) => [key, Deno.env.get(key)]),
     );
     for (const [key, value] of Object.entries(keys)) Deno.env.set(key, value);
     const originalFetch = globalThis.fetch;
-    let authenticated = true,
+    const originalLog = console.log;
+    const logs: string[] = [];
+    console.log = (line: string) => {
+      logs.push(line);
+    };
+    let authFailure = false,
+      authenticated = true,
       hasAccess = true,
       storedKey: string | null = null,
       committed = false,
@@ -39,6 +48,12 @@ Deno.test(
             headers: { "Content-Type": "application/json" },
           }),
         );
+      assert(
+        req.headers.get("x-upahgo-request-id") === requestId,
+        "trusted ID reaches upstream",
+      );
+      if (url.pathname === "/auth/v1/user" && authFailure)
+        return json({ message: "synthetic-private-auth-outage" }, 503);
       if (url.pathname === "/auth/v1/user")
         return json(
           authenticated
@@ -156,15 +171,19 @@ Deno.test(
         headers: {
           Authorization: "Bearer synthetic-user-token",
           "x-upahgo-gateway": gateway,
+          "x-upahgo-request-id": requestId,
           "Content-Type": "image/jpeg",
           "x-upahgo-photo-consent": String(consent),
         },
         body: bytes ? new Uint8Array(bytes).buffer : undefined,
       });
     try {
+      const rejectedGateway = await handlePhotoRequest(
+        request("GET", true, undefined, "wrong"),
+      );
       assert(
-        (await handlePhotoRequest(request("GET", true, undefined, "wrong")))
-          .status === 403,
+        rejectedGateway.status === 403 &&
+          rejectedGateway.headers.get("X-Request-ID") !== requestId,
         "direct gateway bypass denied",
       );
       authenticated = false;
@@ -173,6 +192,12 @@ Deno.test(
         "invalid user denied",
       );
       authenticated = true;
+      authFailure = true;
+      assert(
+        (await handlePhotoRequest(request())).status === 503,
+        "Auth outage must not masquerade as invalid credentials",
+      );
+      authFailure = false;
       const fixture = await Deno.readFile(
         new URL("../../../tests/fixtures/synthetic-photo.jpg", import.meta.url),
       );
@@ -193,7 +218,7 @@ Deno.test(
       uploadFailsAt = 2;
       assert(
         (await handlePhotoRequest(request("POST", true, fixture))).status ===
-          400,
+          503,
         "partial upload reports failure",
       );
       assert(
@@ -208,7 +233,7 @@ Deno.test(
       commitMode = "fail";
       assert(
         (await handlePhotoRequest(request("POST", true, fixture))).status ===
-          400,
+          503,
         "failed commit reports failure",
       );
       assert(
@@ -219,7 +244,7 @@ Deno.test(
       uploaded = 0;
       assert(
         (await handlePhotoRequest(request("POST", true, fixture))).status ===
-          400,
+          503,
         "uncertain commit reports retryable error",
       );
       assert(
@@ -259,8 +284,47 @@ Deno.test(
         (await deletion.json()).data.cleanup === "queued",
         "queued cleanup response contract",
       );
+      assert(
+        deletion.headers.get("X-Request-ID") === requestId,
+        "trusted gateway correlation returned",
+      );
+      const events = logs.map((line) => JSON.parse(line));
+      assert(
+        events.some(
+          (event) =>
+            event.kind === "dependency" &&
+            event.dependency === "storage" &&
+            event.status === 403,
+        ),
+        "Storage fault measured",
+      );
+      assert(
+        events.filter((event) => event.kind === "request").length > 5,
+        "terminal request events recorded",
+      );
+      assert(
+        events.some(
+          (event) =>
+            event.requestId === requestId && event.dependency === "database",
+        ),
+        "database correlation",
+      );
+      for (const value of [
+        user,
+        secret,
+        keys.SUPABASE_SERVICE_ROLE_KEY,
+        "synthetic-user-token",
+        "synthetic commit failed",
+        "synthetic-private-auth-outage",
+        "https://",
+      ])
+        assert(
+          !logs.join("\n").includes(value),
+          "no private data in telemetry",
+        );
     } finally {
       globalThis.fetch = originalFetch;
+      console.log = originalLog;
       for (const [key, value] of oldEnv) {
         if (value === undefined) Deno.env.delete(key);
         else Deno.env.set(key, value);

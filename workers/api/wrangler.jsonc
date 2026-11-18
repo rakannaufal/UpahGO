@@ -4,12 +4,25 @@
   "main": "src/index.js",
   "compatibility_date": "2026-11-17",
   "workers_dev": true,
-  "observability": { "enabled": false },
+  "upload_source_maps": true,
+  "observability": {
+    "enabled": true,
+    "redact_query_string": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": false,
+    },
+    "traces": { "enabled": false },
+  },
   "vars": {
     "SUPABASE_URL": "https://aqzlgrahfxmbvtfwebsx.supabase.co",
     "ALLOWED_ORIGINS": "",
-    "ENVIRONMENT": "production"
+    "ENVIRONMENT": "production",
+    "TELEMETRY_ENABLED": "true",
   },
-  "durable_objects": { "bindings": [{ "name": "LIMITER", "class_name": "RateLimiter" }] },
-  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["RateLimiter"] }]
+  "durable_objects": {
+    "bindings": [{ "name": "LIMITER", "class_name": "RateLimiter" }],
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["RateLimiter"] }],
 }

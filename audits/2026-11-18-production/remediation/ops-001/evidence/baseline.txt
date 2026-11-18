@@ -1,0 +1,10 @@
+{
+  "baseline": "0a72d59",
+  "injectedDependency": "database HTTP503",
+  "responseStatus": 400,
+  "responseBody": {
+    "error": "INVALID_INPUT"
+  },
+  "requestId": null,
+  "requestLogging": false
+}

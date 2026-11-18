@@ -3,4 +3,5 @@ SUPABASE_PUBLISHABLE_KEY=your-public-publishable-key
 GATEWAY_SECRET=generate-at-least-32-random-bytes
 # For a disposable local Supabase shim only; production always requires HTTPS.
 ENVIRONMENT=development
+TELEMETRY_ENABLED=false
 ALLOWED_ORIGINS=http://localhost:8081,http://localhost:8082

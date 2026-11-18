@@ -172,5 +172,9 @@ test("invalid session never reaches RPC; internal database errors are redacted",
           { status: 500 },
         );
   });
-  assert.deepEqual(await r.json(), { error: "INVALID_INPUT" });
+  assert.equal(r.status, 502);
+  assert.deepEqual(await r.json(), {
+    error: "NETWORK_ERROR",
+    requestId: r.headers.get("X-Request-ID"),
+  });
 });

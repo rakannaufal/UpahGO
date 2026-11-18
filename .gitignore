@@ -28,3 +28,4 @@ credentials.json
 supabase/functions/profile-photo/magick.wasm
 privacy-ledger*.json
 privacy-ledger*.json.tmp
+ops-monitor*.json*

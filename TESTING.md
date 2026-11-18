@@ -2,6 +2,12 @@
 
 18 November 2026. Lingkup: implementasi lokal, data sintetis. **Belum lulus rilis Android atau layanan live.** Tidak ada migrasi remote, deployment, login Google nyata, SMS, pesan WhatsApp atau pembayaran nyata dilakukan.
 
+## Remediasi OPS-001
+
+19 November: **56 unit,1 integrasi Edge dan4 skenario runtime Worker/SQLite Durable Object lokal lulus**. Meliputi UUID server/korelasi upstream, sentinel redaction, Auth/DB/limiter failure, timeout sintetis, malformed response, photo202, probe akun sintetis, alarm3 kegagalan/repeat/recovery, retry webhook idempoten dan filesystem state privat. Typecheck/lint dan Worker dry-run15.37 KiB/4.82 KiB gzip lulus. Uji runtime menemukan incompatibility redirect error workerd, lalu membuktikan sukses/Auth503/DB400/redirect302 ditolak setelah perbaikan manual. Tidak ada dependency/SQL/UI baru.
+
+[Bukti dan focused review](audits/2026-11-18-production/remediation/ops-001/README.md), [runbook](docs/OPERATIONS.md). Alert memakai mock receiver; cloud raw metadata, owner/kanal delivered+human ack, scheduler/deadman, alarm antrean/ledger dan source-map upload nyata belum diterima. Android, browser, DB dan ekspor app tidak diulang pada slice backend. Tidak ada deployment atau alarm nyata; rilis tetap **NO-GO**, SEC-001 masih terbuka.
+
 ## Remediasi MEDIA-001
 
 19 November: **43 unit, 280 assertion SQL lokal dan1 integrasi Deno Edge lulus**. SQL menambah40 pemeriksaan MEDIA, termasuk lease kedaluwarsa, key aktif/retired, reservasi, grace dan sweep101 objek. Decoder WASM nyata; Auth/Storage API/catalog sintetis. Typecheck/lint, ekspor web/Hermes final dan Worker dry-run lulus. Kontras34 pasangan token lulus. Tidak ada dependency baru.

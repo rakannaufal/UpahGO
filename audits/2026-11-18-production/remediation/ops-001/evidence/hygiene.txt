@@ -1,0 +1,4 @@
+Checking formatting...
+All matched files use Prettier code style!
+Verification summary: git diff --cached --check exited 0.
+Staged credential pattern scan: 36 changed text files; no matches. Not exhaustive.

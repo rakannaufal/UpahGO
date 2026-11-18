@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import * as magick from "@imagemagick/magick-wasm";
 import { mediaKeyPattern } from "../../../shared/media-cleanup.mjs";
+import { createTelemetry } from "../../../shared/observability.mjs";
 import {
   processPhoto,
   readBoundedBytes,
@@ -8,13 +9,46 @@ import {
 // No request data is logged. The gateway secret prevents direct rate-limit bypass.
 let initialized: Promise<void> | undefined;
 export async function handlePhotoRequest(request: Request): Promise<Response> {
+  const trace = createTelemetry({
+    service: "photo",
+    environment: Deno.env.get("UPAHGO_ENVIRONMENT"),
+    enabled: Deno.env.get("UPAHGO_TELEMETRY_ENABLED") === "true",
+    route: "photo",
+    method: request.method,
+  });
+  trace.operation("photo_" + request.method.toLowerCase());
+  let response: Response;
+  try {
+    response = await dispatchPhotoRequest(request, trace);
+  } catch {
+    trace.error("INTERNAL_ERROR");
+    response = Response.json(
+      { error: "PHOTO_UNAVAILABLE", requestId: trace.requestId },
+      { status: 503, headers: { "Cache-Control": "no-store" } },
+    );
+  }
+  response.headers.set("X-Request-ID", trace.requestId);
+  trace.finish(response.status);
+  return response;
+}
+async function dispatchPhotoRequest(
+  request: Request,
+  trace: ReturnType<typeof createTelemetry>,
+): Promise<Response> {
   const headers = {
     "Content-Type": "application/json",
     "Cache-Control": "no-store",
     "X-Content-Type-Options": "nosniff",
   };
-  const reply = (data: unknown, status = 200) =>
-    new Response(JSON.stringify(data), { status, headers });
+  const reply = (data: { error?: string; data?: unknown }, status = 200) => {
+    if (data.error) trace.error(data.error);
+    return new Response(
+      JSON.stringify(
+        data.error ? { ...data, requestId: trace.requestId } : data,
+      ),
+      { status, headers },
+    );
+  };
   try {
     const secret = Deno.env.get("UPAHGO_GATEWAY_SECRET") ?? "";
     const supplied = request.headers.get("x-upahgo-gateway") ?? "";
@@ -29,18 +63,31 @@ export async function handlePhotoRequest(request: Request): Promise<Response> {
       a.reduce((n, value, index) => n | (value ^ b[index]!), 0) !== 0
     )
       return reply({ error: "FORBIDDEN" }, 403);
+    trace.trustGatewayId(request.headers.get("x-upahgo-request-id"));
     const token = request.headers.get("Authorization") ?? "";
     const url = Deno.env.get("SUPABASE_URL")!;
-    const boundedFetch: typeof fetch = (input, options) =>
-      fetch(input, {
+    const boundedFetch: typeof fetch = (input, options) => {
+      const path = new URL(input instanceof Request ? input.url : String(input))
+        .pathname;
+      const dependency = path.startsWith("/auth/")
+        ? "auth"
+        : path.startsWith("/storage/")
+          ? "storage"
+          : "database";
+      return trace.fetch(dependency, input, {
         ...options,
         redirect: "error",
         signal: AbortSignal.timeout(15000),
       });
+    };
     const client = createClient(url, Deno.env.get("SUPABASE_ANON_KEY")!, {
       global: {
         fetch: boundedFetch,
-        headers: { Authorization: token, "x-upahgo-gateway": secret },
+        headers: {
+          Authorization: token,
+          "x-upahgo-gateway": secret,
+          "x-upahgo-request-id": trace.requestId,
+        },
       },
       auth: {
         persistSession: false,
@@ -49,8 +96,14 @@ export async function handlePhotoRequest(request: Request): Promise<Response> {
       },
     });
     const { data: auth, error: authError } = await client.auth.getUser();
-    if (authError || !auth.user)
-      return reply({ error: "UNAUTHENTICATED" }, 401);
+    if (authError || !auth.user) {
+      const unavailable =
+        authError && ![400, 401, 403].includes(authError.status ?? 0);
+      return reply(
+        { error: unavailable ? "PHOTO_UNAVAILABLE" : "UNAUTHENTICATED" },
+        unavailable ? 503 : 401,
+      );
+    }
     const rpc = async (operation: string, args = {}) => {
       const { data, error } = await client.rpc("upahgo_action", {
         p_operation: operation,
@@ -74,7 +127,10 @@ export async function handlePhotoRequest(request: Request): Promise<Response> {
       url,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
       {
-        global: { fetch: boundedFetch },
+        global: {
+          fetch: boundedFetch,
+          headers: { "x-upahgo-request-id": trace.requestId },
+        },
         auth: {
           persistSession: false,
           autoRefreshToken: false,
@@ -181,7 +237,13 @@ export async function handlePhotoRequest(request: Request): Promise<Response> {
         : "PHOTO_UNAVAILABLE";
     return reply(
       { error: code },
-      code === "RATE_LIMITED" ? 429 : code === "BODY_TOO_LARGE" ? 413 : 400,
+      code === "RATE_LIMITED"
+        ? 429
+        : code === "BODY_TOO_LARGE"
+          ? 413
+          : code === "PHOTO_UNAVAILABLE"
+            ? 503
+            : 400,
     );
   }
 }
