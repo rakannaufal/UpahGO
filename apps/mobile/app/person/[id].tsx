@@ -53,7 +53,13 @@ function Content() {
     void task.run(async () => {
       if (!p) return;
       const actor = state.data!.account;
-      const existing = (await state.api.call("contacts")).find(
+      const existing = (
+        await state.api.call("contacts", {
+          targetId: p.id,
+          targetRole: p.role,
+          filter: "active",
+        })
+      ).find(
         (c) =>
           ["accepted", "pending"].includes(c.status) &&
           Date.parse(c.expiresAt) > Date.now() &&

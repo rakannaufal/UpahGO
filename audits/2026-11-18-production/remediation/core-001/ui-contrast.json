@@ -1,0 +1,20 @@
+[
+  {
+    "label": "button secondary text",
+    "foreground": "#20352B",
+    "background": "#FFFFFF",
+    "ratio": 13.07971107369388
+  },
+  {
+    "label": "metadata",
+    "foreground": "#56665C",
+    "background": "#F3F7F4",
+    "ratio": 5.62817484902003
+  },
+  {
+    "label": "error",
+    "foreground": "#AB3434",
+    "background": "#FCE9E5",
+    "ratio": 5.478014607995188
+  }
+]

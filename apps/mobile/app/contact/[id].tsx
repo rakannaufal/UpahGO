@@ -37,11 +37,10 @@ function Content() {
   const [menu, setMenu] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [info, setInfo] = useState("");
-  const load = useLoad(async () => {
-    const c = (await state.api.call("contacts")).find((c) => c.id === id);
-    if (!c) throw new Error("UNAVAILABLE");
-    return c;
-  }, [state.api, id, state.data!.account.id]);
+  const load = useLoad(
+    () => state.api.call("contact", { id }),
+    [state.api, id, state.data!.account.id],
+  );
   const c = load.value;
   const mine = c?.receiverId === state.data!.account.id;
   const otherId = mine ? c?.senderId : c?.receiverId;

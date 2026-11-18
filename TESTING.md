@@ -2,7 +2,11 @@
 
 18 November 2026. Lingkup: implementasi lokal, data sintetis. **Belum lulus rilis Android atau layanan live.** Tidak ada migrasi remote, deployment, login Google nyata, SMS, pesan WhatsApp atau pembayaran nyata dilakukan.
 
-## Hasil terbaru: dua kartu per baris
+## Remediasi CORE-001
+
+Baseline Git proyek `9952922` sudah diunggah ke `origin/main`. Branch perbaikan `codex/fix-core-001` menambahkan detail kontak/kesepakatan berdasarkan ID, cursor pagination100 dan filter server; belum diterapkan ke layanan remote. Typecheck/lint lulus, 31 unit, 189 assertion PostgreSQL dan 18 tes Chrome lulus. Export web/Hermes, Worker dry-run, 1 tes Deno Edge dan pemeriksaan pola secret juga lulus. Rollback RPC diuji secara transaksional dengan data tetap utuh. [Bukti, gate UI dan batas](audits/2026-11-18-production/remediation/core-001/README.md). Android nyata, staging/cloud dan temuan audit lain tetap terbuka.
+
+## Dua kartu per baris
 
 Beranda dan daftar Temukan kembali dua kolom pada ukuran teks normal, termasuk telepon. Kartu <260 dp memakai avatar 36 dp, gambar 56 dp dan tag pada baris penuh; rating emas tetap rata kanan dan dapat turun baris agar nominal utuh. FontScale ≥1,5 tetap satu kolom untuk aksesibilitas. [Bukti 412 px](.impeccable/review/two-column-cards/row-412.png), [Delivery Gate](.impeccable/review/two-column-cards.md).
 

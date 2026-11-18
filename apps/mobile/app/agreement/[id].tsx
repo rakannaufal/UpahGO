@@ -34,12 +34,10 @@ function AgreementDetail() {
   const state = useSession();
   const task = useTask();
   const [pending, setPending] = useState("");
-  const load = useLoad(async () => {
-    const list = await state.api.call("agreements");
-    const result = list.find((g) => g.id === id);
-    if (!result) throw new Error("UNAVAILABLE");
-    return result;
-  }, [state.api, id, state.data?.profile?.id]);
+  const load = useLoad(
+    () => state.api.call("agreement", { id }),
+    [state.api, id, state.data!.account.id],
+  );
   const g = load.value;
   const labels: Record<string, string> = {
     accept: "Setujui pekerjaan",

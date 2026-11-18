@@ -27,7 +27,7 @@ Auth OAuth/SMS tetap langsung ke Supabase, sehingga tidak tercakup limiter Worke
 
 ## Data dan otorisasi
 
-Migrasi berurutan tanggal 17 November: core, onboarding, location_reviews, discovery_design, work_details_suggestions, profile_photos. Terakhir `202611180001_profile_prices.sql` tanggal 18 November. Migrasi kedua memindahkan fungsi lama ke `upahgo_private.core_action` dan mencabut execute klien; wrapper publik tetap memvalidasi sesi, gateway, ACL dan input sebelum delegasi.
+Migrasi berurutan tanggal 17 November: core, onboarding, location_reviews, discovery_design, work_details_suggestions, profile_photos. Tanggal 18 November: `202611180001_profile_prices.sql`, lalu `202611180002_history_pagination.sql`. Migrasi kedua memindahkan fungsi lama ke `upahgo_private.core_action` dan mencabut execute klien; wrapper publik tetap memvalidasi sesi, gateway, ACL dan input sebelum delegasi.
 
 | Entitas | Tujuan |
 | --- | --- |
@@ -51,7 +51,11 @@ Seluruh tabel berada di schema privat, RLS aktif tanpa policy/grant klien. RPC `
 
 Transaksi RPC tunggal menangani notifikasi dan perubahan status sekaligus. Advisory lock actor membatasi write ganda; lock pasangan dan unique index mencegah dua grant aktif; row lock melindungi respons dan transisi kesepakatan. Satu kesepakatan aktif per kontak. Create kesepakatan ulang menghasilkan konflik; UI memperbarui data, tidak membuat retry otomatis atas write.
 
-Tidak ada queue offline. Write gagal mempertahankan input dan menampilkan retry. Duplikasi state/izin dicegah server, bukan tombol saja. Discovery dibatasi 40 akun per query kota/radius/peran, aktivitas/notifikasi 100 terbaru. Filter server dijalankan sebelum limit 40, offset tervalidasi maksimal 1000; klien mengambil maksimal 1040 hasil lalu meminta pengguna mempersempit pencarian.
+Tidak ada queue offline. Write gagal mempertahankan input dan menampilkan retry. Duplikasi state/izin dicegah server, bukan tombol saja. Discovery dibatasi 40 akun per query kota/radius/peran. Filter discovery server dijalankan sebelum limit 40, offset tervalidasi maksimal 1000; klien mengambil maksimal 1040 hasil lalu meminta pengguna mempersempit pencarian.
+
+Kontak, kesepakatan dan notifikasi memakai halaman maksimal 100 entri dengan cursor opsional `after: { createdAt, id }`, diurutkan keduanya menurun. Timestamp dari respons dikirim kembali tanpa dibulatkan. Hasil tetap array agar pemanggil lama kompatibel. Filter `all/active/history` kontak/kesepakatan berjalan sebelum limit; kontak kedaluwarsa masuk Riwayat. `contacts` dapat mencari grant aktif untuk `targetId/targetRole` dengan peran actor dari akun server. Detail `contact` dan `agreement` mengambil ID langsung dengan pemeriksaan peserta, terpisah dari daftar. Riwayat lintas peran/blokir/GPS tetap dapat dibaca; pembukaan nomor tetap melalui gate `approved_contact`.
+
+Aktivitas/Notifikasi memuat halaman berikutnya atas tindakan pengguna, menyimpan daftar ketika halaman lanjutan gagal, dan mengabaikan respons setelah akun/filter/fokus berubah. Refresh/fokus ulang memulai dari halaman terbaru. Angka belum dibaca hanya menghitung notifikasi yang sudah dimuat. Tidak ada snapshot lintas halaman: perubahan status/expiry dapat memindahkan kategori, sehingga refresh diperlukan untuk melihat keadaan terbaru.
 
 ## Alur inti
 

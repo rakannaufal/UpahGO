@@ -90,41 +90,37 @@ for (const detail of ["contact", "agreement"] as const) {
               tags: demoTags,
               city: demoCity,
             }
-          : operation === "contacts"
-            ? [
-                {
+          : operation === "contact"
+            ? {
+                id: "synthetic-detail",
+                senderId: actor,
+                receiverId: other,
+                senderName: "Akun uji sintetis",
+                receiverName: "Pekerja uji",
+                senderRole: "employer",
+                receiverRole: "worker",
+                status: "pending",
+                createdAt,
+                expiresAt,
+              }
+            : operation === "agreement"
+              ? {
                   id: "synthetic-detail",
-                  senderId: actor,
-                  receiverId: other,
-                  senderName: "Akun uji sintetis",
-                  receiverName: "Pekerja uji",
-                  senderRole: "employer",
-                  receiverRole: "worker",
-                  status: "pending",
+                  contactId: "synthetic-contact",
+                  workerId: other,
+                  employerId: actor,
+                  creatorId: actor,
+                  workerName: "Pekerja uji",
+                  employerName: "Akun uji sintetis",
+                  title: "Pekerjaan uji sintetis",
+                  tasks: "Menyapu ruang tamu",
+                  wage: 150000,
+                  startsAt: expiresAt,
+                  timezone: "Asia/Jakarta",
+                  status: "proposed",
+                  paymentReceivedAt: null,
                   createdAt,
-                  expiresAt,
-                },
-              ]
-            : operation === "agreements"
-              ? [
-                  {
-                    id: "synthetic-detail",
-                    contactId: "synthetic-contact",
-                    workerId: other,
-                    employerId: actor,
-                    creatorId: actor,
-                    workerName: "Pekerja uji",
-                    employerName: "Akun uji sintetis",
-                    title: "Pekerjaan uji sintetis",
-                    tasks: "Menyapu ruang tamu",
-                    wage: 150000,
-                    startsAt: expiresAt,
-                    timezone: "Asia/Jakarta",
-                    status: "proposed",
-                    paymentReceivedAt: null,
-                    createdAt,
-                  },
-                ]
+                }
               : [];
       await route.fulfill({ json: { data } });
     });

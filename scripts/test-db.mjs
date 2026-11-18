@@ -1,6 +1,7 @@
 import pg from "pg";
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
+import { testHistory } from "./test-history.mjs";
 const url = process.env.TEST_DATABASE_URL;
 if (!url || !/^upahgo_test/.test(new URL(url).pathname.slice(1)))
   throw new Error(
@@ -48,6 +49,7 @@ await db.query(
   [otherArea],
 );
 let count = 0;
+count += await testHistory(db, secret);
 const pekanbaru = JSON.parse(
   await readFile(new URL("../shared/pekanbaru.json", import.meta.url), "utf8"),
 );

@@ -12,10 +12,14 @@ import {
   Page,
   Sheet,
   s,
-  useLoad,
 } from "../../src/ui";
+import { HistoryMore, useHistory } from "../../src/useHistory";
 import { contactLabel, agreementLabel } from "../../src/labels";
-import { formatWage } from "../../../../shared/contracts";
+import {
+  formatWage,
+  type Contact,
+  type Agreement,
+} from "../../../../shared/contracts";
 import { c, tokens } from "../../src/theme";
 
 function ActivityCard({
@@ -101,26 +105,19 @@ export default function Activity() {
   const [section, setSection] = useState("contacts");
   const [filterOpen, setFilterOpen] = useState(false);
   const [filter, setFilter] = useState("all");
-  const load = useLoad(
-    async () => ({
-      contacts: await api.call("contacts"),
-      agreements: await api.call("agreements"),
-    }),
-    [api, data!.account.id],
+  const load = useHistory<Contact | Agreement>(
+    (after) =>
+      api.call(section === "contacts" ? "contacts" : "agreements", {
+        filter,
+        ...(after ? { after } : {}),
+      }),
+    [api, data!.account.id, data!.account.role, section, filter],
   );
-  const contacts = load.value?.contacts.filter(
-    (contact) =>
-      filter === "all" ||
-      (filter === "active"
-        ? ["pending", "accepted"].includes(contact.status)
-        : !["pending", "accepted"].includes(contact.status)),
+  const contacts = load.value?.filter(
+    (item): item is Contact => "senderId" in item,
   );
-  const agreements = load.value?.agreements.filter(
-    (agreement) =>
-      filter === "all" ||
-      (filter === "active"
-        ? !["completed", "cancelled"].includes(agreement.status)
-        : ["completed", "cancelled"].includes(agreement.status)),
+  const agreements = load.value?.filter(
+    (item): item is Agreement => "workerId" in item,
   );
   return (
     <Page
@@ -284,6 +281,7 @@ export default function Activity() {
           })}
         </>
       )}
+      <HistoryMore {...load} />
       <Sheet
         visible={filterOpen}
         title="Filter aktivitas"

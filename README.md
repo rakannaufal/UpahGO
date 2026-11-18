@@ -1,5 +1,7 @@
 # Upahgo
 
+Baseline tersimpan pada repository proyek mandiri [rakannaufal/UpahGO](https://github.com/rakannaufal/UpahGO), commit `9952922`. Status audit dan perbaikan: [remediasi 18 November 2026](audits/2026-11-18-production/remediation/README.md). Rilis produksi masih **NO-GO** sampai temuan terbuka dan penerimaan Android/live diselesaikan.
+
 Aplikasi Android untuk mempertemukan pekerja harian dengan pemberi kerja. Kategori awal bersih-bersih rumah; pendaftaran direncanakan seluruh Indonesia. Dua mode peta, kartu bertag, izin kontak sebelum WhatsApp, pembayaran COD.
 
 Kartu terbaru mengikuti pilihan pengguna: **dua kartu per baris** di Beranda/daftar Temukan, avatar berlatar, “Bisa nego” sebagai teks hijau gelap tanpa kotak, gambar layanan di kanan tengah (56 dp pada kartu sempit, 80 dp pada kartu lebar). Rating emas rata kanan pada panel harga bawah, boleh turun baris agar nominal utuh. FontScale ≥1,5 memakai satu kolom untuk aksesibilitas. [Contoh terpilih](design/profile-card-variants/captures/card-2.png), [bukti aplikasi dan batas](.impeccable/review/two-column-cards.md).

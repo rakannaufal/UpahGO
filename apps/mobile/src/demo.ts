@@ -5,6 +5,7 @@ import {
   cloneData,
   radiusOptions,
   validateProfilePrice,
+  historyPageSize,
 } from "../../../shared/contracts.ts";
 import {
   distanceKm,
@@ -522,23 +523,73 @@ export class DemoApi implements Api {
       account.setupDone = true;
       return value;
     }
-    if (op === "contacts")
-      return this.contacts
+    if (op === "contacts" || op === "contact") {
+      const contacts = this.contacts
         .filter((c) => [c.senderId, c.receiverId].includes(account.id))
         .map((c) => ({
           ...c,
           status:
             ["accepted", "pending"].includes(c.status) &&
             Date.parse(c.expiresAt) <= Date.now()
-              ? "expired"
+              ? ("expired" as const)
               : c.status,
         }));
-    if (op === "agreements")
-      return this.agreements.filter((g) =>
+      if (op === "contact") {
+        const contact = contacts.find((c) => c.id === id);
+        if (!contact) throw new Error("UNAVAILABLE");
+        return contact;
+      }
+      if (
+        (a.targetId !== undefined || a.targetRole !== undefined) &&
+        (typeof a.targetId !== "string" ||
+          !["worker", "employer"].includes(String(a.targetRole)))
+      )
+        throw new Error("INVALID_INPUT");
+      return historyPage(
+        contacts.filter(
+          (c) =>
+            (!a.targetId ||
+              (c.senderId === account.id &&
+                c.receiverId === a.targetId &&
+                c.senderRole === account.role &&
+                c.receiverRole === a.targetRole) ||
+              (c.receiverId === account.id &&
+                c.senderId === a.targetId &&
+                c.receiverRole === account.role &&
+                c.senderRole === a.targetRole)) &&
+            (!a.filter ||
+              a.filter === "all" ||
+              (a.filter === "active") ===
+                ["pending", "accepted"].includes(c.status)),
+        ),
+        a,
+      );
+    }
+    if (op === "agreements" || op === "agreement") {
+      const agreements = this.agreements.filter((g) =>
         [g.workerId, g.employerId].includes(account.id),
       );
+      if (op === "agreement") {
+        const agreement = agreements.find((g) => g.id === id);
+        if (!agreement) throw new Error("UNAVAILABLE");
+        return agreement;
+      }
+      return historyPage(
+        agreements.filter(
+          (g) =>
+            !a.filter ||
+            a.filter === "all" ||
+            (a.filter === "active") ===
+              !["completed", "cancelled"].includes(g.status),
+        ),
+        a,
+      );
+    }
     if (op === "notifications")
-      return this.notices.filter((n) => n.recipient === account.id);
+      return historyPage(
+        this.notices.filter((n) => n.recipient === account.id),
+        a,
+      );
     if (op === "reviews") {
       this.execute("profile", { id: a.id, role: a.role });
       return this.reviews
@@ -797,4 +848,45 @@ export class DemoApi implements Api {
         return { id: demoId() };
     }
   }
+}
+
+function historyPage<T extends { id: string; createdAt: string }>(
+  items: T[],
+  args: ActionArgs,
+): T[] {
+  if (
+    args.filter !== undefined &&
+    !["all", "active", "history"].includes(String(args.filter))
+  )
+    throw new Error("INVALID_INPUT");
+  let after: { id: string; createdAt: string } | undefined;
+  if (args.after !== undefined) {
+    const cursor = args.after as Record<string, unknown> | null;
+    if (
+      !cursor ||
+      typeof cursor !== "object" ||
+      Array.isArray(cursor) ||
+      Object.keys(cursor).some((key) => !["id", "createdAt"].includes(key)) ||
+      typeof cursor.id !== "string" ||
+      !cursor.id ||
+      typeof cursor.createdAt !== "string" ||
+      !Number.isFinite(Date.parse(cursor.createdAt))
+    )
+      throw new Error("INVALID_INPUT");
+    after = { id: cursor.id, createdAt: cursor.createdAt };
+  }
+  return items
+    .filter(
+      (item) =>
+        !after ||
+        Date.parse(item.createdAt) < Date.parse(after.createdAt) ||
+        (Date.parse(item.createdAt) === Date.parse(after.createdAt) &&
+          item.id < after.id),
+    )
+    .sort(
+      (a, b) =>
+        Date.parse(b.createdAt) - Date.parse(a.createdAt) ||
+        (a.id < b.id ? 1 : a.id > b.id ? -1 : 0),
+    )
+    .slice(0, historyPageSize);
 }

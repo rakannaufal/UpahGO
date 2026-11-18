@@ -64,6 +64,14 @@ Demo tidak meminta GPS nyata; lokasi Pekanbaru dan seluruh profil/riwayat diberi
 
 Web memakai Leaflet lazy dan tile OSM beratribusi; jaringan tile gagal masih menyediakan daftar. Android membutuhkan Google Maps key dan pengujian perangkat. Provisioning live: migrasi 001–006 tanggal 17 November, `202611180001_profile_prices.sql`, kota/area berlisensi ditinjau, Worker allowlist, klien. Klien manual lama tidak kompatibel dengan gate GPS baru; staging/backup/rollback diperlukan sebelum deployment. Tidak ada migrasi remote atau layanan berbayar diaktifkan. Lihat [GEO-DATA.md](GEO-DATA.md) dan [SERVICES.md](SERVICES.md).
 
+## Riwayat dan detail (CORE-001)
+
+Migrasi lokal tambahan: `202611180002_history_pagination.sql`, sesudah migrasi harga. Terapkan hanya ke staging yang diotorisasi sebelum Worker/klien baru; sesi ini tidak melakukan migrasi remote. `contacts`, `agreements`, `notifications` tetap mengembalikan array maksimal 100, dengan cursor opsional `after: { id, createdAt }`. Jangan mengubah timestamp cursor menjadi `Date.toISOString()`: pecahan mikrodetik dari PostgreSQL harus dipertahankan. Detail memakai operasi `contact`/`agreement` dengan `id`, bukan pencarian di halaman daftar.
+
+`npm run test:db` juga menjalankan `scripts/test-history.mjs`: fixture >100, timestamp sama, akses peserta/lawan, filter aktif, COD lama, input buruk dan rollback. Seluruh fixture tambahan di-rollback. `tests/web/history.spec.ts` memakai upstream sintetis, termasuk error/retry halaman lanjutan dan respons basi.
+
+Rollback staging: kembalikan klien dan allowlist Worker sebelumnya dahulu, lalu jalankan `supabase/rollbacks/202611180002_history_pagination.sql` dalam satu transaksi (`psql --single-transaction`). Script hanya mengembalikan RPC lama; data tidak dihapus, tetapi bug CORE-001 kembali. Migrasi ini diuji lokal saja; backup dan latihan pemulihan cloud tetap wajib sebelum rilis.
+
 ## Tes Edge foto lokal
 
 Node 22.x; siapkan dependency lockfile proyek. Jalankan `npm run photo:prepare`, lalu `npm run test:photo-edge` dengan Deno 2 tersedia. `DENO_DIR` boleh diatur lokal bila diperlukan; tidak ada path host wajib. Prepare menyalin WASM pinned ke folder Edge yang diabaikan Git; bukan aset aplikasi mobile. Tes memakai decoder WASM asli dan upstream sintetis, tidak menyentuh Supabase remote. CI menyiapkan Deno melalui setup-deno@v2 dan menjalankan prepare/test; workflow belum dieksekusi remote.

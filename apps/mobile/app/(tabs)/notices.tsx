@@ -4,20 +4,12 @@ import { Text, TouchableRipple } from "react-native-paper";
 import { router } from "expo-router";
 import { useSession } from "../../src/session";
 import { c } from "../../src/theme";
-import {
-  Empty,
-  Icon,
-  LoadState,
-  Note,
-  Page,
-  s,
-  useLoad,
-  useTask,
-} from "../../src/ui";
+import { Empty, Icon, LoadState, Note, Page, s, useTask } from "../../src/ui";
+import { HistoryMore, useHistory } from "../../src/useHistory";
 export default function Notices() {
   const { api, data } = useSession();
-  const load = useLoad(
-    () => api.call("notifications"),
+  const load = useHistory(
+    (after) => api.call("notifications", after ? { after } : {}),
     [api, data!.account.id],
   );
   const task = useTask();
@@ -36,7 +28,7 @@ export default function Notices() {
         </Text>
         <Text style={s.small} accessibilityLiveRegion="polite">
           {load.value
-            ? `${load.value.filter((notice) => !notice.read).length} belum dibaca`
+            ? `${load.value.filter((notice) => !notice.read).length} belum dibaca dari ${load.value.length} yang dimuat`
             : "Kabar kontak dan pekerjaanmu di satu tempat."}
         </Text>
       </View>
@@ -75,7 +67,7 @@ export default function Notices() {
             onPress={() =>
               void task.run(async () => {
                 await api.call("read_notification", { id: n.id });
-                load.reload();
+                load.update(n.id, { read: true });
                 const match = n.route.match(
                   /^\/(contact|agreement)\/([a-zA-Z0-9-]+)$/,
                 );
@@ -160,6 +152,7 @@ export default function Notices() {
           </TouchableRipple>
         </React.Fragment>
       ))}
+      <HistoryMore {...load} />
     </Page>
   );
 }

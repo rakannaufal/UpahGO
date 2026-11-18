@@ -152,11 +152,13 @@ export const operations = [
   "profile",
   "visibility",
   "contacts",
+  "contact",
   "request_contact",
   "respond_contact",
   "revoke_contact",
   "approved_contact",
   "agreements",
+  "agreement",
   "create_agreement",
   "agreement_action",
   "report",
@@ -178,8 +180,10 @@ export const readOperations: ReadonlySet<Operation> = new Set([
   "discover",
   "profile",
   "contacts",
+  "contact",
   "approved_contact",
   "agreements",
+  "agreement",
   "notifications",
   "reviews",
   "agreement_reviews",
@@ -198,11 +202,13 @@ export type ActionResults = {
   profile: Person;
   visibility: Profile;
   contacts: Contact[];
+  contact: Contact;
   request_contact: Contact;
   respond_contact: Contact;
   revoke_contact: Contact;
   approved_contact: { phone: string };
   agreements: Agreement[];
+  agreement: Agreement;
   create_agreement: Agreement;
   agreement_action: Agreement;
   report: { id: string };
@@ -222,6 +228,8 @@ export type ActionResults = {
   };
 };
 export type ActionArgs = Record<string, unknown>;
+export type HistoryCursor = { id: string; createdAt: string };
+export const historyPageSize = 100;
 export function cloneData<T>(value: T): T {
   return JSON.parse(JSON.stringify(value));
 }

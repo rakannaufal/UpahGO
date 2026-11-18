@@ -60,13 +60,9 @@ function Content() {
     !!(title || tasks || wage || date || workContext || offerNote),
   );
   const load = useLoad(async () => {
-    const c = (await state.api.call("contacts")).find(
-      (c) =>
-        c.id === contactId &&
-        c.status === "accepted" &&
-        Date.parse(c.expiresAt) > Date.now(),
-    );
-    if (!c) throw new Error("UNAVAILABLE");
+    const c = await state.api.call("contact", { id: contactId });
+    if (c.status !== "accepted" || Date.parse(c.expiresAt) <= Date.now())
+      throw new Error("UNAVAILABLE");
     return c;
   }, [state.api, contactId, state.data!.account.id]);
   const priceLoad = useLoad(async () => {
