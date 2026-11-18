@@ -1,0 +1,52 @@
+name: checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: local-ci-test-password
+          POSTGRES_DB: upahgo_test_ci
+        ports: [5432:5432]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s
+          --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - run: npm run photo:prepare
+      - run: npm run test:photo-edge
+      - run: npm run check:secrets
+      - run: npm run test:db
+        env:
+          TEST_DATABASE_URL: postgresql://postgres:local-ci-test-password@localhost:5432/upahgo_test_ci
+      - run: npm run build:web
+        env:
+          EXPO_PUBLIC_SUPABASE_URL: https://supabase.invalid
+          EXPO_PUBLIC_SUPABASE_ANON_KEY: synthetic-public-test-key
+          EXPO_PUBLIC_API_URL: http://localhost:8787
+      - run: npm run build:android
+      - run: npm run worker:check
+        env:
+          WRANGLER_SEND_METRICS: 'false'
+      - run: npx --no-install playwright install --with-deps chromium
+      - run: npm run test:web
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-evidence
+          path: test-results/

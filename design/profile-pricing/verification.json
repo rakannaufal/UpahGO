@@ -1,0 +1,34 @@
+{
+  "scope": "Standalone concept, Chrome web only; no app/backend changes",
+  "captures": [
+    "cards-employer",
+    "profile-top",
+    "profile-details",
+    "contact-pending",
+    "offer",
+    "offer-validation",
+    "offer-review",
+    "cards-worker",
+    "worker-profile",
+    "missing-price",
+    "cards-long-320",
+    "profile-long-320",
+    "cards-320",
+    "profile-320"
+  ],
+  "pageErrors": [],
+  "minimumMeasuredTextContrast": 4.65978411302534,
+  "checks": [
+    "320/412 containment",
+    "worker/employer price labels",
+    "missing price",
+    "long name/tags",
+    "consent gate and pending",
+    "numeric validation and preserved input",
+    "review/edit/memory-only draft",
+    "HTML escaping",
+    "search/empty/retry/loading",
+    "keyboard Escape/focus restoration",
+    "reduced motion"
+  ]
+}

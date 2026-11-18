@@ -1,0 +1,6 @@
+# Local-only values. Copy to .dev.vars. Never place these in EXPO_PUBLIC_*.
+SUPABASE_PUBLISHABLE_KEY=your-public-publishable-key
+GATEWAY_SECRET=generate-at-least-32-random-bytes
+# For a disposable local Supabase shim only; production always requires HTTPS.
+ENVIRONMENT=development
+ALLOWED_ORIGINS=http://localhost:8081,http://localhost:8082

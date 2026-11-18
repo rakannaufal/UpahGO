@@ -1,0 +1,28 @@
+{
+  "platform": "Chrome web preview, synthetic demo",
+  "captures": [
+    "employer-detail-320",
+    "employer-detail-412",
+    "employer-detail-1440",
+    "employer-conditions-1440",
+    "edit-price-320",
+    "edit-price-412",
+    "edit-price-1440",
+    "cards-320",
+    "card-details-320",
+    "cards-412",
+    "card-details-412",
+    "cards-1440",
+    "card-details-1440",
+    "worker-detail-320",
+    "worker-detail-412",
+    "worker-detail-1440",
+    "offer-320",
+    "offer-412",
+    "offer-1440",
+    "offer-review-1440",
+    "maximum-price-320",
+    "no-price-320"
+  ],
+  "pageErrors": []
+}

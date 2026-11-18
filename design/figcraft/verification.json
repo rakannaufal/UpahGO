@@ -1,0 +1,17 @@
+{
+  "scope": "serialized design only; no native application runtime validation",
+  "screens": 75,
+  "pages": 7,
+  "textNodes": 1149,
+  "interactions": 368,
+  "brokenNavigationTargets": 0,
+  "textOutsideParentBounds": 0,
+  "contrastPairsChecked": 999,
+  "minimumTextContrast": 4.61,
+  "limits": [
+    "Solid ancestor and covering sibling surface calculation; raster artwork excluded.",
+    "Bounds do not detect every sibling overlap. Batched visual inspection supplements this check.",
+    "Only selected prototype paths were exercised. Form input and filters use fixed illustrative states.",
+    "TalkBack, text scaling, native keyboard, device behavior and real services remain unverified."
+  ]
+}

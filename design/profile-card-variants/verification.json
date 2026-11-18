@@ -1,0 +1,30 @@
+{
+  "scope": "Static component study, selected variant 2 revised; app verification recorded separately",
+  "cases": [
+    "desktop-960",
+    "mobile-412",
+    "mobile-320",
+    "text-200-percent-320",
+    "long-content-320"
+  ],
+  "cardCount": 4,
+  "selectedVariant": 2,
+  "selectedServiceArtSize": 80,
+  "otherServiceArtSize": 40,
+  "selectedRatingPosition": "right of price",
+  "selectedNegotiableStyle": "plain dark green text",
+  "border": {
+    "width": "1px",
+    "color": "rgb(227, 231, 228)"
+  },
+  "iconSize": 24,
+  "goldStar": {
+    "fill": "#F6BE3A",
+    "stroke": "#A7740C"
+  },
+  "minimumTextContrast": 5.62817484902003,
+  "minimumIconOutlineContrast": 3.7736976398999023,
+  "interactiveElements": 0,
+  "externalRequests": [],
+  "pageErrors": []
+}

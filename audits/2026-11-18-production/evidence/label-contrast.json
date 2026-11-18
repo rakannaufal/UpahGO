@@ -1,0 +1,32 @@
+[
+  {
+    "foreground": "onSurfaceVariant",
+    "background": "surface",
+    "ratio": 6.086,
+    "ordinaryTextAA": true
+  },
+  {
+    "foreground": "onSurfaceVariant",
+    "background": "surfaceVariant",
+    "ratio": 5.628,
+    "ordinaryTextAA": true
+  },
+  {
+    "foreground": "onPrimaryContainer",
+    "background": "surface",
+    "ratio": 10.191,
+    "ordinaryTextAA": true
+  },
+  {
+    "foreground": "onSurface",
+    "background": "surfaceVariant",
+    "ratio": 12.097,
+    "ordinaryTextAA": true
+  },
+  {
+    "foreground": "onPrimary",
+    "background": "primary",
+    "ratio": 5.038,
+    "ordinaryTextAA": true
+  }
+]

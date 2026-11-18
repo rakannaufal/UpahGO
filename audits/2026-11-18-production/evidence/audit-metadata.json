@@ -1,0 +1,12 @@
+{
+  "sourceFiles": 108,
+  "changedSinceAuditSnapshot": [],
+  "snapshotSha256": "dfb5dc9c51c8446c255e344f3d3a9179b864851879d0bf798b9ea8a3ba7fd9a9",
+  "cleanInstall": "npm ci --ignore-scripts succeeded in isolated copy without .env",
+  "cleanTypecheck": "exit 0, exec session 30142",
+  "cleanWebBuild": "exit 0, clean-build-web-final.log; copy fixture brand assets restored",
+  "gitRoot": "/Users/rakan",
+  "projectTrackedFiles": 0,
+  "projectCommits": 0,
+  "reportLinkValidationMissing": []
+}

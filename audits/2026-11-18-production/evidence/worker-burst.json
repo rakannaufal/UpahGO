@@ -1,0 +1,18 @@
+{
+  "requests": 190,
+  "maxConcurrent": 50,
+  "counts": {
+    "400": 180,
+    "429": 10
+  },
+  "failures": [],
+  "totalMs": 390,
+  "localLatencyMs": {
+    "p50": 77.51458300000002,
+    "p95": 143.72358300000002,
+    "p99": 143.817167
+  },
+  "sameMinuteWindow": true,
+  "earlierExperiment": "A 190-simultaneous request client experiment ended ECONNRESET; not counted as a product defect or capacity proof. Runtime still answered 405 on a readiness check.",
+  "scope": "Local Wrangler runtime + actual Durable Object. Unknown operation rejected before Auth; no external requests. Burst limiter verification, not valid API/staging capacity."
+}

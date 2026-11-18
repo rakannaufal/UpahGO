@@ -1,0 +1,1274 @@
+{
+  "schema": [
+    {
+      "relname": "account_locations",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "accounts",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "agreement_details",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "agreements",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "areas",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "blocks",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "cities",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "contacts",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "deletion_requests",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "discovery_details",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "gateway_config",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "job_catalog",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "job_suggestions",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "media_cleanup",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "notifications",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "presences",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "profile_photos",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "profile_prices",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "profiles",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "rate_buckets",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "reports",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "reviews",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "role_profiles",
+      "relrowsecurity": true,
+      "policies": 0
+    },
+    {
+      "relname": "tags",
+      "relrowsecurity": true,
+      "policies": 0
+    }
+  ],
+  "indexes": [
+    {
+      "tablename": "account_locations",
+      "indexname": "account_locations_pkey",
+      "indexdef": "CREATE UNIQUE INDEX account_locations_pkey ON upahgo_private.account_locations USING btree (user_id)"
+    },
+    {
+      "tablename": "accounts",
+      "indexname": "accounts_pkey",
+      "indexdef": "CREATE UNIQUE INDEX accounts_pkey ON upahgo_private.accounts USING btree (id)"
+    },
+    {
+      "tablename": "agreement_details",
+      "indexname": "agreement_details_pkey",
+      "indexdef": "CREATE UNIQUE INDEX agreement_details_pkey ON upahgo_private.agreement_details USING btree (agreement_id)"
+    },
+    {
+      "tablename": "agreements",
+      "indexname": "agreements_employer_date",
+      "indexdef": "CREATE INDEX agreements_employer_date ON upahgo_private.agreements USING btree (employer_id, created_at DESC)"
+    },
+    {
+      "tablename": "agreements",
+      "indexname": "agreements_pkey",
+      "indexdef": "CREATE UNIQUE INDEX agreements_pkey ON upahgo_private.agreements USING btree (id)"
+    },
+    {
+      "tablename": "agreements",
+      "indexname": "agreements_worker_date",
+      "indexdef": "CREATE INDEX agreements_worker_date ON upahgo_private.agreements USING btree (worker_id, created_at DESC)"
+    },
+    {
+      "tablename": "agreements",
+      "indexname": "one_active_agreement_contact",
+      "indexdef": "CREATE UNIQUE INDEX one_active_agreement_contact ON upahgo_private.agreements USING btree (contact_id) WHERE (status = ANY (ARRAY['proposed'::text, 'agreed'::text, 'completion_requested'::text]))"
+    },
+    {
+      "tablename": "areas",
+      "indexname": "areas_city",
+      "indexdef": "CREATE INDEX areas_city ON upahgo_private.areas USING btree (city_id) WHERE enabled"
+    },
+    {
+      "tablename": "areas",
+      "indexname": "areas_pkey",
+      "indexdef": "CREATE UNIQUE INDEX areas_pkey ON upahgo_private.areas USING btree (id)"
+    },
+    {
+      "tablename": "blocks",
+      "indexname": "blocks_pkey",
+      "indexdef": "CREATE UNIQUE INDEX blocks_pkey ON upahgo_private.blocks USING btree (owner_id, target_id)"
+    },
+    {
+      "tablename": "cities",
+      "indexname": "cities_pkey",
+      "indexdef": "CREATE UNIQUE INDEX cities_pkey ON upahgo_private.cities USING btree (id)"
+    },
+    {
+      "tablename": "contacts",
+      "indexname": "contacts_pkey",
+      "indexdef": "CREATE UNIQUE INDEX contacts_pkey ON upahgo_private.contacts USING btree (id)"
+    },
+    {
+      "tablename": "contacts",
+      "indexname": "contacts_receiver_date",
+      "indexdef": "CREATE INDEX contacts_receiver_date ON upahgo_private.contacts USING btree (receiver_id, created_at DESC)"
+    },
+    {
+      "tablename": "contacts",
+      "indexname": "contacts_sender_date",
+      "indexdef": "CREATE INDEX contacts_sender_date ON upahgo_private.contacts USING btree (sender_id, created_at DESC)"
+    },
+    {
+      "tablename": "contacts",
+      "indexname": "one_live_contact_pair",
+      "indexdef": "CREATE UNIQUE INDEX one_live_contact_pair ON upahgo_private.contacts USING btree (LEAST(sender_id, receiver_id), GREATEST(sender_id, receiver_id)) WHERE (status = ANY (ARRAY['pending'::text, 'accepted'::text]))"
+    },
+    {
+      "tablename": "deletion_requests",
+      "indexname": "deletion_requests_pkey",
+      "indexdef": "CREATE UNIQUE INDEX deletion_requests_pkey ON upahgo_private.deletion_requests USING btree (user_id)"
+    },
+    {
+      "tablename": "discovery_details",
+      "indexname": "discovery_details_pkey",
+      "indexdef": "CREATE UNIQUE INDEX discovery_details_pkey ON upahgo_private.discovery_details USING btree (user_id, role)"
+    },
+    {
+      "tablename": "gateway_config",
+      "indexname": "gateway_config_pkey",
+      "indexdef": "CREATE UNIQUE INDEX gateway_config_pkey ON upahgo_private.gateway_config USING btree (singleton)"
+    },
+    {
+      "tablename": "job_catalog",
+      "indexname": "job_catalog_pkey",
+      "indexdef": "CREATE UNIQUE INDEX job_catalog_pkey ON upahgo_private.job_catalog USING btree (id)"
+    },
+    {
+      "tablename": "job_suggestions",
+      "indexname": "job_suggestions_owner",
+      "indexdef": "CREATE INDEX job_suggestions_owner ON upahgo_private.job_suggestions USING btree (user_id, created_at DESC)"
+    },
+    {
+      "tablename": "job_suggestions",
+      "indexname": "job_suggestions_pkey",
+      "indexdef": "CREATE UNIQUE INDEX job_suggestions_pkey ON upahgo_private.job_suggestions USING btree (id)"
+    },
+    {
+      "tablename": "media_cleanup",
+      "indexname": "media_cleanup_pkey",
+      "indexdef": "CREATE UNIQUE INDEX media_cleanup_pkey ON upahgo_private.media_cleanup USING btree (object_key)"
+    },
+    {
+      "tablename": "notifications",
+      "indexname": "notices_recipient_date",
+      "indexdef": "CREATE INDEX notices_recipient_date ON upahgo_private.notifications USING btree (recipient_id, created_at DESC)"
+    },
+    {
+      "tablename": "notifications",
+      "indexname": "notifications_pkey",
+      "indexdef": "CREATE UNIQUE INDEX notifications_pkey ON upahgo_private.notifications USING btree (id)"
+    },
+    {
+      "tablename": "presences",
+      "indexname": "presence_area_role_expiry",
+      "indexdef": "CREATE INDEX presence_area_role_expiry ON upahgo_private.presences USING btree (area_id, role, expires_at)"
+    },
+    {
+      "tablename": "presences",
+      "indexname": "presence_city_role",
+      "indexdef": "CREATE INDEX presence_city_role ON upahgo_private.presences USING btree (city_id, role, expires_at)"
+    },
+    {
+      "tablename": "presences",
+      "indexname": "presences_pkey",
+      "indexdef": "CREATE UNIQUE INDEX presences_pkey ON upahgo_private.presences USING btree (user_id)"
+    },
+    {
+      "tablename": "profile_photos",
+      "indexname": "profile_photos_object_key_key",
+      "indexdef": "CREATE UNIQUE INDEX profile_photos_object_key_key ON upahgo_private.profile_photos USING btree (object_key)"
+    },
+    {
+      "tablename": "profile_photos",
+      "indexname": "profile_photos_pkey",
+      "indexdef": "CREATE UNIQUE INDEX profile_photos_pkey ON upahgo_private.profile_photos USING btree (user_id, role)"
+    },
+    {
+      "tablename": "profile_prices",
+      "indexname": "profile_prices_pkey",
+      "indexdef": "CREATE UNIQUE INDEX profile_prices_pkey ON upahgo_private.profile_prices USING btree (user_id, role)"
+    },
+    {
+      "tablename": "profiles",
+      "indexname": "profiles_pkey",
+      "indexdef": "CREATE UNIQUE INDEX profiles_pkey ON upahgo_private.profiles USING btree (id)"
+    },
+    {
+      "tablename": "rate_buckets",
+      "indexname": "rate_buckets_pkey",
+      "indexdef": "CREATE UNIQUE INDEX rate_buckets_pkey ON upahgo_private.rate_buckets USING btree (actor_id, operation, window_id)"
+    },
+    {
+      "tablename": "reports",
+      "indexname": "reports_pkey",
+      "indexdef": "CREATE UNIQUE INDEX reports_pkey ON upahgo_private.reports USING btree (id)"
+    },
+    {
+      "tablename": "reviews",
+      "indexname": "reviews_agreement_id_reviewer_id_key",
+      "indexdef": "CREATE UNIQUE INDEX reviews_agreement_id_reviewer_id_key ON upahgo_private.reviews USING btree (agreement_id, reviewer_id)"
+    },
+    {
+      "tablename": "reviews",
+      "indexname": "reviews_pkey",
+      "indexdef": "CREATE UNIQUE INDEX reviews_pkey ON upahgo_private.reviews USING btree (id)"
+    },
+    {
+      "tablename": "reviews",
+      "indexname": "reviews_target_role",
+      "indexdef": "CREATE INDEX reviews_target_role ON upahgo_private.reviews USING btree (target_id, target_role, created_at DESC)"
+    },
+    {
+      "tablename": "role_profiles",
+      "indexname": "role_profiles_pkey",
+      "indexdef": "CREATE UNIQUE INDEX role_profiles_pkey ON upahgo_private.role_profiles USING btree (user_id, role)"
+    },
+    {
+      "tablename": "tags",
+      "indexname": "tags_pkey",
+      "indexdef": "CREATE UNIQUE INDEX tags_pkey ON upahgo_private.tags USING btree (id)"
+    }
+  ],
+  "functionSecurity": [
+    {
+      "nspname": "public",
+      "proname": "upahgo_action",
+      "prosecdef": true,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit,authenticated=X/upahgo_audit}"
+    },
+    {
+      "nspname": "public",
+      "proname": "upahgo_photo_replace",
+      "prosecdef": true,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "account_action",
+      "prosecdef": true,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "account_json",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "agreement_json",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "blocked",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "check_keys",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "contact_json",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "core_action",
+      "prosecdef": true,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "design_action",
+      "prosecdef": true,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "distance_km",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "estimate_effort",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "geo_action",
+      "prosecdef": true,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "in_boundary",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "limit_action",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "location_json",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "notice",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "phone",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "photo_action",
+      "prosecdef": true,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "price_json",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "profile_json",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "review_json",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "validate_work_context",
+      "prosecdef": false,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    },
+    {
+      "nspname": "upahgo_private",
+      "proname": "work_action",
+      "prosecdef": true,
+      "proconfig": [
+        "search_path=\"\""
+      ],
+      "proacl": "{upahgo_audit=X/upahgo_audit}"
+    }
+  ],
+  "history": {
+    "insertedContacts": 101,
+    "returnedContacts": 100,
+    "oldestAcceptedContactExists": true,
+    "oldestAcceptedContactReturned": false,
+    "insertedAgreements": 101,
+    "returnedAgreements": 100,
+    "oldestAgreedWorkExists": true,
+    "oldestAgreedWorkReturned": false,
+    "consequence": "Detail routes call list.find(id); older valid objects resolve to UNAVAILABLE, including an active agreement."
+  },
+  "authDelete": {
+    "allowed": false,
+    "sqlState": "23503",
+    "constraint": "contacts_receiver_id_fkey"
+  },
+  "queryPlans": [
+    {
+      "name": "active-presences",
+      "query": "select * from upahgo_private.presences where city_id='test-city' and role='worker' and expires_at>now() limit 40",
+      "planningMs": 0.048,
+      "executionMs": 0.009,
+      "plan": {
+        "Node Type": "Limit",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 0,
+        "Total Cost": 2.02,
+        "Plan Rows": 1,
+        "Plan Width": 114,
+        "Actual Startup Time": 0.004,
+        "Actual Total Time": 0.004,
+        "Actual Rows": 1,
+        "Actual Loops": 1,
+        "Shared Hit Blocks": 2,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Seq Scan",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Relation Name": "presences",
+            "Alias": "presences",
+            "Startup Cost": 0,
+            "Total Cost": 2.02,
+            "Plan Rows": 1,
+            "Plan Width": 114,
+            "Actual Startup Time": 0.003,
+            "Actual Total Time": 0.004,
+            "Actual Rows": 1,
+            "Actual Loops": 1,
+            "Filter": "((city_id = 'test-city'::text) AND (role = 'worker'::text) AND (expires_at > now()))",
+            "Rows Removed by Filter": 0,
+            "Shared Hit Blocks": 2,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "profile-id",
+      "query": "select * from upahgo_private.profiles where id=$1",
+      "planningMs": 0.013,
+      "executionMs": 0.006,
+      "plan": {
+        "Node Type": "Seq Scan",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Relation Name": "profiles",
+        "Alias": "profiles",
+        "Startup Cost": 0,
+        "Total Cost": 1.04,
+        "Plan Rows": 1,
+        "Plan Width": 147,
+        "Actual Startup Time": 0.003,
+        "Actual Total Time": 0.003,
+        "Actual Rows": 1,
+        "Actual Loops": 1,
+        "Filter": "(id = 'a2222222-2222-4222-8222-222222222222'::uuid)",
+        "Rows Removed by Filter": 4,
+        "Shared Hit Blocks": 1,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      }
+    },
+    {
+      "name": "contacts",
+      "query": "select * from upahgo_private.contacts where $1 in(sender_id,receiver_id) order by created_at desc limit 100",
+      "planningMs": 0.028,
+      "executionMs": 0.046,
+      "plan": {
+        "Node Type": "Limit",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 14.67,
+        "Total Cost": 14.68,
+        "Plan Rows": 3,
+        "Plan Width": 232,
+        "Actual Startup Time": 0.027,
+        "Actual Total Time": 0.037,
+        "Actual Rows": 100,
+        "Actual Loops": 1,
+        "Shared Hit Blocks": 2,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Sort",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 14.67,
+            "Total Cost": 14.68,
+            "Plan Rows": 3,
+            "Plan Width": 232,
+            "Actual Startup Time": 0.027,
+            "Actual Total Time": 0.03,
+            "Actual Rows": 100,
+            "Actual Loops": 1,
+            "Sort Key": [
+              "created_at DESC"
+            ],
+            "Sort Method": "quicksort",
+            "Sort Space Used": 38,
+            "Sort Space Type": "Memory",
+            "Shared Hit Blocks": 2,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Seq Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "contacts",
+                "Alias": "contacts",
+                "Startup Cost": 0,
+                "Total Cost": 14.65,
+                "Plan Rows": 3,
+                "Plan Width": 232,
+                "Actual Startup Time": 0.003,
+                "Actual Total Time": 0.012,
+                "Actual Rows": 101,
+                "Actual Loops": 1,
+                "Filter": "(('a1111111-1111-4111-8111-111111111111'::uuid = sender_id) OR ('a1111111-1111-4111-8111-111111111111'::uuid = receiver_id))",
+                "Rows Removed by Filter": 1,
+                "Shared Hit Blocks": 2,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "agreements",
+      "query": "select * from upahgo_private.agreements where $1 in(worker_id,employer_id) order by created_at desc limit 100",
+      "planningMs": 0.026,
+      "executionMs": 0.046,
+      "plan": {
+        "Node Type": "Limit",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 14.52,
+        "Total Cost": 14.53,
+        "Plan Rows": 3,
+        "Plan Width": 236,
+        "Actual Startup Time": 0.028,
+        "Actual Total Time": 0.038,
+        "Actual Rows": 100,
+        "Actual Loops": 1,
+        "Shared Hit Blocks": 3,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Sort",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 14.52,
+            "Total Cost": 14.53,
+            "Plan Rows": 3,
+            "Plan Width": 236,
+            "Actual Startup Time": 0.028,
+            "Actual Total Time": 0.031,
+            "Actual Rows": 100,
+            "Actual Loops": 1,
+            "Sort Key": [
+              "created_at DESC"
+            ],
+            "Sort Method": "quicksort",
+            "Sort Space Used": 51,
+            "Sort Space Type": "Memory",
+            "Shared Hit Blocks": 3,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Seq Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "agreements",
+                "Alias": "agreements",
+                "Startup Cost": 0,
+                "Total Cost": 14.5,
+                "Plan Rows": 3,
+                "Plan Width": 236,
+                "Actual Startup Time": 0.003,
+                "Actual Total Time": 0.013,
+                "Actual Rows": 101,
+                "Actual Loops": 1,
+                "Filter": "(('a1111111-1111-4111-8111-111111111111'::uuid = worker_id) OR ('a1111111-1111-4111-8111-111111111111'::uuid = employer_id))",
+                "Rows Removed by Filter": 1,
+                "Shared Hit Blocks": 3,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "notifications",
+      "query": "select * from upahgo_private.notifications where recipient_id=$1 order by created_at desc limit 100",
+      "planningMs": 0.206,
+      "executionMs": 0.008,
+      "plan": {
+        "Node Type": "Limit",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 9.51,
+        "Total Cost": 9.52,
+        "Plan Rows": 2,
+        "Plan Width": 137,
+        "Actual Startup Time": 0.003,
+        "Actual Total Time": 0.004,
+        "Actual Rows": 0,
+        "Actual Loops": 1,
+        "Shared Hit Blocks": 1,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Sort",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 9.51,
+            "Total Cost": 9.52,
+            "Plan Rows": 2,
+            "Plan Width": 137,
+            "Actual Startup Time": 0.003,
+            "Actual Total Time": 0.003,
+            "Actual Rows": 0,
+            "Actual Loops": 1,
+            "Sort Key": [
+              "created_at DESC"
+            ],
+            "Sort Method": "quicksort",
+            "Sort Space Used": 25,
+            "Sort Space Type": "Memory",
+            "Shared Hit Blocks": 1,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Bitmap Heap Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "notifications",
+                "Alias": "notifications",
+                "Startup Cost": 4.16,
+                "Total Cost": 9.5,
+                "Plan Rows": 2,
+                "Plan Width": 137,
+                "Actual Startup Time": 0.002,
+                "Actual Total Time": 0.002,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Recheck Cond": "(recipient_id = 'a1111111-1111-4111-8111-111111111111'::uuid)",
+                "Rows Removed by Index Recheck": 0,
+                "Exact Heap Blocks": 0,
+                "Lossy Heap Blocks": 0,
+                "Shared Hit Blocks": 1,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Bitmap Index Scan",
+                    "Parent Relationship": "Outer",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Index Name": "notices_recipient_date",
+                    "Startup Cost": 0,
+                    "Total Cost": 4.16,
+                    "Plan Rows": 2,
+                    "Plan Width": 0,
+                    "Actual Startup Time": 0.001,
+                    "Actual Total Time": 0.001,
+                    "Actual Rows": 0,
+                    "Actual Loops": 1,
+                    "Index Cond": "(recipient_id = 'a1111111-1111-4111-8111-111111111111'::uuid)",
+                    "Shared Hit Blocks": 1,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "reviews",
+      "query": "select * from upahgo_private.reviews where target_id=$1 and target_role='worker' order by created_at desc,id limit 30",
+      "planningMs": 0.257,
+      "executionMs": 0.017,
+      "plan": {
+        "Node Type": "Limit",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 8.18,
+        "Total Cost": 8.22,
+        "Plan Rows": 2,
+        "Plan Width": 140,
+        "Actual Startup Time": 0.012,
+        "Actual Total Time": 0.012,
+        "Actual Rows": 0,
+        "Actual Loops": 1,
+        "Shared Hit Blocks": 7,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Incremental Sort",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 8.18,
+            "Total Cost": 8.22,
+            "Plan Rows": 2,
+            "Plan Width": 140,
+            "Actual Startup Time": 0.011,
+            "Actual Total Time": 0.012,
+            "Actual Rows": 0,
+            "Actual Loops": 1,
+            "Sort Key": [
+              "created_at DESC",
+              "id"
+            ],
+            "Presorted Key": [
+              "created_at"
+            ],
+            "Full-sort Groups": {
+              "Group Count": 1,
+              "Sort Methods Used": [
+                "quicksort"
+              ],
+              "Sort Space Memory": {
+                "Average Sort Space Used": 25,
+                "Peak Sort Space Used": 25
+              }
+            },
+            "Shared Hit Blocks": 7,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Index Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "reviews_target_role",
+                "Relation Name": "reviews",
+                "Alias": "reviews",
+                "Startup Cost": 0.15,
+                "Total Cost": 8.17,
+                "Plan Rows": 1,
+                "Plan Width": 140,
+                "Actual Startup Time": 0.004,
+                "Actual Total Time": 0.004,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Index Cond": "((target_id = 'a2222222-2222-4222-8222-222222222222'::uuid) AND (target_role = 'worker'::text))",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 1,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "rating-average",
+      "query": "select avg(score),count(*) from upahgo_private.reviews where target_id=$1 and target_role='worker'",
+      "planningMs": 0.032,
+      "executionMs": 0.009,
+      "plan": {
+        "Node Type": "Aggregate",
+        "Strategy": "Plain",
+        "Partial Mode": "Simple",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 8.18,
+        "Total Cost": 8.19,
+        "Plan Rows": 1,
+        "Plan Width": 40,
+        "Actual Startup Time": 0.002,
+        "Actual Total Time": 0.002,
+        "Actual Rows": 1,
+        "Actual Loops": 1,
+        "Shared Hit Blocks": 1,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Index Scan",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Scan Direction": "Forward",
+            "Index Name": "reviews_target_role",
+            "Relation Name": "reviews",
+            "Alias": "reviews",
+            "Startup Cost": 0.15,
+            "Total Cost": 8.17,
+            "Plan Rows": 1,
+            "Plan Width": 4,
+            "Actual Startup Time": 0.001,
+            "Actual Total Time": 0.001,
+            "Actual Rows": 0,
+            "Actual Loops": 1,
+            "Index Cond": "((target_id = 'a2222222-2222-4222-8222-222222222222'::uuid) AND (target_role = 'worker'::text))",
+            "Rows Removed by Index Recheck": 0,
+            "Shared Hit Blocks": 1,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "profile-photo",
+      "query": "select * from upahgo_private.profile_photos where user_id=$1 and role='worker'",
+      "planningMs": 0.013,
+      "executionMs": 0.004,
+      "plan": {
+        "Node Type": "Index Scan",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Scan Direction": "Forward",
+        "Index Name": "profile_photos_pkey",
+        "Relation Name": "profile_photos",
+        "Alias": "profile_photos",
+        "Startup Cost": 0.15,
+        "Total Cost": 8.17,
+        "Plan Rows": 1,
+        "Plan Width": 120,
+        "Actual Startup Time": 0.001,
+        "Actual Total Time": 0.001,
+        "Actual Rows": 0,
+        "Actual Loops": 1,
+        "Index Cond": "((user_id = 'a2222222-2222-4222-8222-222222222222'::uuid) AND (role = 'worker'::text))",
+        "Rows Removed by Index Recheck": 0,
+        "Shared Hit Blocks": 1,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      }
+    },
+    {
+      "name": "profile-price",
+      "query": "select * from upahgo_private.profile_prices where user_id=$1 and role='worker'",
+      "planningMs": 0.013,
+      "executionMs": 0.004,
+      "plan": {
+        "Node Type": "Index Scan",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Scan Direction": "Forward",
+        "Index Name": "profile_prices_pkey",
+        "Relation Name": "profile_prices",
+        "Alias": "profile_prices",
+        "Startup Cost": 0.15,
+        "Total Cost": 8.17,
+        "Plan Rows": 1,
+        "Plan Width": 53,
+        "Actual Startup Time": 0.001,
+        "Actual Total Time": 0.001,
+        "Actual Rows": 0,
+        "Actual Loops": 1,
+        "Index Cond": "((user_id = 'a2222222-2222-4222-8222-222222222222'::uuid) AND (role = 'worker'::text))",
+        "Rows Removed by Index Recheck": 0,
+        "Shared Hit Blocks": 1,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      }
+    },
+    {
+      "name": "media-cleanup",
+      "query": "select * from upahgo_private.media_cleanup order by created_at limit 100",
+      "planningMs": 0.268,
+      "executionMs": 0.011,
+      "plan": {
+        "Node Type": "Limit",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 67.86,
+        "Total Cost": 68.11,
+        "Plan Rows": 100,
+        "Plan Width": 40,
+        "Actual Startup Time": 0.008,
+        "Actual Total Time": 0.008,
+        "Actual Rows": 1,
+        "Actual Loops": 1,
+        "Shared Hit Blocks": 1,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Sort",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 67.86,
+            "Total Cost": 70.86,
+            "Plan Rows": 1200,
+            "Plan Width": 40,
+            "Actual Startup Time": 0.008,
+            "Actual Total Time": 0.008,
+            "Actual Rows": 1,
+            "Actual Loops": 1,
+            "Sort Key": [
+              "created_at"
+            ],
+            "Sort Method": "quicksort",
+            "Sort Space Used": 25,
+            "Sort Space Type": "Memory",
+            "Shared Hit Blocks": 1,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Seq Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "media_cleanup",
+                "Alias": "media_cleanup",
+                "Startup Cost": 0,
+                "Total Cost": 22,
+                "Plan Rows": 1200,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.006,
+                "Actual Total Time": 0.006,
+                "Actual Rows": 1,
+                "Actual Loops": 1,
+                "Shared Hit Blocks": 1,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "fixtureStatus": "All added audit records rolled back. Existing synthetic suite fixture preserved."
+}

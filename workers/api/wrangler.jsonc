@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "upahgo-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-17",
+  "workers_dev": true,
+  "observability": { "enabled": false },
+  "vars": {
+    "SUPABASE_URL": "https://aqzlgrahfxmbvtfwebsx.supabase.co",
+    "ALLOWED_ORIGINS": "",
+    "ENVIRONMENT": "production"
+  },
+  "durable_objects": { "bindings": [{ "name": "LIMITER", "class_name": "RateLimiter" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["RateLimiter"] }]
+}

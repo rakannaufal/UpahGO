@@ -1,0 +1,930 @@
+{
+  "version": 4,
+  "generated_at": "2026-11-17T02:38:35.672013+00:00",
+  "scope": "User-selected worker/cap/gold-apron/orbit raster logo; synchronized green/gold design system.",
+  "ui_family": "Material Symbols Rounded",
+  "ui_weight": 400,
+  "ui_optical_size": 24,
+  "ui_grade": 0,
+  "ui_fill": 0,
+  "license_files": [
+    {
+      "path": "licenses/material-symbols-LICENSE.txt",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    {
+      "path": "licenses/Roboto-OFL.txt",
+      "sha256": "061402327a96aadb0bfb694a960ed289ecd38d383e396243831ab81feb109c41"
+    }
+  ],
+  "assets": [
+    {
+      "id": "UI-01",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "home",
+      "source": "icons/source/material-rounded/home.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/home/default/24px.svg",
+      "sha256": "b29e5deb4467a06ec02ac358516fd8e5955c0d704fba8776f055b638cfbab607",
+      "export": "icons/exports/ui-home.svg",
+      "export_sha256": "73ce7d501ba134ae7a70182abaa315bbf0a9c5e8b8f21fe136ef3147346789b2",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-02",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "list_alt",
+      "source": "icons/source/material-rounded/list_alt.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/list_alt/default/24px.svg",
+      "sha256": "15d52e5cfb686039fb6d3be264ff0cb5f3b7919e8f5dcd1004107fc2a28747f4",
+      "export": "icons/exports/ui-list_alt.svg",
+      "export_sha256": "79c9cd0f84d0cc5050517ff09e16f8dedf7ceb43e173f00d9c113f62cdd4ab53",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-03",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "notifications",
+      "source": "icons/source/material-rounded/notifications.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/notifications/default/24px.svg",
+      "sha256": "02392c5f1f11a3095e8b91fd3b7a5d3c4e26cad986f1cf59ac285337bd61e95f",
+      "export": "icons/exports/ui-notifications.svg",
+      "export_sha256": "07102c1bddbb1146f53e1431ce9fd956e90a9c05458bc0688f9bc8d9f18472be",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-04",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "person",
+      "source": "icons/source/material-rounded/person.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/person/default/24px.svg",
+      "sha256": "ce9c94f603d60efb6f945efe51adac5e8453accb0fdbd5e69bdf5ba56fdb249c",
+      "export": "icons/exports/ui-person.svg",
+      "export_sha256": "0dfa6c0241d261953b86f99fdbcfdedbbad3916e0f69684c1efc46aa67aa6fed",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-05",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "arrow_back",
+      "source": "icons/source/material-rounded/arrow_back.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/arrow_back/default/24px.svg",
+      "sha256": "b9b58d54e13e0e3693a10d997c1001ec270c12eaa935f993cee1d8c916236ceb",
+      "export": "icons/exports/ui-arrow_back.svg",
+      "export_sha256": "d7dfcee0aa00867e1c40d187c627f347a640f219aaacbc1440ad8b8c403904df",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-06",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "close",
+      "source": "icons/source/material-rounded/close.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/close/default/24px.svg",
+      "sha256": "fabc7e16160e93ed11d6d72b87f5c67092d04abfcc1fc2410fab1abe075cd8fc",
+      "export": "icons/exports/ui-close.svg",
+      "export_sha256": "d43af935e7beaab7a0824b65595b82da5fc3c2225aa8d7aa650e708f2607f9e9",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-07",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "chevron_right",
+      "source": "icons/source/material-rounded/chevron_right.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/chevron_right/default/24px.svg",
+      "sha256": "8cb67ac33f0e21e96a13b2274f21d27e96312097fea0c5260bf979ffea396140",
+      "export": "icons/exports/ui-chevron_right.svg",
+      "export_sha256": "bb19800d5d040bd36bc6a967d101d490d460788e6393d5d795deb3962ab497c1",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-08",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "expand_more",
+      "source": "icons/source/material-rounded/expand_more.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/expand_more/default/24px.svg",
+      "sha256": "21fbcd1fdf647afcf46ead9770730a04d963f4bdcd64620f947b1432c18272cd",
+      "export": "icons/exports/ui-expand_more.svg",
+      "export_sha256": "741d5ccc783a8e58923525ed99353e174539d4708e4e8f7c2f950b82a5a3b225",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-09",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "search",
+      "source": "icons/source/material-rounded/search.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/search/default/24px.svg",
+      "sha256": "8d12ac6ba27a23ccf0e57794c28481ce9c978efcb2f80ba6d2979ccdf238c993",
+      "export": "icons/exports/ui-search.svg",
+      "export_sha256": "afa8b7b43e74318007129a127a3655d29b52033d0bf7a040d4b89dec4d56d56d",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-10",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "filter_list",
+      "source": "icons/source/material-rounded/filter_list.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/filter_list/default/24px.svg",
+      "sha256": "934f99cec288af29e29ef23c6d58c5fb122df12754b15d3e41d6da5873c06dc6",
+      "export": "icons/exports/ui-filter_list.svg",
+      "export_sha256": "b7ebf71502dc07bf9b865a7eb5168035b2a16f007491ee86802b76dd3a49e96d",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-11",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "location_on",
+      "source": "icons/source/material-rounded/location_on.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/location_on/default/24px.svg",
+      "sha256": "594b3f4b79ef6f6d3503b38e0713459790f49805617af85c55843c8e07276ce1",
+      "export": "icons/exports/ui-location_on.svg",
+      "export_sha256": "d626d4fdcb6e060c1704efec50bfc00849c9ec2e3782016a3c95e54640d0262a",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-12",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "my_location",
+      "source": "icons/source/material-rounded/my_location.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/my_location/default/24px.svg",
+      "sha256": "636772fdb20b66556317e42c6cbb59e4ceeabb5df0b0629f79ebf55ea62a2cf8",
+      "export": "icons/exports/ui-my_location.svg",
+      "export_sha256": "f1428ce70bd31d860488339790ea584fe7b7ac1e80f368993943140895c02a25",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-13",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "map",
+      "source": "icons/source/material-rounded/map.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/map/default/24px.svg",
+      "sha256": "7fdccab6fe79c538a2efc2a96c9ee74cd0983c88fc16d0c5d0c333ede9af3adc",
+      "export": "icons/exports/ui-map.svg",
+      "export_sha256": "c1424edcb2877e6f36e55a065e98b2a6c01a9a8cf7ff53d992142826864ceba3",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-14",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "format_list_bulleted",
+      "source": "icons/source/material-rounded/format_list_bulleted.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/format_list_bulleted/default/24px.svg",
+      "sha256": "3e9306fecd64c1fe969e0f33595cfdeacf20f83483dc4a3f06cdf866334575d5",
+      "export": "icons/exports/ui-format_list_bulleted.svg",
+      "export_sha256": "3020c0b7a005af6b0911c5d16e9623c798c7931cf1e5e6268053a766cdce7f49",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-15",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "work",
+      "source": "icons/source/material-rounded/work.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/work/default/24px.svg",
+      "sha256": "5de01618f5799f5224cc28f0f4ac322df0ef7d75d0b68344a257d797a360603b",
+      "export": "icons/exports/ui-work.svg",
+      "export_sha256": "6da82a38484fd67556366158860109c0ee5091fcb84d31b1ee1fceeed30c5c43",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-16",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "event",
+      "source": "icons/source/material-rounded/event.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/event/default/24px.svg",
+      "sha256": "f7ebe54812f6cbffed64ab04a2b374cbb3c8763029754168bc77de955f01c2bf",
+      "export": "icons/exports/ui-event.svg",
+      "export_sha256": "8602cc40b4b48cfb936d32ac574b5816052ff2346bfd514f9065206c9d035e87",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-17",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "schedule",
+      "source": "icons/source/material-rounded/schedule.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/schedule/default/24px.svg",
+      "sha256": "a0521ebc40eafb5a1c02dc3c966d8f342688fae78062b46ade248af94a161b28",
+      "export": "icons/exports/ui-schedule.svg",
+      "export_sha256": "bed15967091df5feb0f1915f597492c1df5f13800d3613a3798e547272662cd8",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-18",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "payments",
+      "source": "icons/source/material-rounded/payments.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/payments/default/24px.svg",
+      "sha256": "8358d52b669177b9a1eed7114b3f72221f42936bde61abdeb771145f9de7dab9",
+      "export": "icons/exports/ui-payments.svg",
+      "export_sha256": "f82e0668456aface051efe3c597bb65c99c02d6e5718a8ea1fe46a6724bbc699",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-19",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "check",
+      "source": "icons/source/material-rounded/check.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/check/default/24px.svg",
+      "sha256": "51e706757e18de60cb7ade1cf0ae272708932d36e417365f14977ee039cd85b8",
+      "export": "icons/exports/ui-check.svg",
+      "export_sha256": "eb13b185c1544a66eb13c78c6be5491ea73474af8bbefdad21996443f40c3fce",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-20",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "hourglass_empty",
+      "source": "icons/source/material-rounded/hourglass_empty.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/hourglass_empty/default/24px.svg",
+      "sha256": "ab5143c37dbc5803b5751e3719d5b73f278f6a6f3a00308989d5660d5ec3f580",
+      "export": "icons/exports/ui-hourglass_empty.svg",
+      "export_sha256": "365d92163ada39184dcdda021db610263f1278164a086286b0e161160f03fd25",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-21",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "cancel",
+      "source": "icons/source/material-rounded/cancel.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/cancel/default/24px.svg",
+      "sha256": "b0478bdb7783de3ecf66e19c7d4458c5a1fe92f2402ae083be00c212cb7e947d",
+      "export": "icons/exports/ui-cancel.svg",
+      "export_sha256": "21a23bf299bce5d3573528f3ce5018aa4433d478c6b7ac9d995e24231c739117",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-22",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "error_outline",
+      "source": "icons/source/material-rounded/error_outline.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/error_outline/default/24px.svg",
+      "sha256": "8fc6fedc6c5b5bd187415134ec72950ac6e8fa658a24d0f98309e0b6c588533e",
+      "export": "icons/exports/ui-error_outline.svg",
+      "export_sha256": "096e669c02a814d3702f8c710efe781804511f88dd472daed0e2f27f16acabc4",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-23",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "info",
+      "source": "icons/source/material-rounded/info.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/info/default/24px.svg",
+      "sha256": "9ed82eec5bc113b414de4b30f5375e9ad38a1e7811a596cfd8671dc70536e0d8",
+      "export": "icons/exports/ui-info.svg",
+      "export_sha256": "1ef09dce4aeb2a5f3f6ce6b23fbb9c9d5dfdae90286c7ec1644cc8db01c45962",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-24",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "warning_amber",
+      "source": "icons/source/material-rounded/warning_amber.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/warning_amber/default/24px.svg",
+      "sha256": "95bf5e1ba98a9882b91453c6b084e97c66f04372fa0d3e24b81b75ec336d8eb8",
+      "export": "icons/exports/ui-warning_amber.svg",
+      "export_sha256": "d350f3ed09b3fdee045c66ce8ec67de7b4095a2e5e4ee005023c6520d49fbde0",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-25",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "help_outline",
+      "source": "icons/source/material-rounded/help_outline.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/help_outline/default/24px.svg",
+      "sha256": "0a8f9571520dc2522be7c8c43c95e83cd50105c6212e6e1318406f4b3e1f2854",
+      "export": "icons/exports/ui-help_outline.svg",
+      "export_sha256": "da5505eee384fcd02b1fd4aa8e1314ac8d1b0e23330c8a32f97c7b85e8898a7a",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-26",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "report",
+      "source": "icons/source/material-rounded/report.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/report/default/24px.svg",
+      "sha256": "82d2eb4c9e0c338b864f020f006a9aaf7a4df260250142c1c02d247105027e1b",
+      "export": "icons/exports/ui-report.svg",
+      "export_sha256": "ee21d8351d2f38b604cb76416b959eb1cc5ee8919a423f90380a7669353174fc",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-27",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "block",
+      "source": "icons/source/material-rounded/block.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/block/default/24px.svg",
+      "sha256": "42696dac67502c703af2ff0d0316ad3992def5c51c0a35cfa66f6046ab2acb98",
+      "export": "icons/exports/ui-block.svg",
+      "export_sha256": "62a06b863a335c7e504ec3193083d608646d2660f91ad0de921f51c6be5d28f1",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-28",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "more_vert",
+      "source": "icons/source/material-rounded/more_vert.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/more_vert/default/24px.svg",
+      "sha256": "f3959916d17e6ec783267c2753bdddfe4b3f4b12b835c875231dbbba792f070b",
+      "export": "icons/exports/ui-more_vert.svg",
+      "export_sha256": "740c4af9a05ac77981221eb69c29e72737cc825e3d4259c842f469003c233b1a",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-29",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "edit",
+      "source": "icons/source/material-rounded/edit.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/edit/default/24px.svg",
+      "sha256": "65d2e92a5a2d761c82125ecd95aa6fd8a389b6153a631ccc260c9aa658f65ef6",
+      "export": "icons/exports/ui-edit.svg",
+      "export_sha256": "9f9498a225f5a1146d3e6fe02781d87dc97c56ea18f9482ffbdf5557774e278c",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-30",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "settings",
+      "source": "icons/source/material-rounded/settings.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/settings/default/24px.svg",
+      "sha256": "6cd47de90647ece6b00922f497f8c4ea9c1649548cf15828d1df9d78d5bdf30d",
+      "export": "icons/exports/ui-settings.svg",
+      "export_sha256": "4e88ed5f950f835146502810fc3a0974727e01fb4d6c20133620c78a84f4753a",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-31",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "logout",
+      "source": "icons/source/material-rounded/logout.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/logout/default/24px.svg",
+      "sha256": "d8edf27a9c5debaf0a1d8361bc8596d0e3972f4f80ce8c245627db90ec5f2b85",
+      "export": "icons/exports/ui-logout.svg",
+      "export_sha256": "53047cfc649e572ecc662771fc2df61cd50016d2e63fab4842acf2a9ce369b5d",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-32",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "delete_outline",
+      "source": "icons/source/material-rounded/delete_outline.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/delete_outline/default/24px.svg",
+      "sha256": "23c44049fc52eeb04334d3ccd3580a4304df724dda3b5b1017ab76f01a260049",
+      "export": "icons/exports/ui-delete_outline.svg",
+      "export_sha256": "c0ab7a3eee649a2edf881b0def1a019fb7fc134f9c47d0ae1696b9cb5b08c017",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-33",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "refresh",
+      "source": "icons/source/material-rounded/refresh.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/refresh/default/24px.svg",
+      "sha256": "9287665cb15b61441487cb2d579ba5630f9b249dbcaa5991e7028aa6f925edf8",
+      "export": "icons/exports/ui-refresh.svg",
+      "export_sha256": "9a40f043bc5d6b3d36b3ed0fc18974725b4867d18c110073d5fa14bcd65d9f5a",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-34",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "person_add",
+      "source": "icons/source/material-rounded/person_add.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/person_add/default/24px.svg",
+      "sha256": "41628fb3467f5db33346849dc0f28d39fbffd9d8935f0f0879e4cfecb0e063a6",
+      "export": "icons/exports/ui-person_add.svg",
+      "export_sha256": "1b79660ba8bdd0325c7360f9da475e4b04c8cdea61d92577dc72fffaf758cd1f",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-35",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "open_in_new",
+      "source": "icons/source/material-rounded/open_in_new.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/open_in_new/default/24px.svg",
+      "sha256": "6eb8f539bf1616aea85dcbeb21b11cc357e49744f84f5e1f7645efe7ff55d69e",
+      "export": "icons/exports/ui-open_in_new.svg",
+      "export_sha256": "0496b95aa074d406bb58bea92c29e8229ad22d4f6ee02110a6d5800dc8a70925",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-36",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "description",
+      "source": "icons/source/material-rounded/description.svg",
+      "source_url": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsrounded/description/default/24px.svg",
+      "sha256": "d7f08af6f115402dc19125e81da70209b53f5a830f5f14b04e16b0ddf569be7f",
+      "export": "icons/exports/ui-description.svg",
+      "export_sha256": "baf00388659c9dd041b8f907cebfc8cc5e08cd408a1a6a6fb41de4ed99267096",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "FONT-01",
+      "kind": "font-source",
+      "status": "candidate",
+      "source": "brand/source/Roboto-variable.ttf",
+      "sha256": "d7598e12c5dbef095ff8272cfc55da0250bd07fbdecbac8a530b9b277872a134",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/Roboto%5Bwdth,wght%5D.ttf",
+      "license": "OFL-1.1",
+      "license_file": "licenses/Roboto-OFL.txt",
+      "usage": "Local review typography and companion wordmark, not automatically bundled."
+    },
+    {
+      "id": "BR-02-DRAFT",
+      "kind": "wordmark-candidate",
+      "status": "companion-proposal",
+      "source": "brand/source/upahgo-wordmark-candidate-v01.svg",
+      "sha256": "756155bc34d2aee2e24534dca2dc5f65a4fd3ea2f57d9eb412b2600c4f243064",
+      "font_asset": "FONT-01",
+      "note": "Live-text master. Requires supplied Roboto; outlined final not produced."
+    },
+    {
+      "id": "BR-01",
+      "kind": "brand-logo",
+      "status": "user-selected-raster",
+      "source": "brand/source/upahgo-logo-approved.png",
+      "sha256": "4a89b3c8b2a6f51d953a9c7daa086b7c694472833dd1481cd338aa072c99a142",
+      "source_png": {
+        "path": "brand/source/upahgo-logo-approved.png",
+        "sha256": "4a89b3c8b2a6f51d953a9c7daa086b7c694472833dd1481cd338aa072c99a142",
+        "width": 1254,
+        "height": 1254,
+        "bytes": 1153831,
+        "opaque": true
+      },
+      "png_derivatives": [
+        {
+          "path": "brand/exports/upahgo-badge.png",
+          "sha256": "c397cf8fbc080b090400dd93720a859094ab52af410c1304c4b3a480b7449653",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 685057,
+          "opaque": false
+        },
+        {
+          "path": "brand/exports/upahgo-emblem.png",
+          "sha256": "f037d8f2ad04e3acf187e476b98b78718d1c6956e21e96801c0c1d8dac41e9e4",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 283444,
+          "opaque": false
+        },
+        {
+          "path": "brand/exports/upahgo-lockup-light.png",
+          "sha256": "609b9cd3ce2c4c8a32c704bdc1120e4374431e3c76016a9ab28ebdbc05cf082f",
+          "width": 1000,
+          "height": 256,
+          "bytes": 54286,
+          "opaque": false
+        },
+        {
+          "path": "brand/exports/upahgo-lockup-dark.png",
+          "sha256": "55953f1c387a5a799544a74cea607fa9cb1271e887f9978abe877f5c9cede21c",
+          "width": 1000,
+          "height": 256,
+          "bytes": 53855,
+          "opaque": false
+        },
+        {
+          "path": "brand/exports/android/launcher-icon.png",
+          "sha256": "a84f846a319185cc20bc8849beea18e6d07a451031be666f6cdf8ed9bf14f6a1",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 271932,
+          "opaque": true
+        },
+        {
+          "path": "brand/exports/android/adaptive-foreground.png",
+          "sha256": "c1c0ea8e063cade35851b51436f34cb3e80687bc2c908ebb1f40661d8a62edf9",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 148744,
+          "opaque": false
+        },
+        {
+          "path": "brand/exports/android/adaptive-background.png",
+          "sha256": "06aa18339cff0878bf9728a6c0eafb05aa84f0410b91384cef9d5a9d883a774e",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 4547,
+          "opaque": true
+        },
+        {
+          "path": "brand/exports/android/adaptive-monochrome.png",
+          "sha256": "f84213bf4cc4945b90f6006cdf70c8907fbf8d0fe3ebf823a7db31f9e044beb8",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 36972,
+          "opaque": false
+        },
+        {
+          "path": "brand/exports/android/play-store-icon.png",
+          "sha256": "e665291b14f0c01d19437549a056a53ed9a0847ba1a7b1067fff9811b94f94a8",
+          "width": 512,
+          "height": 512,
+          "bytes": 94288,
+          "opaque": true
+        },
+        {
+          "path": "brand/exports/android/splash-mark.png",
+          "sha256": "c1c0ea8e063cade35851b51436f34cb3e80687bc2c908ebb1f40661d8a62edf9",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 148744,
+          "opaque": false
+        }
+      ],
+      "method": "Original PNG retained byte-for-byte; crop/chroma matte/resize only. No vector tracing or external generation.",
+      "rights": "User supplied; upstream authorship/license not provided.",
+      "note": "Wordmark/lockups are companion proposals. Android exports are technical candidates, not device-approved."
+    },
+    {
+      "id": "MP-01",
+      "kind": "map-marker",
+      "status": "design-proposal",
+      "source_variants": [
+        {
+          "path": "icons/source/markers/worker-default.svg",
+          "sha256": "079947794cb99b0cb997499032060c427afd574cda7d61abee1964d33ea85859"
+        },
+        {
+          "path": "icons/source/markers/worker-selected.svg",
+          "sha256": "1275a55b490dac277c98edd2c35e10e400c2e10cf21c315276a3535ad9cbfddc"
+        }
+      ],
+      "png_derivatives": [
+        {
+          "path": "icons/exports/map-worker-default.png",
+          "sha256": "e9a3a23e4914b47269a99155c4e51f3942b4a4b5034ab8e518b365a6e7781d4d",
+          "width": 48,
+          "height": 56,
+          "bytes": 1605,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-worker-default@2x.png",
+          "sha256": "2c2ee7ef6a7da6aac59a27ac925205f3ea71a09813e4ee9b3c9cff59ef000be2",
+          "width": 96,
+          "height": 112,
+          "bytes": 3181,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-worker-default@3x.png",
+          "sha256": "210063d6dfd29b0953032368b71e39b5e44d38b055b6950136187260a51f6e9c",
+          "width": 144,
+          "height": 168,
+          "bytes": 5047,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-worker-selected.png",
+          "sha256": "2c704eba0dc5f6834c1b14090d42307a71d4b3f85bf525ff3b40c3ffac01b325",
+          "width": 48,
+          "height": 56,
+          "bytes": 1658,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-worker-selected@2x.png",
+          "sha256": "566d426d62a42e41a0f90ba9170ab3bba7c0b652bd4c10cd2152b22cb6229f4a",
+          "width": 96,
+          "height": 112,
+          "bytes": 3273,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-worker-selected@3x.png",
+          "sha256": "caefbd2146d4e15629c2372db2ffc313bb56cbb6b31d940efebc9a5a55e2ff4e",
+          "width": 144,
+          "height": 168,
+          "bytes": 5021,
+          "opaque": false
+        }
+      ],
+      "license": "Glyph Apache-2.0; custom marker composition",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "MP-02",
+      "kind": "map-marker",
+      "status": "design-proposal",
+      "source_variants": [
+        {
+          "path": "icons/source/markers/employer-default.svg",
+          "sha256": "7a1d8ca8165845f9c7dfa047ebcdaf0decd6027759ff135bf938af839066d529"
+        },
+        {
+          "path": "icons/source/markers/employer-selected.svg",
+          "sha256": "81a70c4679a77b95634055670f2f710115a2ddf678d7eadd471a1dae827a035e"
+        }
+      ],
+      "png_derivatives": [
+        {
+          "path": "icons/exports/map-employer-default.png",
+          "sha256": "f270e1a03a3bf01144cc34b3d3aa1c330a464841b2bbeb5f910be7811a6b7216",
+          "width": 48,
+          "height": 56,
+          "bytes": 1169,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-employer-default@2x.png",
+          "sha256": "545e4164af5678fa9bf836d9d1d25121d9e15dbdc8827983e0ece4293365f10a",
+          "width": 96,
+          "height": 112,
+          "bytes": 2176,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-employer-default@3x.png",
+          "sha256": "bddbd304cb302a6381e4e29fc4fc709444cf3af617bba2134fb877dccfcc4072",
+          "width": 144,
+          "height": 168,
+          "bytes": 3197,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-employer-selected.png",
+          "sha256": "78daaecc535703b7b001e85e87dbb52012951f05221cb7e5e3f05f353502b2c2",
+          "width": 48,
+          "height": 56,
+          "bytes": 1208,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-employer-selected@2x.png",
+          "sha256": "951d97d17497f32bae01b07089c58395eb4965f9ce0d7584da9e3b423dc47b9a",
+          "width": 96,
+          "height": 112,
+          "bytes": 2217,
+          "opaque": false
+        },
+        {
+          "path": "icons/exports/map-employer-selected@3x.png",
+          "sha256": "8276c2af3cd3ddaf7c42f7af8a7f5baa5260c98cd034c8ec1c0544fae560201f",
+          "width": 144,
+          "height": 168,
+          "bytes": 3328,
+          "opaque": false
+        }
+      ],
+      "license": "Glyph Apache-2.0; custom marker composition",
+      "license_file": "licenses/material-symbols-LICENSE.txt"
+    },
+    {
+      "id": "UI-37",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "cleaning_services",
+      "source": "icons/source/material-rounded/cleaning_services.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/cleaning_services/materialsymbolsrounded/cleaning_services_24px.svg",
+      "sha256": "99e44c4e4ddbb5803cff13399f1404797136812f5190fa49586cb562a901aa6b",
+      "export": "icons/exports/ui-cleaning_services.svg",
+      "export_sha256": "cf68c923fdfa7b185073cf115f1f8a3700071d9d50a0bba6357611ef31938c36",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-38",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "water_drop",
+      "source": "icons/source/material-rounded/water_drop.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/water_drop/materialsymbolsrounded/water_drop_24px.svg",
+      "sha256": "ad08c5d1138d34534b00296424c71a89137596682475cb561781783e9f4a07b7",
+      "export": "icons/exports/ui-water_drop.svg",
+      "export_sha256": "a3fc7c10980f2bb3d34748e0ad806501d3b3e7426d8e067d9aff8643337f6cdd",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-39",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "inventory_2",
+      "source": "icons/source/material-rounded/inventory_2.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/inventory_2/materialsymbolsrounded/inventory_2_24px.svg",
+      "sha256": "3b8113349042ba14651e9677147a7a8cdf442b9f08905602081422594e1f69c7",
+      "export": "icons/exports/ui-inventory_2.svg",
+      "export_sha256": "1b055e00e892e4bf526b7d6f858800346b392ec1d08ca7a567c1f88041d2a224",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-40",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "kitchen",
+      "source": "icons/source/material-rounded/kitchen.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/kitchen/materialsymbolsrounded/kitchen_24px.svg",
+      "sha256": "7f85ddb20725576116211e9def7976d6929803636ffe484445cd8151f3da18d5",
+      "export": "icons/exports/ui-kitchen.svg",
+      "export_sha256": "f2d1025a40a4bc476e657bf993b6075eaa5cff0b5d2e766574b1342d1e181f92",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-41",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "window",
+      "source": "icons/source/material-rounded/window.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/window/materialsymbolsrounded/window_24px.svg",
+      "sha256": "eae326a71a589f16e2bb3d78cfd87973224b0353c777a67f4d6386816aa36681",
+      "export": "icons/exports/ui-window.svg",
+      "export_sha256": "9aefa207ae0369cc4e4d2ed474fdb304d001e413268d269d770c4fb68cd462e8",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-42",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "checkroom",
+      "source": "icons/source/material-rounded/checkroom.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/checkroom/materialsymbolsrounded/checkroom_24px.svg",
+      "sha256": "5aece1d86062cd065a0485c3f0e5f5f24b17e49ffa60ae146db16077fc71fc1f",
+      "export": "icons/exports/ui-checkroom.svg",
+      "export_sha256": "f88867effba0e690d17f76b1148a6fc45fc8cfe0def58959ac7a611e5825f828",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-43",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "countertops",
+      "source": "icons/source/material-rounded/countertops.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/countertops/materialsymbolsrounded/countertops_24px.svg",
+      "sha256": "676ae9ad5aa6def9cbd9c87041c1abcf554ac8a0317a3c8181b6a8bf843aa9e9",
+      "export": "icons/exports/ui-countertops.svg",
+      "export_sha256": "d607b161243c3a1b6c026f1971dee2e91a4c79884ce3b950de0e0d4248b12c69",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-44",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "bathtub",
+      "source": "icons/source/material-rounded/bathtub.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/bathtub/materialsymbolsrounded/bathtub_24px.svg",
+      "sha256": "066cb9b24220f1f685e901f16ea46a1c11475c4f24df616ee3b0b00892731bb0",
+      "export": "icons/exports/ui-bathtub.svg",
+      "export_sha256": "cc8851d40f82a3899cadf3ee0ad76e47be41b23865eab364207b6c557a1821fb",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-45",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "local_laundry_service",
+      "source": "icons/source/material-rounded/local_laundry_service.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/local_laundry_service/materialsymbolsrounded/local_laundry_service_24px.svg",
+      "sha256": "4eff70c576add20e5717154a712b82947dd4d202742b484a2d15abd84f4e6084",
+      "export": "icons/exports/ui-local_laundry_service.svg",
+      "export_sha256": "c0d1e404b94c5ed2ad682339e0514b8b4317f0ff80f1b0ab741b9a354bbf60d2",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-46",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "mop",
+      "source": "icons/source/material-rounded/mop.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/mop/materialsymbolsrounded/mop_24px.svg",
+      "sha256": "cf6d3da21c1ffd50297761cdd469392bfdc75e8f57954e0d7f635b9ee28ce42b",
+      "export": "icons/exports/ui-mop.svg",
+      "export_sha256": "2a7d36d8c8ea97c32caf71d6dcc14c0965fefab6085bb0d101996f0bf37332c0",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    },
+    {
+      "id": "UI-47",
+      "kind": "ui-icon",
+      "status": "imported",
+      "glyph": "water_bottle_large",
+      "source": "icons/source/material-rounded/water_bottle_large.svg",
+      "source_url": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/water_bottle_large/materialsymbolsrounded/water_bottle_large_24px.svg",
+      "sha256": "78659d8aa2c6ef222202cc21308cbf7e506d1f428c5a143375a9a7a9c2c2f2a2",
+      "export": "icons/exports/ui-water_bottle_large.svg",
+      "export_sha256": "1774d248f1c999196f36a787065d4d9290057bd493f6460291de2cd73e4cac48",
+      "license": "Apache-2.0",
+      "license_file": "licenses/material-symbols-LICENSE.txt",
+      "usage": "Activity pictogram fallback; currentColor tint normalization. Not final illustration artwork."
+    }
+  ],
+  "previews": [
+    {
+      "path": "previews/brand.png",
+      "sha256": "879d66ca18475c83459a952e1d5f70c8957d95ca43d658aeb04dca3be9ae5e1a",
+      "width": 1400,
+      "height": 1120,
+      "bytes": 275369
+    },
+    {
+      "path": "previews/map-markers-v01.png",
+      "sha256": "c95b179f2a9ce5aa5c67a032c78ba75792711b6b2099bd43cbf59b86daa5a85c",
+      "width": 1200,
+      "height": 600,
+      "bytes": 57457
+    },
+    {
+      "path": "previews/ui-icons-v01.png",
+      "sha256": "60e2e56360584e44290c98494b8d98ad0f899a8d9380ce759c04589828bb8ed0",
+      "width": 1280,
+      "height": 1040,
+      "bytes": 72852
+    }
+  ],
+  "updated_at": "2026-11-17T21:58:40.514Z",
+  "cleanup": {
+    "removed_files": 108,
+    "removed_bytes": 1011348,
+    "removed_empty_directories": 9,
+    "authorization": "User explicitly requested deletion of rejected or unused files on 2026-11-17.",
+    "last_revision_removed_files": 12
+  },
+  "token_version": "1.0.0"
+}

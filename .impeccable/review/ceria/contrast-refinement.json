@@ -1,0 +1,310 @@
+{
+  "tokenVersion": "2.1.0",
+  "scope": "static-token-specification",
+  "checks": {
+    "contrast": true,
+    "uniqueContrastPairs": true,
+    "touchTarget": true,
+    "touchGap": true,
+    "bodySize": true,
+    "responsiveOrder": true,
+    "motionBounds": true,
+    "noDecorativeLoops": true,
+    "reducedMotionDefined": true,
+    "logoSourceExists": true,
+    "componentSpacing": true
+  },
+  "contrastPairs": [
+    {
+      "id": "gold-label",
+      "foreground": "onBrandGold",
+      "background": "brandGold",
+      "minimum": 4.5,
+      "foregroundHex": "#49320B",
+      "backgroundHex": "#E5C282",
+      "ratio": 7.092,
+      "passed": true
+    },
+    {
+      "id": "gold-on-green",
+      "foreground": "brandGold",
+      "background": "brandGreen",
+      "minimum": 4.5,
+      "foregroundHex": "#E5C282",
+      "backgroundHex": "#014C24",
+      "ratio": 6.004,
+      "passed": true
+    },
+    {
+      "id": "employer-marker-boundary",
+      "foreground": "brandGreen",
+      "background": "brandGold",
+      "minimum": 3,
+      "foregroundHex": "#014C24",
+      "backgroundHex": "#E5C282",
+      "ratio": 6.004,
+      "passed": true
+    },
+    {
+      "id": "warm-selected-boundary",
+      "foreground": "focus",
+      "background": "warmContainer",
+      "minimum": 3,
+      "foregroundHex": "#087F52",
+      "backgroundHex": "#FFF0DF",
+      "ratio": 4.506,
+      "passed": true
+    },
+    {
+      "id": "primary-label",
+      "foreground": "onPrimary",
+      "background": "primary",
+      "minimum": 4.5,
+      "foregroundHex": "#FFFFFF",
+      "backgroundHex": "#087F52",
+      "ratio": 5.038,
+      "passed": true
+    },
+    {
+      "id": "primary-pressed-label",
+      "foreground": "onPrimary",
+      "background": "primaryPressed",
+      "minimum": 4.5,
+      "foregroundHex": "#FFFFFF",
+      "backgroundHex": "#00391B",
+      "ratio": 13.116,
+      "passed": true
+    },
+    {
+      "id": "primary-boundary",
+      "foreground": "actionText",
+      "background": "surface",
+      "minimum": 3,
+      "foregroundHex": "#014C24",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 10.191,
+      "passed": true
+    },
+    {
+      "id": "container-label",
+      "foreground": "onPrimaryContainer",
+      "background": "primaryContainer",
+      "minimum": 4.5,
+      "foregroundHex": "#014C24",
+      "backgroundHex": "#DDF4EA",
+      "ratio": 8.834,
+      "passed": true
+    },
+    {
+      "id": "warm-label",
+      "foreground": "onWarmContainer",
+      "background": "warmContainer",
+      "minimum": 4.5,
+      "foregroundHex": "#684509",
+      "backgroundHex": "#FFF0DF",
+      "ratio": 7.685,
+      "passed": true
+    },
+    {
+      "id": "inverse-label",
+      "foreground": "onInverseSurface",
+      "background": "inverseSurface",
+      "minimum": 4.5,
+      "foregroundHex": "#FFFFFF",
+      "backgroundHex": "#087F52",
+      "ratio": 5.038,
+      "passed": true
+    },
+    {
+      "id": "inverse-secondary",
+      "foreground": "inverseMuted",
+      "background": "inverseSurface",
+      "minimum": 4.5,
+      "foregroundHex": "#FFFFFF",
+      "backgroundHex": "#087F52",
+      "ratio": 5.038,
+      "passed": true
+    },
+    {
+      "id": "selected-boundary",
+      "foreground": "focus",
+      "background": "primaryContainer",
+      "minimum": 3,
+      "foregroundHex": "#087F52",
+      "backgroundHex": "#DDF4EA",
+      "ratio": 4.367,
+      "passed": true
+    },
+    {
+      "id": "body-background",
+      "foreground": "onBackground",
+      "background": "background",
+      "minimum": 4.5,
+      "foregroundHex": "#20352B",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 13.08,
+      "passed": true
+    },
+    {
+      "id": "body-surface",
+      "foreground": "onSurface",
+      "background": "surface",
+      "minimum": 4.5,
+      "foregroundHex": "#20352B",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 13.08,
+      "passed": true
+    },
+    {
+      "id": "secondary-background",
+      "foreground": "onSurfaceVariant",
+      "background": "background",
+      "minimum": 4.5,
+      "foregroundHex": "#56665C",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 6.086,
+      "passed": true
+    },
+    {
+      "id": "secondary-surface",
+      "foreground": "onSurfaceVariant",
+      "background": "surface",
+      "minimum": 4.5,
+      "foregroundHex": "#56665C",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 6.086,
+      "passed": true
+    },
+    {
+      "id": "secondary-container",
+      "foreground": "onSurfaceVariant",
+      "background": "surfaceVariant",
+      "minimum": 4.5,
+      "foregroundHex": "#56665C",
+      "backgroundHex": "#F3F7F4",
+      "ratio": 5.628,
+      "passed": true
+    },
+    {
+      "id": "link-surface",
+      "foreground": "actionText",
+      "background": "surface",
+      "minimum": 4.5,
+      "foregroundHex": "#014C24",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 10.191,
+      "passed": true
+    },
+    {
+      "id": "link-background",
+      "foreground": "actionText",
+      "background": "background",
+      "minimum": 4.5,
+      "foregroundHex": "#014C24",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 10.191,
+      "passed": true
+    },
+    {
+      "id": "field-boundary-surface",
+      "foreground": "outline",
+      "background": "surface",
+      "minimum": 3,
+      "foregroundHex": "#78877D",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 3.777,
+      "passed": true
+    },
+    {
+      "id": "field-boundary-background",
+      "foreground": "outline",
+      "background": "background",
+      "minimum": 3,
+      "foregroundHex": "#78877D",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 3.777,
+      "passed": true
+    },
+    {
+      "id": "focus-surface",
+      "foreground": "focus",
+      "background": "surface",
+      "minimum": 3,
+      "foregroundHex": "#087F52",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 5.038,
+      "passed": true
+    },
+    {
+      "id": "focus-background",
+      "foreground": "focus",
+      "background": "background",
+      "minimum": 3,
+      "foregroundHex": "#087F52",
+      "backgroundHex": "#FFFFFF",
+      "ratio": 5.038,
+      "passed": true
+    },
+    {
+      "id": "disabled-label",
+      "foreground": "onDisabledContainer",
+      "background": "disabledContainer",
+      "minimum": 4.5,
+      "foregroundHex": "#56665C",
+      "backgroundHex": "#E4EAE6",
+      "ratio": 4.987,
+      "passed": true
+    },
+    {
+      "id": "success-label",
+      "foreground": "success",
+      "background": "successContainer",
+      "minimum": 4.5,
+      "foregroundHex": "#17623F",
+      "backgroundHex": "#DFF3E7",
+      "ratio": 6.343,
+      "passed": true
+    },
+    {
+      "id": "warning-label",
+      "foreground": "warning",
+      "background": "warningContainer",
+      "minimum": 4.5,
+      "foregroundHex": "#825000",
+      "backgroundHex": "#FFF3CE",
+      "ratio": 6.124,
+      "passed": true
+    },
+    {
+      "id": "error-label",
+      "foreground": "error",
+      "background": "errorContainer",
+      "minimum": 4.5,
+      "foregroundHex": "#AB3434",
+      "backgroundHex": "#FCE9E5",
+      "ratio": 5.478,
+      "passed": true
+    },
+    {
+      "id": "error-filled-label",
+      "foreground": "onError",
+      "background": "error",
+      "minimum": 4.5,
+      "foregroundHex": "#FFFFFF",
+      "backgroundHex": "#AB3434",
+      "ratio": 6.417,
+      "passed": true
+    },
+    {
+      "id": "info-label",
+      "foreground": "info",
+      "background": "infoContainer",
+      "minimum": 4.5,
+      "foregroundHex": "#275B79",
+      "backgroundHex": "#E0EFFB",
+      "ratio": 6.265,
+      "passed": true
+    }
+  ],
+  "runtime": "Android source and Hermes export exist; device runtime not tested."
+}

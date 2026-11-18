@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-18",
+  "illustrations": [
+    {
+      "file": "job-hunt.svg",
+      "source": "https://undraw.co/illustration/job-hunt_5umi",
+      "asset": "https://cdn.undraw.co/illustrations/job-hunt_5umi.svg",
+      "author": "Katerina Limpitsouni"
+    },
+    {
+      "file": "hiring.svg",
+      "source": "https://undraw.co/illustration/hiring_8szx",
+      "asset": "https://cdn.undraw.co/illustrations/hiring_8szx.svg",
+      "author": "Katerina Limpitsouni"
+    }
+  ],
+  "illustrationLicense": "https://undraw.co/license",
+  "usage": "Two licensed illustrations for role selection; natural skin recolor and vector-resolution identity crops. Original project icons authored in build_assets.py. No Gojek artwork copied.",
+  "google": {
+    "file": "google-g.png",
+    "source": "https://developers.google.com/static/identity/images/g-logo.png",
+    "guidelines": "https://developers.google.com/identity/branding-guidelines"
+  },
+  "map": {
+    "status": "Excluded: endpoint returned an access-block image despite HTTP success. Final canvas uses editable labeled schematic geometry; no geographic claim."
+  },
+  "brand": "Original approved UpahGo exports, unchanged",
+  "customIcons": {
+    "author": "Original UpahGo project artwork",
+    "outline": 29,
+    "multicolor": 13,
+    "source": "build_assets.py"
+  },
+  "visualReference": [
+    "https://www.gojek.com/id-id",
+    "https://apps.apple.com/id/app/gojek/id944875099"
+  ]
+}

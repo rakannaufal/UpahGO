@@ -1,0 +1,1934 @@
+{
+  "categories": [
+    {
+      "id": "family-1",
+      "label": "Bersih-bersih rumah dan kos"
+    },
+    {
+      "id": "family-2",
+      "label": "Cucian dan pekerjaan rumah"
+    },
+    {
+      "id": "family-3",
+      "label": "Halaman dan kebun rumah"
+    },
+    {
+      "id": "family-4",
+      "label": "Angkut dan pindahan"
+    },
+    {
+      "id": "family-5",
+      "label": "Toko, kios dan gudang kecil"
+    },
+    {
+      "id": "family-6",
+      "label": "Dapur UMKM dan kuliner"
+    },
+    {
+      "id": "family-7",
+      "label": "Bantuan acara dan bazar"
+    },
+    {
+      "id": "family-8",
+      "label": "Cuci dan perawatan luar kendaraan"
+    },
+    {
+      "id": "family-9",
+      "label": "Pertanian manual"
+    },
+    {
+      "id": "family-10",
+      "label": "Peternakan dan perawatan hewan nonmedis"
+    },
+    {
+      "id": "family-11",
+      "label": "Perikanan darat dan hasil ikan"
+    },
+    {
+      "id": "family-12",
+      "label": "Kerajinan dan produksi manual kecil"
+    },
+    {
+      "id": "family-13",
+      "label": "Perawatan rumah nonteknis"
+    },
+    {
+      "id": "family-14",
+      "label": "Bantuan harian lokal"
+    },
+    {
+      "id": "family-15",
+      "label": "Administrasi sederhana dan dukungan toko"
+    },
+    {
+      "id": "family-16",
+      "label": "Pemilahan barang bekas dan daur ulang umum"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "sweep",
+      "code": "J001",
+      "label": "Menyapu ruangan",
+      "categoryId": "family-1",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "luas, jumlah ruangan, durasi",
+      "artworkKey": "sweep",
+      "enabled": true,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "mop",
+      "code": "J002",
+      "label": "Mengepel lantai",
+      "categoryId": "family-1",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "luas, lantai, frekuensi, akses air",
+      "artworkKey": "mop",
+      "enabled": true,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "dust",
+      "code": "J003",
+      "label": "Lap debu meja dan rak terjangkau",
+      "categoryId": "family-1",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "tanpa memanjat atau memindahkan perabot berat",
+      "artworkKey": "dust",
+      "enabled": true,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "kitchen",
+      "code": "J004",
+      "label": "Membersihkan dapur",
+      "categoryId": "family-1",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "minyak/kotoran, luas, alat; bukan instalasi gas",
+      "artworkKey": "kitchen-clean",
+      "enabled": true,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "bathroom",
+      "code": "J005",
+      "label": "Membersihkan kamar mandi",
+      "categoryId": "family-1",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "jumlah kamar, kondisi, ventilasi dan bahan pembersih",
+      "artworkKey": "bathroom-clean",
+      "enabled": true,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "windows",
+      "code": "J006",
+      "label": "Membersihkan jendela terjangkau",
+      "categoryId": "family-1",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "dari lantai, tanpa tangga/pekerjaan ketinggian",
+      "artworkKey": "window-clean",
+      "enabled": true,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-007",
+      "code": "J007",
+      "label": "Membersihkan teras atau balkon aman",
+      "categoryId": "family-1",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "akses, luas, lantai licin; tanpa sisi terbuka/ketinggian",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-008",
+      "code": "J008",
+      "label": "Merapikan kamar atau kos",
+      "categoryId": "family-1",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah barang, batas barang pribadi; angkut berat jenis terpisah",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "dishwash",
+      "code": "J009",
+      "label": "Mencuci piring",
+      "categoryId": "family-2",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, durasi, akses air, pecahan benda tajam",
+      "artworkKey": "dishwash",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": "piring cuci"
+    },
+    {
+      "id": "laundry",
+      "code": "J010",
+      "label": "Melipat pakaian",
+      "categoryId": "family-2",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "jumlah dan durasi",
+      "artworkKey": "laundry",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-011",
+      "code": "J011",
+      "label": "Menyetrika pakaian",
+      "categoryId": "family-2",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, durasi berdiri, alat panas perlu keterampilan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-012",
+      "code": "J012",
+      "label": "Menjemur pakaian",
+      "categoryId": "family-2",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah dan tempat jemur terjangkau",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-013",
+      "code": "J013",
+      "label": "Mengangkat dan merapikan jemuran",
+      "categoryId": "family-2",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah dan jangkauan, tanpa memanjat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-014",
+      "code": "J014",
+      "label": "Memilah cucian",
+      "categoryId": "family-2",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "pemisahan barang/izin pemilik",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-015",
+      "code": "J015",
+      "label": "Mengganti seprai dan sarung bantal",
+      "categoryId": "family-2",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah tempat tidur, tidak mengangkat tempat tidur berat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-016",
+      "code": "J016",
+      "label": "Mengemas pesanan laundry",
+      "categoryId": "family-2",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah paket, durasi, label tanpa menyebar data pelanggan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-017",
+      "code": "J017",
+      "label": "Menyapu halaman",
+      "categoryId": "family-3",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "luas, cuaca, durasi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-018",
+      "code": "J018",
+      "label": "Mengumpulkan daun",
+      "categoryId": "family-3",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume dan jarak ke wadah",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-019",
+      "code": "J019",
+      "label": "Menyiram tanaman",
+      "categoryId": "family-3",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "selang/ember, jumlah, akses air",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-020",
+      "code": "J020",
+      "label": "Mencabut rumput manual",
+      "categoryId": "family-3",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "luas, lama membungkuk, sarung tangan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-021",
+      "code": "J021",
+      "label": "Memangkas tanaman rendah manual",
+      "categoryId": "family-3",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "alat tangan, tanaman terjangkau, keterampilan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-022",
+      "code": "J022",
+      "label": "Menanam bibit dalam pot",
+      "categoryId": "family-3",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, media, ukuran pot",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-023",
+      "code": "J023",
+      "label": "Mengganti media pot",
+      "categoryId": "family-3",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "berat pot/media, jumlah; pot besar perlu alat/tenaga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-024",
+      "code": "J024",
+      "label": "Mengangkut daun dan tanah kebun",
+      "categoryId": "family-3",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "berat/volume, jarak, alat; bukan limbah berbahaya",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "water-carry",
+      "code": "J025",
+      "label": "Mengangkat galon penuh",
+      "categoryId": "family-4",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "berat/jumlah galon, tangga/lift, jarak, troli dan jumlah tenaga",
+      "artworkKey": "water-carry",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": "galon air angkat"
+    },
+    {
+      "id": "box-move",
+      "code": "J026",
+      "label": "Memindahkan kardus",
+      "categoryId": "family-4",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "isi, berat tiap kardus, volume, tangga dan jarak",
+      "artworkKey": "box-move",
+      "enabled": false,
+      "demoEnabled": true,
+      "aliases": ""
+    },
+    {
+      "id": "job-027",
+      "code": "J027",
+      "label": "Memindahkan meja",
+      "categoryId": "family-4",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "ukuran/berat, bongkar/pasang bila ada, pintu/tangga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-028",
+      "code": "J028",
+      "label": "Menata atau memindahkan kursi",
+      "categoryId": "family-4",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "jumlah, bobot, jarak, tidak menumpuk secara tidak stabil",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-029",
+      "code": "J029",
+      "label": "Memindahkan sofa",
+      "categoryId": "family-4",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "dimensi/berat, rute, jumlah tenaga dan alat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-030",
+      "code": "J030",
+      "label": "Memindahkan lemari kosong",
+      "categoryId": "family-4",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "ukuran, stabilitas, izin bongkar, alat/tenaga; isi dikosongkan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-031",
+      "code": "J031",
+      "label": "Mengemas barang pindahan",
+      "categoryId": "family-4",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, bahan kemas, barang pecah belah; angkut berat terpisah",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-032",
+      "code": "J032",
+      "label": "Membantu bongkar muat barang rumah",
+      "categoryId": "family-4",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "daftar barang/beban, kendaraan diam, rute aman, alat/tenaga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-033",
+      "code": "J033",
+      "label": "Menata barang di rak rendah",
+      "categoryId": "family-5",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "berat barang, jumlah, tanpa tangga tinggi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-034",
+      "code": "J034",
+      "label": "Memilah barang dagangan",
+      "categoryId": "family-5",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "volume dan durasi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-035",
+      "code": "J035",
+      "label": "Memberi label harga",
+      "categoryId": "family-5",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "jumlah dan instruksi harga dari pemilik",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-036",
+      "code": "J036",
+      "label": "Menghitung stok manual",
+      "categoryId": "family-5",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, lama berdiri; bukan akses rekening/kredensial",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-037",
+      "code": "J037",
+      "label": "Mengemas pesanan toko",
+      "categoryId": "family-5",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume, alat, berat paket",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-038",
+      "code": "J038",
+      "label": "Mengambil barang pesanan dari rak",
+      "categoryId": "family-5",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jarak jalan, berat, rak terjangkau",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-039",
+      "code": "J039",
+      "label": "Menata gudang kecil",
+      "categoryId": "family-5",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "barang, rak dan alat; tidak mengoperasikan forklift",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-040",
+      "code": "J040",
+      "label": "Bongkar muat stok toko",
+      "categoryId": "family-5",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "bobot/volume, kendaraan diam, rute, troli dan tenaga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-041",
+      "code": "J041",
+      "label": "Memilah bahan makanan",
+      "categoryId": "family-6",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "volume dan kebersihan tangan/permukaan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-042",
+      "code": "J042",
+      "label": "Mencuci sayur atau buah",
+      "categoryId": "family-6",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, akses air dan higienitas",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-043",
+      "code": "J043",
+      "label": "Menakar dan mengemas bahan",
+      "categoryId": "family-6",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "volume, timbangan, instruksi dan alergi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-044",
+      "code": "J044",
+      "label": "Membantu persiapan dapur",
+      "categoryId": "family-6",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "tugas/alat dijelaskan, keterampilan pisau/panas terpisah",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-045",
+      "code": "J045",
+      "label": "Mengemas makanan",
+      "categoryId": "family-6",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume, durasi, sanitasi dan penyimpanan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-046",
+      "code": "J046",
+      "label": "Menata meja atau pesanan makanan",
+      "categoryId": "family-6",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, lama berdiri, beban baki",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-047",
+      "code": "J047",
+      "label": "Mencuci peralatan usaha",
+      "categoryId": "family-6",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "jumlah, ukuran, suhu dan benda tajam",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-048",
+      "code": "J048",
+      "label": "Membersihkan area usaha setelah tutup",
+      "categoryId": "family-6",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "luas, kondisi, alat, akses; tidak mencampur bahan kimia",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-049",
+      "code": "J049",
+      "label": "Menyusun goodie bag",
+      "categoryId": "family-7",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "jumlah, isi dan durasi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-050",
+      "code": "J050",
+      "label": "Menyiapkan meja registrasi",
+      "categoryId": "family-7",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "alat/perlengkapan, tanpa transaksi pribadi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-051",
+      "code": "J051",
+      "label": "Membantu registrasi tamu",
+      "categoryId": "family-7",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "durasi, data tamu, instruksi dan waktu istirahat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-052",
+      "code": "J052",
+      "label": "Menata dekorasi meja",
+      "categoryId": "family-7",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "barang terjangkau, tanpa rigging/listrik/ketinggian",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-053",
+      "code": "J053",
+      "label": "Menyiapkan perlengkapan stan",
+      "categoryId": "family-7",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "daftar barang dan dimensi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-054",
+      "code": "J054",
+      "label": "Menata meja dan kursi acara",
+      "categoryId": "family-7",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "jumlah, berat, waktu, alat dan tenaga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-055",
+      "code": "J055",
+      "label": "Membersihkan area setelah acara",
+      "categoryId": "family-7",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "luas, volume, jenis sampah dan akses",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-056",
+      "code": "J056",
+      "label": "Memindahkan perlengkapan acara",
+      "categoryId": "family-7",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "berat/volume, rute, alat dan tim; tanpa panggung/rigging",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-057",
+      "code": "J057",
+      "label": "Mencuci sepeda",
+      "categoryId": "family-8",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, alat dan area cuci",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-058",
+      "code": "J058",
+      "label": "Mencuci motor",
+      "categoryId": "family-8",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "jumlah, air, permukaan licin; kendaraan tidak dijalankan pekerja",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-059",
+      "code": "J059",
+      "label": "Mencuci eksterior mobil",
+      "categoryId": "family-8",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "ukuran, alat, air; tanpa kerja di kolong atau menaiki atap",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-060",
+      "code": "J060",
+      "label": "Menyedot debu kabin",
+      "categoryId": "family-8",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "alat dan durasi, barang pribadi diamankan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-061",
+      "code": "J061",
+      "label": "Membersihkan karpet kendaraan",
+      "categoryId": "family-8",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "jumlah, ukuran dan pengeringan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-062",
+      "code": "J062",
+      "label": "Membersihkan helm",
+      "categoryId": "family-8",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, bahan, alat dan persetujuan metode",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-063",
+      "code": "J063",
+      "label": "Mengeringkan dan lap bodi kendaraan",
+      "categoryId": "family-8",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "ukuran/jumlah, kain dan akses",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-064",
+      "code": "J064",
+      "label": "Membersihkan jok bagian luar",
+      "categoryId": "family-8",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "bahan, metode dan bahan pembersih sesuai; bukan bongkar airbag/kelistrikan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-065",
+      "code": "J065",
+      "label": "Memilah benih",
+      "categoryId": "family-9",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "jumlah, tempat, lama bekerja",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-066",
+      "code": "J066",
+      "label": "Menyiapkan wadah semai",
+      "categoryId": "family-9",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume media dan alat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-067",
+      "code": "J067",
+      "label": "Menanam bibit manual",
+      "categoryId": "family-9",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "lahan, cuaca, durasi dan posisi kerja",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-068",
+      "code": "J068",
+      "label": "Menyiangi tanaman manual",
+      "categoryId": "family-9",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "luas, cuaca dan alat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-069",
+      "code": "J069",
+      "label": "Memanen tanaman rendah manual",
+      "categoryId": "family-9",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "jenis, alat, volume; tanpa memanjat pohon",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-070",
+      "code": "J070",
+      "label": "Memilah hasil panen",
+      "categoryId": "family-9",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume, kebersihan dan durasi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-071",
+      "code": "J071",
+      "label": "Mengemas hasil panen",
+      "categoryId": "family-9",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "ukuran/berat kemasan dan volume",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-072",
+      "code": "J072",
+      "label": "Mengangkut hasil panen",
+      "categoryId": "family-9",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "bobot, jarak, medan, alat dan tenaga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-073",
+      "code": "J073",
+      "label": "Menyiapkan pakan",
+      "categoryId": "family-10",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume, alat dan kebersihan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-074",
+      "code": "J074",
+      "label": "Memberi pakan hewan jinak",
+      "categoryId": "family-10",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jenis/jumlah, penanganan dari pemilik, keterampilan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-075",
+      "code": "J075",
+      "label": "Mengisi wadah minum",
+      "categoryId": "family-10",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume/akses air, jarak angkut",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-076",
+      "code": "J076",
+      "label": "Mengumpulkan telur",
+      "categoryId": "family-10",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, posisi, alat dan higienitas",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-077",
+      "code": "J077",
+      "label": "Memilah dan mengemas telur",
+      "categoryId": "family-10",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "volume, kebersihan dan pecahan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-078",
+      "code": "J078",
+      "label": "Membersihkan kandang",
+      "categoryId": "family-10",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "ukuran, jenis hewan, limbah, pelindung dan prosedur",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-079",
+      "code": "J079",
+      "label": "Memindahkan pakan kemasan",
+      "categoryId": "family-10",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "berat/volume, jarak, alat dan tim",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-080",
+      "code": "J080",
+      "label": "Membantu mengganti alas kandang",
+      "categoryId": "family-10",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "hewan ditangani pemilik, volume, pelindung dan pembuangan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-081",
+      "code": "J081",
+      "label": "Menakar pakan ikan",
+      "categoryId": "family-11",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "jumlah, alat dan instruksi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-082",
+      "code": "J082",
+      "label": "Memberi pakan dari tepian aman",
+      "categoryId": "family-11",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "akses aman, tanpa masuk air atau bekerja di tepi tak terlindung",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-083",
+      "code": "J083",
+      "label": "Memilah hasil ikan di meja",
+      "categoryId": "family-11",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "volume, kebersihan, permukaan dan keterampilan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-084",
+      "code": "J084",
+      "label": "Mengemas hasil ikan",
+      "categoryId": "family-11",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "volume, higienitas dan suhu",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-085",
+      "code": "J085",
+      "label": "Membersihkan wadah ikan",
+      "categoryId": "family-11",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "ukuran, bahan pembersih, alat dan drainase",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-086",
+      "code": "J086",
+      "label": "Menjemur jaring dari daratan",
+      "categoryId": "family-11",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "ukuran/berat, rute, tanpa perahu/masuk air",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-087",
+      "code": "J087",
+      "label": "Melipat jaring dari daratan",
+      "categoryId": "family-11",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "volume, alat, tanpa beban tersangkut",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-088",
+      "code": "J088",
+      "label": "Mengangkut boks hasil ikan",
+      "categoryId": "family-11",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "berat, es, lantai licin, jarak, troli dan tenaga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-089",
+      "code": "J089",
+      "label": "Melipat kemasan karton",
+      "categoryId": "family-12",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "volume, durasi dan posisi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-090",
+      "code": "J090",
+      "label": "Menempel label produk",
+      "categoryId": "family-12",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "jumlah dan instruksi label",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-091",
+      "code": "J091",
+      "label": "Memilah bahan kerajinan",
+      "categoryId": "family-12",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "jenis bahan/partikel dan volume",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-092",
+      "code": "J092",
+      "label": "Merangkai hiasan sederhana",
+      "categoryId": "family-12",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "contoh hasil, alat dan keterampilan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-093",
+      "code": "J093",
+      "label": "Membantu menyelesaikan produk manual",
+      "categoryId": "family-12",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "tugas terperinci, bahan nonberbahaya, tanpa mesin industri",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-094",
+      "code": "J094",
+      "label": "Mengemas produk kerajinan",
+      "categoryId": "family-12",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume dan bobot paket",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-095",
+      "code": "J095",
+      "label": "Memeriksa tampilan produk",
+      "categoryId": "family-12",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "kriteria jelas, tanpa klaim sertifikasi teknis",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-096",
+      "code": "J096",
+      "label": "Menata stok bahan kerajinan",
+      "categoryId": "family-12",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "volume, berat, rak terjangkau",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-097",
+      "code": "J097",
+      "label": "Merakit rak lepas sederhana",
+      "categoryId": "family-13",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "petunjuk, alat dan keterampilan; tanpa pengeboran struktur",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-098",
+      "code": "J098",
+      "label": "Merakit perabot lepas sederhana",
+      "categoryId": "family-13",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "ukuran/berat, alat, tim dan petunjuk",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-099",
+      "code": "J099",
+      "label": "Mengencangkan sekrup perabot",
+      "categoryId": "family-13",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "alat, bagian terjangkau; bukan struktur bangunan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-100",
+      "code": "J100",
+      "label": "Mengganti gagang perabot",
+      "categoryId": "family-13",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "kecocokan suku cadang, alat dan izin",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-101",
+      "code": "J101",
+      "label": "Memasang lapik kaki perabot",
+      "categoryId": "family-13",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "berat perabot saat diangkat, alat/tenaga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-102",
+      "code": "J102",
+      "label": "Membersihkan permukaan sebelum dicat",
+      "categoryId": "family-13",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "bahan/kondisi, tanpa debu berbahaya atau kerja ketinggian",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-103",
+      "code": "J103",
+      "label": "Mengecat bidang rendah",
+      "categoryId": "family-13",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "keterampilan, ventilasi, produk dan pelindung; bukan cat bertimbal/bahan berbahaya",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-104",
+      "code": "J104",
+      "label": "Menutup perabot dan merapikan area kerja",
+      "categoryId": "family-13",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "luas, jumlah, perlindungan barang; angkut berat terpisah",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-105",
+      "code": "J105",
+      "label": "Membantu antre",
+      "categoryId": "family-14",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "durasi/lokasi, izin antre pihak terkait; tanpa jual beli nomor/identitas",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-106",
+      "code": "J106",
+      "label": "Membantu belanja dengan daftar",
+      "categoryId": "family-14",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "barang, volume, area; alur dana belanja belum didukung",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-107",
+      "code": "J107",
+      "label": "Membawa belanja dari titik serah",
+      "categoryId": "family-14",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "barang, berat, rute dan jumlah tenaga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-108",
+      "code": "J108",
+      "label": "Mengambil laundry sekitar",
+      "categoryId": "family-14",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "barang, berat, jarak, izin pemilik",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-109",
+      "code": "J109",
+      "label": "Mengantar barang ringan dengan berjalan kaki",
+      "categoryId": "family-14",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "isi, berat, jarak; bukan transportasi bermotor/penumpang",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-110",
+      "code": "J110",
+      "label": "Mengambil pesanan toko dengan berjalan kaki",
+      "categoryId": "family-14",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "izin, isi, bobot dan jarak",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-111",
+      "code": "J111",
+      "label": "Menata perlengkapan rumah tangga",
+      "categoryId": "family-14",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah, pemilik hadir, batas barang pribadi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-112",
+      "code": "J112",
+      "label": "Membantu persiapan perjalanan di rumah",
+      "categoryId": "family-14",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "kemas barang milik pemilik, tanpa akses PIN/dokumen sensitif",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-113",
+      "code": "J113",
+      "label": "Memilah berkas nonsensitif",
+      "categoryId": "family-15",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "izin pemilik dan kategori data",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-114",
+      "code": "J114",
+      "label": "Memasukkan data stok",
+      "categoryId": "family-15",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "akses terbatas, jumlah dan alat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-115",
+      "code": "J115",
+      "label": "Mencatat daftar barang",
+      "categoryId": "family-15",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume, lokasi dan lama berdiri",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-116",
+      "code": "J116",
+      "label": "Menempel label pengiriman",
+      "categoryId": "family-15",
+      "baseline": [
+        "light"
+      ],
+      "contextHint": "volume, perlindungan alamat/nomor pelanggan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-117",
+      "code": "J117",
+      "label": "Mengurutkan paket berdasarkan label",
+      "categoryId": "family-15",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "berat, volume dan durasi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-118",
+      "code": "J118",
+      "label": "Menjaga meja informasi sementara",
+      "categoryId": "family-15",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "instruksi, durasi; bukan jasa keamanan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-119",
+      "code": "J119",
+      "label": "Membantu stan penjualan",
+      "categoryId": "family-15",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "durasi, pengetahuan produk, batas transaksi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-120",
+      "code": "J120",
+      "label": "Memotret katalog barang dengan ponsel pemilik",
+      "categoryId": "family-15",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "izin, jumlah, alat; bukan akses akun pribadi atau layanan fotografi bersertifikat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-121",
+      "code": "J121",
+      "label": "Memilah kardus kering",
+      "categoryId": "family-16",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume, kebersihan, alat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-122",
+      "code": "J122",
+      "label": "Melipat kardus bekas",
+      "categoryId": "family-16",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "jumlah dan durasi",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-123",
+      "code": "J123",
+      "label": "Memilah botol plastik bersih",
+      "categoryId": "family-16",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "volume, sarung tangan dan kebersihan",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-124",
+      "code": "J124",
+      "label": "Mengelompokkan barang donasi",
+      "categoryId": "family-16",
+      "baseline": [
+        "light",
+        "medium"
+      ],
+      "contextHint": "izin, jenis barang dan volume",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-125",
+      "code": "J125",
+      "label": "Mengemas barang bekas layak pakai",
+      "categoryId": "family-16",
+      "baseline": [
+        "medium"
+      ],
+      "contextHint": "volume, berat, benda tajam",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-126",
+      "code": "J126",
+      "label": "Menata barang bekas di penyimpanan",
+      "categoryId": "family-16",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "jenis/bobot, stabilitas dan alat",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-127",
+      "code": "J127",
+      "label": "Mengangkut karung barang daur ulang umum",
+      "categoryId": "family-16",
+      "baseline": [
+        "heavy"
+      ],
+      "contextHint": "isi/bobot, rute, alat dan tenaga",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    },
+    {
+      "id": "job-128",
+      "code": "J128",
+      "label": "Membersihkan tempat pemilahan barang umum",
+      "categoryId": "family-16",
+      "baseline": [
+        "medium",
+        "heavy"
+      ],
+      "contextHint": "jenis sampah, pelindung, drainase; bukan limbah medis/kimia",
+      "artworkKey": "",
+      "enabled": false,
+      "demoEnabled": false,
+      "aliases": ""
+    }
+  ]
+}

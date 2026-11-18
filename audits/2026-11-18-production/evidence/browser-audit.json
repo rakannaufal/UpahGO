@@ -1,0 +1,78 @@
+{
+  "browserAvailability": {
+    "firefox": false,
+    "webkit": false
+  },
+  "errors": [],
+  "externalRequestsBlocked": 0,
+  "viewports": [
+    {
+      "width": 320,
+      "twoColumns": true,
+      "overflow": false,
+      "overflowingCards": 0,
+      "fixedPriceLabel": "Harga tetap",
+      "fixedPriceLabelCount": 1
+    },
+    {
+      "width": 375,
+      "twoColumns": true,
+      "overflow": false,
+      "overflowingCards": 0,
+      "fixedPriceLabel": "Harga tetap",
+      "fixedPriceLabelCount": 1
+    },
+    {
+      "width": 414,
+      "twoColumns": true,
+      "overflow": false,
+      "overflowingCards": 0,
+      "fixedPriceLabel": "Harga tetap",
+      "fixedPriceLabelCount": 1
+    },
+    {
+      "width": 768,
+      "twoColumns": true,
+      "overflow": false,
+      "overflowingCards": 0,
+      "fixedPriceLabel": "Harga tetap",
+      "fixedPriceLabelCount": 1
+    },
+    {
+      "width": 1024,
+      "twoColumns": true,
+      "overflow": false,
+      "overflowingCards": 0,
+      "fixedPriceLabel": "Harga tetap",
+      "fixedPriceLabelCount": 1
+    },
+    {
+      "width": 1440,
+      "twoColumns": true,
+      "overflow": false,
+      "overflowingCards": 0,
+      "fixedPriceLabel": "Harga tetap",
+      "fixedPriceLabelCount": 1
+    }
+  ],
+  "loginLabSample": {
+    "lcp": 13912,
+    "cls": 0.008888888888888889,
+    "navigationMs": 12017.19999999553,
+    "transferredBytes": 2401967,
+    "jsTransferredBytes": 2241785,
+    "conditions": "One cold Chrome sample, 375x900, CPU 4x, 150ms latency, 1.6Mbps down / 0.75Mbps up. Not field p75, INP or an Android device measurement."
+  },
+  "fixedPriceDetail": "Harga tetap",
+  "fixedProfileOfferButtonCount": 0,
+  "clickThrough": "Demo > intro skip > worker role > demo location > skip profile > six viewport checks > fixed-price card focus + Enter > profile shows Harga tetap; no Tawar upah button.",
+  "headers": {
+    "content-type": "text/html",
+    "cache-control": "no-store",
+    "date": "Wed, 18 Nov 2026 14:01:19 GMT",
+    "connection": "keep-alive",
+    "keep-alive": "timeout=5",
+    "transfer-encoding": "chunked"
+  },
+  "offlineStatus": "External endpoints blocked throughout; live offline/expiry behavior not inferred from demo."
+}

@@ -1,0 +1,235 @@
+{
+  "scope": "Chrome web preview only. Synthetic profiles, GPS, work and reviews; not Android evidence.",
+  "captures": [
+    {
+      "name": "login-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "onboarding-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "onboarding-map-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "onboarding-cod-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "role-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "location-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "setup-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "compact-web",
+      "width": 320,
+      "height": 740
+    },
+    {
+      "name": "reference-width-web",
+      "width": 504,
+      "height": 812
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "name": "job-filter-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "radius-filter-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "map-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "map-compact-web",
+      "width": 320,
+      "height": 740
+    },
+    {
+      "name": "map-desktop-web",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "name": "map-group-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "map-person-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "profile-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "map-settings-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "activity-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "work-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "completed-work-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "rating-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "rating-submitted-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "contact-consent-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "agreement-form-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "agreement-review-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "notices-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "account-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "edit-profile-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "photo-empty-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "photo-preview-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "photo-pending-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "phone-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "help-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "catalog-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "catalog-search-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "suggestion-form-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "suggestion-receipt-web",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "deletion-web",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "errors": [],
+  "focus": {
+    "outline": "solid",
+    "width": "2px"
+  },
+  "recordedAt": "2026-11-17T22:00:38.253Z",
+  "captureInspection": {
+    "all41Opened": true,
+    "contactSheets": [
+      "contact-1.jpg",
+      "contact-2.jpg",
+      "contact-3.jpg",
+      "contact-4.jpg",
+      "contact-5.jpg",
+      "contact-6.jpg",
+      "contact-7.jpg"
+    ],
+    "additionalFullSize": [
+      "agreement-review-web.png",
+      "photo-preview-web.png",
+      "suggestion-form-web.png"
+    ],
+    "photoFixture": "Deliberately solid-color synthetic JPEG; not failed media.",
+    "round": "Final confirmation round; native screenshots unavailable."
+  }
+}

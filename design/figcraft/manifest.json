@@ -1,0 +1,815 @@
+{
+  "name": "UpahGo Kestrel design review",
+  "date": "2026-11-18",
+  "platform": "Android",
+  "status": "design-only; not implementation approval",
+  "screenSize": [
+    412,
+    892
+  ],
+  "pages": [
+    {
+      "name": "01 · Mulai dan onboarding",
+      "screens": 12
+    },
+    {
+      "name": "02 · Beranda dan Temukan",
+      "screens": 9
+    },
+    {
+      "name": "03 · Profil dan izin kontak",
+      "screens": 7
+    },
+    {
+      "name": "04 · Kesepakatan dan COD",
+      "screens": 12
+    },
+    {
+      "name": "05 · Akun dan bantuan",
+      "screens": 22
+    },
+    {
+      "name": "06 · State dan pemulihan",
+      "screens": 13
+    },
+    {
+      "name": "00 · Panduan dan komponen",
+      "screens": 0
+    }
+  ],
+  "screens": {
+    "login": {
+      "alias": "screen_login",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Masuk",
+      "route": "/",
+      "x": 0,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "intro_1": {
+      "alias": "screen_intro_1",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Pengenalan 1 dari 3",
+      "route": "/onboarding · /intro-preview",
+      "x": 500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "intro_2": {
+      "alias": "screen_intro_2",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Pengenalan 2 dari 3",
+      "route": "/onboarding · /intro-preview",
+      "x": 1000,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "intro_3": {
+      "alias": "screen_intro_3",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Pengenalan 3 dari 3",
+      "route": "/onboarding · /intro-preview",
+      "x": 1500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "role": {
+      "alias": "screen_role",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Pilih peran",
+      "route": "/role",
+      "x": 0,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "role_employer": {
+      "alias": "screen_role_employer",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Pilih peran · Cari tenaga",
+      "route": "/role · pilihan penyedia kerja",
+      "x": 500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "location": {
+      "alias": "screen_location",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Lokasi dan jangkauan",
+      "route": "/location",
+      "x": 1000,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "location_employer": {
+      "alias": "screen_location_employer",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Lokasi dan jangkauan",
+      "route": "/location",
+      "x": 1500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "setup_worker": {
+      "alias": "screen_setup_worker",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Profil buruh",
+      "route": "/setup",
+      "x": 0,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "setup_employer": {
+      "alias": "screen_setup_employer",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Profil penyedia kerja",
+      "route": "/setup",
+      "x": 500,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "phone": {
+      "alias": "screen_phone",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Nomor WhatsApp",
+      "route": "/phone",
+      "x": 1000,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "otp": {
+      "alias": "screen_otp",
+      "page": "01 · Mulai dan onboarding",
+      "title": "Verifikasi nomor",
+      "route": "/phone · OTP",
+      "x": 1500,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "home_worker": {
+      "alias": "screen_home_worker",
+      "page": "02 · Beranda dan Temukan",
+      "title": "Beranda · buruh",
+      "route": "/(tabs)/home",
+      "x": 0,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "home_employer": {
+      "alias": "screen_home_employer",
+      "page": "02 · Beranda dan Temukan",
+      "title": "Beranda · penyedia kerja",
+      "route": "/(tabs)/home",
+      "x": 500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "map_worker": {
+      "alias": "screen_map_worker",
+      "page": "02 · Beranda dan Temukan",
+      "title": "Peta buruh",
+      "route": "/(tabs)/discover",
+      "x": 1000,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "map_employer": {
+      "alias": "screen_map_employer",
+      "page": "02 · Beranda dan Temukan",
+      "title": "Peta penyedia kerja",
+      "route": "/(tabs)/discover",
+      "x": 1500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "map_spread": {
+      "alias": "screen_map_spread",
+      "page": "02 · Beranda dan Temukan",
+      "title": "Pin terpisah · zoom maksimal",
+      "route": "/(tabs)/discover",
+      "x": 0,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "map_selected": {
+      "alias": "screen_map_selected",
+      "page": "02 · Beranda dan Temukan",
+      "title": "Profil dipilih di peta",
+      "route": "/(tabs)/discover",
+      "x": 500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "discover_list": {
+      "alias": "screen_discover_list",
+      "page": "02 · Beranda dan Temukan",
+      "title": "Hasil dalam daftar",
+      "route": "/(tabs)/discover · daftar",
+      "x": 1000,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "filters": {
+      "alias": "screen_filters",
+      "page": "02 · Beranda dan Temukan",
+      "title": "Filter pencarian",
+      "route": "Sheet bersama · Beranda/Temukan",
+      "x": 1500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "visibility": {
+      "alias": "screen_visibility",
+      "page": "02 · Beranda dan Temukan",
+      "title": "Tampil di peta",
+      "route": "Sheet · pengaturan visibilitas",
+      "x": 0,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "person_worker": {
+      "alias": "screen_person_worker",
+      "page": "03 · Profil dan izin kontak",
+      "title": "Profil buruh",
+      "route": "/person/[id]",
+      "x": 0,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "person_employer": {
+      "alias": "screen_person_employer",
+      "page": "03 · Profil dan izin kontak",
+      "title": "Profil penyedia kerja",
+      "route": "/person/[id]",
+      "x": 500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "activity_contacts": {
+      "alias": "screen_activity_contacts",
+      "page": "03 · Profil dan izin kontak",
+      "title": "Aktivitas · kontak",
+      "route": "/(tabs)/activity",
+      "x": 1000,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "contact_incoming": {
+      "alias": "screen_contact_incoming",
+      "page": "03 · Profil dan izin kontak",
+      "title": "Permintaan kontak masuk",
+      "route": "/contact/[id]",
+      "x": 1500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "contact_sent": {
+      "alias": "screen_contact_sent",
+      "page": "03 · Profil dan izin kontak",
+      "title": "Permintaan terkirim",
+      "route": "/contact/[id]",
+      "x": 0,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "contact_approved": {
+      "alias": "screen_contact_approved",
+      "page": "03 · Profil dan izin kontak",
+      "title": "Kontak diizinkan",
+      "route": "/contact/[id]",
+      "x": 500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "contact_revoked": {
+      "alias": "screen_contact_revoked",
+      "page": "03 · Profil dan izin kontak",
+      "title": "Izin kontak dicabut",
+      "route": "/contact/[id]",
+      "x": 1000,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "activity_work": {
+      "alias": "screen_activity_work",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Aktivitas · pekerjaan",
+      "route": "/(tabs)/activity",
+      "x": 0,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "agreement_form": {
+      "alias": "screen_agreement_form",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Buat kesepakatan",
+      "route": "/new-agreement",
+      "x": 500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "work_context": {
+      "alias": "screen_work_context",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Kondisi kerja",
+      "route": "/new-agreement · rincian kondisi",
+      "x": 1000,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "agreement_review": {
+      "alias": "screen_agreement_review",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Tinjau kesepakatan",
+      "route": "/new-agreement · review",
+      "x": 1500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "agreement_waiting": {
+      "alias": "screen_agreement_waiting",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Menunggu penerimaan",
+      "route": "/agreement/[id]",
+      "x": 0,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "agreement_active": {
+      "alias": "screen_agreement_active",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Pekerjaan disepakati",
+      "route": "/agreement/[id]",
+      "x": 500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "agreement_completion": {
+      "alias": "screen_agreement_completion",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Periksa hasil pekerjaan",
+      "route": "/agreement/[id]",
+      "x": 1000,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "agreement_cod": {
+      "alias": "screen_agreement_cod",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Pekerjaan selesai",
+      "route": "/agreement/[id]",
+      "x": 1500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "agreement_paid": {
+      "alias": "screen_agreement_paid",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Upah diterima",
+      "route": "/agreement/[id]",
+      "x": 0,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "agreement_cancelled": {
+      "alias": "screen_agreement_cancelled",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Kesepakatan dibatalkan",
+      "route": "/agreement/[id]",
+      "x": 500,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "cod_confirm": {
+      "alias": "screen_cod_confirm",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Konfirmasi uang diterima",
+      "route": "Dialog · pengakuan COD",
+      "x": 1000,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "rating": {
+      "alias": "screen_rating",
+      "page": "04 · Kesepakatan dan COD",
+      "title": "Beri penilaian",
+      "route": "/agreement/[id] · penilaian",
+      "x": 1500,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "notifications": {
+      "alias": "screen_notifications",
+      "page": "05 · Akun dan bantuan",
+      "title": "Notifikasi",
+      "route": "/(tabs)/notices",
+      "x": 0,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "account": {
+      "alias": "screen_account",
+      "page": "05 · Akun dan bantuan",
+      "title": "Akun",
+      "route": "/(tabs)/account",
+      "x": 500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "photo_empty": {
+      "alias": "screen_photo_empty",
+      "page": "05 · Akun dan bantuan",
+      "title": "Foto profil opsional",
+      "route": "/profile-photo",
+      "x": 1000,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "photo_preview": {
+      "alias": "screen_photo_preview",
+      "page": "05 · Akun dan bantuan",
+      "title": "Pratinjau foto",
+      "route": "/profile-photo",
+      "x": 1500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "photo_consent": {
+      "alias": "screen_photo_consent",
+      "page": "05 · Akun dan bantuan",
+      "title": "Izin foto dipilih",
+      "route": "/profile-photo",
+      "x": 0,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "photo_pending": {
+      "alias": "screen_photo_pending",
+      "page": "05 · Akun dan bantuan",
+      "title": "Menunggu peninjauan",
+      "route": "/profile-photo",
+      "x": 500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "catalog": {
+      "alias": "screen_catalog",
+      "page": "05 · Akun dan bantuan",
+      "title": "Katalog pekerjaan",
+      "route": "/job-catalog",
+      "x": 1000,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "catalog_detail": {
+      "alias": "screen_catalog_detail",
+      "page": "05 · Akun dan bantuan",
+      "title": "Bersih-bersih",
+      "route": "/job-catalog · kategori",
+      "x": 1500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "catalog_suggest": {
+      "alias": "screen_catalog_suggest",
+      "page": "05 · Akun dan bantuan",
+      "title": "Usulkan pekerjaan",
+      "route": "/job-catalog · usulan privat",
+      "x": 0,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "help": {
+      "alias": "screen_help",
+      "page": "05 · Akun dan bantuan",
+      "title": "Bantuan dan privasi",
+      "route": "/help",
+      "x": 500,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "help_article": {
+      "alias": "screen_help_article",
+      "page": "05 · Akun dan bantuan",
+      "title": "Nomor dan izin kontak",
+      "route": "/help · artikel",
+      "x": 1000,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "help_location": {
+      "alias": "screen_help_location",
+      "page": "05 · Akun dan bantuan",
+      "title": "Lokasi di peta",
+      "route": "/help · artikel",
+      "x": 1500,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "help_cod": {
+      "alias": "screen_help_cod",
+      "page": "05 · Akun dan bantuan",
+      "title": "Kesepakatan dan COD",
+      "route": "/help · artikel",
+      "x": 0,
+      "y": 3230,
+      "width": 412,
+      "height": 892
+    },
+    "help_rating": {
+      "alias": "screen_help_rating",
+      "page": "05 · Akun dan bantuan",
+      "title": "Rating dan ulasan",
+      "route": "/help · artikel",
+      "x": 500,
+      "y": 3230,
+      "width": 412,
+      "height": 892
+    },
+    "help_privacy": {
+      "alias": "screen_help_privacy",
+      "page": "05 · Akun dan bantuan",
+      "title": "Privasi dan ketentuan",
+      "route": "/help · artikel",
+      "x": 1000,
+      "y": 3230,
+      "width": 412,
+      "height": 892
+    },
+    "help_report": {
+      "alias": "screen_help_report",
+      "page": "05 · Akun dan bantuan",
+      "title": "Laporkan masalah",
+      "route": "/help · artikel",
+      "x": 1500,
+      "y": 3230,
+      "width": 412,
+      "height": 892
+    },
+    "report": {
+      "alias": "screen_report",
+      "page": "05 · Akun dan bantuan",
+      "title": "Laporkan akun",
+      "route": "/report/[id]",
+      "x": 0,
+      "y": 4270,
+      "width": 412,
+      "height": 892
+    },
+    "report_success": {
+      "alias": "screen_report_success",
+      "page": "05 · Akun dan bantuan",
+      "title": "Laporan terkirim",
+      "route": "/report/[id] · hasil",
+      "x": 500,
+      "y": 4270,
+      "width": 412,
+      "height": 892
+    },
+    "suggest_success": {
+      "alias": "screen_suggest_success",
+      "page": "05 · Akun dan bantuan",
+      "title": "Usulan terkirim",
+      "route": "/job-catalog · hasil",
+      "x": 1000,
+      "y": 4270,
+      "width": 412,
+      "height": 892
+    },
+    "block_confirm": {
+      "alias": "screen_block_confirm",
+      "page": "05 · Akun dan bantuan",
+      "title": "Blokir akun",
+      "route": "Dialog · blokir",
+      "x": 1500,
+      "y": 4270,
+      "width": 412,
+      "height": 892
+    },
+    "delete_account": {
+      "alias": "screen_delete_account",
+      "page": "05 · Akun dan bantuan",
+      "title": "Penghapusan akun",
+      "route": "/delete-account",
+      "x": 0,
+      "y": 5310,
+      "width": 412,
+      "height": 892
+    },
+    "delete_requested": {
+      "alias": "screen_delete_requested",
+      "page": "05 · Akun dan bantuan",
+      "title": "Permintaan penghapusan",
+      "route": "/delete-account · hasil",
+      "x": 500,
+      "y": 5310,
+      "width": 412,
+      "height": 892
+    },
+    "empty": {
+      "alias": "screen_empty",
+      "page": "06 · State dan pemulihan",
+      "title": "Belum ada hasil",
+      "route": "State bersama · empty",
+      "x": 0,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "network_error": {
+      "alias": "screen_network_error",
+      "page": "06 · State dan pemulihan",
+      "title": "Gagal memuat hasil",
+      "route": "State bersama · network error",
+      "x": 500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "location_denied": {
+      "alias": "screen_location_denied",
+      "page": "06 · State dan pemulihan",
+      "title": "Izin lokasi ditolak",
+      "route": "State bersama · location denied",
+      "x": 1000,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "city_unavailable": {
+      "alias": "screen_city_unavailable",
+      "page": "06 · State dan pemulihan",
+      "title": "Area belum terlayani",
+      "route": "State bersama · city unavailable",
+      "x": 1500,
+      "y": 110,
+      "width": 412,
+      "height": 892
+    },
+    "bootstrap_error": {
+      "alias": "screen_bootstrap_error",
+      "page": "06 · State dan pemulihan",
+      "title": "Akun belum termuat",
+      "route": "State bersama · bootstrap error",
+      "x": 0,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "auth_error": {
+      "alias": "screen_auth_error",
+      "page": "06 · State dan pemulihan",
+      "title": "Masuk dibatalkan atau gagal",
+      "route": "State bersama · auth error",
+      "x": 500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "session_expired": {
+      "alias": "screen_session_expired",
+      "page": "06 · State dan pemulihan",
+      "title": "Sesi berakhir",
+      "route": "State bersama · session expired",
+      "x": 1000,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "target_unavailable": {
+      "alias": "screen_target_unavailable",
+      "page": "06 · State dan pemulihan",
+      "title": "Profil tidak tersedia",
+      "route": "State bersama · target unavailable",
+      "x": 1500,
+      "y": 1150,
+      "width": 412,
+      "height": 892
+    },
+    "rating_success": {
+      "alias": "screen_rating_success",
+      "page": "06 · State dan pemulihan",
+      "title": "Penilaian terkirim",
+      "route": "State bersama · rating success",
+      "x": 0,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "whatsapp_notice": {
+      "alias": "screen_whatsapp_notice",
+      "page": "06 · State dan pemulihan",
+      "title": "Pratinjau WhatsApp",
+      "route": "State bersama · whatsapp notice",
+      "x": 500,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "offline": {
+      "alias": "screen_offline",
+      "page": "06 · State dan pemulihan",
+      "title": "Offline · hasil tersimpan",
+      "route": "State · koneksi terputus",
+      "x": 1000,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "validation": {
+      "alias": "screen_validation",
+      "page": "06 · State dan pemulihan",
+      "title": "Form perlu diperbaiki",
+      "route": "State · validasi dan masukan dipertahankan",
+      "x": 1500,
+      "y": 2190,
+      "width": 412,
+      "height": 892
+    },
+    "loading": {
+      "alias": "screen_loading",
+      "page": "06 · State dan pemulihan",
+      "title": "Sedang memuat",
+      "route": "State · loading",
+      "x": 0,
+      "y": 3230,
+      "width": 412,
+      "height": 892
+    }
+  },
+  "interactionCount": 368,
+  "commandCount": 3178,
+  "palette": {
+    "Canvas": "#F5F1EA",
+    "Surface": "#FEFBF6",
+    "Focus": "#C14033",
+    "Sky": "#C6D8ED",
+    "Lime": "#D8E46E",
+    "Text": "#24211D",
+    "Muted": "#625B52",
+    "Outline": "#887F73",
+    "Divider": "#DED7CE",
+    "BrandGreen": "#014C24",
+    "BrandGold": "#E5C282",
+    "White": "#FFFFFF",
+    "Success": "#205C40",
+    "SuccessSurface": "#E5EEDC",
+    "Error": "#A52A25",
+    "ErrorSurface": "#FBE5DF",
+    "BlueText": "#264C70",
+    "Disabled": "#E4DFD7",
+    "Map": "#E9ECE1"
+  }
+}

@@ -1,0 +1,67 @@
+:focus-visible {
+  outline: 2px solid #087f52 !important;
+  outline-offset: 2px !important;
+}
+::selection {
+  background: #ddf4ea;
+  color: #014c24;
+}
+input,
+textarea {
+  caret-color: #014c24;
+}
+.leaflet-container {
+  font-family: system-ui, sans-serif;
+  background: #e1f3e8;
+}
+.leaflet-control-zoom a {
+  width: 48px !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  color: #014c24 !important;
+}
+.leaflet-container .leaflet-control-attribution {
+  font-size: 11px;
+  background: #fff;
+  color: #25382c;
+  max-width: calc(100vw - 24px);
+}
+.leaflet-control-attribution a {
+  color: #014c24;
+}
+.upahgo-marker {
+  background: transparent;
+  border: 0;
+}
+.profile-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 3px solid #087f52;
+  border-radius: 50%;
+  background: #fff;
+  color: #087f52;
+  font: 700 18px system-ui;
+  box-sizing: border-box;
+  position: relative;
+}
+.profile-pin::after {
+  content: "";
+  position: absolute;
+  top: 51px;
+  left: 18px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid #087f52;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}

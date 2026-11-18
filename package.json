@@ -1,0 +1,41 @@
+{
+  "name": "upahgo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/mobile"
+  ],
+  "engines": {
+    "node": ">=22.13.0 <23"
+  },
+  "scripts": {
+    "start": "npm run start --workspace apps/mobile",
+    "web": "npm run web --workspace apps/mobile",
+    "android": "npm run android --workspace apps/mobile",
+    "typecheck": "npm run typecheck --workspace apps/mobile",
+    "lint": "eslint apps/mobile --max-warnings 0",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:db": "node scripts/test-db.mjs",
+    "test:web": "playwright test",
+    "build:web": "npm run build:web --workspace apps/mobile",
+    "build:android": "npm run build:android --workspace apps/mobile",
+    "preview": "node scripts/serve-preview.mjs",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "photo:prepare": "node scripts/prepare-photo.mjs",
+    "test:photo-edge": "deno test --allow-env --allow-read --config supabase/functions/profile-photo/deno.json supabase/functions/profile-photo/handler.test.ts",
+    "worker:dev": "wrangler dev --config workers/api/wrangler.jsonc --ip 127.0.0.1",
+    "worker:check": "node scripts/worker-contract.mjs && wrangler deploy --dry-run --config workers/api/wrangler.jsonc --outdir workers/api/.wrangler/check",
+    "format": "prettier --write apps/mobile shared tests workers/api/src scripts playwright.config.ts"
+  },
+  "devDependencies": {
+    "@imagemagick/magick-wasm": "0.0.46",
+    "@playwright/test": "1.65.1",
+    "@types/pg": "8.23.1",
+    "eslint": "9.39.5",
+    "eslint-config-expo": "58.0.4",
+    "pg": "8.23.1",
+    "prettier": "3.10.1",
+    "wrangler": "4.163.0"
+  }
+}

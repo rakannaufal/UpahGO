@@ -1,0 +1,5 @@
+project_id = "upahgo"
+
+[functions.profile-photo]
+verify_jwt = true
+static_files = ["./functions/profile-photo/magick.wasm"]

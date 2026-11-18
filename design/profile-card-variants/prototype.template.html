@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Empat layout kartu profil · Upahgo</title>
+  <style>
+    @font-face{font-family:Roboto;src:url(data:font/ttf;base64,__FONT__) format("truetype");font-weight:100 900;font-display:swap}
+    :root{__TOKENS__font-family:Roboto,sans-serif;color:var(--onSurface);background:var(--background);font-size:16px;color-scheme:light}
+    *{box-sizing:border-box}
+    body{margin:0}
+    ::selection{background:var(--primaryContainer);color:var(--onPrimaryContainer)}
+    h1,h2,h3,p{margin:0}
+    main{max-width:960px;margin:auto;padding:40px}
+    header{margin-bottom:32px}
+    h1{font-size:1.875rem;line-height:1.2;font-weight:700;letter-spacing:-.025em}
+    .intro{font-size:.9375rem;line-height:1.5;color:var(--onSurfaceVariant);margin-top:10px;max-width:65ch}
+    .demo-note{font-size:.8125rem;line-height:1.5;color:var(--onSurfaceVariant);margin-top:8px}
+    .comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 32px}
+    .option{min-width:0}
+    h2{font-size:1.125rem;line-height:1.5;font-weight:700;letter-spacing:-.01em}
+    .description{font-size:.8125rem;line-height:1.5;color:var(--onSurfaceVariant);margin:4px 0 14px}
+    .stage{background:var(--surfaceVariant);padding:28px 20px;min-height:378px;display:flex;justify-content:center;align-items:center;container:stage / inline-size}
+    .card{width:100%;max-width:320px;min-width:0;border:1px solid var(--cardOutline);border-radius:20px;background:var(--surface);overflow:hidden}
+    .card h3{font-size:1rem;line-height:1.375;font-weight:700;overflow-wrap:anywhere}
+    .body{padding:16px}
+    .meta{font-size:.8125rem;line-height:1.5;color:var(--onSurfaceVariant);margin-top:4px;overflow-wrap:anywhere}
+    .avatar{height:44px;width:44px;flex:none;border-radius:50%;background:var(--warmContainer);color:var(--primary);display:flex;align-items:center;justify-content:center}
+    .avatar svg{width:24px;height:24px;flex:none}
+    .service-art{width:40px;height:40px;flex:none;display:block}
+    .service-art svg{width:100%;height:100%;display:block}
+    .rating{display:flex;align-items:center;gap:4px;font-size:.8125rem;line-height:1.5;color:var(--onSurface);flex-wrap:wrap}
+    .rating strong{font-weight:600}
+    .rating .count{color:var(--onSurfaceVariant);font-weight:400}
+    .star{width:24px;height:24px;flex:none}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;list-style:none;margin:12px 0 0;padding:0}
+    .tags li{font-size:.75rem;line-height:1.5;font-weight:500;padding:4px 8px;border-radius:8px;background:var(--surfaceVariant);color:var(--onSurfaceVariant);max-width:100%;overflow-wrap:anywhere}
+    .price{border-top:1px solid var(--outlineVariant);padding-top:12px;margin-top:14px}
+    .price-label{font-size:.75rem;line-height:1.5;font-weight:500;color:var(--onSurfaceVariant)}
+    .price-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+    .amount{display:flex;flex-wrap:wrap;column-gap:.23em;font-size:1.375rem;line-height:1.3;letter-spacing:-.02em;font-weight:700;font-variant-numeric:tabular-nums;margin-top:4px}
+    .amount span{white-space:nowrap}
+    .unit{font-size:.75rem;line-height:1.5;color:var(--onSurfaceVariant);margin-top:3px}
+    .nego{display:inline-block;max-width:100%;padding:3px 7px;font-size:.75rem;line-height:1.5;font-weight:600;border-radius:6px;color:var(--onPrimaryContainer);background:var(--primaryContainer);overflow-wrap:anywhere}
+    .cover{height:76px;display:flex;align-items:center;justify-content:center;background:var(--warmContainer);margin:8px 8px 0;border-radius:13px}
+    .cover-card .body{padding-top:0}
+    .identity-line{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:-22px;margin-bottom:10px;position:relative}
+    .cover-card .avatar{outline:4px solid var(--surface);height:48px;width:48px}
+    .identity-line .rating{padding-bottom:2px}
+    .horizontal-head{display:flex;align-items:center;gap:12px}
+    .horizontal-head .person{min-width:0;flex:1}
+    .service-line{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;min-height:80px}
+    .service-line>div{min-width:0;flex:1}
+    .service-line .tags{margin:10px 0 0}
+    .horizontal-card .service-art{width:80px;height:80px}
+    .horizontal-card .price{margin:0;padding:14px 16px;background:var(--surfaceVariant)}
+    .price-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .horizontal-card .nego{background:transparent;padding:0;border-radius:0;font-size:.8125rem}
+    .horizontal-card .price-row .rating{margin-left:auto}
+    .price-first .price-banner{background:var(--primaryContainer);padding:16px}
+    .price-banner .price-label,.price-banner .unit{color:var(--onPrimaryContainer)}
+    .price-banner .amount{color:var(--onPrimaryContainer);font-size:1.5rem}
+    .price-banner .nego{background:var(--surface);color:var(--onPrimaryContainer)}
+    .budget-line{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px}
+    .budget-line .amount{margin:0}
+    .price-first .horizontal-head{align-items:flex-start}
+    .price-first .rating{margin-top:12px}
+    .side-card{display:grid;grid-template-columns:68px minmax(0,1fr)}
+    .art-rail{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:24px;padding:20px 10px;background:var(--warmContainer)}
+    .art-rail .avatar{outline:3px solid var(--surface);width:40px;height:40px}
+    .side-card .rating{margin-top:8px}
+    .side-card .body{padding:16px 14px}
+    .side-card .price{margin-top:12px}
+    .side-card .nego{margin-top:8px}
+    footer{margin-top:28px;font-size:.8125rem;line-height:1.6;color:var(--onSurfaceVariant)}
+    @container stage (max-width:18rem){.budget-line{flex-wrap:wrap}.budget-line>div{min-width:0}.side-card{grid-template-columns:minmax(0,1fr)}.art-rail{flex-direction:row;padding:12px 16px;gap:12px}}
+    @media(max-width:700px){main{padding:24px 16px}.comparison{grid-template-columns:minmax(0,1fr);gap:28px}.stage{min-height:0;padding:24px 16px}h1{font-size:1.5rem}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <main id="overview">
+    <header>
+      <h1>Empat layout kartu profil</h1>
+      <p class="intro">Bintang emas, harga per pekerjaan/sesi, label nego yang lebih tenang. Identitas Ceria Upahgo tetap terasa.</p>
+      <p class="demo-note">Studi desain. Nama, harga, jarak, dan ulasan di bawah merupakan data contoh sintetis.</p>
+    </header>
+    <div class="comparison">
+      <section class="option" aria-labelledby="option-1">
+        <h2 id="option-1">1. Ilustrasi di atas</h2>
+        <p class="description">Familiar untuk grid. Profil dan harga terbaca berurutan.</p>
+        <div class="stage">
+          <article class="card cover-card" aria-label="Contoh kartu 1, ilustrasi di atas">
+            <div class="cover" aria-hidden="true"><span class="service-art">__BROOM__</span></div>
+            <div class="body">
+              <div class="identity-line"><div class="avatar">__HOME__</div><div class="rating" aria-label="5,0 dari 5, 1 ulasan contoh">__STAR__<strong>5,0 <span class="count">(1)</span></strong></div></div>
+              <h3>Rumah Bu Rina</h3>
+              <p class="meta">Sukajadi · &lt;1 km</p>
+              <ul class="tags" aria-label="Kebutuhan"><li>Menyapu</li><li>Mengepel</li></ul>
+              <div class="price">
+                <div class="price-head"><span class="price-label">Anggaran</span><span class="nego">Bisa nego</span></div>
+                <strong class="amount"><span>Rp</span> <span>120.000</span></strong>
+                <p class="unit">Per pekerjaan/sesi</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="option" aria-labelledby="option-2">
+        <h2 id="option-2">2. Profil horizontal</h2>
+        <p class="description">Pilihanmu. Nego tanpa kotak, rating emas di kanan harga.</p>
+        <div class="stage">
+          <article class="card horizontal-card" aria-label="Contoh kartu 2, profil horizontal">
+            <div class="body">
+              <div class="horizontal-head">
+                <div class="avatar">__HOME__</div>
+                <div class="person"><h3>Rumah Bu Rina</h3><p class="meta">Sukajadi · &lt;1 km</p></div>
+              </div>
+              <div class="service-line">
+                <div><span class="nego">Bisa nego</span><ul class="tags" aria-label="Kebutuhan"><li>Menyapu</li><li>Mengepel</li></ul></div>
+                <span class="service-art" aria-hidden="true">__BROOM__</span>
+              </div>
+            </div>
+            <div class="price">
+              <span class="price-label">Anggaran</span>
+              <div class="price-row"><strong class="amount"><span>Rp</span> <span>120.000</span></strong><div class="rating" aria-label="5,0 dari 5, 1 ulasan contoh">__STAR__<strong>5,0 <span class="count">(1)</span></strong></div></div>
+              <p class="unit">Per pekerjaan/sesi</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="option" aria-labelledby="option-3">
+        <h2 id="option-3">3. Harga sebagai fokus</h2>
+        <p class="description">Anggaran terlihat lebih dulu saat membandingkan pekerjaan.</p>
+        <div class="stage">
+          <article class="card price-first" aria-label="Contoh kartu 3, harga sebagai fokus">
+            <div class="price-banner">
+              <div class="price-head"><span class="price-label">Anggaran</span><span class="nego">Bisa nego</span></div>
+              <div class="budget-line"><div><strong class="amount"><span>Rp</span> <span>120.000</span></strong><p class="unit">Per pekerjaan/sesi</p></div><span class="service-art" aria-hidden="true">__BROOM__</span></div>
+            </div>
+            <div class="body">
+              <div class="horizontal-head"><div class="avatar">__HOME__</div><div class="person"><h3>Rumah Bu Rina</h3><p class="meta">Sukajadi · &lt;1 km</p></div></div>
+              <ul class="tags" aria-label="Kebutuhan"><li>Menyapu</li><li>Mengepel</li></ul>
+              <div class="rating" aria-label="5,0 dari 5, 1 ulasan contoh">__STAR__<strong>5,0 <span class="count">(1)</span></strong></div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="option" aria-labelledby="option-4">
+        <h2 id="option-4">4. Panel ilustrasi samping</h2>
+        <p class="description">Gambar terpisah dari informasi. Isi kartu lebih terarah.</p>
+        <div class="stage">
+          <article class="card side-card" aria-label="Contoh kartu 4, panel ilustrasi samping">
+            <div class="art-rail"><span class="service-art" aria-hidden="true">__BROOM__</span><div class="avatar">__HOME__</div></div>
+            <div class="body">
+              <h3>Rumah Bu Rina</h3>
+              <p class="meta">Sukajadi · &lt;1 km</p>
+              <div class="rating" aria-label="5,0 dari 5, 1 ulasan contoh">__STAR__<strong>5,0 <span class="count">(1)</span></strong></div>
+              <ul class="tags" aria-label="Kebutuhan"><li>Menyapu</li><li>Mengepel</li></ul>
+              <div class="price"><span class="price-label">Anggaran</span><strong class="amount"><span>Rp</span> <span>120.000</span></strong><p class="unit">Per pekerjaan/sesi</p><span class="nego">Bisa nego</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+    <footer>“Bisa nego” berarti harga dapat dibicarakan. Nominal akhir tetap perlu disepakati kedua pihak.<br>Pilihan 2 sudah diterapkan pada kartu aplikasi. Pilihan lainnya tetap studi pembanding.</footer>
+  </main>
+</body>
+</html>

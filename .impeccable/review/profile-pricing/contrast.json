@@ -1,0 +1,56 @@
+[
+  {
+    "foreground": "onSurface",
+    "background": "surface",
+    "ratio": 13.08,
+    "AA": true
+  },
+  {
+    "foreground": "onSurface",
+    "background": "surfaceVariant",
+    "ratio": 12.1,
+    "AA": true
+  },
+  {
+    "foreground": "onSurfaceVariant",
+    "background": "surface",
+    "ratio": 6.09,
+    "AA": true
+  },
+  {
+    "foreground": "onSurfaceVariant",
+    "background": "surfaceVariant",
+    "ratio": 5.63,
+    "AA": true
+  },
+  {
+    "foreground": "primary",
+    "background": "surface",
+    "ratio": 5.04,
+    "AA": true
+  },
+  {
+    "foreground": "primary",
+    "background": "surfaceVariant",
+    "ratio": 4.66,
+    "AA": true
+  },
+  {
+    "foreground": "onPrimary",
+    "background": "primary",
+    "ratio": 5.04,
+    "AA": true
+  },
+  {
+    "foreground": "onWarmContainer",
+    "background": "warmContainer",
+    "ratio": 7.69,
+    "AA": true
+  },
+  {
+    "foreground": "error",
+    "background": "errorContainer",
+    "ratio": 5.48,
+    "AA": true
+  }
+]

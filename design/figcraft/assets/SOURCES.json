@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-18",
+  "illustrations": [
+    {
+      "file": "job-hunt.svg",
+      "source": "https://undraw.co/illustration/job-hunt_5umi",
+      "asset": "https://cdn.undraw.co/illustrations/job-hunt_5umi.svg",
+      "author": "Katerina Limpitsouni"
+    },
+    {
+      "file": "hiring.svg",
+      "source": "https://undraw.co/illustration/hiring_8szx",
+      "asset": "https://cdn.undraw.co/illustrations/hiring_8szx.svg",
+      "author": "Katerina Limpitsouni"
+    }
+  ],
+  "illustrationLicense": "https://undraw.co/license",
+  "usage": "Two illustrations in a UI design; no model training or asset pack redistribution. Derived accents and illustrative avatar crops.",
+  "google": {
+    "file": "google-g.png",
+    "source": "https://developers.google.com/static/identity/images/g-logo.png",
+    "guidelines": "https://developers.google.com/identity/branding-guidelines"
+  },
+  "map": {
+    "status": "Excluded: endpoint returned an access-block image despite HTTP success. Final canvas uses editable labeled schematic geometry; no geographic claim."
+  },
+  "brand": "Original approved UpahGo exports, unchanged"
+}
