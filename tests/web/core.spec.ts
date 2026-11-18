@@ -112,7 +112,7 @@ test("effort/search carry to map; role switch resets filters; optional photo sta
   await button(p, "Hapus foto").click();
   await button(p, "Hapus foto dari profil").click();
   await expect(
-    p.getByText("Foto dihapus dari profil.", { exact: true }),
+    p.getByText("Simulasi foto dihapus dari memori.", { exact: true }),
   ).toBeVisible();
 });
 test("catalog search and private Other suggestion preserve deferred category boundaries", async ({

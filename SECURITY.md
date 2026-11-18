@@ -14,6 +14,7 @@ Kontrol implementasi 0.1 lokal, 17 November 2026. Threat assessment terarah pada
 | Upah dan status | Pemalsuan upah, double-submit, mengaku sudah dibayar | Upah integer berbatas, proposal diterima pihak lain, row locks, unique active agreement, pekerja sendiri mengakui uang setelah hasil selesai | COD bukan escrow atau jaminan; sengketa perlu operator |
 | API / SMS | Spam, body besar, habis kuota, retry write | Worker limiter persisten per IP/actor, batas body streaming 16 KiB, allowlist operation/fields, SQL limiter khusus, timeout | Auth/SMS langsung Supabase, belum dilindungi Turnstile, provider/kuota belum aktif |
 | Laporan/penghapusan | Salah target, kehilangan bukti COD, akun muncul setelah restore | Akun dibatasi, finalizer service-only dengan lease/retry, relasi pseudonim, Storage sebelum Auth, ledger/replay | Kebijakan nonaktif; operator, backup/restore, staging, SLA/bantuan belum diterima |
+| Foto retired/yatim | Upload parsial tertinggal, retry menghapus foto aktif, sukses hapus palsu | Reservasi sebelum upload, key retired tidak dapat dipasang ulang, lock/lease, Storage API dan pemeriksaan katalog, DELETE202 antrean | Runner nonaktif; provider, scheduler/alarm, beban dan rekonsiliasi backup belum diterima |
 
 ## Aturan penting
 
@@ -72,11 +73,13 @@ Penilaian tidak dapat diubah setelah terkirim; hanya peserta kesepakatan selesai
 
 ## Ancaman foto opsional dan usulan tugas
 
-Aset: foto privat, identitas pemilik, lokasi/consent dan usulan privat. Ancaman: baca lintas akun/kota/radius atau setelah blokir, bypass gateway/rate limit, file menyamar sebagai JPEG, EXIF lokasi, replacement lintas pemilik dan objek yatim. Kontrol: getUser + gateway secret Edge, SQL photo_access, bucket privat/RLS, signed URL 60 detik, pending owner-only, RPC replacement service-only dengan lock/path/ownership. Secret service-role hanya Edge server.
+Aset: foto privat, identitas pemilik, lokasi/consent dan usulan privat. Ancaman: baca lintas akun/kota/radius atau setelah blokir, bypass gateway/rate limit, file menyamar sebagai JPEG, EXIF lokasi, replacement lintas pemilik dan objek yatim. Kontrol: getUser + gateway secret Edge, SQL photo_access, bucket privat/RLS, signed URL 60 detik, pending owner-only, RPC replacement service-only dengan lock/path/ownership. Secret service-role hanya Edge dan runner server.
 
 Decoder JPEG nyata melakukan orientasi, strip metadata dan reencode; input ≤5 MB, dimensi decode ≤2048, detail ≤1280/1 MB, thumbnail 160/100 KB. Batas memori/waktu decoder tersedia. Worker membatasi foto write 3/menit dan read 90/menit terpisah, ditambah umum 90/akun dan 180/IP. Tidak ada log bytes, URL privat, nomor atau token. Bytes render base64 di memori mengurangi penggunaan cache URL privat; jangan menjanjikan penghapusan seluruh cache OS. Galeri/crop native dan crop manual web perlu bukti perangkat tersendiri.
 
-Usulan Lainnya dibatasi/divalidasi, privat pending; tidak otomatis menjadi tag publik. Moderasi foto manual, operator laporan, retensi/penghapusan, retry media_cleanup dan orphan sweep harus disiapkan dan diuji sebelum live; permintaan penghapusan akun belum berarti semua bytes terhapus.
+Usulan Lainnya dibatasi/divalidasi, privat pending; tidak otomatis menjadi tag publik. MEDIA-001 menambah reservasi privat15 menit, queue dengan lease/retry, perlindungan foto aktif/in-flight dan sweep orphan kanonis >1 jam. Tidak ada kompensasi inline setelah commit tak pasti. Runner hanya memegang service credential server; ACL menolak anon/authenticated, input berbatas dan search_path tetap. Key asing gagal tertutup dan memicu sinyal triase; output runner hanya counter/kode aman. Tidak ada DELETE langsung ke katalog Storage. [Threat assessment dan batas](audits/2026-11-18-production/remediation/media-001/README.md).
+
+Moderasi manual, operator, scheduler/penyampaian alarm, retensi backup dan uji provider harus siap sebelum live. Default runner nonaktif. HTTP202/metadata hilang bukan bukti semua bytes/cache/backup terhapus. Restore DB lama dapat memulihkan referensi foto; MEDIA tidak memiliki ledger penghapusan foto independen. Rekonsiliasi operator sebelum traffic diwajibkan dalam [runbook](docs/MEDIA-CLEANUP.md).
 
 Audit dependensi terbaru: 41 high + 2 moderate propagated findings, dua advisory asal picomatch GHSA-fc5q-39xc-vjpf (≤4.0.7) dan minimatch GHSA-g3hv-75wg-m249. Jalur toolchain glob/build; source app/gateway tidak mengimpor langsung keduanya. Tidak ada bukti eksploit runtime langsung. Registry picomatch terbaru yang diperiksa 4.0.7, 4.0.8 E404; fix kompatibel belum ditemukan. Jangan force downgrade Expo; review/remediasi sebelum rilis tetap wajib. Angka 3 moderate/0 high historis sudah digantikan.
 

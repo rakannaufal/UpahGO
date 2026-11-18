@@ -28,14 +28,14 @@ Bila sandbox menolak folder preferensi Wrangler, gunakan `XDG_CONFIG_HOME=/priva
 
 ## Database pengujian
 
-Gunakan PostgreSQL 17 lokal yang dapat dibuang. Script menghapus schema `auth`, `upahgo_private`, dan fungsi API pada database target. Nama database harus diawali `upahgo_test`. **Jangan menggunakan URL database produksi.**
+Gunakan PostgreSQL 17 lokal yang dapat dibuang. Script menghapus schema `auth`, `storage`, `upahgo_private`, dan fungsi API pada database target. Nama database harus diawali `upahgo_test`. **Jangan menggunakan URL database produksi.**
 
 ```sh
 createdb upahgo_test_core
 TEST_DATABASE_URL=postgresql://localhost/upahgo_test_core npm run test:db
 ```
 
-Tes membuat shim `auth.users` dan `auth.uid()`, role `anon`/`authenticated`/`service_role`, migrasi, dan data sintetis. Ini memverifikasi SQL, bukan layanan Auth/PostgREST/SMS Supabase yang sebenarnya. Tidak membutuhkan Docker.
+Tes membuat shim `auth.users`, `auth.uid()` dan katalog `storage.objects`, role `anon`/`authenticated`/`service_role`, migrasi, dan data sintetis. Ini memverifikasi SQL, bukan layanan Auth/PostgREST/Storage/SMS Supabase yang sebenarnya. Tidak membutuhkan Docker.
 
 ## Pemeriksaan
 
@@ -73,6 +73,8 @@ Migrasi lokal tambahan: `202611180002_history_pagination.sql`, sesudah migrasi h
 Rollback staging: kembalikan klien dan allowlist Worker sebelumnya dahulu, lalu jalankan `supabase/rollbacks/202611180002_history_pagination.sql` dalam satu transaksi (`psql --single-transaction`). Script hanya mengembalikan RPC lama; data tidak dihapus, tetapi bug CORE-001 kembali. Migrasi ini diuji lokal saja; backup dan latihan pemulihan cloud tetap wajib sebelum rilis.
 
 ## Tes Edge foto lokal
+
+MEDIA-001 menambah `202611190001_media_reconciliation.sql` setelah PRIV. `scripts/test-media.mjs` memakai fixture rollback; unit processor memakai Storage sintetis. Regresi Edge meliputi reservasi sebelum upload, thumbnail gagal, commit gagal/tak pasti dan DELETE202 tanpa penghapusan inline. CLI `npm run media:process -- --apply` hanya server terotorisasi; default nonaktif. Koordinasikan migrasi dan Edge baru dengan write foto dijeda. [Aktivasi, retry, monitoring dan restore](MEDIA-CLEANUP.md).
 
 PRIV-001 menambah `202611180003_account_erasure.sql` setelah migrasi riwayat. `test:db` menjalankan fixture `scripts/test-deletion.mjs` dalam transaksi rollback; `npm test` mencakup processor/ledger dengan Storage/Auth sintetis dan filesystem sementara. CLI `privacy:process` dan `privacy:ledger` hanya untuk lingkungan yang diotorisasi dengan secret server, tidak memuat `.env` mobile. Kebijakan default nonaktif; [runbook dan batas](ACCOUNT-DELETION.md). Jangan menjalankan rollback CORE/harga di bawah wrapper PRIV; pause runner/kebijakan, perbaiki maju.
 

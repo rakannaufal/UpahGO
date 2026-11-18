@@ -1,0 +1,5 @@
+Check supabase/functions/profile-photo/handler.test.ts
+running 1 test from ./supabase/functions/profile-photo/handler.test.ts
+photo edge: gateway, auth, consent, decoding, private pending commit, signed access and deletion ... ok (1s)
+
+ok | 1 passed | 0 failed (1s)

@@ -1,0 +1,5 @@
+
+> upahgo@0.1.0 test:db
+> node scripts/test-db.mjs
+
+DB: 280 assertions passed (local PostgreSQL, synthetic auth shim).

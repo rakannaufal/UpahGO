@@ -33,6 +33,7 @@ Panduan lengkap: [Pengembangan](docs/DEVELOPMENT.md), [Konfigurasi Google/Supaba
 - Proposal tugas/jadwal/upah, penerimaan pihak lain, pemeriksaan hasil, pengakuan uang tunai oleh pekerja secara terpisah.
 - Penilaian kedua pihak setelah kesepakatan selesai, terpisah dari pengakuan COD.
 - Notifikasi dalam aplikasi, blokir, pengiriman laporan, permintaan penghapusan. Finalizer akun/Auth/Storage dan retensi tersedia lokal, nonaktif sampai kebijakan disetujui; [runbook](docs/ACCOUNT-DELETION.md). Operator dan penerimaan cloud belum tersedia.
+- Rekonsiliasi foto: reservasi upload, antrean penghapusan dengan lease/retry dan sweep objek yatim tersedia lokal, runner default nonaktif. Hapus foto mengakui antrean melalui HTTP202; [runbook MEDIA-001](docs/MEDIA-CLEANUP.md). Scheduler/alarm dan Storage nyata belum diterima.
 
 Publikasi lowongan/lamaran terpisah, chat internal, wallet/escrow, push, admin web tidak ditambahkan pada slice ini. `SCREENS.md` tetap katalog rancangan yang lebih luas, bukan daftar fitur selesai.
 

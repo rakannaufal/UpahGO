@@ -206,7 +206,7 @@ function Content() {
         operasional belum dibuka untuk rilis publik.
       </Text>
       {!!info && <Note>{info}</Note>}
-      {!!task.error && <Note error>{task.error}</Note>}
+      {!!task.error && !removeOpen && <Note error>{task.error}</Note>}
       <Sheet
         visible={removeOpen}
         title="Hapus foto?"
@@ -214,7 +214,7 @@ function Content() {
       >
         <Text style={s.body}>
           Foto hilang dari profil. Tautan sementara yang sudah dibuka dapat
-          berlaku hingga 60 detik.
+          berlaku hingga 60 detik. Penghapusan salinan server diproses terpisah.
         </Text>
         <Action
           busy={task.busy}
@@ -230,7 +230,11 @@ function Content() {
               await state.refresh();
               load.reload();
               setRemoveOpen(false);
-              setInfo("Foto dihapus dari profil.");
+              setInfo(
+                state.demo
+                  ? "Simulasi foto dihapus dari memori."
+                  : "Foto dihapus dari profil. Penghapusan salinan server masuk antrean.",
+              );
             })
           }
         >

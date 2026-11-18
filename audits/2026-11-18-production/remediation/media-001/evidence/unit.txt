@@ -1,0 +1,272 @@
+
+> upahgo@0.1.0 test
+> node --experimental-strip-types --test tests/*.test.ts
+
+TAP version 13
+# Subtest: erasure drains both photo roles and orphans before Auth, never another user's bytes
+ok 1 - erasure drains both photo roles and orphans before Auth, never another user's bytes
+  ---
+  duration_ms: 4.274208
+  type: 'test'
+  ...
+# Subtest: Storage failure cannot advance to Auth; retry resumes the committed stage
+ok 2 - Storage failure cannot advance to Auth; retry resumes the committed stage
+  ---
+  duration_ms: 0.679
+  type: 'test'
+  ...
+# Subtest: uncertain Auth completion resumes verification without deleting a different account
+ok 3 - uncertain Auth completion resumes verification without deleting a different account
+  ---
+  duration_ms: 0.574042
+  type: 'test'
+  ...
+# Subtest: unexpected Storage names fail closed; disabled policy and idle queue do no work
+ok 4 - unexpected Storage names fail closed; disabled policy and idle queue do no work
+  ---
+  duration_ms: 0.368834
+  type: 'test'
+  ...
+# Subtest: demo deletion requests are idempotent and never imply physical service deletion
+ok 5 - demo deletion requests are idempotent and never imply physical service deletion
+  ---
+  duration_ms: 432.329459
+  type: 'test'
+  ...
+# Subtest: large photo folders yield a lease before Auth and safely drain on the next run
+ok 6 - large photo folders yield a lease before Auth and safely drain on the next run
+  ---
+  duration_ms: 2.385792
+  type: 'test'
+  ...
+# Subtest: ledger saves a private complete snapshot before acknowledging; replay is bounded
+ok 7 - ledger saves a private complete snapshot before acknowledging; replay is bounded
+  ---
+  duration_ms: 102.48575
+  type: 'test'
+  ...
+# Subtest: ledger never acknowledges a failed write or an invalid export cursor
+ok 8 - ledger never acknowledges a failed write or an invalid export cursor
+  ---
+  duration_ms: 1.746041
+  type: 'test'
+  ...
+# Subtest: only the other participant may accept work
+ok 9 - only the other participant may accept work
+  ---
+  duration_ms: 1.764959
+  type: 'test'
+  ...
+# Subtest: completion does not imply payment; only worker acknowledges cash
+ok 10 - completion does not imply payment; only worker acknowledges cash
+  ---
+  duration_ms: 0.223375
+  type: 'test'
+  ...
+# Subtest: public profiles reject contact leaks and duplicate tags
+ok 11 - public profiles reject contact leaks and duplicate tags
+  ---
+  duration_ms: 0.510583
+  type: 'test'
+  ...
+# Subtest: WhatsApp URL never accepts arbitrary destinations
+ok 12 - WhatsApp URL never accepts arbitrary destinations
+  ---
+  duration_ms: 0.685333
+  type: 'test'
+  ...
+# Subtest: schedule rejects normalized dates and preserves Indonesian time zones
+ok 13 - schedule rejects normalized dates and preserves Indonesian time zones
+  ---
+  duration_ms: 3.834458
+  type: 'test'
+  ...
+# Subtest: skipped setup permits browsing without a fabricated public profile
+ok 14 - skipped setup permits browsing without a fabricated public profile
+  ---
+  duration_ms: 641.257792
+  type: 'test'
+  ...
+# Subtest: switching role clears presence, restores role-specific content, preserves history
+ok 15 - switching role clears presence, restores role-specific content, preserves history
+  ---
+  duration_ms: 2.04875
+  type: 'test'
+  ...
+# Subtest: city boundary excludes other cities and polygon holes
+ok 16 - city boundary excludes other cities and polygon holes
+  ---
+  duration_ms: 7.432042
+  type: 'test'
+  ...
+# Subtest: location rejects inaccurate, stale and invalid fixes
+ok 17 - location rejects inaccurate, stale and invalid fixes
+  ---
+  duration_ms: 2.027917
+  type: 'test'
+  ...
+# Subtest: demo starts populated, automatically limits radius and applies district/job filters
+ok 18 - demo starts populated, automatically limits radius and applies district/job filters
+  ---
+  duration_ms: 40.010125
+  type: 'test'
+  ...
+# Subtest: rating requires completed participation, bounded text, and one submission
+ok 19 - rating requires completed participation, bounded text, and one submission
+  ---
+  duration_ms: 1.594459
+  type: 'test'
+  ...
+# Subtest: demo history pages stable ties; old detail and active grants bypass the first 100
+ok 20 - demo history pages stable ties; old detail and active grants bypass the first 100
+  ---
+  duration_ms: 1739.147875
+  type: 'test'
+  ...
+# Subtest: catalog preserves historical IDs; deferred jobs never become active from a search
+ok 21 - catalog preserves historical IDs; deferred jobs never become active from a search
+  ---
+  duration_ms: 3.215
+  type: 'test'
+  ...
+# Subtest: effort stays unknown without details; heavy work cannot appear as light
+ok 22 - effort stays unknown without details; heavy work cannot appear as light
+  ---
+  duration_ms: 0.8375
+  type: 'test'
+  ...
+# Subtest: demo search, category and effort share geographic restrictions and stable sorting
+ok 23 - demo search, category and effort share geographic restrictions and stable sorting
+  ---
+  duration_ms: 28.549916
+  type: 'test'
+  ...
+# Subtest: job suggestions stay private pending proposals; do not enable free tags
+ok 24 - job suggestions stay private pending proposals; do not enable free tags
+  ---
+  duration_ms: 1.411416
+  type: 'test'
+  ...
+# Subtest: ordinary zoom keeps coincident public points grouped
+ok 25 - ordinary zoom keeps coincident public points grouped
+  ---
+  duration_ms: 1.835333
+  type: 'test'
+  ...
+# Subtest: maximum zoom separates coincident and nearby pins without mutating public coordinates
+ok 26 - maximum zoom separates coincident and nearby pins without mutating public coordinates
+  ---
+  duration_ms: 58.543959
+  type: 'test'
+  ...
+# Subtest: a dense group remains individually selectable
+ok 27 - a dense group remains individually selectable
+  ---
+  duration_ms: 1.606542
+  type: 'test'
+  ...
+# Subtest: neighboring clusters cannot collide after their rings expand
+ok 28 - neighboring clusters cannot collide after their rings expand
+  ---
+  duration_ms: 0.299375
+  type: 'test'
+  ...
+# Subtest: media consumer removes only its retired pair, drains idempotently and reports safe counts
+ok 29 - media consumer removes only its retired pair, drains idempotently and reports safe counts
+  ---
+  duration_ms: 3.317917
+  type: 'test'
+  ...
+# Subtest: Storage and catalog errors remain retryable; success is never reported early
+ok 30 - Storage and catalog errors remain retryable; success is never reported early
+  ---
+  duration_ms: 0.567875
+  type: 'test'
+  ...
+# Subtest: a lost completion response is safe to retry without deleting the active/foreign image
+ok 31 - a lost completion response is safe to retry without deleting the active/foreign image
+  ---
+  duration_ms: 0.570625
+  type: 'test'
+  ...
+# Subtest: disabled cleanup and malformed claims never reach Storage
+ok 32 - disabled cleanup and malformed claims never reach Storage
+  ---
+  duration_ms: 0.258
+  type: 'test'
+  ...
+# Subtest: photo processing bounds decoding, re-encodes JPEG, strips metadata, makes thumbnail
+ok 33 - photo processing bounds decoding, re-encodes JPEG, strips metadata, makes thumbnail
+  ---
+  duration_ms: 556.102583
+  type: 'test'
+  ...
+# Subtest: stream reader rejects oversized chunked uploads
+ok 34 - stream reader rejects oversized chunked uploads
+  ---
+  duration_ms: 39.219416
+  type: 'test'
+  ...
+# Subtest: profile price accepts bounded integer rupiah and explicit removal only
+ok 35 - profile price accepts bounded integer rupiah and explicit removal only
+  ---
+  duration_ms: 2.708125
+  type: 'test'
+  ...
+# Subtest: owner price survives legacy saves and role changes; clearing never changes agreed wages
+ok 36 - owner price survives legacy saves and role changes; clearing never changes agreed wages
+  ---
+  duration_ms: 4.7235
+  type: 'test'
+  ...
+# Subtest: generated Worker contract matches the application contract
+ok 37 - generated Worker contract matches the application contract
+  ---
+  duration_ms: 2.930042
+  type: 'test'
+  ...
+# Subtest: photo gateway requires consent and session, bounds input and uses only the fixed function
+ok 38 - photo gateway requires consent and session, bounds input and uses only the fixed function
+  ---
+  duration_ms: 79.363959
+  type: 'test'
+  ...
+# Subtest: CORS denies unlisted browser origins; missing token denied
+ok 39 - CORS denies unlisted browser origins; missing token denied
+  ---
+  duration_ms: 0.82475
+  type: 'test'
+  ...
+# Subtest: gateway and limiter failure deny requests before upstream
+ok 40 - gateway and limiter failure deny requests before upstream
+  ---
+  duration_ms: 2.613875
+  type: 'test'
+  ...
+# Subtest: bounded body, allowlisted operation, no arbitrary target URL
+ok 41 - bounded body, allowlisted operation, no arbitrary target URL
+  ---
+  duration_ms: 4.077875
+  type: 'test'
+  ...
+# Subtest: verifies session then forwards only to fixed RPC with gateway header
+ok 42 - verifies session then forwards only to fixed RPC with gateway header
+  ---
+  duration_ms: 1.924416
+  type: 'test'
+  ...
+# Subtest: invalid session never reaches RPC; internal database errors are redacted
+ok 43 - invalid session never reaches RPC; internal database errors are redacted
+  ---
+  duration_ms: 2.460916
+  type: 'test'
+  ...
+1..43
+# tests 43
+# suites 0
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2206.930333

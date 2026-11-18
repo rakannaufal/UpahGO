@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { testHistory } from "./test-history.mjs";
 import { testDeletion } from "./test-deletion.mjs";
+import { testMedia } from "./test-media.mjs";
 const url = process.env.TEST_DATABASE_URL;
 if (!url || !/^upahgo_test/.test(new URL(url).pathname.slice(1)))
   throw new Error(
@@ -10,8 +11,9 @@ if (!url || !/^upahgo_test/.test(new URL(url).pathname.slice(1)))
   );
 const db = new pg.Client({ connectionString: url });
 await db.connect();
-await db.query(`drop schema if exists upahgo_private cascade; drop schema if exists auth cascade; drop function if exists public.upahgo_action(text,jsonb); drop function if exists public.upahgo_photo_replace(uuid,text,text); drop function if exists public.upahgo_deletion_admin(text,jsonb);
+await db.query(`drop schema if exists upahgo_private cascade; drop schema if exists auth cascade; drop schema if exists storage cascade; drop function if exists public.upahgo_action(text,jsonb); drop function if exists public.upahgo_photo_replace(uuid,text,text); drop function if exists public.upahgo_deletion_admin(text,jsonb); drop function if exists public.upahgo_media_admin(text,jsonb);
  do $$ begin if not exists(select 1 from pg_roles where rolname='anon') then create role anon; end if; if not exists(select 1 from pg_roles where rolname='authenticated') then create role authenticated; end if; if not exists(select 1 from pg_roles where rolname='service_role') then create role service_role; end if; end $$;
+ create schema storage; create table storage.objects(bucket_id text not null,name text not null,created_at timestamptz not null default now(),primary key(bucket_id,name));
  create schema auth; create table auth.users(id uuid primary key, phone text, phone_confirmed_at timestamptz);
  create function auth.uid() returns uuid language sql stable as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;`);
 const migrationDir = new URL("../supabase/migrations/", import.meta.url);
@@ -52,6 +54,7 @@ await db.query(
 let count = 0;
 count += await testHistory(db, secret);
 count += await testDeletion(db, secret);
+count += await testMedia(db);
 const pekanbaru = JSON.parse(
   await readFile(new URL("../shared/pekanbaru.json", import.meta.url), "utf8"),
 );
@@ -312,7 +315,11 @@ await denied(
   { title: "Pekerjaan usulan", detail: "Hubungi 081234567890" },
   "SUGGESTION_INVALID",
 );
-const photoKey = `${ids[1]}/worker/55555555-5555-4555-8555-555555555555`;
+const photoKey = (
+  await db.query("select public.upahgo_media_admin('reserve',$1) value", [
+    { userId: ids[1], role: "worker" },
+  ])
+).rows[0].value.key;
 await db.query("select public.upahgo_photo_replace($1,'worker',$2)", [
   ids[1],
   photoKey,

@@ -2,6 +2,14 @@
 
 18 November 2026. Lingkup: implementasi lokal, data sintetis. **Belum lulus rilis Android atau layanan live.** Tidak ada migrasi remote, deployment, login Google nyata, SMS, pesan WhatsApp atau pembayaran nyata dilakukan.
 
+## Remediasi MEDIA-001
+
+19 November: **43 unit, 280 assertion SQL lokal dan1 integrasi Deno Edge lulus**. SQL menambah40 pemeriksaan MEDIA, termasuk lease kedaluwarsa, key aktif/retired, reservasi, grace dan sweep101 objek. Decoder WASM nyata; Auth/Storage API/catalog sintetis. Typecheck/lint, ekspor web/Hermes final dan Worker dry-run lulus. Kontras34 pasangan token lulus. Tidak ada dependency baru.
+
+20 tes browser existing lulus pada run21 yang menemukan pesan error ganda pada dialog foto. Perbaikan menampilkan satu alert; regresi MEDIA final lulus terarah. Total21 skenario lulus lintas run, bukan satu run penuh21/21. Konfirmasi/status antrean pada320/390/1440, keyboard Enter/Escape, Tutup/Batal, error503, retry dan busy diuji; pageErrors kosong. Capture memakai viewport untuk aplikasi dengan scroll internal. [Bukti, review, Delivery Gate dan batas](audits/2026-11-18-production/remediation/media-001/README.md).
+
+Runner source tersedia, default nonaktif. Storage/Auth/PostgREST nyata, scheduler/pengiriman alarm, throughput/overlap provider, rekonsiliasi backup dan Android runtime belum diterima. HTTP202 menyatakan antrean; tidak membuktikan seluruh salinan vendor hilang. [Runbook](docs/MEDIA-CLEANUP.md). Rilis tetap **NO-GO**.
+
 ## Remediasi PRIV-001
 
 18–19 November: 39 unit dan 240 assertion SQL lokal lulus. 18 skenario browser existing lulus pada suite terakhir; dua regresi PRIV lulus pada run final terarah (10,4 detik). Fixture GPS/logout diperbaiki, bug keyboard consent sudah ditutup dengan regresi Spasi/Enter. Typecheck/lint, ekspor web/Hermes final, Worker dry-run dan pemeriksaan pola secret106 file lulus. [Bukti, Delivery Gate dan batas produksi](audits/2026-11-18-production/remediation/priv-001/README.md). Finalizer/retensi/ledger tersedia source, kebijakan default nonaktif. Auth/Storage/backup/scheduler nyata dan Android runtime belum diverifikasi.

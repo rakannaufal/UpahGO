@@ -6,7 +6,7 @@ Implementasi lokal 0.1, 17 November 2026. Android first. Belum di-deploy ke laya
 
 React Native 0.88.1, Expo SDK 58, React 19.3, TypeScript 6, Expo Router. Material melalui React Native Paper, ikon Material Symbols SVG lokal, `react-native-maps` untuk Android. PostgreSQL/Supabase Auth untuk identity dan data; Cloudflare Worker + Durable Object untuk gateway dan pembatas. Versi tepat serta dependency transitive dikunci di `package-lock.json`. Node 22 digunakan untuk tooling.
 
-Tidak ada server Next.js/admin, chat internal, payment gateway, push notification, analytics, upload, atau queue offline pada slice ini. Web merupakan preview aplikasi yang sama, dengan peta Leaflet/OSM beratribusi yang dimuat lazy (chunk sekitar 149 KB).
+Tidak ada server Next.js/admin, chat internal, payment gateway, push notification, analytics, atau queue offline pada slice ini. Web merupakan preview aplikasi yang sama, dengan peta Leaflet/OSM beratribusi yang dimuat lazy (chunk sekitar 149 KB).
 
 ## Batas sistem
 
@@ -27,7 +27,7 @@ Auth OAuth/SMS tetap langsung ke Supabase, sehingga tidak tercakup limiter Worke
 
 ## Data dan otorisasi
 
-Migrasi berurutan tanggal 17 November: core, onboarding, location_reviews, discovery_design, work_details_suggestions, profile_photos. Tanggal 18 November: `202611180001_profile_prices.sql`, `202611180002_history_pagination.sql`, `202611180003_account_erasure.sql`. Wrapper berlapis menyimpan implementasi terdahulu di schema privat dengan execute klien dicabut; wrapper publik tetap memvalidasi sesi, gateway, ACL dan input sebelum delegasi.
+Migrasi berurutan tanggal 17 November: core, onboarding, location_reviews, discovery_design, work_details_suggestions, profile_photos. Tanggal 18 November: `202611180001_profile_prices.sql`, `202611180002_history_pagination.sql`, `202611180003_account_erasure.sql`. Tanggal 19 November: `202611190001_media_reconciliation.sql`. Wrapper berlapis menyimpan implementasi terdahulu di schema privat dengan execute klien dicabut; wrapper publik tetap memvalidasi sesi, gateway, ACL dan input sebelum delegasi.
 
 | Entitas | Tujuan |
 | --- | --- |
@@ -42,6 +42,7 @@ Migrasi berurutan tanggal 17 November: core, onboarding, location_reviews, disco
 | notifications | Notifikasi di aplikasi; polling manual/focus, tanpa push |
 | reports, deletion_requests | Laporan privat dan antrean penghapusan dengan lease/retry/progress; operator layanan tetap diperlukan |
 | deletion_policy, deletion_retention | Kebijakan nonaktif secara default, deadline dan hold bukti; hanya server/operator |
+| profile_photos, media_uploads, media_cleanup, media_cleanup_config | Metadata foto, reservasi sebelum upload, antrean lease/retry dan aktivasi runner privat |
 | gateway_config, rate_buckets | Hash secret gateway dan pembatas khusus SQL |
 
 Seluruh tabel berada di schema privat, RLS aktif tanpa policy/grant klien. RPC `SECURITY DEFINER` memakai `search_path=''`, actor dari `auth.uid()`, hak eksekusi authenticated, header gateway yang diverifikasi hash. Helper privat tidak executable oleh klien. Bukan model RLS `USING true` atau kepercayaan pada ownerId klien.
@@ -98,9 +99,11 @@ Fix tepat melewati Worker ke RPC untuk validasi, tanpa penyimpanan/log atau quer
 
 Migrasi 004 discovery_design, 005 work_details_suggestions dan 006 profile_photos melanjutkan 001–003, seluruhnya lokal. Katalog shared JSON/TypeScript adalah kontrak UI/Worker/SQL; allowlist Worker mencakup suggest_job, job_suggestions dan photo_access. Usulan privat pending tidak mengubah katalog aktif. State filter per akun/peran hanya di memori.
 
-Foto melalui `/v1/photo` Worker ke Edge `supabase/functions/profile-photo/handler.ts`. Edge memvalidasi gateway dan getUser; service-role hanya Edge, tidak Worker/mobile. SQL photo_access memeriksa aktor, kota/radius dan blokir sebelum signed URL 60 detik. Pending hanya pemilik. Bucket profile-photos privat dengan RLS/grants; replacement RPC service-only mengunci kepemilikan/path dan mereset status pending. Detail/thumb JPEG dihasilkan ulang dengan ImageMagick WASM, EXIF/GPS dibuang. Native/web membaca bytes menjadi base64 di memori agar signed URL tidak diserahkan ke cache disk Image; ini bukan jaminan seluruh cache OS terhapus.
+Foto melalui `/v1/photo` Worker ke Edge `supabase/functions/profile-photo/handler.ts`. Edge memvalidasi gateway dan getUser; service-role hanya Edge dan runner server, tidak Worker/mobile. SQL photo_access memeriksa aktor, kota/radius dan blokir sebelum signed URL 60 detik. Pending hanya pemilik. Bucket profile-photos privat dengan RLS/grants; replacement RPC service-only mengunci kepemilikan/path dan mereset status pending. Detail/thumb JPEG dihasilkan ulang dengan ImageMagick WASM, EXIF/GPS dibuang. Native/web membaca bytes menjadi base64 di memori agar signed URL tidak diserahkan ke cache disk Image; ini bukan jaminan seluruh cache OS terhapus.
 
-Penggantian/penghapusan lama masuk media_cleanup untuk retry; upload parsial/commit tak pasti membutuhkan orphan sweep operasional. Moderasi manual, retensi dan operator belum siap; rilis foto live tertahan. WASM server pinned/ignored sekitar 15 MB, bukan bundle mobile; photo:prepare menyalinnya sebelum tes/deploy Edge.
+MEDIA-001 mencatat reservasi15 menit sebelum Storage ditulis, lalu memasang metadata setelah detail/thumb berhasil. RPC replacement service-only memerlukan reservasi dan menolak key retired; commit tak pasti tidak menghapus objek inline. Replacement/delete metadata mengantrekan key lama secara transaksional. DELETE202 mengakui antrean, bukan completion fisik. Runner server `shared/media-cleanup.mjs` melalui `media:process` memakai RPC service-only `upahgo_media_admin`; tidak termasuk gateway/mobile. Maintenance terbatas menemukan reservasi kedaluwarsa dan orphan kanonis >1 jam. Claim melindungi metadata/reservasi aktif, lease5 menit, retry/backoff dan verifikasi katalog sebelum completion. Penghapusan menggunakan Storage API; katalog tidak dimutasi SQL.
+
+Runner default nonaktif, terpisah dari kebijakan PRIV. Scheduler/monitoring/provider/restore dan moderasi manual masih memerlukan penerimaan; rilis foto live tertahan. Service credential hanya Edge dan runner server. WASM pinned/ignored sekitar 15 MB, bukan bundle mobile; photo:prepare menyalinnya sebelum tes/deploy Edge. Upgrade harus menjeda write dan memasangkan migrasi dengan Edge baru. [Batas, aktivasi dan pemulihan](docs/MEDIA-CLEANUP.md).
 
 ## Harga profil dan nego, 18 November 2026
 

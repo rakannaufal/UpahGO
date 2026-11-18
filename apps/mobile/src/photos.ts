@@ -22,6 +22,7 @@ export async function photoRequest(
     }
     const query = new URLSearchParams(params);
     return {
+      cleanup: method === "DELETE" ? "simulated" : undefined,
       uri:
         method === "GET" && query.get("id") === api.actor
           ? (api.photos[api.actor + ":" + query.get("role")] ?? null)
@@ -58,7 +59,10 @@ export async function photoRequest(
   const result = await response.json();
   if (!response.ok || result.error)
     throw new Error(result.error ?? "PHOTO_UNAVAILABLE");
-  return result.data as { uri?: string | null };
+  return result.data as {
+    uri?: string | null;
+    cleanup?: "queued" | "simulated";
+  };
 }
 export async function readPhoto(
   api: Api,

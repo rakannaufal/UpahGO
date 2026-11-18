@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import * as magick from "@imagemagick/magick-wasm";
+import { mediaKeyPattern } from "../../../shared/media-cleanup.mjs";
 import {
   processPhoto,
   readBoundedBytes,
@@ -30,8 +31,17 @@ export async function handlePhotoRequest(request: Request): Promise<Response> {
       return reply({ error: "FORBIDDEN" }, 403);
     const token = request.headers.get("Authorization") ?? "";
     const url = Deno.env.get("SUPABASE_URL")!;
+    const boundedFetch: typeof fetch = (input, options) =>
+      fetch(input, {
+        ...options,
+        redirect: "error",
+        signal: AbortSignal.timeout(15000),
+      });
     const client = createClient(url, Deno.env.get("SUPABASE_ANON_KEY")!, {
-      global: { headers: { Authorization: token, "x-upahgo-gateway": secret } },
+      global: {
+        fetch: boundedFetch,
+        headers: { Authorization: token, "x-upahgo-gateway": secret },
+      },
       auth: {
         persistSession: false,
         autoRefreshToken: false,
@@ -64,6 +74,7 @@ export async function handlePhotoRequest(request: Request): Promise<Response> {
       url,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
       {
+        global: { fetch: boundedFetch },
         auth: {
           persistSession: false,
           autoRefreshToken: false,
@@ -99,19 +110,14 @@ export async function handlePhotoRequest(request: Request): Promise<Response> {
     const role = bootstrap.account.role;
     if (!["worker", "employer"].includes(role))
       throw new Error("PHOTO_INVALID");
-    const removeObjects = async (key: string | null) => {
-      if (key) await storage.remove([key + ".jpg", key + "-thumb.jpg"]);
-      // A failed removal remains in media_cleanup for an operator retry.
-    };
     if (request.method === "DELETE") {
-      const { data, error } = await admin.rpc("upahgo_photo_replace", {
+      const { error } = await admin.rpc("upahgo_photo_replace", {
         p_user: auth.user.id,
         p_role: role,
         p_key: null,
       });
       if (error) throw new Error("PHOTO_UNAVAILABLE");
-      await removeObjects(data);
-      return reply({ data: { status: null } });
+      return reply({ data: { status: null, cleanup: "queued" } }, 202);
     }
     if (request.headers.get("Content-Type") !== "image/jpeg")
       throw new Error("PHOTO_INVALID");
@@ -123,7 +129,22 @@ export async function handlePhotoRequest(request: Request): Promise<Response> {
     ).then((bytes) => magick.initializeImageMagick(bytes));
     await initialized;
     const images = processPhoto(magick, bytes);
-    const key = `${auth.user.id}/${role}/${crypto.randomUUID()}`;
+    // Reserve before any bytes are written, so a killed/failed upload is discoverable.
+    const { data: reservation, error: reserveError } = await admin.rpc(
+      "upahgo_media_admin",
+      {
+        p_action: "reserve",
+        p_args: { userId: auth.user.id, role },
+      },
+    );
+    const key = reservation?.key;
+    if (
+      reserveError ||
+      typeof key !== "string" ||
+      !mediaKeyPattern.test(key) ||
+      !key.startsWith(`${auth.user.id}/${role}/`)
+    )
+      throw new Error("PHOTO_UNAVAILABLE");
     for (const [suffix, data] of [
       [".jpg", images.detail],
       ["-thumb.jpg", images.thumb],
@@ -135,14 +156,13 @@ export async function handlePhotoRequest(request: Request): Promise<Response> {
       });
       if (error) throw new Error("PHOTO_UNAVAILABLE");
     }
-    const { data: previous, error } = await admin.rpc("upahgo_photo_replace", {
+    const { error } = await admin.rpc("upahgo_photo_replace", {
       p_user: auth.user.id,
       p_role: role,
       p_key: key,
     });
-    // Uncertain commits never delete the new key. Orphan sweep handles failed uploads.
+    // Cleanup owns removals; an uncertain commit must never delete a possibly active key.
     if (error) throw new Error("PHOTO_UNAVAILABLE");
-    await removeObjects(previous);
     return reply({ data: { status: "pending" } });
   } catch (error) {
     const allowed = [

@@ -28,7 +28,7 @@ Cloudflare Worker tidak melindungi endpoint Auth Supabase secara otomatis. Konfi
 
 ### Migrasi dan area
 
-Tinjau migrasi berurutan `supabase/migrations/202611170001_core.sql`, `202611170002_onboarding.sql`, `202611170003_location_reviews.sql`, `202611170004_discovery_design.sql`, `202611170005_work_details_suggestions.sql`, `202611170006_profile_photos.sql`, lalu `202611180001_profile_prices.sql`. Backup bila database berisi data, terapkan berurutan melalui proses migrasi staging. Migrasi belum dijalankan remote pada pekerjaan ini; isi database remote tidak diperiksa. Jangan menerapkan ulang sebagai script idempoten.
+Tinjau migrasi berurutan `supabase/migrations/202611170001_core.sql`, `202611170002_onboarding.sql`, `202611170003_location_reviews.sql`, `202611170004_discovery_design.sql`, `202611170005_work_details_suggestions.sql`, `202611170006_profile_photos.sql`, lalu `202611180001_profile_prices.sql`, `202611180002_history_pagination.sql`, `202611180003_account_erasure.sql`, `202611190001_media_reconciliation.sql`. Backup bila database berisi data, terapkan berurutan melalui proses migrasi staging. Migrasi belum dijalankan remote pada pekerjaan ini; isi database remote tidak diperiksa. Jangan menerapkan ulang sebagai script idempoten.
 
 Skema `upahgo_private` harus tidak termasuk daftar exposed schemas PostgREST. Klien `authenticated` hanya mendapat execute pada `public.upahgo_action(text,jsonb)`. Helper `public.upahgo_photo_replace` hanya dapat dijalankan service-role Edge, bukan klien authenticated/anon. Tidak ada service-role key di Worker/aplikasi.
 
@@ -75,11 +75,11 @@ Tile standar OSM memberi geografi aktual pada preview web, atribusi tetap terlih
 
 ## Foto privat: persiapan staging, belum dijalankan
 
-1. Tinjau dan terapkan berurutan 001–006 tanggal 17 November, lalu `202611180001_profile_prices.sql`, pada staging terotorisasi. Backup/restore dan grants harus ditinjau. Enam tag lama tetap live; katalog 128/16 tidak berarti semua kategori diaktifkan.
+1. Tinjau seluruh urutan migrasi di atas hingga MEDIA-001 pada staging terotorisasi. Jeda write foto, terapkan migrasi lalu Edge yang memakai reservasi sebelum membuka write; Edge lama tidak kompatibel dengan commit baru. Backup/restore dan grants harus ditinjau. Enam tag lama tetap live; katalog 128/16 tidak berarti semua kategori diaktifkan.
 2. Siapkan bucket privat profile-photos dan pastikan RLS/grants migrasi 006, ownership replacement RPC service-only serta penolakan lintas akun/kota/blokir berlaku pada Supabase nyata.
 3. Edge memakai secret server `UPAHGO_GATEWAY_SECRET` yang sama dengan gateway Worker; built-in `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` hanya pada environment Edge. Jangan menyalin service key ke Worker/mobile. `supabase/config.toml` mempertahankan verify_jwt=true dan static_files WASM. Uji kompatibilitas JWT/Auth staging sebelum layanan dibuka.
 4. Jalankan photo:prepare sebelum tes/deploy Edge agar magick.wasm tersedia, tinjau deno.lock, lalu uji gateway, getUser, decoder, storage, signed URL dan limiter end-to-end dengan data sintetis. Deployment memerlukan otorisasi terpisah; tidak dilakukan di sini.
-5. Tetapkan operator moderasi manual, kriteria approve/reject, retensi, retry media_cleanup dan orphan sweep (termasuk upload parsial/commit tak pasti). Uji penggantian/hapus, logout/blokir dan penghapusan akun. Kebijakan privasi publik harus menjelaskan galeri, foto tempat, pending, akses singkat serta metadata vendor.
+5. Tetapkan operator moderasi manual, kriteria approve/reject dan retensi. Runner MEDIA-001 tersedia source, default nonaktif; aktivasi, scheduler, alarm, retry, sweep dan restore mengikuti [MEDIA-CLEANUP.md](MEDIA-CLEANUP.md). Uji upload parsial/commit tak pasti, foto aktif/in-flight, penggantian/hapus202, logout/blokir dan overlap penghapusan akun. Kebijakan privasi publik harus menjelaskan galeri, foto tempat, pending, antrean penghapusan, akses singkat serta metadata vendor.
 6. Rollback klien/gateway secara kompatibel; hentikan write baru bila layanan bermasalah, pertahankan skema/objek sampai rekonsiliasi dan backup selesai. Rotasi gateway harus mengoordinasikan SQL hash, Worker dan Edge. Jangan drop tabel/bucket atau menghapus data produksi otomatis.
 
 Foto live tetap tertahan sampai operasi tersebut siap; screenshot pending dan tes mock tidak membuktikan layanan moderasi/storage remote. Audit high tooling terbaru juga perlu disposition sebelum rilis, lihat [TESTING.md](../TESTING.md).
