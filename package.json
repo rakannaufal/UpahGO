@@ -17,6 +17,8 @@
     "lint": "eslint apps/mobile --max-warnings 0",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "test:db": "node scripts/test-db.mjs",
+    "privacy:process": "node scripts/process-deletions.mjs",
+    "privacy:ledger": "node scripts/deletion-ledger.mjs",
     "test:web": "playwright test",
     "build:web": "npm run build:web --workspace apps/mobile",
     "build:android": "npm run build:android --workspace apps/mobile",

@@ -35,7 +35,7 @@ createdb upahgo_test_core
 TEST_DATABASE_URL=postgresql://localhost/upahgo_test_core npm run test:db
 ```
 
-Tes membuat shim `auth.users` dan `auth.uid()`, role `anon`/`authenticated`, migrasi, dan data sintetis. Ini memverifikasi SQL, bukan layanan Auth/PostgREST/SMS Supabase yang sebenarnya. Tidak membutuhkan Docker.
+Tes membuat shim `auth.users` dan `auth.uid()`, role `anon`/`authenticated`/`service_role`, migrasi, dan data sintetis. Ini memverifikasi SQL, bukan layanan Auth/PostgREST/SMS Supabase yang sebenarnya. Tidak membutuhkan Docker.
 
 ## Pemeriksaan
 
@@ -73,6 +73,8 @@ Migrasi lokal tambahan: `202611180002_history_pagination.sql`, sesudah migrasi h
 Rollback staging: kembalikan klien dan allowlist Worker sebelumnya dahulu, lalu jalankan `supabase/rollbacks/202611180002_history_pagination.sql` dalam satu transaksi (`psql --single-transaction`). Script hanya mengembalikan RPC lama; data tidak dihapus, tetapi bug CORE-001 kembali. Migrasi ini diuji lokal saja; backup dan latihan pemulihan cloud tetap wajib sebelum rilis.
 
 ## Tes Edge foto lokal
+
+PRIV-001 menambah `202611180003_account_erasure.sql` setelah migrasi riwayat. `test:db` menjalankan fixture `scripts/test-deletion.mjs` dalam transaksi rollback; `npm test` mencakup processor/ledger dengan Storage/Auth sintetis dan filesystem sementara. CLI `privacy:process` dan `privacy:ledger` hanya untuk lingkungan yang diotorisasi dengan secret server, tidak memuat `.env` mobile. Kebijakan default nonaktif; [runbook dan batas](ACCOUNT-DELETION.md). Jangan menjalankan rollback CORE/harga di bawah wrapper PRIV; pause runner/kebijakan, perbaiki maju.
 
 Node 22.x; siapkan dependency lockfile proyek. Jalankan `npm run photo:prepare`, lalu `npm run test:photo-edge` dengan Deno 2 tersedia. `DENO_DIR` boleh diatur lokal bila diperlukan; tidak ada path host wajib. Prepare menyalin WASM pinned ke folder Edge yang diabaikan Git; bukan aset aplikasi mobile. Tes memakai decoder WASM asli dan upstream sintetis, tidak menyentuh Supabase remote. CI menyiapkan Deno melalui setup-deno@v2 dan menjalankan prepare/test; workflow belum dieksekusi remote.
 

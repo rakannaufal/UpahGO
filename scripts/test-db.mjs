@@ -2,6 +2,7 @@ import pg from "pg";
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { testHistory } from "./test-history.mjs";
+import { testDeletion } from "./test-deletion.mjs";
 const url = process.env.TEST_DATABASE_URL;
 if (!url || !/^upahgo_test/.test(new URL(url).pathname.slice(1)))
   throw new Error(
@@ -9,8 +10,8 @@ if (!url || !/^upahgo_test/.test(new URL(url).pathname.slice(1)))
   );
 const db = new pg.Client({ connectionString: url });
 await db.connect();
-await db.query(`drop schema if exists upahgo_private cascade; drop schema if exists auth cascade; drop function if exists public.upahgo_action(text,jsonb); drop function if exists public.upahgo_photo_replace(uuid,text,text);
- do $$ begin if not exists(select 1 from pg_roles where rolname='anon') then create role anon; end if; if not exists(select 1 from pg_roles where rolname='authenticated') then create role authenticated; end if; end $$;
+await db.query(`drop schema if exists upahgo_private cascade; drop schema if exists auth cascade; drop function if exists public.upahgo_action(text,jsonb); drop function if exists public.upahgo_photo_replace(uuid,text,text); drop function if exists public.upahgo_deletion_admin(text,jsonb);
+ do $$ begin if not exists(select 1 from pg_roles where rolname='anon') then create role anon; end if; if not exists(select 1 from pg_roles where rolname='authenticated') then create role authenticated; end if; if not exists(select 1 from pg_roles where rolname='service_role') then create role service_role; end if; end $$;
  create schema auth; create table auth.users(id uuid primary key, phone text, phone_confirmed_at timestamptz);
  create function auth.uid() returns uuid language sql stable as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;`);
 const migrationDir = new URL("../supabase/migrations/", import.meta.url);
@@ -50,6 +51,7 @@ await db.query(
 );
 let count = 0;
 count += await testHistory(db, secret);
+count += await testDeletion(db, secret);
 const pekanbaru = JSON.parse(
   await readFile(new URL("../shared/pekanbaru.json", import.meta.url), "utf8"),
 );
@@ -371,6 +373,7 @@ const batchIds = Array.from(
   { length: 45 },
   (_, i) => `88888888-8888-4888-8888-${String(i + 1).padStart(12, "0")}`,
 );
+await db.query("begin");
 for (let i = 0; i < batchIds.length; i++) {
   await db.query("insert into auth.users(id) values($1)", [batchIds[i]]);
   await db.query(
@@ -403,7 +406,7 @@ assert.equal(pageOne.length, 40);
 assert.equal(pageTwo.length, 7);
 assert.equal(new Set([...pageOne, ...pageTwo].map((p) => p.id)).size, 47);
 count++;
-await db.query("delete from auth.users where id=any($1::uuid[])", [batchIds]);
+await db.query("rollback");
 await db.query("delete from upahgo_private.rate_buckets");
 
 await denied(ids[0], "visibility", {}, "INVALID_INPUT");

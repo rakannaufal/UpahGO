@@ -2,6 +2,10 @@
 
 18 November 2026. Lingkup: implementasi lokal, data sintetis. **Belum lulus rilis Android atau layanan live.** Tidak ada migrasi remote, deployment, login Google nyata, SMS, pesan WhatsApp atau pembayaran nyata dilakukan.
 
+## Remediasi PRIV-001
+
+18–19 November: 39 unit dan 240 assertion SQL lokal lulus. 18 skenario browser existing lulus pada suite terakhir; dua regresi PRIV lulus pada run final terarah (10,4 detik). Fixture GPS/logout diperbaiki, bug keyboard consent sudah ditutup dengan regresi Spasi/Enter. Typecheck/lint, ekspor web/Hermes final, Worker dry-run dan pemeriksaan pola secret106 file lulus. [Bukti, Delivery Gate dan batas produksi](audits/2026-11-18-production/remediation/priv-001/README.md). Finalizer/retensi/ledger tersedia source, kebijakan default nonaktif. Auth/Storage/backup/scheduler nyata dan Android runtime belum diverifikasi.
+
 ## Remediasi CORE-001
 
 Baseline Git proyek `9952922` sudah diunggah ke `origin/main`. Branch perbaikan `codex/fix-core-001` menambahkan detail kontak/kesepakatan berdasarkan ID, cursor pagination100 dan filter server; belum diterapkan ke layanan remote. Typecheck/lint lulus, 31 unit, 189 assertion PostgreSQL dan 18 tes Chrome lulus. Export web/Hermes, Worker dry-run, 1 tes Deno Edge dan pemeriksaan pola secret juga lulus. Rollback RPC diuji secara transaksional dengan data tetap utuh. [Bukti, gate UI dan batas](audits/2026-11-18-production/remediation/core-001/README.md). Android nyata, staging/cloud dan temuan audit lain tetap terbuka.

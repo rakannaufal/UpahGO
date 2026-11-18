@@ -26,3 +26,5 @@ credentials.json
 !.dev.vars.example
 .wrangler/
 supabase/functions/profile-photo/magick.wasm
+privacy-ledger*.json
+privacy-ledger*.json.tmp

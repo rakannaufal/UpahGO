@@ -27,7 +27,7 @@ Auth OAuth/SMS tetap langsung ke Supabase, sehingga tidak tercakup limiter Worke
 
 ## Data dan otorisasi
 
-Migrasi berurutan tanggal 17 November: core, onboarding, location_reviews, discovery_design, work_details_suggestions, profile_photos. Tanggal 18 November: `202611180001_profile_prices.sql`, lalu `202611180002_history_pagination.sql`. Migrasi kedua memindahkan fungsi lama ke `upahgo_private.core_action` dan mencabut execute klien; wrapper publik tetap memvalidasi sesi, gateway, ACL dan input sebelum delegasi.
+Migrasi berurutan tanggal 17 November: core, onboarding, location_reviews, discovery_design, work_details_suggestions, profile_photos. Tanggal 18 November: `202611180001_profile_prices.sql`, `202611180002_history_pagination.sql`, `202611180003_account_erasure.sql`. Wrapper berlapis menyimpan implementasi terdahulu di schema privat dengan execute klien dicabut; wrapper publik tetap memvalidasi sesi, gateway, ACL dan input sebelum delegasi.
 
 | Entitas | Tujuan |
 | --- | --- |
@@ -40,12 +40,15 @@ Migrasi berurutan tanggal 17 November: core, onboarding, location_reviews, disco
 | blocks | Larangan melihat/menghubungi dua arah dari satu blokir |
 | agreements | Tugas, total upah, jadwal, peran saat kesepakatan dibuat, status hasil/COD |
 | notifications | Notifikasi di aplikasi; polling manual/focus, tanpa push |
-| reports, deletion_requests | Catatan masuk untuk penanganan operator yang masih perlu dibuat |
+| reports, deletion_requests | Laporan privat dan antrean penghapusan dengan lease/retry/progress; operator layanan tetap diperlukan |
+| deletion_policy, deletion_retention | Kebijakan nonaktif secara default, deadline dan hold bukti; hanya server/operator |
 | gateway_config, rate_buckets | Hash secret gateway dan pembatas khusus SQL |
 
 Seluruh tabel berada di schema privat, RLS aktif tanpa policy/grant klien. RPC `SECURITY DEFINER` memakai `search_path=''`, actor dari `auth.uid()`, hak eksekusi authenticated, header gateway yang diverifikasi hash. Helper privat tidak executable oleh klien. Bukan model RLS `USING true` atau kepercayaan pada ownerId klien.
 
 ## Kontrak dan konsistensi
+
+PRIV-001 menambah runner server `shared/account-erasure.mjs` melalui CLI `privacy:process`, terpisah dari gateway/mobile. RPC `upahgo_deletion_admin` service-only mengelola lease/retry, pseudonimisasi relasi, retensi/hold dan replay ledger; tidak termasuk allowlist operasi pengguna. `profiles.auth_user_id=id` mengikat profil aktif ke Auth, sedangkan surrogate yang sudah disanitasi tidak memiliki Auth. Trigger menolak penghapusan Auth aplikasi sebelum prepare; Storage dikuras sebelum Auth dan diperiksa ulang setelah satu jam. Ledger filesystem privat disimpan sebelum ack, harus berada di penyimpanan terenkripsi yang independen dari restore DB. Kebijakan default nonaktif, scheduler belum dibuat. [Urutan operasi, data yang dipertahankan dan batas restore](docs/ACCOUNT-DELETION.md).
 
 `shared/contracts.ts` memuat tipe serta nama operasi. `scripts/worker-contract.mjs` menghasilkan allowlist untuk Worker. Hasil live dan demo dipisahkan; demo tidak ditulis ke database. Identitas akun membatasi pembacaan kontak, notifikasi, dan kesepakatan. Pergantian akun membersihkan state UI; hasil refresh lama diabaikan dengan generation guard.
 

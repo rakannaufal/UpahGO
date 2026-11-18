@@ -21,13 +21,22 @@ function Content() {
   const state = useSession();
   const task = useTask();
   const [consent, setConsent] = useState(false);
+  const policy = state.data?.deletionPolicy;
   return (
     <Page title="Penghapusan akun" back form>
       <Text variant="titleLarge">Ajukan penghapusan?</Text>
       <Text style={s.body}>
-        Penanda peta dimatikan dan izin kontak dicabut. Data belum langsung
-        dihapus; permintaan memerlukan penanganan operator.
+        Akun dibatasi, penanda peta dimatikan, dan izin kontak dicabut.
+        Identitas, lokasi, foto, dan akses masuk diproses untuk dihapus. Catatan
+        kerja dan pembayaran milik kedua pihak tetap dilindungi.
       </Text>
+      <Note>
+        {state.demo
+          ? "Ini simulasi. Tidak ada akun atau data nyata yang dihapus."
+          : policy?.enabled
+            ? `Rincian kerja dan komentar ulasan dapat disimpan ${policy.workDays} hari, laporan ${policy.reportDays} hari. Penahanan bukti sengketa dapat memperpanjang retensi. Catatan transaksi minimum tetap ada di riwayat peserta lain. Salinan backup menunggu kedaluwarsa hingga ${policy.backupDays} hari. Permintaan belum berarti semua data terhapus.`
+            : "Pemrosesan penghapusan produksi belum diaktifkan. Kebijakan retensi masih memerlukan peninjauan; permintaan belum berarti data sudah terhapus."}
+      </Note>
       <Consent
         checked={consent}
         onChange={() => setConsent(!consent)}

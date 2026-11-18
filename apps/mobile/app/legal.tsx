@@ -30,8 +30,11 @@ export default function Legal() {
       <Text style={s.section}>Penghapusan akun</Text>
       <Text style={s.body}>
         Permintaan penghapusan membatasi akun, mematikan penanda peta, dan
-        mencabut izin kontak. Data belum langsung dihapus; penanganan operator
-        masih diperlukan.
+        mencabut izin kontak. Identitas, lokasi, foto, dan akses masuk diproses
+        terpisah dari catatan kerja dan bukti sengketa. Catatan bersama dapat
+        disimpan terbatas sesuai kebijakan retensi. Saat layanan belum
+        diaktifkan, permintaan menunggu pemrosesan. Permintaan belum berarti
+        seluruh data terhapus, termasuk salinan backup.
       </Text>
     </Page>
   );

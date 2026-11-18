@@ -43,6 +43,7 @@ await scan("workers");
 await scan("shared");
 await scan("docs");
 await scan("supabase");
+await scan("scripts");
 if (hits.length) {
   console.error("Potential credential patterns in:", hits);
   process.exitCode = 1;

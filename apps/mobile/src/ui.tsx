@@ -19,6 +19,7 @@ import {
   Pressable,
   RefreshControl,
   Image,
+  type KeyDownEvent,
 } from "react-native";
 import {
   ActivityIndicator,
@@ -544,6 +545,17 @@ export function Consent({
       disabled={disabled}
       aria-checked={checked}
       onPress={onChange}
+      {...(Platform.OS === "web"
+        ? {
+            // React Native Web handles Space for buttons, but not checkbox roles.
+            onKeyDown: (event: KeyDownEvent) => {
+              if (event.nativeEvent.key === " " && !disabled) {
+                event.preventDefault();
+                if (!event.nativeEvent.repeat) onChange();
+              }
+            },
+          }
+        : {})}
       style={{ borderRadius: 10 }}
     >
       <View

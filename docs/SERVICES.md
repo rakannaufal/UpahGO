@@ -59,7 +59,7 @@ Isi `GOOGLE_MAPS_ANDROID_API_KEY` pada environment build. Tanpa key, aplikasi me
 
 ## Rilis belum terbuka
 
-Tentukan operator pengaduan/penghapusan, retensi, kontak bantuan, privacy policy dan URL penghapusan publik, verifikasi kebijakan Play, signing, dan uji perangkat Android. Penghapusan saat ini hanya permintaan + pembatasan akses; belum penghapusan otomatis. Tidak ada escrow/jaminan pembayaran. Rilis publik tetap tertahan sampai kebutuhan ini selesai.
+Tentukan operator pengaduan/penghapusan, retensi, kontak bantuan, privacy policy dan URL penghapusan publik, verifikasi kebijakan Play, signing, dan uji perangkat Android. Finalizer PRIV-001 tersedia lokal dan nonaktif; aktivasi, scheduler, ledger independen, backup expiry serta restore drill mengikuti [ACCOUNT-DELETION.md](ACCOUNT-DELETION.md). Permintaan tetap hanya pembatasan hingga layanan tersebut diaktifkan. Tidak ada escrow/jaminan pembayaran. Rilis publik tetap tertahan sampai kebutuhan ini selesai.
 
 ## Koordinasi rilis onboarding
 

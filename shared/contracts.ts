@@ -134,6 +134,13 @@ export type Account = {
   location: DiscoveryLocation | null;
 };
 export type Bootstrap = {
+  deletionPolicy?: {
+    enabled: boolean;
+    version: string;
+    workDays: number;
+    reportDays: number;
+    backupDays: number;
+  };
   account: Account;
   profile: Profile | null;
   areas: Area[];

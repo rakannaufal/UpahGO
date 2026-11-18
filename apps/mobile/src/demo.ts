@@ -306,6 +306,10 @@ export class DemoApi implements Api {
         tags: demoTags,
         city: account.location ? demoCity : null,
       };
+    if (op === "request_deletion" && account.status === "deletion_requested") {
+      if (a.confirm !== true) throw new Error("CONSENT_REQUIRED");
+      return { ok: true };
+    }
     if (account.status !== "active") throw new Error("ACCOUNT_RESTRICTED");
     if (op === "onboarding") {
       if (a.step === "intro") account.introSeen = true;

@@ -32,7 +32,7 @@ Panduan lengkap: [Pengembangan](docs/DEVELOPMENT.md), [Konfigurasi Google/Supaba
 - Permintaan, persetujuan/penolakan/pencabutan izin kontak. WhatsApp dibuka manual sesudah izin server; demo hanya simulasi.
 - Proposal tugas/jadwal/upah, penerimaan pihak lain, pemeriksaan hasil, pengakuan uang tunai oleh pekerja secara terpisah.
 - Penilaian kedua pihak setelah kesepakatan selesai, terpisah dari pengakuan COD.
-- Notifikasi dalam aplikasi, blokir, pengiriman laporan, permintaan penghapusan. Penanganan operator dan penghapusan tuntas belum dibangun.
+- Notifikasi dalam aplikasi, blokir, pengiriman laporan, permintaan penghapusan. Finalizer akun/Auth/Storage dan retensi tersedia lokal, nonaktif sampai kebijakan disetujui; [runbook](docs/ACCOUNT-DELETION.md). Operator dan penerimaan cloud belum tersedia.
 
 Publikasi lowongan/lamaran terpisah, chat internal, wallet/escrow, push, admin web tidak ditambahkan pada slice ini. `SCREENS.md` tetap katalog rancangan yang lebih luas, bukan daftar fitur selesai.
 

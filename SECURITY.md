@@ -13,7 +13,7 @@ Kontrol implementasi 0.1 lokal, 17 November 2026. Threat assessment terarah pada
 | Akses data | Baca/edit object pengguna lain, bypass Worker | Schema privat, RLS tanpa grants/policies klien, RPC gateway-only, actor auth.uid(), checks server, privileges helper dicabut | Harus diverifikasi ulang pada staging Supabase/PostgREST sesungguhnya |
 | Upah dan status | Pemalsuan upah, double-submit, mengaku sudah dibayar | Upah integer berbatas, proposal diterima pihak lain, row locks, unique active agreement, pekerja sendiri mengakui uang setelah hasil selesai | COD bukan escrow atau jaminan; sengketa perlu operator |
 | API / SMS | Spam, body besar, habis kuota, retry write | Worker limiter persisten per IP/actor, batas body streaming 16 KiB, allowlist operation/fields, SQL limiter khusus, timeout | Auth/SMS langsung Supabase, belum dilindungi Turnstile, provider/kuota belum aktif |
-| Laporan/penghapusan | Laporan sensitif tersebar, permintaan terbengkalai | Data privat, peserta berizin, deletion membatasi akun dan mencabut presence/grant | Operator, retention, final deletion, SLA/bantuan belum tersedia |
+| Laporan/penghapusan | Salah target, kehilangan bukti COD, akun muncul setelah restore | Akun dibatasi, finalizer service-only dengan lease/retry, relasi pseudonim, Storage sebelum Auth, ledger/replay | Kebijakan nonaktif; operator, backup/restore, staging, SLA/bantuan belum diterima |
 
 ## Aturan penting
 
@@ -39,6 +39,8 @@ Nego tidak memberi izin kontak atau menerima pekerjaan. Editor hanya memakai kon
 Tes SQL lokal memeriksa isolasi peran/pemilik, invalid type/range, partial update, rollback, body besar, gateway salah dan penolakan akses tabel/helper. Ini memakai Auth shim, belum membuktikan Supabase staging. Harga mengikuti pembatasan akun; cascade penghapusan Auth disiapkan, retensi dan penghapusan tuntas tetap membutuhkan operasi layanan.
 
 ## Konfigurasi dan insiden
+
+PRIV-001 menambah batas kepercayaan operator/runner: `service_role` hanya di server, RPC tidak executable oleh pengguna/anon, target diambil dari job berizin. Lease/lock membatasi pemrosesan ganda, kegagalan Storage menahan Auth, SQL memverifikasi baris Auth hilang. Relasi dipseudonimkan agar upah/COD lawan tetap utuh; free text/komentar/laporan mengikuti retensi dan hold privat, bukan anonimitas permanen. Ledger UUID privat 0600 disinkronkan sebelum ack, ditolak jika symlink/format salah; replay mengantrekan kembali seluruh UUID termasuk Auth yang sudah hilang untuk menangani restore Storage terpisah. Jangan log ledger/PII. Kebijakan nonaktif sampai disetujui; expiry backup dan durable offsite tidak dibuktikan oleh fsync lokal. [Threat assessment, bukti dan syarat produksi](audits/2026-11-18-production/remediation/priv-001/README.md).
 
 Lihat [SERVICES.md](docs/SERVICES.md) untuk Google, Phone, Maps, Cloudflare, provisioning hash, dan pemisahan staging/production. Worker request logging/observability dinonaktifkan; jangan menambahkan log Authorization, OTP, nomor, body pribadi, atau URL callback berisi code. Cloud provider masih dapat memproses metadata transport sesuai kebijakannya.
 
