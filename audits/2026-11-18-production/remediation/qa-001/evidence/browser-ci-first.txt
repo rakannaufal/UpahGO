@@ -1,0 +1,275 @@
+##[group]Run npm run test:web
+npm run test:web
+shell: /usr/bin/bash -e {0}
+##[endgroup]
+
+> upahgo@0.1.0 test:web
+> playwright test
+
+
+Running 63 tests using 1 worker
+
+  ✓   1 [chromium] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (2.6s)
+  ✓   2 [chromium] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (2.5s)
+  ✓   3 [chromium] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (5.5s)
+  ✓   4 [chromium] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (22.7s)
+  ✓   5 [chromium] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (7.9s)
+  ✓   6 [chromium] › tests/web/core.spec.ts:118:1 › catalog search and private Other suggestion preserve deferred category boundaries (6.5s)
+  ✓   7 [chromium] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map (11.6s)
+  ✓   8 [chromium] › tests/web/core.spec.ts:306:1 › bilateral contact, separate COD, both participants rate completed work (16.9s)
+  ✓   9 [chromium] › tests/web/core.spec.ts:410:1 › profile validation, draft guard, role history and visibility (9.1s)
+  ✓  10 [chromium] › tests/web/core.spec.ts:472:1 › reporting, blocking, populated history, privacy and deletion (13.0s)
+  ✓  11 [chromium] › tests/web/core.spec.ts:544:1 › responsive rail, keyboard, reduced motion and invalid callback (5.8s)
+  ✓  12 [chromium] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (3.9s)
+  ✓  13 [chromium] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (3.9s)
+  ✓  14 [chromium] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (6.6s)
+  ✓  15 [chromium] › tests/web/location.spec.ts:70:1 › live GPS permission rejection, inaccurate fix and successful retry (2.1s)
+  ✓  16 [chromium] › tests/web/location.spec.ts:141:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (2.4s)
+  ✓  17 [chromium] › tests/web/location.spec.ts:181:1 › GPS outside supported city never falls back to a different location (1.9s)
+  ✓  18 [chromium] › tests/web/location.spec.ts:209:1 › map tile failure keeps approximate markers and list usable (4.7s)
+  ✓  19 [chromium] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (3.5s)
+  ✓  20 [chromium] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (20.0s)
+  ✓  21 [chromium] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (25.2s)
+  ✓  22 [firefox] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (3.1s)
+  ✓  23 [firefox] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (2.6s)
+  ✓  24 [firefox] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (5.4s)
+  ✓  25 [firefox] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (19.1s)
+  ✓  26 [firefox] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (7.8s)
+  ✓  27 [firefox] › tests/web/core.spec.ts:118:1 › catalog search and private Other suggestion preserve deferred category boundaries (5.8s)
+  ✓  28 [firefox] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map (12.0s)
+  ✓  29 [firefox] › tests/web/core.spec.ts:306:1 › bilateral contact, separate COD, both participants rate completed work (18.5s)
+  ✓  30 [firefox] › tests/web/core.spec.ts:410:1 › profile validation, draft guard, role history and visibility (8.6s)
+  ✓  31 [firefox] › tests/web/core.spec.ts:472:1 › reporting, blocking, populated history, privacy and deletion (12.1s)
+  ✘  32 [firefox] › tests/web/core.spec.ts:544:1 › responsive rail, keyboard, reduced motion and invalid callback (5.2s)
+  ✘  33 [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (7.2s)
+  ✘  34 [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (7.3s)
+  ✓  35 [firefox] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (7.6s)
+  ✓  36 [firefox] › tests/web/location.spec.ts:70:1 › live GPS permission rejection, inaccurate fix and successful retry (3.0s)
+  ✘  37 [firefox] › tests/web/location.spec.ts:141:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (7.4s)
+  ✘  38 [firefox] › tests/web/location.spec.ts:181:1 › GPS outside supported city never falls back to a different location (8.7s)
+  ✓  39 [firefox] › tests/web/location.spec.ts:209:1 › map tile failure keeps approximate markers and list usable (5.7s)
+  ✘  40 [firefox] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (6.4s)
+  ✓  41 [firefox] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (23.9s)
+  ✓  42 [firefox] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (27.4s)
+  ✓  43 [webkit] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (5.0s)
+  ✓  44 [webkit] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (3.5s)
+  ✓  45 [webkit] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (6.5s)
+  ✓  46 [webkit] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (22.2s)
+  ✓  47 [webkit] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (9.2s)
+  ✓  48 [webkit] › tests/web/core.spec.ts:118:1 › catalog search and private Other suggestion preserve deferred category boundaries (6.1s)
+  ✓  49 [webkit] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map (12.1s)
+  ✓  50 [webkit] › tests/web/core.spec.ts:306:1 › bilateral contact, separate COD, both participants rate completed work (17.7s)
+  ✓  51 [webkit] › tests/web/core.spec.ts:410:1 › profile validation, draft guard, role history and visibility (9.3s)
+  ✓  52 [webkit] › tests/web/core.spec.ts:472:1 › reporting, blocking, populated history, privacy and deletion (11.9s)
+  ✓  53 [webkit] › tests/web/core.spec.ts:544:1 › responsive rail, keyboard, reduced motion and invalid callback (6.0s)
+  ✓  54 [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (3.5s)
+  ✓  55 [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (3.5s)
+  ✓  56 [webkit] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (7.3s)
+  ✓  57 [webkit] › tests/web/location.spec.ts:70:1 › live GPS permission rejection, inaccurate fix and successful retry (2.7s)
+  ✓  58 [webkit] › tests/web/location.spec.ts:141:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (3.7s)
+  ✓  59 [webkit] › tests/web/location.spec.ts:181:1 › GPS outside supported city never falls back to a different location (2.2s)
+  ✓  60 [webkit] › tests/web/location.spec.ts:209:1 › map tile failure keeps approximate markers and list usable (5.3s)
+  ✓  61 [webkit] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (4.2s)
+  ✓  62 [webkit] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (21.3s)
+  ✓  63 [webkit] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (26.5s)
+
+
+  1) [firefox] › tests/web/core.spec.ts:544:1 › responsive rail, keyboard, reduced motion and invalid callback
+
+    Error: expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not "none"
+
+      566 |     width: getComputedStyle(document.activeElement!).outlineWidth,
+      567 |   }));
+    > 568 |   expect(focus.style).not.toBe("none");
+          |                           ^
+      569 |   expect(parseFloat(focus.width)).toBeGreaterThan(0);
+      570 |   await p.goto("/auth/callback?code=invalid-synthetic-code");
+      571 |   await expect(
+        at /home/runner/work/UpahGO/UpahGO/tests/web/core.spec.ts:568:27
+
+    Error Context: test-results/core-responsive-rail-keybo-0cc9d-motion-and-invalid-callback-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/core-responsive-rail-keybo-0cc9d-motion-and-invalid-callback-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/core-responsive-rail-keybo-0cc9d-motion-and-invalid-callback-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('page-Beranda')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('page-Beranda') with timeout 5000ms
+      - waiting for getByTestId('page-Beranda')
+
+
+      104 |     await page.goto("/");
+      105 |     await button("Masuk dengan Google").click();
+    > 106 |     await expect(page.getByTestId("page-Beranda")).toBeVisible();
+          |                                                    ^
+      107 |     await page.getByRole("tab", { name: "Akun", exact: true }).click();
+      108 |     await button("Ketentuan dan privasi").click();
+      109 |     await expect(
+        at /home/runner/work/UpahGO/UpahGO/tests/web/deletion.spec.ts:106:52
+
+    Error Context: test-results/deletion-account-erasure-p-cdb17-nest-copy-consent-and-retry-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/deletion-account-erasure-p-cdb17-nest-copy-consent-and-retry-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/deletion-account-erasure-p-cdb17-nest-copy-consent-and-retry-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('page-Beranda')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('page-Beranda') with timeout 5000ms
+      - waiting for getByTestId('page-Beranda')
+
+
+      104 |     await page.goto("/");
+      105 |     await button("Masuk dengan Google").click();
+    > 106 |     await expect(page.getByTestId("page-Beranda")).toBeVisible();
+          |                                                    ^
+      107 |     await page.getByRole("tab", { name: "Akun", exact: true }).click();
+      108 |     await button("Ketentuan dan privasi").click();
+      109 |     await expect(
+        at /home/runner/work/UpahGO/UpahGO/tests/web/deletion.spec.ts:106:52
+
+    Error Context: test-results/deletion-account-erasure-p-5a52d-nest-copy-consent-and-retry-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/deletion-account-erasure-p-5a52d-nest-copy-consent-and-retry-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/deletion-account-erasure-p-5a52d-nest-copy-consent-and-retry-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [firefox] › tests/web/location.spec.ts:141:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('page-Beranda')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('page-Beranda') with timeout 5000ms
+      - waiting for getByTestId('page-Beranda')
+
+
+      158 |   await expect(button(page, "Aktifkan lokasi")).toBeVisible();
+      159 |   await button(page, "Aktifkan lokasi").click();
+    > 160 |   await expect(page.getByTestId("page-Beranda")).toBeVisible();
+          |                                                  ^
+      161 |   await button(page, "Lokasi dan radius").click();
+      162 |   await page.getByRole("radio", { name: "3 km", exact: true }).check();
+      163 |   await button(page, "Terapkan").click();
+        at /home/runner/work/UpahGO/UpahGO/tests/web/location.spec.ts:160:50
+
+    Error Context: test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [firefox] › tests/web/location.spec.ts:181:1 › GPS outside supported city never falls back to a different location
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText(/Wilayah ini belum tersedia/)
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText(/Wilayah ini belum tersedia/) with timeout 5000ms
+      - waiting for getByText(/Wilayah ini belum tersedia/)
+
+
+      193 |   await button(page, "Masuk dengan Google").click();
+      194 |   await button(page, "Aktifkan lokasi").click();
+    > 195 |   await expect(page.getByText(/Wilayah ini belum tersedia/)).toBeVisible();
+          |                                                              ^
+      196 |   expect(writes.length).toBe(1);
+      197 |   expect(api.accounts[api.actor]!.location).toBe(null);
+      198 |   await expect(
+        at /home/runner/work/UpahGO/UpahGO/tests/web/location.spec.ts:195:62
+
+    Error Context: test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [firefox] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('page-Beranda')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('page-Beranda') with timeout 5000ms
+      - waiting for getByTestId('page-Beranda')
+
+
+      91 |   await page.goto("/");
+      92 |   await button("Masuk dengan Google").click();
+    > 93 |   await expect(page.getByTestId("page-Beranda")).toBeVisible();
+         |                                                  ^
+      94 |   await page.getByRole("tab", { name: "Akun", exact: true }).click();
+      95 |   await button("Foto profil (opsional)").click();
+      96 |   await expect(
+        at /home/runner/work/UpahGO/UpahGO/tests/web/media.spec.ts:93:50
+
+    Error Context: test-results/media-photo-deletion-disti-94680-events-duplicate-submission-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/media-photo-deletion-disti-94680-events-duplicate-submission-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/media-photo-deletion-disti-94680-events-duplicate-submission-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6 failed
+    [firefox] › tests/web/core.spec.ts:544:1 › responsive rail, keyboard, reduced motion and invalid callback
+    [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry
+    [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry
+    [firefox] › tests/web/location.spec.ts:141:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+    [firefox] › tests/web/location.spec.ts:181:1 › GPS outside supported city never falls back to a different location
+    [firefox] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission
+  57 passed (9.8m)
+##[error]Process completed with exit code 1.

@@ -558,7 +558,17 @@ test("responsive rail, keyboard, reduced motion and invalid callback", async ({
       ),
     ).toBe(true);
   }
-  await p.getByRole("tab", { name: "Akun", exact: true }).focus();
+  const accountTab = p.getByRole("tab", { name: "Akun", exact: true });
+  for (
+    let step = 0;
+    step < 50 &&
+    !(await accountTab.evaluate((node) => document.activeElement === node));
+    step++
+  )
+    await p.keyboard.press("Tab");
+  await expect(accountTab).toBeFocused();
+  await expect(accountTab).toHaveCSS("outline-style", "solid");
+  await expect(accountTab).toHaveCSS("outline-width", "2px");
   await p.keyboard.press("Enter");
   await expect(button(p, "Edit profil")).toBeVisible();
   const focus = await p.evaluate(() => ({

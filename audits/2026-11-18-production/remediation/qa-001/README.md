@@ -43,6 +43,14 @@ Run awal 63 kasus: 35 lulus, 28 gagal. Chrome 21 lulus. Firefox macOS gagal pada
 
 Tujuh kegagalan WebKit terdiri dari pencocokan rupiah yang mengasumsikan spasi dan timestamp GPS emulasi dalam mikrodetik. Probe dengan koordinat/akurasi sintetis yang sama menunjukkan Chrome memberi timestamp milidetik, WebKit sekitar 1.000 kali lipat; aplikasi benar menolaknya sebagai fix masa depan. Koreksi dibatasi pada fixture tes, tidak mengubah freshness check aplikasi atau jam perangkat. Regresi fix stale ditambahkan. Run targeted berikut lulus 7/8; kegagalan sisa berasal dari `textContent` kartu yang menyambung nominal dan rating tanpa spasi. Assertion diperbaiki ke elemen nominal tepat; tidak melonggarkan angka, consent atau status server. [Run awal](evidence/browser-first.txt), [targeted](evidence/webkit-targeted.txt).
 
+## Firefox pada CI Linux dan perbaikan fixture
+
+Run [44444494366](https://github.com/rakannaufal/UpahGO/actions/runs/44444494366), source `9eb1570`, berhasil melewati clean install, audit, typecheck/lint, 61 unit, Edge, SQL (280 assertion), export web/Hermes, Worker dry-run/runtime dan instalasi tiga browser. Suite browser **57/63 lulus, enam kegagalan Firefox**; [metadata](evidence/github-ci-first.json), [log browser](evidence/browser-ci-first.txt). Kegagalan asli tetap disimpan.
+
+Lima kasus live sintetis tertahan oleh LOCATION_STALE. Source instrumentasi Firefox revision1572 yang sama dengan lockfile menunjukkan mock Juggler menambahkan satu hari ke timestamp agar override tidak kedaluwarsa. [Cuplikan dan hash arsip macOS](evidence/firefox-geolocation-source.json). Aplikasi menolak fix masa depan sesuai kontrak. Fixture menormalkan offset satu hari hanya untuk objek GeolocationPosition native Firefox dalam rentang mock yang diketahui; objek sintetis biasa, fix stale dan fix masa depan dua menit tetap diuji ditolak tanpa write server. Koreksi WebKit mikrodetik tetap spesifik engine. Tidak mengubah pembacaan lokasi aplikasi, validator atau server.
+
+Kasus fokus memakai `.focus()` setelah onboarding melalui mouse, sehingga tidak menjamin modalitas keyboard untuk `:focus-visible` Firefox. Tes kini mencapai Akun melalui Tab nyata dengan batas50 langkah, memeriksa fokus dan outline solid2px, lalu Enter; assertion outline sesudah navigasi tetap. Tidak mengganti CSS untuk memaksa ring pada interaksi mouse. Setelah koreksi, empat regresi fokus/lokasi Chrome dan WebKit lulus dalam 23,4 detik; [hasil](evidence/browser-fixtures-local.txt). Penerimaan Firefox melalui CI berikutnya tetap harus dicatat terpisah dari run gagal di atas. Tidak ada source runtime aplikasi berubah; APK QA tetap memakai source/hash yang sama.
+
 ## Pemeriksaan Supabase yang ditunjuk
 
 Pada waktu probe, `/auth/v1/settings` HTTP200: **Google false, Phone false, Email true, anonymous false**. Tidak menyalakan provider atau mengirim email/SMS.

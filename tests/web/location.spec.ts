@@ -91,7 +91,13 @@ test("live GPS permission rejection, inaccurate fix and successful retry", async
                 longitude: 101.447,
                 accuracy: state.mode === "inaccurate" ? 1500 : 20,
               },
-              timestamp: Date.now() - (state.mode === "stale" ? 6 * 60000 : 0),
+              timestamp:
+                Date.now() +
+                (state.mode === "stale"
+                  ? -6 * 60000
+                  : state.mode === "future"
+                    ? 2 * 60000
+                    : 0),
             } as GeolocationPosition);
         },
       },
@@ -118,6 +124,16 @@ test("live GPS permission rejection, inaccurate fix and successful retry", async
     (
       window as unknown as { syntheticGPS: { mode: string } }
     ).syntheticGPS.mode = "stale";
+  });
+  await button(page, "Aktifkan lokasi").click();
+  await expect(
+    page.getByText(/Perbarui lokasi untuk melanjutkan/),
+  ).toBeVisible();
+  expect(writes.length).toBe(0);
+  await page.evaluate(() => {
+    (
+      window as unknown as { syntheticGPS: { mode: string } }
+    ).syntheticGPS.mode = "future";
   });
   await button(page, "Aktifkan lokasi").click();
   await expect(

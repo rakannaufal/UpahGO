@@ -1,0 +1,6 @@
+{
+  "browser": "Playwright Firefox revision 1572 macOS",
+  "file": "chrome/juggler/content/content/main.js",
+  "archiveSha256": "c5838d2956fddb1bed1fd6fc5f2178caa99228f8faab8fc2120a103e5bbe35da",
+  "excerpt": "  const applySetting = {\n    geolocation: (geolocation) => {\n      if (geolocation) {\n        browsingContext.setGeolocationServiceOverride({\n          coords: {\n            latitude: geolocation.latitude,\n            longitude: geolocation.longitude,\n            accuracy: geolocation.accuracy,\n            altitude: NaN,\n            altitudeAccuracy: NaN,\n            heading: NaN,\n            speed: NaN,\n          },\n          timestamp: Date.now() + 24 * 60 * 60 * 1000,  // Make sure it does not expire for a day.\n        });\n      } else {\n        browsingContext.setGeolocationServiceOverride();\n      }\n    },\n    bypassCSP: (bypassCSP) => {\n      docShell.bypassCSPEnabled = bypassCSP;\n    },\n\n    javaScriptDisabled: (javaScriptDisabled) => {\n      data.frameTree.setJavaScriptDisabled(javaScriptDisabled);\n    },\n\n    isolatedWorldExtendedPrincipal: (extendedPrincipal) => {"
+}
