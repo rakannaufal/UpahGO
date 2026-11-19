@@ -1,0 +1,15 @@
+
+> upahgo@0.1.0 test:web
+> playwright test --project=chromium --project=webkit --grep effort/search carry --output=/private/tmp/upahgo-qa001-photo-followup
+
+
+Running 2 tests using 1 worker
+
+(node:76266) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (8.5s)
+(node:76289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [webkit] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (8.6s)
+
+  2 passed (21.4s)

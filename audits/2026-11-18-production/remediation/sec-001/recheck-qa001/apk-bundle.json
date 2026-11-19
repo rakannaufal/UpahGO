@@ -1,0 +1,22 @@
+{
+  "baselineCommit": "9eb1570f09113d5feb25f7abd5366591e93cf9d5",
+  "apkSha256": "8952d412fbfff89fa03cddfa0bd431b416b76aec91600f7bd84cc5d9e6405957",
+  "embeddedBundleMatchesNativeBuild": true,
+  "bundleSha256": "4401679788e6e60f89522f479dee1010c839d995f1d426cfa66e35f91134776b",
+  "maps": [
+    {
+      "map": "generated/sourcemaps/react/release/index.android.bundle.map",
+      "sha256": "6052e69b6294c515fe8728c12374a4d1fd4653fce1a1e2f47bfffb602aa6edb5",
+      "sourceCount": 1582,
+      "uniqueSourceCount": 1582,
+      "toolingSources": {
+        "picomatch": [],
+        "minimatch": [],
+        "micromatch": [],
+        "@expo/fingerprint": []
+      },
+      "reactNativePositiveControl": 461
+    }
+  ],
+  "scope": "JavaScript graph of the QA APK only; not native-library, signed-in service, or vulnerability certification."
+}

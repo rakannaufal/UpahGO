@@ -1,0 +1,50 @@
+{
+  "driver": "Playwright Firefox revision1572; lockfile unchanged",
+  "sourceArchivePlatform": "macOS ARM64; source excerpt, not a Linux runtime probe",
+  "files": {
+    "chrome/juggler/content/TargetRegistry.js": {
+      "sha256": "2e3bcb15363884b46451be4211d795c07dff1c631f4ba8f84e6b4f8937d90a96",
+      "excerpts": [
+        {
+          "startLine": 326,
+          "lines": [
+            "      open: callback => {",
+            "        if (original)",
+            "          original.open(callback);",
+            "        else",
+            "          callback.done(Ci.nsIFilePicker.returnCancel);",
+            "      },",
+            "      isModeSupported: mode => original ? original.isModeSupported(mode) : Promise.resolve(true),"
+          ]
+        }
+      ]
+    },
+    "chrome/juggler/content/content/PageAgent.js": {
+      "sha256": "ecf79c9e91c05678be8c11bc65bc1e3ec31ee84455efddefcab0cc63282b24f6",
+      "excerpts": [
+        {
+          "startLine": 258,
+          "lines": [
+            "  _filePickerShown(inputElement) {",
+            "    // Fired by HTMLInputElement::InitFilePicker right before the native picker is opened.",
+            "    // When intercepting, the parent process replaces the native picker with one that",
+            "    // cancels immediately (see FilePickerOverride in TargetRegistry.js).",
+            "    if (!this._interceptFileChooserDialog)",
+            "      return;",
+            "    const frame = this._findFrameForNode(inputElement);",
+            "    if (!frame)",
+            "      return;",
+            "    this._browserPage.emit('pageFileChooserOpened', {",
+            "      executionContextId: frame.mainExecutionContext().id(),",
+            "      element: frame.mainExecutionContext().rawValueToRemoteObject(inputElement)",
+            "    });",
+            "  }",
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "traceObservation": "Interception emits cancellation. Expo resolves canceled and removes input; later setFiles emits change on detached input, causing Node.removeChild NotFoundError. Preview remains absent.",
+  "testScope": "Suppress one intercepted-picker cancel event for the synthetic Firefox upload case only. Keep real file input, decode/manipulation/consent/save/delete assertions; add empty pageErrors assertion. No application or SDK changes."
+}

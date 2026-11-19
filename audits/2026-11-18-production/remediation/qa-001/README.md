@@ -51,6 +51,16 @@ Lima kasus live sintetis tertahan oleh LOCATION_STALE. Source instrumentasi Fire
 
 Kasus fokus memakai `.focus()` setelah onboarding melalui mouse, sehingga tidak menjamin modalitas keyboard untuk `:focus-visible` Firefox. Tes kini mencapai Akun melalui Tab nyata dengan batas50 langkah, memeriksa fokus dan outline solid2px, lalu Enter; assertion outline sesudah navigasi tetap. Tidak mengganti CSS untuk memaksa ring pada interaksi mouse. Setelah koreksi, empat regresi fokus/lokasi Chrome dan WebKit lulus dalam 23,4 detik; [hasil](evidence/browser-fixtures-local.txt). Penerimaan Firefox melalui CI berikutnya tetap harus dicatat terpisah dari run gagal di atas. Tidak ada source runtime aplikasi berubah; APK QA tetap memakai source/hash yang sama.
 
+## Instalasi browser CI yang tertahan
+
+Percobaan pertama run [44447385562](https://github.com/rakannaufal/UpahGO/actions/runs/44447385562), source `f36fb6f`, dibatalkan setelah langkah instalasi browser berjalan lebih dari 13 menit. Log berhenti pada unduhan dependency sistem dari mirror Ubuntu `us-east-2.ec2.archive.ubuntu.com`, sesudah `Get:130`; tidak ada hasil browser karena langkah tes belum dimulai. [Metadata per langkah](evidence/github-ci-install-cancelled.json), [cuplikan installer](evidence/browser-install-cancelled.txt). Penyebab jaringan/mirror belum dipastikan. Run diulang tanpa perubahan aplikasi, fixture, dependency atau konfigurasi CI; hasil percobaan kedua harus dinilai terpisah.
+
+## Pratinjau foto pada Firefox CI
+
+Percobaan kedua run `44447385562` melewati instalasi dan menghasilkan **62/63 lulus** dalam 8,9 menit. Seluruh kasus GPS/fokus yang sebelumnya gagal sudah lulus. Satu kasus foto demo Firefox tidak menampilkan preview; trace mencatat `Node.removeChild: The node to be removed is not a child of this node`. [Metadata](evidence/github-ci-photo-failure.json), [log](evidence/browser-ci-photo-failure.txt).
+
+Source Juggler revision1572 menunjukkan picker yang dicegat sengaja dibatalkan segera. Expo membaca cancel sebagai pilihan kosong dan menghapus input; `setFiles` berikutnya memicu change pada input yang sudah dilepas. [Cuplikan source dan hash](evidence/firefox-file-picker-source.json). Adapter hanya pada kasus upload sintetis Firefox mengabaikan satu event cancel milik picker driver. Pemilihan file nyata melalui input, decode/resize/crop, consent, simpan dan hapus tetap diuji; assertion pageErrors kosong ditambahkan. Tidak mengubah kode aplikasi, dependency atau APK. Dua regresi foto Chrome/WebKit lokal lulus dalam 21,4 detik; [hasil](evidence/browser-photo-local.txt). Percobaan pertama lokal terhalang izin localhost sandbox sebelum tes berjalan; run berizin memakai preview existing. Penerimaan run penuh setelah koreksi dicatat terpisah.
+
 ## Pemeriksaan Supabase yang ditunjuk
 
 Pada waktu probe, `/auth/v1/settings` HTTP200: **Google false, Phone false, Email true, anonymous false**. Tidak menyalakan provider atau mengirim email/SMS.

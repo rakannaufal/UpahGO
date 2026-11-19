@@ -72,3 +72,7 @@ Ponytail-review memeriksa diff lockfile, scope override, caller Path/Options fin
 SEC-001 tersedia untuk penutupan **pada cakupan advisory/source yang diuji**, setelah bukti final diterima reviewer. Tidak meminta penerimaan diam-diam atas high yang masih aktif: high lama ditarik upstream, moderate ditambal, tidak ada exception scanner. Audit 0 bukan jaminan semua risiko supply chain atau aplikasi hilang. Rilis keseluruhan tetap **NO-GO** karena penerimaan native/staging, operasi, privasi/legal dan temuan audit lain masih terbuka.
 
 Langkah berikut yang disarankan: QA-001, menyiapkan dan menjalankan matriks Android serta integrasi staging berizin. Publikasi build/deployment dan perubahan data produksi tetap di luar pekerjaan ini.
+
+## Pemeriksaan ulang setelah QA-001
+
+Pengguna meminta SEC-001 dilanjutkan sesudah paket QA. [Pemeriksaan ulang source `9eb1570`](recheck-qa001/README.md): audit online tetap 0, override masih dibutuhkan upstream, probe minimatch lulus, picomatch tetap memiliki batas pola tidak tepercaya, dan graph bundle APK QA tidak memuat paket tooling yang diperiksa. Tidak ada dependency/source runtime diubah; penerimaan rilis keseluruhan tetap terpisah.

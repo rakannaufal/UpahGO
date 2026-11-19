@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-11-19T02:30:33.354925+00:00",
+  "sourceCommit": "9eb1570f09113d5feb25f7abd5366591e93cf9d5",
+  "packageLockSha256": "a6e2bd595c98d0514cd259af449ad33a031732f2e60cfd5ac7a69163c2f2677b",
+  "lockfileUnchangedSinceSEC001": true,
+  "applicationGlobImportsFound": false,
+  "workflow": {
+    "events": ["push", "pull_request"],
+    "permissions": {
+      "contents": "read"
+    },
+    "timeoutMinutes": 30,
+    "auditGate": "moderate and above; no continue-on-error"
+  },
+  "limitation": "No remote deployment, secrets/protection-branch inspection, live service acceptance, or device interaction. Source-level advisory disposition only.",
+  "runtimeUnchangedAtCommit": "f36fb6f6b56b2461438fd1a20636bcafc625b152",
+  "changesSinceSourceSnapshot": "Browser tests/fixtures, QA runbook and evidence only; no application, server or dependency changes."
+}

@@ -6,9 +6,15 @@
 
 19 November: **61/61 unit**, typecheck/lint, export web, audit npm online 0 temuan dan pemeriksaan pola secret lulus. Chrome/WebKit final **42/42 lulus** dalam 8,5 menit. Firefox macOS gagal sebelum halaman dimuat (`Could not find profile folder`), sehingga bukan hasil gagal/pas aplikasi; workflow CI Linux kini memasang ketiga engine. Fixture WebKit mengoreksi unit timestamp emulasi, sementara aplikasi tetap menolak fix lama/masa depan. Harga diperiksa tepat dengan whitespace lokal yang sesuai engine.
 
+CI Linux source `f36fb6f`, run `44447385562` percobaan kedua: **62/63 browser lulus**, termasuk seluruh regresi GPS/fokus Firefox. Satu kegagalan foto berasal dari cancel otomatis picker driver yang mengakhiri pilihan Expo sebelum `setFiles`; adapter tes diperbaiki dan assertion pageErrors kosong ditambahkan. Dua regresi foto Chrome/WebKit lokal lulus dalam 21,4 detik. [Bukti kegagalan, source driver dan koreksi](audits/2026-11-18-production/remediation/qa-001/README.md). Run penuh sesudah koreksi tetap perlu diterima.
+
 APK arm64 **Upahgo QA 0.1.0**, 33,65 MiB, berhasil dikompilasi (Gradle release, sertifikat debug). Package/scheme QA terpisah, API24 minimum/target36, bundle Hermes disertakan, layanan sintetis tanpa Maps key atau kredensial lokal. Manifest dan resource backup hasil APK diperiksa; SecureStore dikecualikan untuk cloud backup dan device transfer. Permission overlay serta permission boot/foreground/biometrik dari library masih tercantum; minimisasi produksi dan perilaku OS belum diterima. **Kompilasi dan pemeriksaan bytes bukan uji perangkat.** Pengguna memilih uji mandiri; [panduan/matriks](docs/QA-ACCEPTANCE.md), [laporan dan batas](audits/2026-11-18-production/remediation/qa-001/README.md).
 
 Satu run unit bersamaan dengan build native menghasilkan 60/61 akibat timeout probe matcher 1,5 detik; tanpa perubahan batas/assertion, run setelah build selesai lulus 61/61 dalam 3,36 detik. Bukti kegagalan disimpan; penyebab kontensi masuk akal tetapi belum diisolasi. SDK/adb kini terpasang lokal pada `.cache`, tanpa perangkat terhubung. Worker dan tiga akun sintetis belum tersedia; Google/Phone masih nonaktif saat probe read-only. QA-001 tetap terbuka, rilis **NO-GO**. SQL/Edge/Worker tidak berubah atau diuji ulang lokal pada slice QA; CI baseline SEC-001 sudah sukses, terpisah dari validasi source QA terbaru.
+
+## Pemeriksaan ulang SEC-001 sesudah paket QA
+
+Source `9eb1570`: audit online tetap **0 temuan**, minimatch 11.0.9 menolak amplifikasi, lockfile tetap sama dengan SEC-001. Fingerprint upstream masih memerlukan override; picomatch high tetap withdrawn dan pola mahal tetap timeout pada probe terisolasi. Graph bundle APK aktual cocok dengan output native, 1.582 source tanpa empat paket tooling yang diperiksa. [Bukti terbaru](audits/2026-11-18-production/remediation/sec-001/recheck-qa001/README.md). Tidak ada patch dependency tambahan; disposition teknis tetap memerlukan penerimaan reviewer, terpisah dari rilis keseluruhan.
 
 ## Remediasi SEC-001
 
@@ -204,7 +210,7 @@ Manifest `.impeccable/review/browser-evidence.json`: 41 capture settled, errors[
 
 ## Belum terverifikasi / menahan rilis
 
-- Android SDK/emulator/adb tidak tersedia. APK/AAB, System Back, gesture, safe area, keyboard perangkat, TalkBack, fontScale, permission denial, background/foreground, cold-start OAuth, SecureStore dan performa/baterai belum diuji. Bundle Hermes tidak menggantikan pemeriksaan ini.
+- SDK/adb sudah dipasang lokal dan APK QA arm64 berhasil dibangun/diverifikasi; emulator tidak dipasang, perangkat belum diuji. AAB/signing produksi, System Back, gesture, safe area, keyboard perangkat, TalkBack, fontScale, permission denial, background/foreground, cold-start OAuth, SecureStore dan performa/baterai tetap belum diterima. Kompilasi APK tidak menggantikan pemeriksaan ini.
 - Google dan Phone belum aktif saat inspeksi Supabase. OAuth eksternal/PKCE nyata, expiry/revokasi sesi, SMS/verifikasi nomor dan WhatsApp nyata belum diuji.
 - SQL memakai shim lokal. RLS/grant/RPC pada Supabase staging, Auth, PostgREST, proxy header, jaringan Cloudflare dan limiter terdistribusi belum diuji end-to-end.
 - Direktori area nyata dan Maps Android key belum ada. Peta native/atribusi/marker padat/tiles gagal belum diuji. Web Leaflet/OSM beratribusi telah diperiksa, termasuk kegagalan tile dengan daftar alternatif; tidak memverifikasi map Android. Akun pada area sama dikelompokkan melalui sheet; perilaku native tetap belum diuji.

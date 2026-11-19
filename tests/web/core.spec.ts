@@ -58,7 +58,10 @@ test.beforeEach(async ({ page }) => {
 });
 test("effort/search carry to map; role switch resets filters; optional photo stays private", async ({
   page: p,
+  browserName,
 }) => {
+  const errors: string[] = [];
+  p.on("pageerror", (error) => errors.push(error.message));
   await p.setViewportSize({ width: 390, height: 844 });
   await enter(p);
   await p.getByLabel("Cari pekerjaan", { exact: true }).fill("galon");
@@ -87,6 +90,21 @@ test("effort/search carry to map; role switch resets filters; optional photo sta
   await button(p, "Tutup").click();
   await tab(p, "Akun");
   await button(p, "Foto tempat (opsional)").click();
+  if (browserName === "firefox")
+    await p.evaluate(() => {
+      // Juggler cancels its intercepted native picker before setFiles supplies the file.
+      document.addEventListener(
+        "cancel",
+        (event) => {
+          if (
+            event.target instanceof HTMLInputElement &&
+            event.target.type === "file"
+          )
+            event.stopImmediatePropagation();
+        },
+        { capture: true, once: true },
+      );
+    });
   const chooser = p.waitForEvent("filechooser");
   await button(p, "Pilih dari galeri").click();
   await (await chooser).setFiles("tests/fixtures/synthetic-photo.jpg");
@@ -114,6 +132,7 @@ test("effort/search carry to map; role switch resets filters; optional photo sta
   await expect(
     p.getByText("Simulasi foto dihapus dari memori.", { exact: true }),
   ).toBeVisible();
+  expect(errors).toEqual([]);
 });
 test("catalog search and private Other suggestion preserve deferred category boundaries", async ({
   page: p,
