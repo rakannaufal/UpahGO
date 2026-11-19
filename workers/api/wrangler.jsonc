@@ -16,7 +16,7 @@
     "traces": { "enabled": false },
   },
   "vars": {
-    "SUPABASE_URL": "https://aqzlgrahfxmbvtfwebsx.supabase.co",
+    "SUPABASE_URL": "",
     "ALLOWED_ORIGINS": "",
     "ENVIRONMENT": "production",
     "TELEMETRY_ENABLED": "true",
@@ -25,4 +25,20 @@
     "bindings": [{ "name": "LIMITER", "class_name": "RateLimiter" }],
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["RateLimiter"] }],
+  "env": {
+    "staging": {
+      "name": "upahgo-api-staging",
+      "routes": [],
+      "vars": {
+        "SUPABASE_URL": "https://aqzlgrahfxmbvtfwebsx.supabase.co",
+        "ALLOWED_ORIGINS": "",
+        "ENVIRONMENT": "staging",
+        "TELEMETRY_ENABLED": "true",
+      },
+      "durable_objects": {
+        "bindings": [{ "name": "LIMITER", "class_name": "RateLimiter" }],
+      },
+      "migrations": [{ "tag": "v1", "new_sqlite_classes": ["RateLimiter"] }],
+    },
+  },
 }

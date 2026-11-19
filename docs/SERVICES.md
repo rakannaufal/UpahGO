@@ -4,7 +4,7 @@ Belum ada deployment, migrasi remote, konfigurasi OAuth, aktivasi SMS, atau publ
 
 ## Supabase
 
-Proyek pengguna: `https://aqzlgrahfxmbvtfwebsx.supabase.co`. Pemeriksaan dashboard 17 November 2026: Google dan Phone belum aktif. Status itu dapat berubah; periksa kembali sebelum pengujian live.
+Proyek pengujian: `https://aqzlgrahfxmbvtfwebsx.supabase.co`. Pada 19 November pengguna mengonfirmasi proyek ini khusus pengujian dan belum berisi data nyata. [Konfigurasi, akses dan urutan staging](STAGING.md). Pemeriksaan dashboard 17 November 2026: Google dan Phone belum aktif. Status itu dapat berubah; periksa kembali sebelum pengujian live.
 
 ### Login Google
 
@@ -38,16 +38,16 @@ Migrasi memasukkan enam tag bersih-bersih, **tanpa area geografis nyata**. Isi d
 
 ## Cloudflare tanpa domain
 
-`workers/api/wrangler.jsonc` menyiapkan `upahgo-api`, `workers_dev: true`, Durable Object SQLite. Setelah akun dan deployment disetujui, URL akan mengikuti subdomain `workers.dev` akun; URL nyata belum diketahui. Tidak perlu menebak URL atau membeli domain.
+`workers/api/wrangler.jsonc` menyiapkan `upahgo-api` untuk produksi dan environment `staging` bernama `upahgo-api-staging`, masing-masing memakai Durable Object sendiri. URL Supabase produksi kosong; hanya staging mengarah ke proyek pengujian yang dikonfirmasi pengguna. `workers_dev: true`; setelah akun dan deployment disetujui, URL akan mengikuti subdomain `workers.dev` akun. URL nyata belum diketahui. Tidak perlu menebak URL atau membeli domain.
 
 Sebelum deployment:
 
 1. Tinjau paket/kuota Cloudflare yang berlaku. Tidak ada harga atau jaminan bebas biaya pada konfigurasi ini.
 2. Buat gateway secret acak minimal 32 byte menggunakan generator kriptografis. Simpan sebagai secret `GATEWAY_SECRET` pada Worker. Jangan tempel nilai pada source, build variable publik, riwayat perintah, atau chat.
 3. Provision hash SHA-256 secret yang sama ke `upahgo_private.gateway_config.secret_hash` melalui koneksi admin terotorisasi. Gunakan parameter query / secret manager. Database menyimpan hash, bukan secret; Worker dan Edge foto menyimpan secret yang sama pada secret store masing-masing. Nilai awal NULL menolak semua operasi.
-4. Isi `SUPABASE_PUBLISHABLE_KEY` sebagai binding Worker; URL proyek sudah ada pada konfigurasi. Publishable key bersifat publik tetapi service-role tetap dilarang.
+4. Isi `SUPABASE_PUBLISHABLE_KEY` sebagai binding pada environment Worker yang dituju. URL proyek pengujian hanya tersedia pada `env.staging`; konfigurasi produksi sengaja belum memiliki target. Publishable key bersifat publik tetapi service-role tetap dilarang. Semua secret/deploy staging harus menyebut `--env staging`.
 5. Untuk native, `ALLOWED_ORIGINS` boleh kosong. Untuk preview/web, isi daftar origin tepat tanpa wildcard. Ini hanya kontrol browser; otorisasi selalu sesi dan SQL.
-6. Jalankan `npm run worker:check`. Deployment nyata melalui Wrangler merupakan langkah terpisah setelah tinjauan konfigurasi dan otorisasi publikasi. Isi URL HTTPS hasil deployment ke `EXPO_PUBLIC_API_URL`, bangun ulang aplikasi.
+6. Jalankan `npm run worker:check` dan `npm run worker:check:staging`. Keduanya dry-run. Deployment nyata melalui Wrangler merupakan langkah terpisah setelah tinjauan konfigurasi dan otorisasi publikasi; ikuti target eksplisit pada [STAGING.md](STAGING.md). Isi URL HTTPS hasil deployment ke `EXPO_PUBLIC_API_URL`, bangun ulang aplikasi.
 
 Pembatas: 180 permintaan/IP/menit, 90 permintaan/akun/menit, jendela menit tetap. Batas ini dapat melonjak di pergantian menit. IP di-hash dengan secret sebelum nama Durable Object; tidak dicatat di log aplikasi. Durable Object bersih setelah alarm dua menit. SQL menambahkan batas khusus permintaan kontak/laporan. Kegagalan pembatas menolak permintaan.
 

@@ -1,0 +1,392 @@
+
+> upahgo@0.1.0 test
+> node --experimental-strip-types --test tests/*.test.ts
+
+TAP version 13
+# Subtest: erasure drains both photo roles and orphans before Auth, never another user's bytes
+ok 1 - erasure drains both photo roles and orphans before Auth, never another user's bytes
+  ---
+  duration_ms: 6.284375
+  type: 'test'
+  ...
+# Subtest: Storage failure cannot advance to Auth; retry resumes the committed stage
+ok 2 - Storage failure cannot advance to Auth; retry resumes the committed stage
+  ---
+  duration_ms: 1.120375
+  type: 'test'
+  ...
+# Subtest: uncertain Auth completion resumes verification without deleting a different account
+ok 3 - uncertain Auth completion resumes verification without deleting a different account
+  ---
+  duration_ms: 1.051958
+  type: 'test'
+  ...
+# Subtest: unexpected Storage names fail closed; disabled policy and idle queue do no work
+ok 4 - unexpected Storage names fail closed; disabled policy and idle queue do no work
+  ---
+  duration_ms: 0.864333
+  type: 'test'
+  ...
+# Subtest: demo deletion requests are idempotent and never imply physical service deletion
+ok 5 - demo deletion requests are idempotent and never imply physical service deletion
+  ---
+  duration_ms: 426.980875
+  type: 'test'
+  ...
+# Subtest: large photo folders yield a lease before Auth and safely drain on the next run
+ok 6 - large photo folders yield a lease before Auth and safely drain on the next run
+  ---
+  duration_ms: 2.771417
+  type: 'test'
+  ...
+# Subtest: ledger saves a private complete snapshot before acknowledging; replay is bounded
+ok 7 - ledger saves a private complete snapshot before acknowledging; replay is bounded
+  ---
+  duration_ms: 57.261
+  type: 'test'
+  ...
+# Subtest: ledger never acknowledges a failed write or an invalid export cursor
+ok 8 - ledger never acknowledges a failed write or an invalid export cursor
+  ---
+  duration_ms: 1.871542
+  type: 'test'
+  ...
+# Subtest: Expo fingerprint preserves build-file exclusions, negation and source matching with patched minimatch
+ok 9 - Expo fingerprint preserves build-file exclusions, negation and source matching with patched minimatch
+  ---
+  duration_ms: 37.202042
+  type: 'test'
+  ...
+# Subtest: patched matcher rejects globparts amplification within an isolated time and memory limit
+ok 10 - patched matcher rejects globparts amplification within an isolated time and memory limit
+  ---
+  duration_ms: 312.957167
+  type: 'test'
+  ...
+# Subtest: real fingerprint hashing ignores build outputs but detects native source changes
+ok 11 - real fingerprint hashing ignores build outputs but detects native source changes
+  ---
+  duration_ms: 3324.126083
+  type: 'test'
+  ...
+# Subtest: only the other participant may accept work
+ok 12 - only the other participant may accept work
+  ---
+  duration_ms: 2.220542
+  type: 'test'
+  ...
+# Subtest: completion does not imply payment; only worker acknowledges cash
+ok 13 - completion does not imply payment; only worker acknowledges cash
+  ---
+  duration_ms: 0.1955
+  type: 'test'
+  ...
+# Subtest: public profiles reject contact leaks and duplicate tags
+ok 14 - public profiles reject contact leaks and duplicate tags
+  ---
+  duration_ms: 0.607583
+  type: 'test'
+  ...
+# Subtest: WhatsApp URL never accepts arbitrary destinations
+ok 15 - WhatsApp URL never accepts arbitrary destinations
+  ---
+  duration_ms: 0.471542
+  type: 'test'
+  ...
+# Subtest: schedule rejects normalized dates and preserves Indonesian time zones
+ok 16 - schedule rejects normalized dates and preserves Indonesian time zones
+  ---
+  duration_ms: 2.437708
+  type: 'test'
+  ...
+# Subtest: skipped setup permits browsing without a fabricated public profile
+ok 17 - skipped setup permits browsing without a fabricated public profile
+  ---
+  duration_ms: 701.5405
+  type: 'test'
+  ...
+# Subtest: switching role clears presence, restores role-specific content, preserves history
+ok 18 - switching role clears presence, restores role-specific content, preserves history
+  ---
+  duration_ms: 7.564542
+  type: 'test'
+  ...
+# Subtest: city boundary excludes other cities and polygon holes
+ok 19 - city boundary excludes other cities and polygon holes
+  ---
+  duration_ms: 10.991291
+  type: 'test'
+  ...
+# Subtest: location rejects inaccurate, stale and invalid fixes
+ok 20 - location rejects inaccurate, stale and invalid fixes
+  ---
+  duration_ms: 6.189291
+  type: 'test'
+  ...
+# Subtest: demo starts populated, automatically limits radius and applies district/job filters
+ok 21 - demo starts populated, automatically limits radius and applies district/job filters
+  ---
+  duration_ms: 79.717958
+  type: 'test'
+  ...
+# Subtest: rating requires completed participation, bounded text, and one submission
+ok 22 - rating requires completed participation, bounded text, and one submission
+  ---
+  duration_ms: 1.565167
+  type: 'test'
+  ...
+# Subtest: demo history pages stable ties; old detail and active grants bypass the first 100
+ok 23 - demo history pages stable ties; old detail and active grants bypass the first 100
+  ---
+  duration_ms: 1769.348459
+  type: 'test'
+  ...
+# Subtest: catalog preserves historical IDs; deferred jobs never become active from a search
+ok 24 - catalog preserves historical IDs; deferred jobs never become active from a search
+  ---
+  duration_ms: 10.649958
+  type: 'test'
+  ...
+# Subtest: effort stays unknown without details; heavy work cannot appear as light
+ok 25 - effort stays unknown without details; heavy work cannot appear as light
+  ---
+  duration_ms: 2.011042
+  type: 'test'
+  ...
+# Subtest: demo search, category and effort share geographic restrictions and stable sorting
+ok 26 - demo search, category and effort share geographic restrictions and stable sorting
+  ---
+  duration_ms: 20.317459
+  type: 'test'
+  ...
+# Subtest: job suggestions stay private pending proposals; do not enable free tags
+ok 27 - job suggestions stay private pending proposals; do not enable free tags
+  ---
+  duration_ms: 2.781958
+  type: 'test'
+  ...
+# Subtest: ordinary zoom keeps coincident public points grouped
+ok 28 - ordinary zoom keeps coincident public points grouped
+  ---
+  duration_ms: 1.733167
+  type: 'test'
+  ...
+# Subtest: maximum zoom separates coincident and nearby pins without mutating public coordinates
+ok 29 - maximum zoom separates coincident and nearby pins without mutating public coordinates
+  ---
+  duration_ms: 26.849792
+  type: 'test'
+  ...
+# Subtest: a dense group remains individually selectable
+ok 30 - a dense group remains individually selectable
+  ---
+  duration_ms: 1.812208
+  type: 'test'
+  ...
+# Subtest: neighboring clusters cannot collide after their rings expand
+ok 31 - neighboring clusters cannot collide after their rings expand
+  ---
+  duration_ms: 0.619166
+  type: 'test'
+  ...
+# Subtest: media consumer removes only its retired pair, drains idempotently and reports safe counts
+ok 32 - media consumer removes only its retired pair, drains idempotently and reports safe counts
+  ---
+  duration_ms: 4.740459
+  type: 'test'
+  ...
+# Subtest: Storage and catalog errors remain retryable; success is never reported early
+ok 33 - Storage and catalog errors remain retryable; success is never reported early
+  ---
+  duration_ms: 0.918916
+  type: 'test'
+  ...
+# Subtest: a lost completion response is safe to retry without deleting the active/foreign image
+ok 34 - a lost completion response is safe to retry without deleting the active/foreign image
+  ---
+  duration_ms: 0.994958
+  type: 'test'
+  ...
+# Subtest: disabled cleanup and malformed claims never reach Storage
+ok 35 - disabled cleanup and malformed claims never reach Storage
+  ---
+  duration_ms: 0.568333
+  type: 'test'
+  ...
+# Subtest: native callbacks use exact production or QA schemes
+ok 36 - native callbacks use exact production or QA schemes
+  ---
+  duration_ms: 2.317
+  type: 'test'
+  ...
+# Subtest: QA package and callback stay separate; invalid build variants fail closed
+ok 37 - QA package and callback stay separate; invalid build variants fail closed
+  ---
+  duration_ms: 7.272417
+  type: 'test'
+  ...
+# Subtest: request IDs are server-generated, exposed on success/errors and shared with dependencies
+ok 38 - request IDs are server-generated, exposed on success/errors and shared with dependencies
+  ---
+  duration_ms: 177.332917
+  type: 'test'
+  ...
+# Subtest: Auth, database and limiter faults are distinct, redacted and measurable
+ok 39 - Auth, database and limiter faults are distinct, redacted and measurable
+  ---
+  duration_ms: 18.36075
+  type: 'test'
+  ...
+# Subtest: unexpected PostgREST400 is an outage; explicit input rejection remains400
+ok 40 - unexpected PostgREST400 is an outage; explicit input rejection remains400
+  ---
+  duration_ms: 9.325709
+  type: 'test'
+  ...
+# Subtest: timeouts, malformed upstream responses and early rejects retain one safe terminal event
+ok 41 - timeouts, malformed upstream responses and early rejects retain one safe terminal event
+  ---
+  duration_ms: 26.323833
+  type: 'test'
+  ...
+# Subtest: photo forwarding keeps HTTP202 and only the gateway ID; health is liveness only
+ok 42 - photo forwarding keeps HTTP202 and only the gateway ID; health is liveness only
+  ---
+  duration_ms: 31.012792
+  type: 'test'
+  ...
+# Subtest: disabled telemetry and logger failure never break a completed response
+ok 43 - disabled telemetry and logger failure never break a completed response
+  ---
+  duration_ms: 0.558458
+  type: 'test'
+  ...
+# Subtest: Worker observability disables invocation/query/trace capture; source maps are private artifacts
+ok 44 - Worker observability disables invocation/query/trace capture; source maps are private artifacts
+  ---
+  duration_ms: 5.841333
+  type: 'test'
+  ...
+# Subtest: synthetic probe calls only health/bootstrap, is bounded and never returns private details
+ok 45 - synthetic probe calls only health/bootstrap, is bounded and never returns private details
+  ---
+  duration_ms: 143.742208
+  type: 'test'
+  ...
+# Subtest: monitor CLI requires explicit apply and prints only a safe error code
+ok 46 - monitor CLI requires explicit apply and prints only a safe error code
+  ---
+  duration_ms: 506.043041
+  type: 'test'
+  ...
+# Subtest: health, expired credentials, wrong account, oversized JSON and transport failures cannot pass
+ok 47 - health, expired credentials, wrong account, oversized JSON and transport failures cannot pass
+  ---
+  duration_ms: 4.074958
+  type: 'test'
+  ...
+# Subtest: three consecutive failures, repeats, recovery and clock/state validation
+ok 48 - three consecutive failures, repeats, recovery and clock/state validation
+  ---
+  duration_ms: 0.842
+  type: 'test'
+  ...
+# Subtest: durable monitor retries a failed webhook with one key; acknowledges recovery and keeps private state
+ok 49 - durable monitor retries a failed webhook with one key; acknowledges recovery and keeps private state
+  ---
+  duration_ms: 100.299541
+  type: 'test'
+  ...
+# Subtest: unsafe, corrupt or locked monitor state fails before any network or notification
+ok 50 - unsafe, corrupt or locked monitor state fails before any network or notification
+  ---
+  duration_ms: 16.23825
+  type: 'test'
+  ...
+# Subtest: photo processing bounds decoding, re-encodes JPEG, strips metadata, makes thumbnail
+ok 51 - photo processing bounds decoding, re-encodes JPEG, strips metadata, makes thumbnail
+  ---
+  duration_ms: 1031.029708
+  type: 'test'
+  ...
+# Subtest: stream reader rejects oversized chunked uploads
+ok 52 - stream reader rejects oversized chunked uploads
+  ---
+  duration_ms: 46.321375
+  type: 'test'
+  ...
+# Subtest: profile price accepts bounded integer rupiah and explicit removal only
+ok 53 - profile price accepts bounded integer rupiah and explicit removal only
+  ---
+  duration_ms: 2.865125
+  type: 'test'
+  ...
+# Subtest: owner price survives legacy saves and role changes; clearing never changes agreed wages
+ok 54 - owner price survives legacy saves and role changes; clearing never changes agreed wages
+  ---
+  duration_ms: 12.879958
+  type: 'test'
+  ...
+# Subtest: staging does not inherit a production route, upstream or limiter binding
+ok 55 - staging does not inherit a production route, upstream or limiter binding
+  ---
+  duration_ms: 4.294458
+  type: 'test'
+  ...
+# Subtest: an unconfigured or malformed upstream fails before any outbound request
+ok 56 - an unconfigured or malformed upstream fails before any outbound request
+  ---
+  duration_ms: 89.322291
+  type: 'test'
+  ...
+# Subtest: generated Worker contract matches the application contract
+ok 57 - generated Worker contract matches the application contract
+  ---
+  duration_ms: 3.883083
+  type: 'test'
+  ...
+# Subtest: photo gateway requires consent and session, bounds input and uses only the fixed function
+ok 58 - photo gateway requires consent and session, bounds input and uses only the fixed function
+  ---
+  duration_ms: 114.177
+  type: 'test'
+  ...
+# Subtest: CORS denies unlisted browser origins; missing token denied
+ok 59 - CORS denies unlisted browser origins; missing token denied
+  ---
+  duration_ms: 0.9115
+  type: 'test'
+  ...
+# Subtest: gateway and limiter failure deny requests before upstream
+ok 60 - gateway and limiter failure deny requests before upstream
+  ---
+  duration_ms: 4.91175
+  type: 'test'
+  ...
+# Subtest: bounded body, allowlisted operation, no arbitrary target URL
+ok 61 - bounded body, allowlisted operation, no arbitrary target URL
+  ---
+  duration_ms: 11.519208
+  type: 'test'
+  ...
+# Subtest: verifies session then forwards only to fixed RPC with gateway header
+ok 62 - verifies session then forwards only to fixed RPC with gateway header
+  ---
+  duration_ms: 3.689583
+  type: 'test'
+  ...
+# Subtest: invalid session never reaches RPC; internal database errors are redacted
+ok 63 - invalid session never reaches RPC; internal database errors are redacted
+  ---
+  duration_ms: 4.609333
+  type: 'test'
+  ...
+1..63
+# tests 63
+# suites 0
+# pass 63
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4125.834

@@ -1,0 +1,14 @@
+[
+  {
+    "source": "49f69e1",
+    "status": 502,
+    "error": "NETWORK_ERROR",
+    "outboundRequests": 0
+  },
+  {
+    "source": "working-tree",
+    "status": 503,
+    "error": "GATEWAY_NOT_CONFIGURED",
+    "outboundRequests": 0
+  }
+]

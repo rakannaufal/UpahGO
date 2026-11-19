@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-11-19T12:12:06.213552+00:00",
+  "targetRef": "aqzlgrahfxmbvtfwebsx",
+  "userConfirmation": {
+    "testOnly": true,
+    "noRealUserDataReported": true,
+    "deviceAPKTested": false
+  },
+  "cloudflare": {
+    "authenticated": false
+  },
+  "supabase": {
+    "sessionPresent": true,
+    "targetVisibleToSession": false,
+    "parserCheckedAgainstRefField": true
+  },
+  "remoteChangesPerformed": false,
+  "scope": "Authentication status and accessible-project metadata only; no user rows, schema inspection, migrations, secrets or deployment. Other account/project identity and credentials omitted."
+}

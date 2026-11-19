@@ -24,6 +24,8 @@ Atau `npm run build:web`, `npm run preview`, buka http://localhost:8081. Pilih *
 
 Panduan lengkap: [Pengembangan](docs/DEVELOPMENT.md), [Konfigurasi Google/Supabase/Cloudflare/Maps](docs/SERVICES.md). Domain belum diperlukan untuk konfigurasi `workers.dev`; deployment belum dilakukan.
 
+Konfigurasi staging terpisah tersedia untuk proyek Supabase pengujian yang dikonfirmasi pengguna: `upahgo-api-staging`, binding limiter sendiri dan dry-run `npm run worker:check:staging`. URL Supabase produksi sengaja kosong. [Akses, manifest migrasi dan urutan deployment](docs/STAGING.md); belum ada perubahan remote. Login Cloudflare dan akses Supabase ke proyek yang benar masih diperlukan.
+
 ## Slice yang tersedia
 
 - Kartu dengan avatar beralas warna, tag ringkas dan harga per pekerjaan/sesi. Edit profil menyimpan tarif/anggaran serta kesediaan nego. Detail terstruktur dan Tawar upah mengikuti izin kontak dua pihak, lalu proposal tugas/jadwal yang harus diterima pihak lain. Harga awal tidak mengubah upah yang sudah disepakati.

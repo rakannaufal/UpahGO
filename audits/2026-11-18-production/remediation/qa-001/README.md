@@ -2,6 +2,8 @@
 
 19 November 2026. Baseline `9d40db1` (SEC-001), branch `codex/qa-001`. **QA-001 belum ditutup; rilis produksi tetap NO-GO.** Pengguna memberikan URL Supabase, menyatakan memiliki Android fisik, menyetujui instalasi SDK/lisensi Google, lalu memilih menguji APK sendiri. Worker staging dan tiga akun sintetis belum tersedia. Tidak ada deployment, migrasi remote, aktivasi provider, SMS, pembuatan akun cloud atau perubahan data pengguna.
 
+Tindak lanjut: pengguna mengonfirmasi Supabase khusus pengujian dan APK fisik belum diuji. [Persiapan staging terpisah](staging/README.md) tersedia pada `codex/staging-qa-001`; akses CLI Cloudflare/Supabase target masih kurang. Tidak ada perubahan remote. Bukti di bawah tetap mencatat run/source historis masing-masing.
+
 ## Perubahan source
 
 - Playwright menjalankan Chromium, Firefox dan WebKit. CI memasang ketiga runtime; tidak menambah retry atau pengecualian browser.

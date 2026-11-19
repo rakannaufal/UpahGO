@@ -1,0 +1,48 @@
+{
+  "targetRef": "aqzlgrahfxmbvtfwebsx",
+  "count": 10,
+  "appliedRemotely": false,
+  "scope": "Review manifest only. Compare remote history and schema before any approved application; not an idempotent replay script.",
+  "migrations": [
+    {
+      "file": "supabase/migrations/202611170001_core.sql",
+      "sha256": "30378142e3a47ac239af59dc520ce365b62f58f2163708abc8d651917effb72c"
+    },
+    {
+      "file": "supabase/migrations/202611170002_onboarding.sql",
+      "sha256": "42e57c3cb3b2e91f06a9a2e53c22d37de29cbd50541921951d5209a210121133"
+    },
+    {
+      "file": "supabase/migrations/202611170003_location_reviews.sql",
+      "sha256": "ac2a1a7093f5ef182115c1bb9dfa39341da4dc2cdcd3330c775b305b65dcef61"
+    },
+    {
+      "file": "supabase/migrations/202611170004_discovery_design.sql",
+      "sha256": "94573ef043f1fe899370e9770b4878387e2db3a115630a2fe816d392fab2e87b"
+    },
+    {
+      "file": "supabase/migrations/202611170005_work_details_suggestions.sql",
+      "sha256": "620f79ac8c2d0105089116c498f89b21c12397e0df7ecd5b5cfd161ac83f9621"
+    },
+    {
+      "file": "supabase/migrations/202611170006_profile_photos.sql",
+      "sha256": "c4e94d78916d29afd1c9e233ed651dd0ad951b3ba4ae5bba5f4b0a57fcf21c61"
+    },
+    {
+      "file": "supabase/migrations/202611180001_profile_prices.sql",
+      "sha256": "a1147f934b5b2617e656df17ebc13e242a091c01e272c032ea75f535808c16d8"
+    },
+    {
+      "file": "supabase/migrations/202611180002_history_pagination.sql",
+      "sha256": "869da7d64e196b10b1190faed4cf5524486f0d33c384a08f0293e981bf34d7f3"
+    },
+    {
+      "file": "supabase/migrations/202611180003_account_erasure.sql",
+      "sha256": "0a027830468cd222515eb9e92cb727f3486edd9a8cd6c42bfb7c0a559384820e"
+    },
+    {
+      "file": "supabase/migrations/202611190001_media_reconciliation.sql",
+      "sha256": "93a2baf800e7f3aa8df7c3b40e28ba6bbdc96cd85c7ec264af5e439979d7c6db"
+    }
+  ]
+}

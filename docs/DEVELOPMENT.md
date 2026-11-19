@@ -22,7 +22,7 @@ Tidak pernah beralih diam-diam ke demo saat jaringan gagal. Urutan konfigurasi: 
 
 ## Cloudflare lokal
 
-Salin `workers/api/.dev.vars.example` ke `.dev.vars`, isi nilai lokal. File tersebut diabaikan Git. `npm run worker:dev`. `npm run worker:check` hanya membundel melalui dry-run, tidak mengunggah.
+Salin `workers/api/.dev.vars.example` ke `.dev.vars`, isi nilai lokal termasuk `SUPABASE_URL`. File tersebut diabaikan Git. `npm run worker:dev`. URL produksi default kosong; proyek pengujian hanya terikat pada environment `staging`. `npm run worker:check` dan `npm run worker:check:staging` hanya membundel melalui dry-run, tidak mengunggah. [Target, akses dan prosedur staging](STAGING.md).
 
 Bila sandbox menolak folder preferensi Wrangler, gunakan `XDG_CONFIG_HOME=/private/tmp/upahgo-cloudflare WRANGLER_LOG_PATH=/private/tmp/upahgo-wrangler.log WRANGLER_SEND_METRICS=false`. Jangan mengubah HOME atau permission global.
 

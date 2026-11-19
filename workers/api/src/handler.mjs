@@ -138,7 +138,12 @@ async function dispatch(request, env, fetcher, trace) {
   if (!token || !/^Bearer [A-Za-z0-9_.-]{20,8192}$/.test(token))
     return respond({ error: "UNAUTHENTICATED" }, 401);
   try {
-    const service = new URL(env.SUPABASE_URL);
+    let service;
+    try {
+      service = new URL(env.SUPABASE_URL);
+    } catch {
+      throw new Error("GATEWAY_NOT_CONFIGURED");
+    }
     if (
       service.protocol !== "https:" &&
       !(

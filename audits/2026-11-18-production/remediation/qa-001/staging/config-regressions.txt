@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: staging does not inherit a production route, upstream or limiter binding
+ok 1 - staging does not inherit a production route, upstream or limiter binding
+  ---
+  duration_ms: 2.083792
+  type: 'test'
+  ...
+# Subtest: an unconfigured or malformed upstream fails before any outbound request
+ok 2 - an unconfigured or malformed upstream fails before any outbound request
+  ---
+  duration_ms: 43.065583
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 247.778917

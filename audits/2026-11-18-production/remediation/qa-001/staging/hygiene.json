@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-11-19T12:17:10.370148+00:00",
+  "checkedFiles": 27,
+  "jsonParsed": 5,
+  "credentialPatternHits": [],
+  "brokenLocalLinks": [],
+  "runtimeCodeChanged": true,
+  "scope": "Staging configuration, gateway error classification, tests, documentation and evidence only. Pattern scan, JSON parse, local Markdown links and git diff --check; not exhaustive security validation."
+}
