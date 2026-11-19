@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-11-19T13:32:57.687648+00:00",
+  "targetRef": "aqzlgrahfxmbvtfwebsx",
+  "versions": [
+    "202611170001",
+    "202611170002",
+    "202611170003",
+    "202611170004",
+    "202611170005",
+    "202611170006",
+    "202611180001",
+    "202611180002",
+    "202611180003",
+    "202611190001"
+  ],
+  "migrationCount": 10,
+  "checks": {
+    "private_tables": 28,
+    "tables_without_rls": 0,
+    "authenticated_rpc": true,
+    "anonymous_rpc": false,
+    "authenticated_private_schema": false,
+    "deletion_runner_enabled": false,
+    "media_runner_enabled": false,
+    "photo_bucket": {
+      "public": false,
+      "mimeTypes": [
+        "image/jpeg"
+      ],
+      "sizeLimit": 1048576
+    },
+    "gateway_hash_set": true
+  },
+  "gatewayRawSecretInSql": false,
+  "citySource": "shared/pekanbaru.json; OpenStreetMap ODbL 1.0",
+  "areaFixture": "Area sintetis QA Pekanbaru",
+  "productionModified": false
+}

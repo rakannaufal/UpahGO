@@ -38,7 +38,8 @@
     "worker:dev": "wrangler dev --config workers/api/wrangler.jsonc --ip 127.0.0.1",
     "worker:check": "node scripts/worker-contract.mjs && wrangler deploy --dry-run --config workers/api/wrangler.jsonc --outdir workers/api/.wrangler/check",
     "worker:check:staging": "node scripts/worker-contract.mjs && wrangler deploy --dry-run --env staging --config workers/api/wrangler.jsonc --outdir workers/api/.wrangler/check-staging",
-    "format": "prettier --write apps/mobile shared tests workers/api/src scripts playwright.config.ts"
+    "format": "prettier --write apps/mobile shared tests workers/api/src scripts playwright.config.ts",
+    "test:staging": "node scripts/test-staging.mjs"
   },
   "devDependencies": {
     "@imagemagick/magick-wasm": "0.0.46",

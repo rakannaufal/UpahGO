@@ -1,0 +1,56 @@
+{
+  "startedAt": "2026-11-19T13:45:42.078Z",
+  "target": "aqzlgrahfxmbvtfwebsx",
+  "workerUrl": "https://upahgo-api-staging.upahgo-dev-rakan.workers.dev",
+  "phase": "security",
+  "synthetic": true,
+  "phoneVerification": "Admin fixture; no OTP/SMS sent or tested",
+  "checks": [
+    {
+      "label": "Three synthetic accounts signed in through real Supabase Auth",
+      "passed": true
+    },
+    {
+      "label": "Edge platform rejects missing JWT",
+      "passed": true
+    },
+    {
+      "label": "Valid user JWT cannot bypass gateway at Edge",
+      "passed": true
+    },
+    {
+      "label": "Authenticated user cannot execute service-only photo helper",
+      "passed": true
+    },
+    {
+      "label": "Unlisted browser origin rejected",
+      "passed": true
+    },
+    {
+      "label": "Oversized JSON rejected before upstream business operation",
+      "passed": true
+    },
+    {
+      "label": "JWT with altered signature rejected",
+      "passed": true
+    },
+    {
+      "label": "Expiry fixture uploaded through real decoder",
+      "passed": true
+    },
+    {
+      "label": "Unsigned anonymous public Storage path cannot read private bytes",
+      "passed": true
+    },
+    {
+      "label": "Expiry fixture queued for cleanup",
+      "passed": true
+    },
+    {
+      "label": "Signed photo URL denied after its 60-second expiry",
+      "passed": true
+    }
+  ],
+  "result": "passed",
+  "finishedAt": "2026-11-19T13:47:04.511Z"
+}

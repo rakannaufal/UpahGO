@@ -1,0 +1,133 @@
+{
+  "startedAt": "2026-11-19T13:39:21.411Z",
+  "target": "aqzlgrahfxmbvtfwebsx",
+  "workerUrl": "https://upahgo-api-staging.upahgo-dev-rakan.workers.dev",
+  "phase": "core",
+  "synthetic": true,
+  "phoneVerification": "Admin fixture; no OTP/SMS sent or tested",
+  "checks": [
+    {
+      "label": "Three synthetic accounts signed in through real Supabase Auth",
+      "passed": true
+    },
+    {
+      "label": "Gateway missing JWT denied",
+      "passed": true
+    },
+    {
+      "label": "Malformed JWT denied through Auth",
+      "passed": true
+    },
+    {
+      "label": "Authenticated direct RPC denied without gateway",
+      "passed": true
+    },
+    {
+      "label": "Private schema unavailable to PostgREST",
+      "passed": true
+    },
+    {
+      "label": "employer profile price and negotiation persisted",
+      "passed": true
+    },
+    {
+      "label": "worker profile price and negotiation persisted",
+      "passed": true
+    },
+    {
+      "label": "outsider profile price and negotiation persisted",
+      "passed": true
+    },
+    {
+      "label": "Discovery returns visible synthetic worker",
+      "passed": true
+    },
+    {
+      "label": "Profile detail agrees with listed price",
+      "passed": true
+    },
+    {
+      "label": "employer request_contact denied CONSENT_REQUIRED; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Concurrent contact creation yields one pending contact",
+      "passed": true
+    },
+    {
+      "label": "outsider contact denied UNAVAILABLE; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "employer respond_contact denied FORBIDDEN; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "worker respond_contact denied CONSENT_REQUIRED; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Receiver explicitly accepts bilateral contact consent",
+      "passed": true
+    },
+    {
+      "label": "Phone shared only after bilateral consent; value omitted",
+      "passed": true
+    },
+    {
+      "label": "Three synthetic accounts signed in through real Supabase Auth",
+      "passed": true
+    },
+    {
+      "label": "outsider approved_contact denied UNAVAILABLE; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Negotiated agreement wage persisted independently",
+      "passed": true
+    },
+    {
+      "label": "outsider agreement denied UNAVAILABLE; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "outsider agreement_action denied UNAVAILABLE; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Completion does not imply cash receipt",
+      "passed": true
+    },
+    {
+      "label": "employer agreement_action denied STATE_CONFLICT; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Worker cash acknowledgement is concurrent-idempotent",
+      "passed": true
+    },
+    {
+      "label": "outsider submit_review denied UNAVAILABLE; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "employer submit_review denied REVIEW_EXISTS; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Participant receives persisted notifications",
+      "passed": true
+    },
+    {
+      "label": "outsider read_notification denied UNAVAILABLE; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Synthetic report accepted; operator delivery unverified",
+      "passed": true
+    }
+  ],
+  "resumedFrom": "core-initial.json; incorrect expected error corrected against SQL contract",
+  "result": "passed",
+  "finishedAt": "2026-11-19T13:39:30.150Z"
+}

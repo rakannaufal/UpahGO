@@ -1,0 +1,68 @@
+{
+  "startedAt": "2026-11-19T13:42:15.006Z",
+  "target": "aqzlgrahfxmbvtfwebsx",
+  "workerUrl": "https://upahgo-api-staging.upahgo-dev-rakan.workers.dev",
+  "phase": "media",
+  "synthetic": true,
+  "phoneVerification": "Admin fixture; no OTP/SMS sent or tested",
+  "checks": [
+    {
+      "label": "Three synthetic accounts signed in through real Supabase Auth",
+      "passed": true
+    },
+    {
+      "label": "Real Edge JPEG processing and private Storage upload HTTP200 ",
+      "passed": true
+    },
+    {
+      "label": "Owner can obtain pending photo signed URL",
+      "passed": true
+    },
+    {
+      "label": "Owner signed URL serves processed JPEG",
+      "passed": true
+    },
+    {
+      "label": "Pending photo bytes hidden from another user",
+      "passed": true
+    },
+    {
+      "label": "Direct authenticated Storage read denied",
+      "passed": true
+    },
+    {
+      "label": "Photo deletion returns queued202; not a byte-erasure claim",
+      "passed": true
+    },
+    {
+      "label": "Deleted photo immediately loses current access grant",
+      "passed": true
+    },
+    {
+      "label": "employer approved_contact denied UNAVAILABLE; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Block removes worker from discovery",
+      "passed": true
+    },
+    {
+      "label": "Agreement evidence remains readable after block",
+      "passed": true
+    },
+    {
+      "label": "outsider request_deletion denied CONSENT_REQUIRED; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Deletion immediately restricts synthetic account; finalizer disabled",
+      "passed": true
+    },
+    {
+      "label": "outsider visibility denied ACCOUNT_RESTRICTED; HTTP400",
+      "passed": true
+    }
+  ],
+  "result": "passed",
+  "finishedAt": "2026-11-19T13:42:35.041Z"
+}

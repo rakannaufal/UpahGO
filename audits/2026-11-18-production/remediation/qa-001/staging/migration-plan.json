@@ -1,8 +1,8 @@
 {
   "targetRef": "aqzlgrahfxmbvtfwebsx",
   "count": 10,
-  "appliedRemotely": false,
-  "scope": "Review manifest only. Compare remote history and schema before any approved application; not an idempotent replay script.",
+  "appliedRemotely": true,
+  "scope": "Applied once to the explicitly authorized testing project on 2026-11-19 after matching dry-run. Ten remote versions verified. Not an idempotent replay script.",
   "migrations": [
     {
       "file": "supabase/migrations/202611170001_core.sql",
@@ -44,5 +44,6 @@
       "file": "supabase/migrations/202611190001_media_reconciliation.sql",
       "sha256": "93a2baf800e7f3aa8df7c3b40e28ba6bbdc96cd85c7ec264af5e439979d7c6db"
     }
-  ]
+  ],
+  "applicationEvidence": "live/database.json"
 }

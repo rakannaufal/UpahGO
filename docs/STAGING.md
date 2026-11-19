@@ -1,15 +1,17 @@
 # Staging Upahgo
 
+APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-256 `81cfc39a7ea530e56beb17d0d490fea0c260a38cb4bc8f9ad3055283375de7be`. Endpoint staging tertanam; APK demo lama tetap. Release build bertanda tangan debug, arm64/API24+, tanpa Maps key. Google/Phone belum aktif; APK belum dipasang/dijalankan pada Android. [Verifikasi APK](../audits/2026-11-18-production/remediation/qa-001/staging/live/apk.json).
+
 19 November 2026. Pengguna mengonfirmasi proyek `aqzlgrahfxmbvtfwebsx` khusus pengujian dan belum berisi data nyata. Ini target staging, bukan target produksi. Konfirmasi tersebut bukan hasil inspeksi isi database. APK demo belum diuji pada Android fisik.
 
-Konfigurasi dan dry-run tersedia lokal. Belum ada migrasi, deployment, secret remote, akun uji, provider, scheduler atau layanan berbayar yang diaktifkan.
+Sepuluh migrasi, hash/secret gateway, Worker staging dan Edge foto sudah diterapkan sesudah otorisasi pengguna. Tiga akun sintetis diuji melalui layanan nyata: 55 assertion pada tiga phase lulus. Google/Phone, scheduler dan layanan berbayar tetap nonaktif. [Bukti deployment dan batas](../audits/2026-11-18-production/remediation/qa-001/staging/live/README.md).
 
 ## Target dan akses
 
 | Komponen         | Target / status                                                                                    |
 | ---------------- | -------------------------------------------------------------------------------------------------- |
 | Supabase staging | `https://aqzlgrahfxmbvtfwebsx.supabase.co`                                                         |
-| Worker staging   | Nama `upahgo-api-staging`; URL `workers.dev` belum tersedia, jangan ditebak                        |
+| Worker staging   | `https://upahgo-api-staging.upahgo-dev-rakan.workers.dev`; deployed                        |
 | Worker produksi  | Nama existing `upahgo-api`; URL Supabase sengaja kosong sampai proyek produksi terpisah ditentukan |
 | Klien Android QA | `UPAHGO_APP_VARIANT=qa`, package `id.upahgo.app.qa`, callback `upahgo-qa://auth/callback`          |
 | Cloudflare CLI   | Login Wrangler terverifikasi baca-saja; satu akun tersedia, identitas/kredensial tidak dicatat     |
@@ -17,7 +19,7 @@ Konfigurasi dan dry-run tersedia lokal. Belum ada migrasi, deployment, secret re
 
 Status akses merupakan snapshot; periksa ulang setelah login atau perubahan izin. Jangan logout/menimpa sesi proyek lain secara otomatis. Pakai akun/profil yang memiliki akses ke target di atas. Jangan mengirim token, password, service key atau client secret melalui chat.
 
-Inspeksi katalog baca-saja 19 November: schema `upahgo_private`, tabel riwayat migrasi dan RPC `upahgo_action` belum ada; katalog Storage tersedia. [Bukti](../audits/2026-11-18-production/remediation/qa-001/staging/schema-catalog.json). Tidak membaca row pengguna atau kebijakan bucket; hasil ini tidak membuktikan seluruh database kosong. Pemeriksaan memakai satu SELECT melalui Management API, menghindari preflight `db query --linked` yang dapat membuat role login sementara.
+Snapshot sebelum penerapan 19 November (historis): schema `upahgo_private`, tabel riwayat migrasi dan RPC `upahgo_action` belum ada; katalog Storage tersedia. [Bukti](../audits/2026-11-18-production/remediation/qa-001/staging/schema-catalog.json). Tidak membaca row pengguna atau kebijakan bucket; hasil ini tidak membuktikan seluruh database kosong. Pemeriksaan memakai satu SELECT melalui Management API, menghindari preflight `db query --linked` yang dapat membuat role login sementara.
 
 ## Login CLI
 
@@ -72,6 +74,12 @@ CLI memberikan URL/kode sementara untuk dimasukkan pada halaman Cloudflare. Jang
 
 Atas permintaan pengguna, setup agen mengikuti [panduan resmi Cloudflare](https://developers.cloudflare.com/agent-setup/prompt.md): 22 skill dari `cloudflare/skills` revisi `5108325ecceabc899c761e07aa617b09c02445ee` dipasang ke direktori skill Codex dan diverifikasi terhadap unduhan yang ditinjau. MCP `https://mcp.cloudflare.com/mcp` didaftarkan pada konfigurasi Codex dengan backup privat dan pengaturan lain tetap. OAuth MCP berhasil dengan pilihan Minimal: `user:read`, `account:read`, `offline_access`; CLI mencatat `auth_status: o_auth`. Pemakaian tool MCP pada runtime belum diuji; muat ulang Codex agar server baru dimuat. Skill tersedia pada giliran berikutnya. CLI `cf` beta opsional tidak dipasang karena proyek memakai Wrangler. Setup tooling tidak mengubah layanan aplikasi atau memberi izin deployment.
 
+## Status penerapan aktual
+
+Instruksi pengguna “lanjutkan sampai selesai” mengotorisasi rencana staging yang sudah ditinjau. Preflight menemukan 0 akun Auth/tabel publik/bucket/objek; target ACTIVE_HEALTHY, region ap-northeast-1. Workers Free dikonfirmasi lewat dashboard, tanpa upgrade. Sepuluh versi remote cocok; 28 tabel privat memakai RLS; bucket JPEG privat 1 MiB. Worker dan Edge ACTIVE dengan JWT wajib; limiter mempunyai namespace staging tersendiri. Area QA memakai batas Pekanbaru beratribusi, bukan direktori nasional.
+
+Alur inti, COD, concurrency, pihak ketiga, foto pending/Storage, blokir dan signed URL expiry diuji melalui endpoint nyata. Runner PRIV/MEDIA dan monitor tetap nonaktif; foto diantrekan, bukan diklaim sudah dihapus. [Status layanan](../audits/2026-11-18-production/remediation/qa-001/staging/live/deployment.json), [matriks hasil](../audits/2026-11-18-production/remediation/qa-001/staging/live/README.md). Callback QA exact sudah dipasang; [konfigurasi Google berikutnya](GOOGLE-STAGING.md). Jangan menerapkan ulang migrasi/secret yang sudah terpasang.
+
 ## Batas konfigurasi
 
 `workers/api/wrangler.jsonc` memiliki environment `staging` dengan vars, binding Durable Object dan migrasi SQLite eksplisit. Binding limiter memakai kelas script staging sendiri, tanpa `script_name`/environment produksi. `routes: []` mencegah pewarisan custom domain produksi. Namespace remote tetap harus diverifikasi sesudah deployment; dry-run tidak membuatnya.
@@ -93,7 +101,7 @@ Kedua `worker:check` hanya dry-run. Tidak membutuhkan login atau mengunggah Work
 
 ## Urutan deployment setelah diotorisasi
 
-Langkah di bawah belum dijalankan. Cakupan perubahan yang harus disetujui: sepuluh migrasi pada proyek pengujian yang disebutkan, provisioning hash/secret gateway, Edge `profile-photo` dan Worker `upahgo-api-staging`. Tidak termasuk proyek/akun cloud baru, upgrade paket, SMS/Maps berbayar, publikasi APK, perubahan produksi atau aktivasi runner PRIV/MEDIA/monitor.
+Langkah1–7 sudah diterapkan untuk staging ini; daftar berikut menjadi runbook reproduksi dan pemeriksaan, bukan instruksi replay migrasi. Cakupan penerapan yang telah diotorisasi: sepuluh migrasi pada proyek pengujian yang disebutkan, provisioning hash/secret gateway, Edge `profile-photo` dan Worker `upahgo-api-staging`. Tidak termasuk proyek/akun cloud baru, upgrade paket, SMS/Maps berbayar, publikasi APK, perubahan produksi atau aktivasi runner PRIV/MEDIA/monitor.
 
 1. Pastikan akun Cloudflare dan Supabase benar, akses proyek tersedia, paket/kuota ditinjau dan izin perubahan staging disetujui. Verifikasi ref sebelum setiap perintah. Simpan kredensial di secret store/file privat yang diabaikan Git; jangan memasukkannya sebagai literal argumen command atau log. Jangan mengubah izin organisasi hanya untuk melewati kegagalan akses.
 2. Inspeksi schema, tabel aplikasi, bucket dan riwayat migrasi pada target. Jangan menyimpulkan database bersih dari nama staging atau respons RPC404. Jika ditemukan data/versi tidak sesuai rencana, hentikan penerapan dan tinjau backup serta kompatibilitasnya. Jangan menjalankan `test:db`, `db reset`, migration repair atau SQL penghapusan schema pada proyek remote.
@@ -112,13 +120,15 @@ Langkah di bawah belum dijalankan. Cakupan perubahan yang harus disetujui: sepul
 
    `--skip-vault` mencegah pembaruan Vault yang bukan cakupan migrasi. Jangan menaruh password database pada flag `--password`; gunakan mekanisme kredensial privat CLI yang ditinjau. Verifikasi urutan/hasil dan simpan bukti yang disaring. Schema `upahgo_private` tidak boleh diekspos PostgREST; bucket foto tetap privat.
 
-4. Buat secret gateway acak kriptografis minimal 32 byte, khusus staging. Set `GATEWAY_SECRET` pada Worker dengan `--env staging`, `UPAHGO_GATEWAY_SECRET` pada Edge dengan ref eksplisit, dan hash SHA-256 secret yang sama pada `upahgo_private.gateway_config.secret_hash`. Gunakan parameter query admin, bukan interpolasi secret ke SQL. Isi `SUPABASE_PUBLISHABLE_KEY` Worker dari proyek staging; service-role tidak boleh masuk Worker/mobile. Rotasi harus serentak pada ketiga lokasi.
+4. Buat secret gateway acak kriptografis minimal 32 byte, khusus staging. Set `GATEWAY_SECRET` pada Worker dengan `--env staging`, `UPAHGO_GATEWAY_SECRET` pada Edge dengan ref eksplisit, dan hash SHA-256 secret yang sama pada `upahgo_private.gateway_config.secret_hash`. Gunakan parameter query admin, bukan interpolasi secret ke SQL. Penerapan ini menghitung SHA-256 secara lokal dan hanya mengirim digest hex64 yang divalidasi melalui Management API; raw secret tidak pernah menjadi literal SQL. Isi `SUPABASE_PUBLISHABLE_KEY` Worker dari proyek staging; service-role tidak boleh masuk Worker/mobile. Rotasi harus serentak pada ketiga lokasi.
 5. Siapkan WASM, tinjau deployment foto, lalu deploy function yang dituju saja:
 
    ```sh
    npm run photo:prepare
    supabase functions deploy profile-photo --profile "$UPAHGO_SUPABASE_PROFILE" --project-ref aqzlgrahfxmbvtfwebsx --use-api
    ```
+
+   Metode `--use-api` gagal413 untuk WASM15MB pada staging ini. Bundling Docker lokal kemudian berhasil dengan menghilangkan flag tersebut; gunakan `DOCKER_HOST` profil yang ditinjau dan `DOCKER_CONFIG` privat. Tidak mengubah dependency/decoder untuk menghindari batas provider.
 
    Pertahankan `verify_jwt = true`, static WASM dan bucket privat. Jangan memakai `--no-verify-jwt` atau `--prune`. Uji JWT/Auth/Storage sebenarnya; kegagalan autentikasi bukan alasan membuka function. Tunda write foto selama koordinasi migrasi/Edge sesuai [MEDIA-CLEANUP.md](MEDIA-CLEANUP.md).
 
@@ -137,4 +147,4 @@ Langkah di bawah belum dijalankan. Cakupan perubahan yang harus disetujui: sepul
 
 Jika validasi gagal, hentikan write baru dan kembalikan Worker/klien ke versi kompatibel yang sudah dicatat. Pertahankan schema, bucket dan riwayat migrasi; jangan otomatis drop tabel atau memutar balik wrapper PRIV/MEDIA. Perubahan database berikutnya harus ditinjau sebagai perbaikan maju. Jangan menyatakan backup atau restore berhasil sebelum drill terisolasi benar-benar dijalankan.
 
-PRIV/MEDIA/monitor tetap nonaktif sampai pemilik, retensi, scheduler, alarm dan penerimaan provider ditetapkan sesuai runbook masing-masing. Target kapasitas/RPO/RTO masih usulan, bukan hasil uji. Penerimaan Android fisik, Google/Phone, Storage, object authorization, operasi dan pemulihan cloud tetap terbuka. Konfigurasi staging dan dry-run tidak menutup QA-001 atau mengubah status produksi **NO-GO**.
+PRIV/MEDIA/monitor tetap nonaktif sampai pemilik, retensi, scheduler, alarm dan penerimaan provider ditetapkan sesuai runbook masing-masing. Target kapasitas/RPO/RTO masih usulan, bukan hasil uji. Penerimaan Android fisik, Google/Phone, moderasi/cleanup Storage, fault/load/restore dan operasi tetap terbuka. Smoke layanan nyata menutup sebagian pemeriksaan object authorization/foto pending, bukan keseluruhan matriks. Deployment tidak menutup QA-001 atau mengubah status produksi **NO-GO**.

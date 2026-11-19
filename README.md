@@ -1,5 +1,7 @@
 # Upahgo
 
+APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-256 `81cfc39a7ea530e56beb17d0d490fea0c260a38cb4bc8f9ad3055283375de7be`. Endpoint staging tertanam; APK demo lama tetap. Release build bertanda tangan debug, arm64/API24+, tanpa Maps key. Google/Phone belum aktif; APK belum dipasang/dijalankan pada Android. [Verifikasi APK](audits/2026-11-18-production/remediation/qa-001/staging/live/apk.json).
+
 Baseline tersimpan pada repository proyek mandiri [rakannaufal/UpahGO](https://github.com/rakannaufal/UpahGO), commit `9952922`. Status audit dan perbaikan: [remediasi 18 November 2026](audits/2026-11-18-production/remediation/README.md). Rilis produksi masih **NO-GO** sampai temuan terbuka dan penerimaan Android/live diselesaikan.
 
 Aplikasi Android untuk mempertemukan pekerja harian dengan pemberi kerja. Kategori awal bersih-bersih rumah; pendaftaran direncanakan seluruh Indonesia. Dua mode peta, kartu bertag, izin kontak sebelum WhatsApp, pembayaran COD.
@@ -22,9 +24,9 @@ npm run web
 
 Atau `npm run build:web`, `npm run preview`, buka http://localhost:8081. Pilih **Coba demo**, lewati atau ikuti pengenalan, pilih peran, lokasi demo/radius, lalu isi profil atau **Lewati dulu** menuju Beranda. Menu simulasi Buruh/Penyedia kerja di Akun mengganti aktor demo; menu Peran akun mengganti peran akun aktif. Demo tidak menghubungi orang atau memindahkan uang; reload menghapus data demo.
 
-Panduan lengkap: [Pengembangan](docs/DEVELOPMENT.md), [Konfigurasi Google/Supabase/Cloudflare/Maps](docs/SERVICES.md). Domain belum diperlukan untuk konfigurasi `workers.dev`; deployment belum dilakukan.
+Panduan lengkap: [Pengembangan](docs/DEVELOPMENT.md), [Konfigurasi Google/Supabase/Cloudflare/Maps](docs/SERVICES.md). Domain belum diperlukan; gateway staging sudah tersedia melalui `workers.dev`.
 
-Konfigurasi staging terpisah tersedia untuk proyek Supabase pengujian yang dikonfirmasi pengguna: `upahgo-api-staging`, binding limiter sendiri dan dry-run `npm run worker:check:staging`. URL Supabase produksi sengaja kosong. [Akses, manifest migrasi dan urutan deployment](docs/STAGING.md); belum ada deployment/migrasi remote. Login Wrangler dan akses Supabase ke ref staging terverifikasi; profil Supabase memakai file serta direktori lokal terisolasi. MCP Cloudflare berhasil OAuth Minimal, pemakaian tool menunggu muat ulang Codex. CI source `b47d79c`, run [44528145983](https://github.com/rakannaufal/UpahGO/actions/runs/44528145983), sukses:63 unit,280 SQL,1 Edge,4 Worker,63 browser; audit npm0 dan kedua dry-run lulus. Penerimaan perangkat dan layanan staging tetap terbuka.
+Konfigurasi staging terpisah tersedia untuk proyek Supabase pengujian yang dikonfirmasi pengguna: `upahgo-api-staging`, binding limiter sendiri dan dry-run `npm run worker:check:staging`. URL Supabase produksi sengaja kosong. [Akses, manifest migrasi dan urutan deployment](docs/STAGING.md). Sepuluh migrasi, Worker dan Edge foto sudah diterapkan; 55 assertion nyata lulus pada tiga akun sintetis. [Bukti/batas](audits/2026-11-18-production/remediation/qa-001/staging/live/README.md). Login Wrangler dan akses Supabase ke ref staging terverifikasi; profil Supabase memakai file serta direktori lokal terisolasi. MCP Cloudflare berhasil OAuth Minimal, pemakaian tool menunggu muat ulang Codex. CI source `b47d79c`, run [44528145983](https://github.com/rakannaufal/UpahGO/actions/runs/44528145983), sukses:63 unit,280 SQL,1 Edge,4 Worker,63 browser; audit npm0 dan kedua dry-run lulus. Penerimaan perangkat dan layanan staging tetap terbuka.
 
 ## Slice yang tersedia
 
@@ -35,8 +37,8 @@ Konfigurasi staging terpisah tersedia untuk proyek Supabase pengujian yang dikon
 - Proposal tugas/jadwal/upah, penerimaan pihak lain, pemeriksaan hasil, pengakuan uang tunai oleh pekerja secara terpisah.
 - Penilaian kedua pihak setelah kesepakatan selesai, terpisah dari pengakuan COD.
 - Notifikasi dalam aplikasi, blokir, pengiriman laporan, permintaan penghapusan. Finalizer akun/Auth/Storage dan retensi tersedia lokal, nonaktif sampai kebijakan disetujui; [runbook](docs/ACCOUNT-DELETION.md). Operator dan penerimaan cloud belum tersedia.
-- Rekonsiliasi foto: reservasi upload, antrean penghapusan dengan lease/retry dan sweep objek yatim tersedia lokal, runner default nonaktif. Hapus foto mengakui antrean melalui HTTP202; [runbook MEDIA-001](docs/MEDIA-CLEANUP.md). Scheduler/alarm dan Storage nyata belum diterima.
-- Operasi: ID permintaan server, event JSON terbatas, metrik dependency/latensi dan monitor API sintetis dengan state privat, retry alarm/recovery tersedia source. [Runbook OPS-001](docs/OPERATIONS.md). Belum diaktifkan remote; owner, kanal alarm, metadata provider dan scheduler masih perlu penerimaan.
+- Rekonsiliasi foto: reservasi upload, antrean penghapusan dengan lease/retry dan sweep objek yatim tersedia lokal, runner default nonaktif. Hapus foto mengakui antrean melalui HTTP202; [runbook MEDIA-001](docs/MEDIA-CLEANUP.md). Storage pending/private/signed URL sudah diuji nyata; moderasi, scheduler/alarm dan cleanup provider belum diterima.
+- Operasi: ID permintaan server, event JSON terbatas, metrik dependency/latensi dan monitor API sintetis dengan state privat, retry alarm/recovery tersedia source. [Runbook OPS-001](docs/OPERATIONS.md). Event gateway/foto aktif di staging; monitor/scheduler tetap nonaktif. Owner, kanal alarm dan raw metadata provider masih perlu penerimaan.
 
 Publikasi lowongan/lamaran terpisah, chat internal, wallet/escrow, push, admin web tidak ditambahkan pada slice ini. `SCREENS.md` tetap katalog rancangan yang lebih luas, bukan daftar fitur selesai.
 

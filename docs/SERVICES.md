@@ -1,6 +1,6 @@
 # Konfigurasi layanan
 
-Belum ada deployment, migrasi remote, konfigurasi OAuth, aktivasi SMS, atau publikasi yang dilakukan. Tidak ada domain yang dibeli. Siapkan ini pada lingkungan staging sebelum data pengguna nyata.
+Staging sudah diterapkan pada 19 November 2026:10 migrasi, gateway Worker, Edge foto dan55 assertion layanan nyata. Google/Phone dan layanan operasional tetap nonaktif; produksi belum dirilis. Tidak membeli domain/paket berbayar. [Bukti dan batas](../audits/2026-11-18-production/remediation/qa-001/staging/live/README.md).
 
 ## Supabase
 
@@ -16,7 +16,7 @@ Proyek pengujian: `https://aqzlgrahfxmbvtfwebsx.supabase.co`. Pada 19 November p
 
 Native memakai browser eksternal dan PKCE milik Supabase. Callback harus cocok scheme/host/path. Web preview memakai popup dengan pemeriksaan `event.origin` dan `event.source`; PKCE verifier dan sesi tetap di memori jendela utama. Reload web mengakhiri sesi. Jangan ubah menjadi redirect penuh tanpa penyimpanan verifier yang sesuai.
 
-Build `UPAHGO_APP_VARIANT=qa` memakai package `id.upahgo.app.qa` dan callback **`upahgo-qa://auth/callback`**, terpisah dari produksi. Daftarkan callback QA exact hanya pada environment pengujian yang disetujui; jangan menambah wildcard. Key Maps QA juga harus dibatasi package/SHA-1 sertifikat QA. [Runbook QA](QA-ACCEPTANCE.md). Pemeriksaan settings read-only 19 November pada proyek di atas masih menunjukkan Google/Phone nonaktif; tidak ada aktivasi/deployment dilakukan.
+Build `UPAHGO_APP_VARIANT=qa` memakai package `id.upahgo.app.qa` dan callback **`upahgo-qa://auth/callback`**, terpisah dari produksi. Daftarkan callback QA exact hanya pada environment pengujian yang disetujui; jangan menambah wildcard. Key Maps QA juga harus dibatasi package/SHA-1 sertifikat QA. [Runbook QA](QA-ACCEPTANCE.md). Pemeriksaan 19 November menunjukkan Google/Phone nonaktif dan Client ID/secret Google kosong; callback QA exact kini sudah terpasang. [Tindakan konfigurasi Google](GOOGLE-STAGING.md). Akun admin fixture tidak membuktikan OTP/Google berhasil.
 
 Domain sendiri belum diperlukan untuk alur native ini. Custom scheme belum memberikan jaminan verified App Links. Saat domain tersedia, evaluasi Android App Links dan tautan penghapusan akun publik; PKCE tetap diperlukan.
 
@@ -30,7 +30,7 @@ Cloudflare Worker tidak melindungi endpoint Auth Supabase secara otomatis. Konfi
 
 ### Migrasi dan area
 
-Tinjau migrasi berurutan `supabase/migrations/202611170001_core.sql`, `202611170002_onboarding.sql`, `202611170003_location_reviews.sql`, `202611170004_discovery_design.sql`, `202611170005_work_details_suggestions.sql`, `202611170006_profile_photos.sql`, lalu `202611180001_profile_prices.sql`, `202611180002_history_pagination.sql`, `202611180003_account_erasure.sql`, `202611190001_media_reconciliation.sql`. Backup bila database berisi data, terapkan berurutan melalui proses migrasi staging. Migrasi belum dijalankan remote pada pekerjaan ini; isi database remote tidak diperiksa. Jangan menerapkan ulang sebagai script idempoten.
+Tinjau migrasi berurutan `supabase/migrations/202611170001_core.sql`, `202611170002_onboarding.sql`, `202611170003_location_reviews.sql`, `202611170004_discovery_design.sql`, `202611170005_work_details_suggestions.sql`, `202611170006_profile_photos.sql`, lalu `202611180001_profile_prices.sql`, `202611180002_history_pagination.sql`, `202611180003_account_erasure.sql`, `202611190001_media_reconciliation.sql`. Backup bila database berisi data, terapkan berurutan melalui proses migrasi staging. Sepuluh migrasi sudah diterapkan sekali pada staging dan versinya diverifikasi. Preflight menghitung0 akun/bucket/objek/tabel publik sebelum penerapan. [Bukti database](../audits/2026-11-18-production/remediation/qa-001/staging/live/database.json). Jangan menerapkan ulang sebagai script idempoten.
 
 Skema `upahgo_private` harus tidak termasuk daftar exposed schemas PostgREST. Klien `authenticated` hanya mendapat execute pada `public.upahgo_action(text,jsonb)`. Helper `public.upahgo_photo_replace` hanya dapat dijalankan service-role Edge, bukan klien authenticated/anon. Tidak ada service-role key di Worker/aplikasi.
 
@@ -38,7 +38,7 @@ Migrasi memasukkan enam tag bersih-bersih, **tanpa area geografis nyata**. Isi d
 
 ## Cloudflare tanpa domain
 
-`workers/api/wrangler.jsonc` menyiapkan `upahgo-api` untuk produksi dan environment `staging` bernama `upahgo-api-staging`, masing-masing memakai Durable Object sendiri. URL Supabase produksi kosong; hanya staging mengarah ke proyek pengujian yang dikonfirmasi pengguna. `workers_dev: true`; setelah akun dan deployment disetujui, URL akan mengikuti subdomain `workers.dev` akun. URL nyata belum diketahui. Tidak perlu menebak URL atau membeli domain.
+`workers/api/wrangler.jsonc` menyiapkan `upahgo-api` untuk produksi dan environment `staging` bernama `upahgo-api-staging`, masing-masing memakai Durable Object sendiri. URL Supabase produksi kosong; hanya staging mengarah ke proyek pengujian yang dikonfirmasi pengguna. `workers_dev: true`; setelah akun dan deployment disetujui, URL akan mengikuti subdomain `workers.dev` akun. URL staging aktual: `https://upahgo-api-staging.upahgo-dev-rakan.workers.dev`. Binding/versi tercatat pada bukti deployment; produksi tidak di-deploy.
 
 Sebelum deployment:
 
@@ -88,5 +88,5 @@ Foto live tetap tertahan sampai operasi tersebut siap; screenshot pending dan te
 
 ## Operasi OPS-001 sebelum aktivasi
 
-Source Worker menyiapkan custom telemetry, query redaction, invocation logs/traces nonaktif dan upload source map privat; Edge memakai flag server terpisah. Monitor eksternal hanya memeriksa liveness+bootstrap akun sintetis, tanpa service role. Tidak ada deploy, scheduler, kanal alarm atau petugas yang diaktifkan oleh perubahan source ini. Ikuti [OPERATIONS.md](OPERATIONS.md) untuk env, retensi/akses/biaya, pemeriksaan raw metadata provider, private state/lock, receiver idempoten, token expiry, deadman serta fault drill staging. Hubungkan alarm terpisah pada runner PRIV/MEDIA dan ekspor ledger; API sehat tidak membuktikan penghapusan berjalan. Aktivasi tetap memerlukan otorisasi lingkungan dan penerimaan operator.
+Source Worker menyiapkan custom telemetry, query redaction, invocation logs/traces nonaktif dan upload source map privat; Edge memakai flag server terpisah. Monitor eksternal hanya memeriksa liveness+bootstrap akun sintetis, tanpa service role. Worker/Edge staging kini deployed dengan event aplikasi aktif. Monitor/scheduler, kanal alarm dan penerimaan petugas belum aktif. Ikuti [OPERATIONS.md](OPERATIONS.md) untuk env, retensi/akses/biaya, pemeriksaan raw metadata provider, private state/lock, receiver idempoten, token expiry, deadman serta fault drill staging. Hubungkan alarm terpisah pada runner PRIV/MEDIA dan ekspor ledger; API sehat tidak membuktikan penghapusan berjalan. Aktivasi tetap memerlukan otorisasi lingkungan dan penerimaan operator.
 

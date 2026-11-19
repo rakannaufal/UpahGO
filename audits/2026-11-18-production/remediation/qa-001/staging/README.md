@@ -1,4 +1,6 @@
-# QA-001: persiapan staging
+# QA-001: persiapan dan penerapan staging
+
+Status terbaru 19 November:10 migrasi, Worker staging dan Edge foto sudah diterapkan.55 assertion layanan nyata lulus; [bukti dan batas](live/README.md). Catatan persiapan/CI/katalog di bawah adalah snapshot sebelum penerapan. Google/Phone dan penerimaan Android tetap terbuka.
 
 19 November 2026, baseline `49f69e1`, branch `codex/staging-qa-001`. Pengguna mengonfirmasi proyek Supabase `aqzlgrahfxmbvtfwebsx` khusus pengujian dan belum berisi data nyata; APK fisik belum diuji. Konfirmasi pengguna tidak menggantikan inspeksi schema/riwayat sebelum migrasi.
 
@@ -52,6 +54,6 @@ Percobaan awal `db query --project-ref` tanpa `--linked` ditolak lokal dengan `D
 
 ## Keputusan
 
-Persiapan lokal dan CI source koreksi tersedia, **staging belum di-deploy dan QA-001 tetap terbuka**. Login Wrangler dan akses akun/profil Supabase target sudah terverifikasi. Migrasi/secret/deployment masih memerlukan otorisasi target dan tinjauan kuota; persiapan source tidak mengizinkan upgrade paket, aktivasi SMS/Maps, publikasi APK, perubahan produksi atau pengiriman pesan nyata.
+Persiapan lokal, CI dan penerapan staging tersedia; **QA-001 tetap terbuka**. Login Wrangler dan akses akun/profil Supabase target sudah terverifikasi. Migrasi/secret/deployment staging kemudian diotorisasi dan diterapkan sesudah tinjauan target/kuota. Pekerjaan ini tidak mengizinkan upgrade paket, aktivasi SMS/Maps, publikasi APK, perubahan produksi atau pengiriman pesan nyata.
 
-Google/Phone, tiga akun uji sintetis, direktori wilayah, JWT/PostgREST/Storage, perilaku Android, operator PRIV/MEDIA/OPS, kapasitas serta pemulihan cloud belum diterima. Rilis produksi tetap **NO-GO**.
+Tiga akun sintetis, satu area QA Pekanbaru, JWT/PostgREST/Storage pending dan alur bisnis sudah diuji nyata. Google/Phone, direktori nasional, perilaku Android, moderasi/runner PRIV/MEDIA/OPS, kapasitas serta pemulihan cloud belum diterima. Rilis produksi tetap **NO-GO**.

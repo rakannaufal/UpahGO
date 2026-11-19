@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-11-19T13:55:43.052861+00:00",
+  "targetRef": "aqzlgrahfxmbvtfwebsx",
+  "syntheticOnly": true,
+  "counts": {
+    "auth_users": 3,
+    "active_accounts": 2,
+    "restricted_accounts": 1,
+    "completed_cash_acknowledged_agreements": 1,
+    "revoked_contacts": 1,
+    "synthetic_reports": 1,
+    "stored_photo_objects": 4,
+    "active_photo_references": 0,
+    "queued_media_cleanup": 2,
+    "in_flight_uploads": 0,
+    "deletion_runner_enabled": false,
+    "media_runner_enabled": false
+  },
+  "queuedIsNotErased": true
+}

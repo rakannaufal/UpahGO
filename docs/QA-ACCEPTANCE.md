@@ -1,5 +1,7 @@
 # Penerimaan Android dan staging
 
+APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-256 `81cfc39a7ea530e56beb17d0d490fea0c260a38cb4bc8f9ad3055283375de7be`. Endpoint staging tertanam; APK demo lama tetap. Release build bertanda tangan debug, arm64/API24+, tanpa Maps key. Google/Phone belum aktif; APK belum dipasang/dijalankan pada Android. [Verifikasi APK](../audits/2026-11-18-production/remediation/qa-001/staging/live/apk.json).
+
 QA-001 tetap terbuka sampai bukti perangkat dan layanan nyata diterima. Export Hermes, screenshot browser, tes SQL dengan shim Auth dan APK yang berhasil dikompilasi adalah bukti berbeda. Hasil aktual: [laporan QA-001](../audits/2026-11-18-production/remediation/qa-001/README.md).
 
 ## Build khusus pengujian
@@ -51,7 +53,7 @@ A06 dan A08–A11 memerlukan layanan/perangkat terkonfigurasi; demo hanya memver
 
 ## Staging sebelum penerimaan live
 
-Pengguna mengonfirmasi proyek Supabase yang ditunjuk khusus pengujian dan belum berisi data nyata. Konfirmasi itu belum membuktikan schema/migrasi lengkap. [Persiapan staging](STAGING.md) menyediakan environment Worker terpisah dan manifest sepuluh migrasi; login Wrangler dan akses Supabase target kini terverifikasi dengan profil terisolasi. Belum ada URL Worker dan tiga akun uji. Jangan memigrasikan proyek remote, mengaktifkan provider, mengirim SMS, mengubah data lama atau menjalankan fault/load/restore drill sebagai efek samping pemeriksaan ini.
+Pengguna mengonfirmasi proyek Supabase yang ditunjuk khusus pengujian dan belum berisi data nyata. Konfirmasi itu belum membuktikan schema/migrasi lengkap. [Persiapan staging](STAGING.md) menyediakan environment Worker terpisah dan manifest sepuluh migrasi; login Wrangler dan akses Supabase target kini terverifikasi dengan profil terisolasi. Worker HTTPS,10 migrasi, Edge foto dan tiga akun sintetis kini sudah diterapkan/diuji atas instruksi pengguna. [55 assertion nyata dan batas](../audits/2026-11-18-production/remediation/qa-001/staging/live/README.md). Jangan menerapkan ulang migrasi atau menjalankan fault/load/restore, aktivasi SMS atau perubahan produksi sebagai efek samping smoke.
 
 1. Tetapkan lingkungan khusus pengujian, pemilik, izin perubahan, backup dan jendela uji. Review urutan migrasi/source Worker/Edge dari [SERVICES.md](SERVICES.md), [PRIV](ACCOUNT-DELETION.md), [MEDIA](MEDIA-CLEANUP.md), [OPS](OPERATIONS.md). Deploy/provisioning merupakan tindakan terpisah yang harus diotorisasi.
 2. Siapkan Worker HTTPS, Auth/PKCE, callback QA exact, direktori area yang ditinjau, bucket privat, Edge dan key Maps Android yang dibatasi package/SHA-1 sertifikat QA. Aktifkan Phone hanya dengan batas biaya/abuse dan nomor uji provider yang disetujui. Jangan menaruh service key dalam aplikasi.
@@ -69,7 +71,7 @@ Pengguna mengonfirmasi proyek Supabase yang ditunjuk khusus pengujian dan belum 
 | S07 | 50 pengguna bersamaan dengan operasi bisnis sah, ramp-up/soak dan budget disetujui                                   | Ukur throughput/error/p50/p95/p99 per operasi; pisahkan 401/404/429/rejection dari sukses bisnis; target awal gateway p95 <1 detik, foto <5 detik sesuai OPS |
 | S08 | Restore/rollback pada target terisolasi dengan DB + bytes Storage                                                    | Ukur RPO/RTO, FK/RLS/count/bytes dan replay penghapusan; target usulan RPO 1 jam/RTO 4 jam bukan hasil uji                                                   |
 
-Google/Phone nonaktif dan RPC tidak dapat ditemukan lewat probe anonim pada 19 November. Tidak ada uji signed-in/Storage/kapasitas yang diklaim lulus dari hasil tersebut.
+Hasil aktual 19 November: S01/S02/S03 sebagian diverifikasi melalui Auth/PostgREST/Worker nyata; S04 pending/private/DELETE202/signed URL TTL60detik lulus; pembatasan segera S05 lulus. Google/Phone nonaktif; callback QA sudah dipasang. Approved/moderasi, runner/retry/ledger, operator, fault/load/restore dan Android tetap terbuka. Detail per assertion ada pada bukti live; smoke tidak menutup seluruh baris S01–S08. [Tindakan Google](GOOGLE-STAGING.md).
 
 ## Browser dan keputusan
 

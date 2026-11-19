@@ -1,0 +1,81 @@
+{
+  "startedAt": "2026-11-19T13:37:57.984Z",
+  "target": "aqzlgrahfxmbvtfwebsx",
+  "workerUrl": "https://upahgo-api-staging.upahgo-dev-rakan.workers.dev",
+  "phase": "core",
+  "synthetic": true,
+  "phoneVerification": "Admin fixture; no OTP/SMS sent or tested",
+  "checks": [
+    {
+      "label": "Three synthetic accounts signed in through real Supabase Auth",
+      "passed": true
+    },
+    {
+      "label": "Gateway missing JWT denied",
+      "passed": true
+    },
+    {
+      "label": "Malformed JWT denied through Auth",
+      "passed": true
+    },
+    {
+      "label": "Authenticated direct RPC denied without gateway",
+      "passed": true
+    },
+    {
+      "label": "Private schema unavailable to PostgREST",
+      "passed": true
+    },
+    {
+      "label": "employer profile price and negotiation persisted",
+      "passed": true
+    },
+    {
+      "label": "worker profile price and negotiation persisted",
+      "passed": true
+    },
+    {
+      "label": "outsider profile price and negotiation persisted",
+      "passed": true
+    },
+    {
+      "label": "Discovery returns visible synthetic worker",
+      "passed": true
+    },
+    {
+      "label": "Profile detail agrees with listed price",
+      "passed": true
+    },
+    {
+      "label": "employer request_contact denied CONSENT_REQUIRED; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Concurrent contact creation yields one pending contact",
+      "passed": true
+    },
+    {
+      "label": "outsider contact denied UNAVAILABLE; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "employer respond_contact denied FORBIDDEN; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "worker respond_contact denied CONSENT_REQUIRED; HTTP400",
+      "passed": true
+    },
+    {
+      "label": "Receiver explicitly accepts bilateral contact consent",
+      "passed": true
+    },
+    {
+      "label": "Phone shared only after bilateral consent; value omitted",
+      "passed": true
+    }
+  ],
+  "result": "failed",
+  "failure": "outsider approved_contact denied FORBIDDEN; HTTP400",
+  "finishedAt": "2026-11-19T13:38:15.798Z"
+}
