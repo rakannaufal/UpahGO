@@ -1,0 +1,7 @@
+
+> upahgo@0.1.0 typecheck
+> npm run typecheck --workspace apps/mobile
+
+
+> @upahgo/mobile@0.1.0 typecheck
+> tsc --noEmit

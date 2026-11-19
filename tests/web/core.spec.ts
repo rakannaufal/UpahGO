@@ -200,9 +200,7 @@ test("populated demo, two-column profile cards, city/radius/job filters and map"
     const labelBox = (await first
       .getByTestId("profile-negotiable")
       .boundingBox())!;
-    const priceBox = (await first
-      .getByText("Rp 120.000", { exact: true })
-      .boundingBox())!;
+    const priceBox = (await first.getByText(/^Rp\s*120\.000$/).boundingBox())!;
     const ratingBox = (await first
       .getByTestId("rating-summary")
       .boundingBox())!;

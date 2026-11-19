@@ -1,0 +1,114 @@
+{
+  "artifact": ".cache/qa/upahgo-qa-0.1.0-arm64.apk",
+  "sha256": "8952d412fbfff89fa03cddfa0bd431b416b76aec91600f7bd84cc5d9e6405957",
+  "sizeBytes": 35282721,
+  "package": "id.upahgo.app.qa",
+  "name": "Upahgo QA",
+  "versionName": "0.1.0",
+  "versionCode": 1,
+  "minSdk": 24,
+  "targetSdk": 36,
+  "compileSdk": 37,
+  "abis": ["arm64-v8a"],
+  "buildType": "release",
+  "debuggable": false,
+  "signature": "v2 verified; Android Debug certificate; QA only",
+  "baselineCommit": "9d40db1f4481ce05396a805f6ffc44896633cc7e",
+  "sourceHashes": {
+    "apps/mobile/app.config.ts": "ef615777fcb1a869206ac6a4ee424c4076ad3933ce9a2f16903982ea35bc6e5c",
+    "apps/mobile/src/auth.ts": "a5dd66540d7a4768b409d36e858de5fd0b7497a8c6e81a0d621d020fec3441d9",
+    "shared/native-auth.ts": "14d173154332d85f6da89ed9406d8a3661a7c70a78a0171e9cd8d0a1142b54d6",
+    "package-lock.json": "a6e2bd595c98d0514cd259af449ad33a031732f2e60cfd5ac7a69163c2f2677b"
+  },
+  "embeddedBundleBytes": 3711420,
+  "syntheticMarkers": {
+    "https://supabase.invalid": true,
+    "synthetic-public-test-key": true,
+    "https://api.invalid": true
+  },
+  "mapsConfigured": false,
+  "knownLocalCredentialValuesChecked": 1,
+  "knownLocalCredentialValuesAbsent": true,
+  "suppliedSupabaseHostAbsent": true,
+  "sourceMapsSigningMaterialEnvFilesAbsent": true,
+  "permissions": [
+    {
+      "name": "android.permission.ACCESS_COARSE_LOCATION",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.ACCESS_FINE_LOCATION",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.INTERNET",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.READ_EXTERNAL_STORAGE",
+      "maxSdk": "32"
+    },
+    {
+      "name": "android.permission.SYSTEM_ALERT_WINDOW",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.VIBRATE",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.WRITE_EXTERNAL_STORAGE",
+      "maxSdk": "32"
+    },
+    {
+      "name": "android.permission.WAKE_LOCK",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.ACCESS_NETWORK_STATE",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.RECEIVE_BOOT_COMPLETED",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.FOREGROUND_SERVICE",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.USE_BIOMETRIC",
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.USE_FINGERPRINT",
+      "maxSdk": null
+    },
+    {
+      "name": "id.upahgo.app.qa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+      "maxSdk": null
+    }
+  ],
+  "backup": [
+    {
+      "manifestAttribute": "fullBackupContent",
+      "resource": "secure_store_backup_rules",
+      "compiledPath": "res/-K.xml",
+      "secureStoreExclusions": 1
+    },
+    {
+      "manifestAttribute": "dataExtractionRules",
+      "resource": "secure_store_data_extraction_rules",
+      "compiledPath": "res/Hq.xml",
+      "secureStoreExclusions": 2
+    }
+  ],
+  "installedOrRunOnDevice": false,
+  "limits": [
+    "arm64 only",
+    "Synthetic services/demo only",
+    "Debug signing unsuitable for production",
+    "Manifest includes overlay and library foreground/boot/biometric permissions; production minimization and OS behavior still require review",
+    "SecureStore backup exclusion verified in bytes; restoration not exercised"
+  ]
+}

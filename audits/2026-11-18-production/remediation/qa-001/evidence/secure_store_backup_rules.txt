@@ -1,0 +1,7 @@
+E: full-backup-content (line=4)
+    E: include (line=5)
+      A: domain="sharedpref" (Raw: "sharedpref")
+      A: path="." (Raw: ".")
+    E: exclude (line=6)
+      A: domain="sharedpref" (Raw: "sharedpref")
+      A: path="SecureStore" (Raw: "SecureStore")

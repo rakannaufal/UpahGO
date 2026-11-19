@@ -1,0 +1,20 @@
+{
+  "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+  "androidSdk": {
+    "ANDROID_HOME": false,
+    "ANDROID_SDK_ROOT": false,
+    "defaultSdkDirectory": false
+  },
+  "tools": {
+    "adb": false,
+    "emulator": false,
+    "sdkmanager": false,
+    "java": true,
+    "javac": true,
+    "gradle": false,
+    "psql": true,
+    "deno": true
+  },
+  "device": "User reports physical Android device; model, OS, authorization and interaction not yet verified",
+  "staging": "Supabase URL supplied; Worker and synthetic accounts not available per user"
+}

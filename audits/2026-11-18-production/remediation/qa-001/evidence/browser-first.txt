@@ -1,0 +1,1123 @@
+
+> upahgo@0.1.0 test:web
+> playwright test --project=chromium --project=firefox --project=webkit
+
+
+Running 63 tests using 1 worker
+
+(node:66577) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (3.2s)
+  ✓   2 [chromium] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (2.6s)
+  ✓   3 [chromium] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (5.3s)
+  ✓   4 [chromium] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (22.1s)
+  ✓   5 [chromium] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (7.8s)
+  ✓   6 [chromium] › tests/web/core.spec.ts:118:1 › catalog search and private Other suggestion preserve deferred category boundaries (6.3s)
+  ✓   7 [chromium] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map (10.9s)
+  ✓   8 [chromium] › tests/web/core.spec.ts:308:1 › bilateral contact, separate COD, both participants rate completed work (17.0s)
+  ✓   9 [chromium] › tests/web/core.spec.ts:412:1 › profile validation, draft guard, role history and visibility (8.6s)
+  ✓  10 [chromium] › tests/web/core.spec.ts:474:1 › reporting, blocking, populated history, privacy and deletion (12.7s)
+  ✓  11 [chromium] › tests/web/core.spec.ts:546:1 › responsive rail, keyboard, reduced motion and invalid callback (5.7s)
+  ✓  12 [chromium] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (3.9s)
+  ✓  13 [chromium] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (3.9s)
+  ✓  14 [chromium] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (6.5s)
+  ✓  15 [chromium] › tests/web/location.spec.ts:69:1 › live GPS permission rejection, inaccurate fix and successful retry (1.9s)
+  ✓  16 [chromium] › tests/web/location.spec.ts:130:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (2.1s)
+  ✓  17 [chromium] › tests/web/location.spec.ts:170:1 › GPS outside supported city never falls back to a different location (1.8s)
+  ✓  18 [chromium] › tests/web/location.spec.ts:198:1 › map tile failure keeps approximate markers and list usable (4.5s)
+  ✓  19 [chromium] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (3.3s)
+  ✓  20 [chromium] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (18.7s)
+  ✓  21 [chromium] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (23.0s)
+(node:66786) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  22 [firefox] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (2ms)
+(node:66817) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  23 [firefox] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (2ms)
+(node:66826) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  24 [firefox] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (2ms)
+(node:66834) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  25 [firefox] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (1ms)
+(node:66836) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  26 [firefox] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (3ms)
+(node:66841) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  27 [firefox] › tests/web/core.spec.ts:118:1 › catalog search and private Other suggestion preserve deferred category boundaries (2ms)
+(node:66844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  28 [firefox] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map (2ms)
+(node:66849) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  29 [firefox] › tests/web/core.spec.ts:308:1 › bilateral contact, separate COD, both participants rate completed work (2ms)
+(node:66853) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  30 [firefox] › tests/web/core.spec.ts:412:1 › profile validation, draft guard, role history and visibility (2ms)
+(node:66855) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  31 [firefox] › tests/web/core.spec.ts:474:1 › reporting, blocking, populated history, privacy and deletion (2ms)
+(node:66857) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  32 [firefox] › tests/web/core.spec.ts:546:1 › responsive rail, keyboard, reduced motion and invalid callback (2ms)
+(node:66863) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  33 [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (1ms)
+(node:66866) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  34 [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (1ms)
+(node:66868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  35 [firefox] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (2ms)
+(node:66871) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  36 [firefox] › tests/web/location.spec.ts:69:1 › live GPS permission rejection, inaccurate fix and successful retry (2ms)
+(node:66876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  37 [firefox] › tests/web/location.spec.ts:130:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (2ms)
+(node:66879) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  38 [firefox] › tests/web/location.spec.ts:170:1 › GPS outside supported city never falls back to a different location (2ms)
+(node:66881) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  39 [firefox] › tests/web/location.spec.ts:198:1 › map tile failure keeps approximate markers and list usable (2ms)
+(node:66883) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  40 [firefox] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (2ms)
+(node:66886) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  41 [firefox] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (2ms)
+(node:66888) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  42 [firefox] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (2ms)
+(node:66890) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  43 [webkit] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (3.8s)
+  ✓  44 [webkit] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (2.2s)
+  ✓  45 [webkit] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (6.2s)
+  ✓  46 [webkit] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (21.5s)
+  ✓  47 [webkit] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (8.7s)
+  ✓  48 [webkit] › tests/web/core.spec.ts:118:1 › catalog search and private Other suggestion preserve deferred category boundaries (6.5s)
+  ✘  49 [webkit] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map (45.1s)
+(node:66986) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  50 [webkit] › tests/web/core.spec.ts:308:1 › bilateral contact, separate COD, both participants rate completed work (19.8s)
+  ✓  51 [webkit] › tests/web/core.spec.ts:412:1 › profile validation, draft guard, role history and visibility (9.5s)
+  ✓  52 [webkit] › tests/web/core.spec.ts:474:1 › reporting, blocking, populated history, privacy and deletion (13.8s)
+  ✓  53 [webkit] › tests/web/core.spec.ts:546:1 › responsive rail, keyboard, reduced motion and invalid callback (5.7s)
+  ✘  54 [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (6.0s)
+(node:67050) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  55 [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (6.3s)
+(node:67075) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  56 [webkit] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (6.2s)
+  ✓  57 [webkit] › tests/web/location.spec.ts:69:1 › live GPS permission rejection, inaccurate fix and successful retry (3.0s)
+  ✘  58 [webkit] › tests/web/location.spec.ts:130:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (7.0s)
+(node:67097) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  59 [webkit] › tests/web/location.spec.ts:170:1 › GPS outside supported city never falls back to a different location (7.0s)
+(node:67114) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  60 [webkit] › tests/web/location.spec.ts:198:1 › map tile failure keeps approximate markers and list usable (5.6s)
+  ✘  61 [webkit] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (6.2s)
+(node:67141) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  62 [webkit] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (10.7s)
+(node:67161) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  63 [webkit] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (25.4s)
+
+
+  1) [firefox] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-McLLzd -juggler-pipe -silent
+    <launched> pid=66788
+    [pid=66788][err] *** You are running in headless mode.
+    [pid=66788][err] Could not find profile folder.
+    [pid=66788] <process did exit: exitCode=1, signal=null>
+    [pid=66788] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-McLLzd -juggler-pipe -silent
+      - <launched> pid=66788
+      - [pid=66788][err] *** You are running in headless mode.
+      - [pid=66788][err] Could not find profile folder.
+      - [pid=66788] <process did exit: exitCode=1, signal=null>
+      - [pid=66788] starting temporary directories cleanup
+      - [pid=66788] <gracefully close start>
+      - [pid=66788] <kill>
+      - [pid=66788] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66788] finished temporary directories cleanup
+      - [pid=66788] <gracefully close end>
+
+
+    Error Context: test-results/auth-recovery-contact-boot-77836-vers-without-a-blank-screen-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/auth-recovery-contact-boot-77836-vers-without-a-blank-screen-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/auth-recovery-contact-boot-77836-vers-without-a-blank-screen-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-n6dhOU -juggler-pipe -silent
+    <launched> pid=66822
+    [pid=66822][err] *** You are running in headless mode.
+    [pid=66822][err] Could not find profile folder.
+    [pid=66822] <process did exit: exitCode=1, signal=null>
+    [pid=66822] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-n6dhOU -juggler-pipe -silent
+      - <launched> pid=66822
+      - [pid=66822][err] *** You are running in headless mode.
+      - [pid=66822][err] Could not find profile folder.
+      - [pid=66822] <process did exit: exitCode=1, signal=null>
+      - [pid=66822] starting temporary directories cleanup
+      - [pid=66822] <gracefully close start>
+      - [pid=66822] <kill>
+      - [pid=66822] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66822] finished temporary directories cleanup
+      - [pid=66822] <gracefully close end>
+
+
+    Error Context: test-results/auth-recovery-agreement-bo-1dc74-vers-without-a-blank-screen-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/auth-recovery-agreement-bo-1dc74-vers-without-a-blank-screen-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/auth-recovery-agreement-bo-1dc74-vers-without-a-blank-screen-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [firefox] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-1cBMdc -juggler-pipe -silent
+    <launched> pid=66830
+    [pid=66830][err] *** You are running in headless mode.
+    [pid=66830][err] Could not find profile folder.
+    [pid=66830] <process did exit: exitCode=1, signal=null>
+    [pid=66830] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-1cBMdc -juggler-pipe -silent
+      - <launched> pid=66830
+      - [pid=66830][err] *** You are running in headless mode.
+      - [pid=66830][err] Could not find profile folder.
+      - [pid=66830] <process did exit: exitCode=1, signal=null>
+      - [pid=66830] starting temporary directories cleanup
+      - [pid=66830] <gracefully close start>
+      - [pid=66830] <kill>
+      - [pid=66830] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66830] finished temporary directories cleanup
+      - [pid=66830] <gracefully close end>
+
+
+    Error Context: test-results/ceria-maximum-zoom-separat-f94d2-ming-out-restores-the-group-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ceria-maximum-zoom-separat-f94d2-ming-out-restores-the-group-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ceria-maximum-zoom-separat-f94d2-ming-out-restores-the-group-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [firefox] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-8x0lUL -juggler-pipe -silent
+    <launched> pid=66835
+    [pid=66835][err] *** You are running in headless mode.
+    [pid=66835][err] Could not find profile folder.
+    [pid=66835] <process did exit: exitCode=1, signal=null>
+    [pid=66835] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-8x0lUL -juggler-pipe -silent
+      - <launched> pid=66835
+      - [pid=66835][err] *** You are running in headless mode.
+      - [pid=66835][err] Could not find profile folder.
+      - [pid=66835] <process did exit: exitCode=1, signal=null>
+      - [pid=66835] starting temporary directories cleanup
+      - [pid=66835] <gracefully close start>
+      - [pid=66835] <kill>
+      - [pid=66835] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66835] finished temporary directories cleanup
+      - [pid=66835] <gracefully close end>
+
+
+    Error Context: test-results/ceria-Ceria-route-and-stat-f0dbb-narrow-and-expanded-layouts-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ceria-Ceria-route-and-stat-f0dbb-narrow-and-expanded-layouts-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ceria-Ceria-route-and-stat-f0dbb-narrow-and-expanded-layouts-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [firefox] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-fEvRhp -juggler-pipe -silent
+    <launched> pid=66840
+    [pid=66840][err] *** You are running in headless mode.
+    [pid=66840][err] Could not find profile folder.
+    [pid=66840] <process did exit: exitCode=1, signal=null>
+    [pid=66840] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-fEvRhp -juggler-pipe -silent
+      - <launched> pid=66840
+      - [pid=66840][err] *** You are running in headless mode.
+      - [pid=66840][err] Could not find profile folder.
+      - [pid=66840] <process did exit: exitCode=1, signal=null>
+      - [pid=66840] starting temporary directories cleanup
+      - [pid=66840] <gracefully close start>
+      - [pid=66840] <kill>
+      - [pid=66840] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66840] finished temporary directories cleanup
+      - [pid=66840] <gracefully close end>
+
+
+    Error Context: test-results/core-effort-search-carry-t-8d992-ptional-photo-stays-private-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/core-effort-search-carry-t-8d992-ptional-photo-stays-private-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/core-effort-search-carry-t-8d992-ptional-photo-stays-private-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [firefox] › tests/web/core.spec.ts:118:1 › catalog search and private Other suggestion preserve deferred category boundaries
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-06wLkT -juggler-pipe -silent
+    <launched> pid=66842
+    [pid=66842][err] *** You are running in headless mode.
+    [pid=66842][err] Could not find profile folder.
+    [pid=66842] <process did exit: exitCode=1, signal=null>
+    [pid=66842] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-06wLkT -juggler-pipe -silent
+      - <launched> pid=66842
+      - [pid=66842][err] *** You are running in headless mode.
+      - [pid=66842][err] Could not find profile folder.
+      - [pid=66842] <process did exit: exitCode=1, signal=null>
+      - [pid=66842] starting temporary directories cleanup
+      - [pid=66842] <gracefully close start>
+      - [pid=66842] <kill>
+      - [pid=66842] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66842] finished temporary directories cleanup
+      - [pid=66842] <gracefully close end>
+
+
+    Error Context: test-results/core-catalog-search-and-pr-95275-eferred-category-boundaries-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/core-catalog-search-and-pr-95275-eferred-category-boundaries-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/core-catalog-search-and-pr-95275-eferred-category-boundaries-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [firefox] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-irJpik -juggler-pipe -silent
+    <launched> pid=66848
+    [pid=66848][err] *** You are running in headless mode.
+    [pid=66848][err] Could not find profile folder.
+    [pid=66848] <process did exit: exitCode=1, signal=null>
+    [pid=66848] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-irJpik -juggler-pipe -silent
+      - <launched> pid=66848
+      - [pid=66848][err] *** You are running in headless mode.
+      - [pid=66848][err] Could not find profile folder.
+      - [pid=66848] <process did exit: exitCode=1, signal=null>
+      - [pid=66848] starting temporary directories cleanup
+      - [pid=66848] <gracefully close start>
+      - [pid=66848] <kill>
+      - [pid=66848] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66848] finished temporary directories cleanup
+      - [pid=66848] <gracefully close end>
+
+
+    Error Context: test-results/core-populated-demo-two-co-be0d0--radius-job-filters-and-map-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/core-populated-demo-two-co-be0d0--radius-job-filters-and-map-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/core-populated-demo-two-co-be0d0--radius-job-filters-and-map-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [firefox] › tests/web/core.spec.ts:308:1 › bilateral contact, separate COD, both participants rate completed work
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-gVNMZq -juggler-pipe -silent
+    <launched> pid=66852
+    [pid=66852][err] *** You are running in headless mode.
+    [pid=66852][err] Could not find profile folder.
+    [pid=66852] <process did exit: exitCode=1, signal=null>
+    [pid=66852] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-gVNMZq -juggler-pipe -silent
+      - <launched> pid=66852
+      - [pid=66852][err] *** You are running in headless mode.
+      - [pid=66852][err] Could not find profile folder.
+      - [pid=66852] <process did exit: exitCode=1, signal=null>
+      - [pid=66852] starting temporary directories cleanup
+      - [pid=66852] <gracefully close start>
+      - [pid=66852] <kill>
+      - [pid=66852] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66852] finished temporary directories cleanup
+      - [pid=66852] <gracefully close end>
+
+
+    Error Context: test-results/core-bilateral-contact-sep-086dc-cipants-rate-completed-work-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/core-bilateral-contact-sep-086dc-cipants-rate-completed-work-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/core-bilateral-contact-sep-086dc-cipants-rate-completed-work-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [firefox] › tests/web/core.spec.ts:412:1 › profile validation, draft guard, role history and visibility
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-tKlx8b -juggler-pipe -silent
+    <launched> pid=66854
+    [pid=66854][err] *** You are running in headless mode.
+    [pid=66854][err] Could not find profile folder.
+    [pid=66854] <process did exit: exitCode=1, signal=null>
+    [pid=66854] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-tKlx8b -juggler-pipe -silent
+      - <launched> pid=66854
+      - [pid=66854][err] *** You are running in headless mode.
+      - [pid=66854][err] Could not find profile folder.
+      - [pid=66854] <process did exit: exitCode=1, signal=null>
+      - [pid=66854] starting temporary directories cleanup
+      - [pid=66854] <gracefully close start>
+      - [pid=66854] <kill>
+      - [pid=66854] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66854] finished temporary directories cleanup
+      - [pid=66854] <gracefully close end>
+
+
+    Error Context: test-results/core-profile-validation-dr-17f2e-role-history-and-visibility-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/core-profile-validation-dr-17f2e-role-history-and-visibility-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/core-profile-validation-dr-17f2e-role-history-and-visibility-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [firefox] › tests/web/core.spec.ts:474:1 › reporting, blocking, populated history, privacy and deletion
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-ARM8sz -juggler-pipe -silent
+    <launched> pid=66856
+    [pid=66856][err] *** You are running in headless mode.
+    [pid=66856][err] Could not find profile folder.
+    [pid=66856] <process did exit: exitCode=1, signal=null>
+    [pid=66856] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-ARM8sz -juggler-pipe -silent
+      - <launched> pid=66856
+      - [pid=66856][err] *** You are running in headless mode.
+      - [pid=66856][err] Could not find profile folder.
+      - [pid=66856] <process did exit: exitCode=1, signal=null>
+      - [pid=66856] starting temporary directories cleanup
+      - [pid=66856] <gracefully close start>
+      - [pid=66856] <kill>
+      - [pid=66856] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66856] finished temporary directories cleanup
+      - [pid=66856] <gracefully close end>
+
+
+    Error Context: test-results/core-reporting-blocking-po-f956e-istory-privacy-and-deletion-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/core-reporting-blocking-po-f956e-istory-privacy-and-deletion-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/core-reporting-blocking-po-f956e-istory-privacy-and-deletion-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [firefox] › tests/web/core.spec.ts:546:1 › responsive rail, keyboard, reduced motion and invalid callback
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-CQcRMb -juggler-pipe -silent
+    <launched> pid=66858
+    [pid=66858][err] *** You are running in headless mode.
+    [pid=66858][err] Could not find profile folder.
+    [pid=66858] <process did exit: exitCode=1, signal=null>
+    [pid=66858] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-CQcRMb -juggler-pipe -silent
+      - <launched> pid=66858
+      - [pid=66858][err] *** You are running in headless mode.
+      - [pid=66858][err] Could not find profile folder.
+      - [pid=66858] <process did exit: exitCode=1, signal=null>
+      - [pid=66858] starting temporary directories cleanup
+      - [pid=66858] <gracefully close start>
+      - [pid=66858] <kill>
+      - [pid=66858] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66858] finished temporary directories cleanup
+      - [pid=66858] <gracefully close end>
+
+
+    Error Context: test-results/core-responsive-rail-keybo-0cc9d-motion-and-invalid-callback-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/core-responsive-rail-keybo-0cc9d-motion-and-invalid-callback-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/core-responsive-rail-keybo-0cc9d-motion-and-invalid-callback-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-dbPJ74 -juggler-pipe -silent
+    <launched> pid=66865
+    [pid=66865][err] *** You are running in headless mode.
+    [pid=66865][err] Could not find profile folder.
+    [pid=66865] <process did exit: exitCode=1, signal=null>
+    [pid=66865] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-dbPJ74 -juggler-pipe -silent
+      - <launched> pid=66865
+      - [pid=66865][err] *** You are running in headless mode.
+      - [pid=66865][err] Could not find profile folder.
+      - [pid=66865] <process did exit: exitCode=1, signal=null>
+      - [pid=66865] starting temporary directories cleanup
+      - [pid=66865] <gracefully close start>
+      - [pid=66865] <kill>
+      - [pid=66865] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66865] finished temporary directories cleanup
+      - [pid=66865] <gracefully close end>
+
+
+    Error Context: test-results/deletion-account-erasure-p-cdb17-nest-copy-consent-and-retry-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/deletion-account-erasure-p-cdb17-nest-copy-consent-and-retry-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/deletion-account-erasure-p-cdb17-nest-copy-consent-and-retry-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-YOmiq0 -juggler-pipe -silent
+    <launched> pid=66867
+    [pid=66867][err] *** You are running in headless mode.
+    [pid=66867][err] Could not find profile folder.
+    [pid=66867] <process did exit: exitCode=1, signal=null>
+    [pid=66867] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-YOmiq0 -juggler-pipe -silent
+      - <launched> pid=66867
+      - [pid=66867][err] *** You are running in headless mode.
+      - [pid=66867][err] Could not find profile folder.
+      - [pid=66867] <process did exit: exitCode=1, signal=null>
+      - [pid=66867] starting temporary directories cleanup
+      - [pid=66867] <gracefully close start>
+      - [pid=66867] <kill>
+      - [pid=66867] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66867] finished temporary directories cleanup
+      - [pid=66867] <gracefully close end>
+
+
+    Error Context: test-results/deletion-account-erasure-p-5a52d-nest-copy-consent-and-retry-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/deletion-account-erasure-p-5a52d-nest-copy-consent-and-retry-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/deletion-account-erasure-p-5a52d-nest-copy-consent-and-retry-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [firefox] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-QDqTd2 -juggler-pipe -silent
+    <launched> pid=66870
+    [pid=66870][err] *** You are running in headless mode.
+    [pid=66870][err] Could not find profile folder.
+    [pid=66870] <process did exit: exitCode=1, signal=null>
+    [pid=66870] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-QDqTd2 -juggler-pipe -silent
+      - <launched> pid=66870
+      - [pid=66870][err] *** You are running in headless mode.
+      - [pid=66870][err] Could not find profile folder.
+      - [pid=66870] <process did exit: exitCode=1, signal=null>
+      - [pid=66870] starting temporary directories cleanup
+      - [pid=66870] <gracefully close start>
+      - [pid=66870] <kill>
+      - [pid=66870] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66870] finished temporary directories cleanup
+      - [pid=66870] <gracefully close end>
+
+
+    Error Context: test-results/history-history-loads-olde-2d752-er-and-ignores-a-stale-page-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/history-history-loads-olde-2d752-er-and-ignores-a-stale-page-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/history-history-loads-olde-2d752-er-and-ignores-a-stale-page-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [firefox] › tests/web/location.spec.ts:69:1 › live GPS permission rejection, inaccurate fix and successful retry
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-5OgdVa -juggler-pipe -silent
+    <launched> pid=66875
+    [pid=66875][err] *** You are running in headless mode.
+    [pid=66875][err] Could not find profile folder.
+    [pid=66875] <process did exit: exitCode=1, signal=null>
+    [pid=66875] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-5OgdVa -juggler-pipe -silent
+      - <launched> pid=66875
+      - [pid=66875][err] *** You are running in headless mode.
+      - [pid=66875][err] Could not find profile folder.
+      - [pid=66875] <process did exit: exitCode=1, signal=null>
+      - [pid=66875] starting temporary directories cleanup
+      - [pid=66875] <gracefully close start>
+      - [pid=66875] <kill>
+      - [pid=66875] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66875] finished temporary directories cleanup
+      - [pid=66875] <gracefully close end>
+
+
+    Error Context: test-results/location-live-GPS-permissi-ffee0-te-fix-and-successful-retry-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-live-GPS-permissi-ffee0-te-fix-and-successful-retry-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-live-GPS-permissi-ffee0-te-fix-and-successful-retry-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [firefox] › tests/web/location.spec.ts:130:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-hrt85v -juggler-pipe -silent
+    <launched> pid=66878
+    [pid=66878][err] *** You are running in headless mode.
+    [pid=66878][err] Could not find profile folder.
+    [pid=66878] <process did exit: exitCode=1, signal=null>
+    [pid=66878] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-hrt85v -juggler-pipe -silent
+      - <launched> pid=66878
+      - [pid=66878][err] *** You are running in headless mode.
+      - [pid=66878][err] Could not find profile folder.
+      - [pid=66878] <process did exit: exitCode=1, signal=null>
+      - [pid=66878] starting temporary directories cleanup
+      - [pid=66878] <gracefully close start>
+      - [pid=66878] <kill>
+      - [pid=66878] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66878] finished temporary directories cleanup
+      - [pid=66878] <gracefully close end>
+
+
+    Error Context: test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [firefox] › tests/web/location.spec.ts:170:1 › GPS outside supported city never falls back to a different location
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-h7TRgc -juggler-pipe -silent
+    <launched> pid=66880
+    [pid=66880][err] *** You are running in headless mode.
+    [pid=66880][err] Could not find profile folder.
+    [pid=66880] <process did exit: exitCode=1, signal=null>
+    [pid=66880] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-h7TRgc -juggler-pipe -silent
+      - <launched> pid=66880
+      - [pid=66880][err] *** You are running in headless mode.
+      - [pid=66880][err] Could not find profile folder.
+      - [pid=66880] <process did exit: exitCode=1, signal=null>
+      - [pid=66880] starting temporary directories cleanup
+      - [pid=66880] <gracefully close start>
+      - [pid=66880] <kill>
+      - [pid=66880] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66880] finished temporary directories cleanup
+      - [pid=66880] <gracefully close end>
+
+
+    Error Context: test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) [firefox] › tests/web/location.spec.ts:198:1 › map tile failure keeps approximate markers and list usable
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-1g22Pk -juggler-pipe -silent
+    <launched> pid=66882
+    [pid=66882][err] *** You are running in headless mode.
+    [pid=66882][err] Could not find profile folder.
+    [pid=66882] <process did exit: exitCode=1, signal=null>
+    [pid=66882] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-1g22Pk -juggler-pipe -silent
+      - <launched> pid=66882
+      - [pid=66882][err] *** You are running in headless mode.
+      - [pid=66882][err] Could not find profile folder.
+      - [pid=66882] <process did exit: exitCode=1, signal=null>
+      - [pid=66882] starting temporary directories cleanup
+      - [pid=66882] <gracefully close start>
+      - [pid=66882] <kill>
+      - [pid=66882] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66882] finished temporary directories cleanup
+      - [pid=66882] <gracefully close end>
+
+
+    Error Context: test-results/location-map-tile-failure--c5f5c-ate-markers-and-list-usable-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-map-tile-failure--c5f5c-ate-markers-and-list-usable-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-map-tile-failure--c5f5c-ate-markers-and-list-usable-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  19) [firefox] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-dYb30Z -juggler-pipe -silent
+    <launched> pid=66885
+    [pid=66885][err] *** You are running in headless mode.
+    [pid=66885][err] Could not find profile folder.
+    [pid=66885] <process did exit: exitCode=1, signal=null>
+    [pid=66885] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-dYb30Z -juggler-pipe -silent
+      - <launched> pid=66885
+      - [pid=66885][err] *** You are running in headless mode.
+      - [pid=66885][err] Could not find profile folder.
+      - [pid=66885] <process did exit: exitCode=1, signal=null>
+      - [pid=66885] starting temporary directories cleanup
+      - [pid=66885] <gracefully close start>
+      - [pid=66885] <kill>
+      - [pid=66885] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66885] finished temporary directories cleanup
+      - [pid=66885] <gracefully close end>
+
+
+    Error Context: test-results/media-photo-deletion-disti-94680-events-duplicate-submission-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/media-photo-deletion-disti-94680-events-duplicate-submission-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/media-photo-deletion-disti-94680-events-duplicate-submission-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  20) [firefox] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-AL5ShJ -juggler-pipe -silent
+    <launched> pid=66887
+    [pid=66887][err] *** You are running in headless mode.
+    [pid=66887][err] Could not find profile folder.
+    [pid=66887] <process did exit: exitCode=1, signal=null>
+    [pid=66887] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-AL5ShJ -juggler-pipe -silent
+      - <launched> pid=66887
+      - [pid=66887][err] *** You are running in headless mode.
+      - [pid=66887][err] Could not find profile folder.
+      - [pid=66887] <process did exit: exitCode=1, signal=null>
+      - [pid=66887] starting temporary directories cleanup
+      - [pid=66887] <gracefully close start>
+      - [pid=66887] <kill>
+      - [pid=66887] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66887] finished temporary directories cleanup
+      - [pid=66887] <gracefully close end>
+
+
+    Error Context: test-results/prices-profile-price-edits-0aec5-ted-agreement-stay-separate-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/prices-profile-price-edits-0aec5-ted-agreement-stay-separate-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/prices-profile-price-edits-0aec5-ted-agreement-stay-separate-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  21) [firefox] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-ISCHf5 -juggler-pipe -silent
+    <launched> pid=66889
+    [pid=66889][err] *** You are running in headless mode.
+    [pid=66889][err] Could not find profile folder.
+    [pid=66889] <process did exit: exitCode=1, signal=null>
+    [pid=66889] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/upahgo-qa001-browsers/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/hw/jxcjts5x3tq7n14008rpjl2c0000gn/T/playwright_firefoxdev_profile-ISCHf5 -juggler-pipe -silent
+      - <launched> pid=66889
+      - [pid=66889][err] *** You are running in headless mode.
+      - [pid=66889][err] Could not find profile folder.
+      - [pid=66889] <process did exit: exitCode=1, signal=null>
+      - [pid=66889] starting temporary directories cleanup
+      - [pid=66889] <gracefully close start>
+      - [pid=66889] <kill>
+      - [pid=66889] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=66889] finished temporary directories cleanup
+      - [pid=66889] <gracefully close end>
+
+
+    Error Context: test-results/ui-consistency-five-tabs-s-4c11e-compact-consistent-controls-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-consistency-five-tabs-s-4c11e-compact-consistent-controls-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-consistency-five-tabs-s-4c11e-compact-consistent-controls-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  22) [webkit] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.boundingBox: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /, Penyedia kerja, .*Lihat profil/ }).first().getByText('Rp 120.000', { exact: true })
+
+
+      203 |     const priceBox = (await first
+      204 |       .getByText("Rp 120.000", { exact: true })
+    > 205 |       .boundingBox())!;
+          |        ^
+      206 |     const ratingBox = (await first
+      207 |       .getByTestId("rating-summary")
+      208 |       .boundingBox())!;
+        at /Users/rakan/Documents/UpahGo/tests/web/core.spec.ts:205:8
+
+    Error Context: test-results/core-populated-demo-two-co-be0d0--radius-job-filters-and-map-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/core-populated-demo-two-co-be0d0--radius-job-filters-and-map-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/core-populated-demo-two-co-be0d0--radius-job-filters-and-map-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  23) [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('page-Beranda')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('page-Beranda') with timeout 5000ms
+      - waiting for getByTestId('page-Beranda')
+
+
+      104 |     await page.goto("/");
+      105 |     await button("Masuk dengan Google").click();
+    > 106 |     await expect(page.getByTestId("page-Beranda")).toBeVisible();
+          |                                                    ^
+      107 |     await page.getByRole("tab", { name: "Akun", exact: true }).click();
+      108 |     await button("Ketentuan dan privasi").click();
+      109 |     await expect(
+        at /Users/rakan/Documents/UpahGo/tests/web/deletion.spec.ts:106:52
+
+    Error Context: test-results/deletion-account-erasure-p-cdb17-nest-copy-consent-and-retry-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/deletion-account-erasure-p-cdb17-nest-copy-consent-and-retry-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/deletion-account-erasure-p-cdb17-nest-copy-consent-and-retry-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  24) [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('page-Beranda')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('page-Beranda') with timeout 5000ms
+      - waiting for getByTestId('page-Beranda')
+
+
+      104 |     await page.goto("/");
+      105 |     await button("Masuk dengan Google").click();
+    > 106 |     await expect(page.getByTestId("page-Beranda")).toBeVisible();
+          |                                                    ^
+      107 |     await page.getByRole("tab", { name: "Akun", exact: true }).click();
+      108 |     await button("Ketentuan dan privasi").click();
+      109 |     await expect(
+        at /Users/rakan/Documents/UpahGo/tests/web/deletion.spec.ts:106:52
+
+    Error Context: test-results/deletion-account-erasure-p-5a52d-nest-copy-consent-and-retry-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/deletion-account-erasure-p-5a52d-nest-copy-consent-and-retry-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/deletion-account-erasure-p-5a52d-nest-copy-consent-and-retry-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  25) [webkit] › tests/web/location.spec.ts:130:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('page-Beranda')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('page-Beranda') with timeout 5000ms
+      - waiting for getByTestId('page-Beranda')
+
+
+      147 |   await expect(button(page, "Aktifkan lokasi")).toBeVisible();
+      148 |   await button(page, "Aktifkan lokasi").click();
+    > 149 |   await expect(page.getByTestId("page-Beranda")).toBeVisible();
+          |                                                  ^
+      150 |   await button(page, "Lokasi dan radius").click();
+      151 |   await page.getByRole("radio", { name: "3 km", exact: true }).check();
+      152 |   await button(page, "Terapkan").click();
+        at /Users/rakan/Documents/UpahGo/tests/web/location.spec.ts:149:50
+
+    Error Context: test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  26) [webkit] › tests/web/location.spec.ts:170:1 › GPS outside supported city never falls back to a different location
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText(/Wilayah ini belum tersedia/)
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText(/Wilayah ini belum tersedia/) with timeout 5000ms
+      - waiting for getByText(/Wilayah ini belum tersedia/)
+
+
+      182 |   await button(page, "Masuk dengan Google").click();
+      183 |   await button(page, "Aktifkan lokasi").click();
+    > 184 |   await expect(page.getByText(/Wilayah ini belum tersedia/)).toBeVisible();
+          |                                                              ^
+      185 |   expect(writes.length).toBe(1);
+      186 |   expect(api.accounts[api.actor]!.location).toBe(null);
+      187 |   await expect(
+        at /Users/rakan/Documents/UpahGo/tests/web/location.spec.ts:184:62
+
+    Error Context: test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  27) [webkit] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('page-Beranda')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('page-Beranda') with timeout 5000ms
+      - waiting for getByTestId('page-Beranda')
+
+
+      91 |   await page.goto("/");
+      92 |   await button("Masuk dengan Google").click();
+    > 93 |   await expect(page.getByTestId("page-Beranda")).toBeVisible();
+         |                                                  ^
+      94 |   await page.getByRole("tab", { name: "Akun", exact: true }).click();
+      95 |   await button("Foto profil (opsional)").click();
+      96 |   await expect(
+        at /Users/rakan/Documents/UpahGo/tests/web/media.spec.ts:93:50
+
+    Error Context: test-results/media-photo-deletion-disti-94680-events-duplicate-submission-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/media-photo-deletion-disti-94680-events-duplicate-submission-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/media-photo-deletion-disti-94680-events-duplicate-submission-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28) [webkit] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('page-Profil').getByText('Rp 120.000', { exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('page-Profil').getByText('Rp 120.000', { exact: true }) with timeout 5000ms
+      - waiting for getByTestId('page-Profil').getByText('Rp 120.000', { exact: true })
+
+
+      80 |   await expect(
+      81 |     p.getByTestId("page-Profil").getByText("Rp 120.000", { exact: true }),
+    > 82 |   ).toBeVisible();
+         |     ^
+      83 |   for (const width of [320, 412, 1440]) {
+      84 |     await p.setViewportSize({ width, height: 892 });
+      85 |     await capture(`employer-detail-${width}`);
+        at /Users/rakan/Documents/UpahGo/tests/web/prices.spec.ts:82:5
+
+    Error Context: test-results/prices-profile-price-edits-0aec5-ted-agreement-stay-separate-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/prices-profile-price-edits-0aec5-ted-agreement-stay-separate-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/prices-profile-price-edits-0aec5-ted-agreement-stay-separate-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28 failed
+    [firefox] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen
+    [firefox] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen
+    [firefox] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group
+    [firefox] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts
+    [firefox] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private
+    [firefox] › tests/web/core.spec.ts:118:1 › catalog search and private Other suggestion preserve deferred category boundaries
+    [firefox] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map
+    [firefox] › tests/web/core.spec.ts:308:1 › bilateral contact, separate COD, both participants rate completed work
+    [firefox] › tests/web/core.spec.ts:412:1 › profile validation, draft guard, role history and visibility
+    [firefox] › tests/web/core.spec.ts:474:1 › reporting, blocking, populated history, privacy and deletion
+    [firefox] › tests/web/core.spec.ts:546:1 › responsive rail, keyboard, reduced motion and invalid callback
+    [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry
+    [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry
+    [firefox] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page
+    [firefox] › tests/web/location.spec.ts:69:1 › live GPS permission rejection, inaccurate fix and successful retry
+    [firefox] › tests/web/location.spec.ts:130:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+    [firefox] › tests/web/location.spec.ts:170:1 › GPS outside supported city never falls back to a different location
+    [firefox] › tests/web/location.spec.ts:198:1 › map tile failure keeps approximate markers and list usable
+    [firefox] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission
+    [firefox] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate
+    [firefox] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls
+    [webkit] › tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map
+    [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry
+    [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry
+    [webkit] › tests/web/location.spec.ts:130:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+    [webkit] › tests/web/location.spec.ts:170:1 › GPS outside supported city never falls back to a different location
+    [webkit] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission
+    [webkit] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate
+  35 passed (7.4m)

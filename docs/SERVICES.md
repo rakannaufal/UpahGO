@@ -16,6 +16,8 @@ Proyek pengguna: `https://aqzlgrahfxmbvtfwebsx.supabase.co`. Pemeriksaan dashboa
 
 Native memakai browser eksternal dan PKCE milik Supabase. Callback harus cocok scheme/host/path. Web preview memakai popup dengan pemeriksaan `event.origin` dan `event.source`; PKCE verifier dan sesi tetap di memori jendela utama. Reload web mengakhiri sesi. Jangan ubah menjadi redirect penuh tanpa penyimpanan verifier yang sesuai.
 
+Build `UPAHGO_APP_VARIANT=qa` memakai package `id.upahgo.app.qa` dan callback **`upahgo-qa://auth/callback`**, terpisah dari produksi. Daftarkan callback QA exact hanya pada environment pengujian yang disetujui; jangan menambah wildcard. Key Maps QA juga harus dibatasi package/SHA-1 sertifikat QA. [Runbook QA](QA-ACCEPTANCE.md). Pemeriksaan settings read-only 19 November pada proyek di atas masih menunjukkan Google/Phone nonaktif; tidak ada aktivasi/deployment dilakukan.
+
 Domain sendiri belum diperlukan untuk alur native ini. Custom scheme belum memberikan jaminan verified App Links. Saat domain tersedia, evaluasi Android App Links dan tautan penghapusan akun publik; PKCE tetap diperlukan.
 
 ### Nomor WhatsApp

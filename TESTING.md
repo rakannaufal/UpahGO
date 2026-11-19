@@ -2,6 +2,14 @@
 
 18 November 2026. Lingkup: implementasi lokal, data sintetis. **Belum lulus rilis Android atau layanan live.** Tidak ada migrasi remote, deployment, login Google nyata, SMS, pesan WhatsApp atau pembayaran nyata dilakukan.
 
+## QA-001 — APK dan penerimaan lintas browser
+
+19 November: **61/61 unit**, typecheck/lint, export web, audit npm online 0 temuan dan pemeriksaan pola secret lulus. Chrome/WebKit final **42/42 lulus** dalam 8,5 menit. Firefox macOS gagal sebelum halaman dimuat (`Could not find profile folder`), sehingga bukan hasil gagal/pas aplikasi; workflow CI Linux kini memasang ketiga engine. Fixture WebKit mengoreksi unit timestamp emulasi, sementara aplikasi tetap menolak fix lama/masa depan. Harga diperiksa tepat dengan whitespace lokal yang sesuai engine.
+
+APK arm64 **Upahgo QA 0.1.0**, 33,65 MiB, berhasil dikompilasi (Gradle release, sertifikat debug). Package/scheme QA terpisah, API24 minimum/target36, bundle Hermes disertakan, layanan sintetis tanpa Maps key atau kredensial lokal. Manifest dan resource backup hasil APK diperiksa; SecureStore dikecualikan untuk cloud backup dan device transfer. Permission overlay serta permission boot/foreground/biometrik dari library masih tercantum; minimisasi produksi dan perilaku OS belum diterima. **Kompilasi dan pemeriksaan bytes bukan uji perangkat.** Pengguna memilih uji mandiri; [panduan/matriks](docs/QA-ACCEPTANCE.md), [laporan dan batas](audits/2026-11-18-production/remediation/qa-001/README.md).
+
+Satu run unit bersamaan dengan build native menghasilkan 60/61 akibat timeout probe matcher 1,5 detik; tanpa perubahan batas/assertion, run setelah build selesai lulus 61/61 dalam 3,36 detik. Bukti kegagalan disimpan; penyebab kontensi masuk akal tetapi belum diisolasi. SDK/adb kini terpasang lokal pada `.cache`, tanpa perangkat terhubung. Worker dan tiga akun sintetis belum tersedia; Google/Phone masih nonaktif saat probe read-only. QA-001 tetap terbuka, rilis **NO-GO**. SQL/Edge/Worker tidak berubah atau diuji ulang lokal pada slice QA; CI baseline SEC-001 sudah sukses, terpisah dari validasi source QA terbaru.
+
 ## Remediasi SEC-001
 
 19 November: scoped override minimatch 11.0.9 pada fingerprint 0.21.10, Expo/RN tetap. Clean install lulus; audit online berubah dari 0 high/3 moderate menjadi **0 temuan**, tanpa exception. Picomatch high lama sudah withdrawn upstream, bukan diperbaiki proyek. **59 unit lulus**, termasuk 3 regresi fingerprint/matcher; typecheck/lint, export web/Hermes dan Worker dry-run/runtime lokal lulus. [Disposition, probe terisolasi, hasil browser dan batas](audits/2026-11-18-production/remediation/sec-001/README.md).

@@ -1,0 +1,6 @@
+{
+  "checkedFiles": 47,
+  "credentialPatternHits": [],
+  "brokenLocalLinks": [],
+  "scope": "Changed/untracked QA source, tests, configuration, docs and evidence only. No env/build/dependency scan. Pattern scan is not exhaustive."
+}

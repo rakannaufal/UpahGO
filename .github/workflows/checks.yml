@@ -48,7 +48,7 @@ jobs:
       - run: npm run test:ops-local
         env:
           WRANGLER_SEND_METRICS: "false"
-      - run: npx --no-install playwright install --with-deps chromium
+      - run: npx --no-install playwright install --with-deps chromium firefox webkit
       - run: npm run test:web
       - uses: actions/upload-artifact@v4
         if: failure()

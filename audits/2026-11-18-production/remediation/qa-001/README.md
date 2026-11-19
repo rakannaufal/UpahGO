@@ -1,0 +1,60 @@
+# QA-001: penerimaan Android dan staging
+
+19 November 2026. Baseline `9d40db1` (SEC-001), branch `codex/qa-001`. **QA-001 belum ditutup; rilis produksi tetap NO-GO.** Pengguna memberikan URL Supabase, menyatakan memiliki Android fisik, menyetujui instalasi SDK/lisensi Google, lalu memilih menguji APK sendiri. Worker staging dan tiga akun sintetis belum tersedia. Tidak ada deployment, migrasi remote, aktivasi provider, SMS, pembuatan akun cloud atau perubahan data pengguna.
+
+## Perubahan source
+
+- Playwright menjalankan Chromium, Firefox dan WebKit. CI memasang ketiga runtime; tidak menambah retry atau pengecualian browser.
+- Variant `UPAHGO_APP_VARIANT=qa` memisahkan nama, package dan callback native dari produksi. `id.upahgo.app.qa` / `upahgo-qa://auth/callback`; default produksi tetap. Nilai variant salah ditolak, scheme native dibatasi pada dua identitas tersebut.
+- Dua regresi identitas native memeriksa scheme/package/default dan penolakan input tak dikenal. Tidak mengubah PKCE, penyimpanan SecureStore, izin server atau harga/consent/COD.
+- Tes harga menarget elemen nominal dengan nilai tepat, menerima whitespace lokal yang berbeda. Fixture WebKit mengoreksi unit timestamp override driver; validasi lokasi aplikasi tetap. Fix enam menit lalu harus ditolak tanpa request ke server.
+- [Runbook/matriks penerimaan](../../../../docs/QA-ACCEPTANCE.md) berisi A01–A11 dan S01–S08, build sintetis, kriteria bukti dan batas operasi remote.
+
+Threat assessment: package/callback QA harus tidak mengambil alih instalasi/sesi produksi. Scheme berasal dari konfigurasi build tepercaya dan allowlist, bukan input pengguna; PKCE dan pemeriksaan target callback tetap berlaku. Public env bukan secret. APK sintetis tidak membawa akun, service key atau Maps key. Penandatanganan debug hanya untuk pengujian; tidak menerima APK tersebut sebagai artefak produksi. Perilaku cold start/session expiry/SecureStore pada perangkat belum dibuktikan oleh unit test ini.
+
+## Bukti yang tersedia
+
+| Pemeriksaan    | Hasil / batas                                                                                                                                                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Unit           | 61/61 lulus, termasuk dua regresi identitas QA; [unit.txt](evidence/unit.txt)                                                                                                                                                                                                 |
+| Typecheck/lint | Lulus; [typecheck.txt](evidence/typecheck.txt), [lint.txt](evidence/lint.txt)                                                                                                                                                                                                 |
+| Export web     | Lulus, env sintetis/dotenv nonaktif; [build-web.txt](evidence/build-web.txt)                                                                                                                                                                                                  |
+| Browser macOS  | Run final Chrome/WebKit **42/42 lulus** dalam 8,5 menit; [hasil](evidence/browser-final-macos.txt). Firefox berhenti sebelum halaman dimuat: `Could not find profile folder`; lihat uraian di bawah                                                                           |
+| Android source | Prebuild dan manifest APK merge diperiksa: package/scheme, singleTask, keyboard resize, larangan kamera/audio/kontak/background location; resource backup terhubung mengecualikan SecureStore. [Source](evidence/native-prebuild.json), [APK](evidence/apk-verification.json) |
+| SDK lokal      | CLI resmi ARM64 diverifikasi checksum metadata Google; platform 37.0, Build Tools 37.0.0, NDK 27.1.12297006, CMake 3.22.1, adb dipasang pada `.cache`. [sdk-download.json](evidence/sdk-download.json), [sdk-install.txt](evidence/sdk-install.txt)                           |
+| APK            | Release arm64 QA berhasil, 33,65 MiB, signature v2/debug terverifikasi; [build](evidence/build-apk.txt), [manifest/ABI/backup/hash](evidence/apk-verification.json). Belum diinstal/dijalankan pada perangkat                                                                 |
+| Perangkat      | adb tidak menemukan perangkat terhubung. Pengguna memilih uji sendiri; [adb-devices.json](evidence/adb-devices.json), serial tidak dicatat                                                                                                                                    |
+| CI baseline    | SEC-001 `9d40db1` sukses; [metadata](evidence/baseline-github-ci.json). Ini belum bukti workflow QA yang berubah                                                                                                                                                              |
+| Supabase       | Settings dan probe anonim tanpa sesi/data pribadi; [supabase-readonly.json](evidence/supabase-readonly.json)                                                                                                                                                                  |
+
+## Artefak Android dan batas
+
+APK lokal: `.cache/qa/upahgo-qa-0.1.0-arm64.apk`, **35.282.721 byte / 33,65 MiB**, SHA-256 `8952d412fbfff89fa03cddfa0bd431b416b76aec91600f7bd84cc5d9e6405957`. Android arm64/API24+, target36/compile37, label Upahgo QA dan package `id.upahgo.app.qa`. Gradle selesai dalam 21 menit 55 detik; 641 task. Bundle Hermes disertakan; tidak ada source map, env file atau signing material di APK. APK dan checksum tetap lokal/diabaikan Git.
+
+Pemeriksaan APK membuktikan endpoint/key sintetis, ketiadaan nilai kredensial lokal yang diperiksa dan host Supabase pengguna. Tidak membawa Maps key. Signature v2 valid dengan **Android Debug**, bukan signing produksi; `debuggable=false` tidak mengubah status sertifikat tersebut. Restore nyata, cold start, keyboard, TalkBack, jaringan dan pemakaian baterai belum diuji. Manifest masih berisi `SYSTEM_ALERT_WINDOW`, permission boot/foreground service/biometrik dari template/library, serta storage legacy dibatasi API32; minimisasi manifest produksi dan perilaku OS tetap perlu review. Source flag location service nonaktif tidak berarti semua deklarasi service library hilang.
+
+Instalasi SDK pertama mencoba package `platforms;android-37` yang tidak ada; platform kemudian dipasang dengan ID metadata resmi `platforms;android-37.0`. [Log koreksi](evidence/sdk-platform-install.txt), [prebuild QA](evidence/prebuild-qa.txt). Warning Gradle API deprecated dan `expo-system-ui` belum terpasang dicatat; light-style enforcement native belum diterima. Tidak mengganti toolchain mayor untuk menghilangkan warning.
+
+Run unit bersamaan kompilasi native menghasilkan 60/61: probe matcher terisolasi melewati timeout 1,5 detik. [Run gagal](evidence/unit-concurrent-build.txt) disimpan. Sesudah build selesai, perintah `npm test` yang sama lulus 61/61 dalam 3,36 detik, tanpa mengubah assertion, timeout atau dependency. Kontensi resource diduga, belum dibuktikan lewat isolasi penyebab.
+
+## Penelusuran kegagalan browser
+
+Run awal 63 kasus: 35 lulus, 28 gagal. Chrome 21 lulus. Firefox macOS gagal pada 21 peluncuran sebelum aplikasi dijalankan. Profil sementara normal, path kanonis `/private/tmp`, profil persisten yang diverifikasi ada, serta runtime Firefox cache lama memberikan kegagalan yang sama. Tidak menonaktifkan sandbox browser, menurunkan versi dependency atau mengubah permission OS global untuk menyembunyikannya. Penerimaan Firefox memerlukan hasil runner yang berfungsi; konfigurasi CI Linux tetap menjalankan browser tersebut.
+
+Tujuh kegagalan WebKit terdiri dari pencocokan rupiah yang mengasumsikan spasi dan timestamp GPS emulasi dalam mikrodetik. Probe dengan koordinat/akurasi sintetis yang sama menunjukkan Chrome memberi timestamp milidetik, WebKit sekitar 1.000 kali lipat; aplikasi benar menolaknya sebagai fix masa depan. Koreksi dibatasi pada fixture tes, tidak mengubah freshness check aplikasi atau jam perangkat. Regresi fix stale ditambahkan. Run targeted berikut lulus 7/8; kegagalan sisa berasal dari `textContent` kartu yang menyambung nominal dan rating tanpa spasi. Assertion diperbaiki ke elemen nominal tepat; tidak melonggarkan angka, consent atau status server. [Run awal](evidence/browser-first.txt), [targeted](evidence/webkit-targeted.txt).
+
+## Pemeriksaan Supabase yang ditunjuk
+
+Pada waktu probe, `/auth/v1/settings` HTTP200: **Google false, Phone false, Email true, anonymous false**. Tidak menyalakan provider atau mengirim email/SMS.
+
+POST anonim `/rest/v1/rpc/upahgo_action` dengan `{p_operation:"bootstrap",p_args:{}}` menghasilkan HTTP404/PGRST202. Ini tidak membuktikan object authorization lulus atau migrasi pasti tidak ada: role anonim/schema cache dapat mempengaruhi discovery fungsi. Request awal salah menggunakan `op/args`; hasil itu tidak dipakai untuk menyimpulkan deployment, lalu probe dikoreksi. GET private schema `profiles?select=id&limit=0` menghasilkan HTTP406/PGRST106; tidak membaca row pengguna. Key publik dibatasi pada publishable/role anon, tidak menggunakan service role. Nilai key dan raw response tidak disimpan.
+
+URL proyek yang tersedia belum membuktikan staging terpisah. Worker/accounts belum ada menurut pengguna. Auth Google/Phone, JWT lintas environment, PostgREST signed-in, object authorization, Storage bytes/expiry, Maps, runner PRIV/MEDIA, alarm, race/offline-after-commit dan 50 CCU tetap **belum diuji end-to-end**. Tidak ada kapasitas/RPO/RTO atau penerimaan live yang diklaim dari shim/404 ini.
+
+## Keputusan
+
+Focused review mencakup pembentukan callback, validasi target, pertukaran PKCE, konfigurasi package, caller, regresi identitas dan fixture browser. Tidak ditemukan defect baru pada source yang ditinjau. Identitas QA berasal dari konfigurasi build; tidak ada pelemahan pemeriksaan callback, validasi lokasi atau otorisasi server. Penerimaan perilaku terpasang tetap memerlukan perangkat, bukan kesimpulan review source.
+
+APK/demo dan gate browser adalah langkah persiapan/pengujian, bukan penutupan otomatis QA-001. Hasil fisik tetap perlu model/OS/ABI/hash APK, kasus A yang dijalankan, hasil aktual dan bukti tanpa PII. S01–S08 bergantung lingkungan terisolasi, deployment/provider/fixtures yang disetujui, serta operator. Target awal 50 CCU, SLO99,5%, RPO1 jam/RTO4 jam masih target usulan pada audit/OPS, bukan hasil uji.
+
+Tidak ada perubahan visual komponen atau identitas merek. Delivery Gate desain baru N/A; interaksi Android, TalkBack dan skala teks native tetap belum diverifikasi. APK/debug signing, CLI/cache dan source map tidak dimasukkan Git. Log bukti boleh dinormalisasi ANSI/whitespace tanpa mengubah hasil. Temuan privasi/legal/operasi dan seluruh gate lain tetap terbuka.

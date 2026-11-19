@@ -1,0 +1,55 @@
+{
+  "location": ".cache/android-sdk, Git-ignored",
+  "packages": [
+    {
+      "path": "cmdline-tools/latest",
+      "installed": true,
+      "metadata": {
+        "Pkg.Revision": "23.0",
+        "Pkg.Desc": "Android SDK Command-line Tools"
+      }
+    },
+    {
+      "path": "platform-tools",
+      "installed": true,
+      "metadata": {
+        "Pkg.Revision": "37.0.1"
+      }
+    },
+    {
+      "path": "platforms/android-37.0",
+      "installed": true,
+      "metadata": {
+        "Pkg.Desc": "Android SDK Platform 17",
+        "Pkg.Revision": "2",
+        "AndroidVersion.ApiLevel": "37.0"
+      }
+    },
+    {
+      "path": "build-tools/37.0.0",
+      "installed": true,
+      "metadata": {
+        "Pkg.Revision": "37.0.0"
+      }
+    },
+    {
+      "path": "ndk/27.1.12297006",
+      "installed": true,
+      "metadata": {
+        "Pkg.Desc": "Android NDK",
+        "Pkg.Revision": "27.1.12297006"
+      }
+    },
+    {
+      "path": "cmake/3.22.1",
+      "installed": true,
+      "metadata": {
+        "Pkg.Revision": "3.22.1",
+        "Pkg.Desc": "CMake 3.22.1"
+      }
+    }
+  ],
+  "licenseApproval": "User explicitly approved Google SDK license and local toolchain installation in this session.",
+  "globalShellConfigurationChanged": false,
+  "java": "Existing Oracle JDK 19.0.2; not changed; maintenance decision remains open."
+}

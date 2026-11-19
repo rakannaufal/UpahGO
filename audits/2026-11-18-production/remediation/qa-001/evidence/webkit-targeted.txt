@@ -1,0 +1,53 @@
+
+Running 8 tests using 1 worker
+
+(node:67425) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (5.2s)
+  ✓  2 [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (4.3s)
+  ✓  3 [webkit] › tests/web/location.spec.ts:70:1 › live GPS permission rejection, inaccurate fix and successful retry (2.3s)
+  ✓  4 [webkit] › tests/web/location.spec.ts:141:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (3.2s)
+  ✓  5 [webkit] › tests/web/location.spec.ts:181:1 › GPS outside supported city never falls back to a different location (2.0s)
+  ✓  6 [webkit] › tests/web/location.spec.ts:209:1 › map tile failure keeps approximate markers and list usable (5.2s)
+  ✓  7 [webkit] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (3.2s)
+  ✘  8 [webkit] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (14.0s)
+
+
+  1) [webkit] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('button', { name: /^Dimas Saputra, .*Lihat profil/ })
+    Expected pattern: /Rp\s*135\.000(?![\d.])/
+    Received string:  "Dimas SaputraSukajadi · <1 kmBisa negoMenyapuMengepelMulai dariRp135.0004,0 (1)Per pekerjaan/sesi"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('button', { name: /^Dimas Saputra, .*Lihat profil/ }) with timeout 5000ms
+      - waiting for getByRole('button', { name: /^Dimas Saputra, .*Lihat profil/ })
+        13 × locator resolved to <button tabindex="0" role="button" type="button" data-testid="person-card" class="css-g5y9jx r-1otgn73 r-1loqt21 r-bnwqim r-ctqt5z r-14lw9ot r-qent46 r-y47klf r-rs99b7 r-1udh08x" aria-label="Dimas Saputra, Buruh, Sukajadi, <1 km. Mulai dari Rp135.000 per pekerjaan/sesi. Bisa nego. 4 dari 5, 1 ulasan. Lihat profil">…</button>
+           - unexpected value "Dimas SaputraSukajadi · <1 kmBisa negoMenyapuMengepelMulai dariRp135.0004,0 (1)Per pekerjaan/sesi"
+
+
+      126 |     name: /^Dimas Saputra, .*Lihat profil/,
+      127 |   });
+    > 128 |   await expect(dimas).toContainText(/Rp\s*135\.000(?![\d.])/);
+          |                       ^
+      129 |   await expect(dimas).toContainText("Bisa nego");
+      130 |   for (const width of [320, 412, 1440]) {
+      131 |     await p.setViewportSize({ width, height: 892 });
+        at /Users/rakan/Documents/UpahGo/tests/web/prices.spec.ts:128:23
+
+    Error Context: ../../../../private/tmp/upahgo-qa001-webkit-results/prices-profile-price-edits-0aec5-ted-agreement-stay-separate-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../private/tmp/upahgo-qa001-webkit-results/prices-profile-price-edits-0aec5-ted-agreement-stay-separate-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../private/tmp/upahgo-qa001-webkit-results/prices-profile-price-edits-0aec5-ted-agreement-stay-separate-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate
+  7 passed (42.0s)

@@ -1,0 +1,39 @@
+{
+  "capturedAt": "2026-11-19T00:22:02.125Z",
+  "target": "https://aqzlgrahfxmbvtfwebsx.supabase.co",
+  "mode": "read-only settings and anonymous-denial probes, no signed-in session, no user data fetched",
+  "results": [
+    {
+      "name": "provider-settings",
+      "method": "GET",
+      "path": "/auth/v1/settings",
+      "status": 200,
+      "providers": {
+        "google": false,
+        "phone": false,
+        "email": true,
+        "anonymous": false
+      }
+    },
+    {
+      "name": "anonymous-rpc",
+      "method": "POST",
+      "path": "/rest/v1/rpc/upahgo_action",
+      "body": {
+        "p_operation": "bootstrap",
+        "p_args": {}
+      },
+      "status": 404,
+      "code": "PGRST202"
+    },
+    {
+      "name": "private-schema-zero-rows",
+      "method": "GET",
+      "path": "/rest/v1/profiles?select=id&limit=0",
+      "status": 406,
+      "code": "PGRST106"
+    }
+  ],
+  "limitation": "does not verify gateway, signed-in authorization, schema deployment, Google/Phone end-to-end or Storage access",
+  "probeCorrection": "Initial request used op/args rather than p_operation/p_args and returned PGRST202. That result was not evidence of missing migrations; corrected request recorded here."
+}

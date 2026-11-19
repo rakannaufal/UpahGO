@@ -1,0 +1,87 @@
+{
+  "kind": "Generated QA source and module-resource checks, not merged APK verification",
+  "baselineCommit": "9d40db1f4481ce05396a805f6ffc44896633cc7e",
+  "checks": {
+    "qaPackage": true,
+    "qaScheme": true,
+    "keyboardResize": true,
+    "singleTask": true,
+    "secureBackupReferences": true,
+    "forbiddenPermissionsRemoved": true,
+    "secureStoreExcludedInModuleResources": true
+  },
+  "permissions": [
+    {
+      "name": "android.permission.ACCESS_BACKGROUND_LOCATION",
+      "removed": true,
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.ACCESS_COARSE_LOCATION",
+      "removed": false,
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.ACCESS_FINE_LOCATION",
+      "removed": false,
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.CAMERA",
+      "removed": true,
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.INTERNET",
+      "removed": false,
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.READ_CONTACTS",
+      "removed": true,
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.READ_EXTERNAL_STORAGE",
+      "removed": false,
+      "maxSdk": "32"
+    },
+    {
+      "name": "android.permission.RECORD_AUDIO",
+      "removed": true,
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.SYSTEM_ALERT_WINDOW",
+      "removed": false,
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.VIBRATE",
+      "removed": false,
+      "maxSdk": null
+    },
+    {
+      "name": "android.permission.WRITE_EXTERNAL_STORAGE",
+      "removed": false,
+      "maxSdk": "32"
+    }
+  ],
+  "backupResources": [
+    {
+      "name": "secure_store_backup_rules.xml",
+      "secureStoreExclusions": 1
+    },
+    {
+      "name": "secure_store_data_extraction_rules.xml",
+      "secureStoreExclusions": 2
+    }
+  ],
+  "sourceHashes": {
+    "apps/mobile/app.config.ts": "ef615777fcb1a869206ac6a4ee424c4076ad3933ce9a2f16903982ea35bc6e5c",
+    "apps/mobile/src/auth.ts": "a5dd66540d7a4768b409d36e858de5fd0b7497a8c6e81a0d621d020fec3441d9",
+    "shared/native-auth.ts": "14d173154332d85f6da89ed9406d8a3661a7c70a78a0171e9cd8d0a1142b54d6",
+    "package-lock.json": "a6e2bd595c98d0514cd259af449ad33a031732f2e60cfd5ac7a69163c2f2677b"
+  },
+  "limitation": "Does not verify installed behavior, permission prompts, merged library manifest or release signing."
+}

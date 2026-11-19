@@ -1,0 +1,10 @@
+{
+  "package": "cmdline-tools;latest",
+  "revision": "23.0",
+  "url": "https://dl.google.com/android/repository/commandlinetools-mac_arm64-16111833_latest.zip",
+  "size": 155384151,
+  "checksumType": "sha1",
+  "checksum": "ad03dc49bfacfd52c110b14104ea548b8a07e830",
+  "sha256": "58da8f215781cc0208743e88b65ae259780c55e7eb40e50373d377cf369232d6",
+  "installation": "project .cache/android-sdk, ignored by Git; no global environment changes"
+}

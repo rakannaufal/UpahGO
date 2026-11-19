@@ -12,7 +12,7 @@ Desain **Upahgo Ceria** sudah diterapkan pada seluruh halaman existing: masuk Go
 
 Akun memiliki Lainnya (bantuan dan laporan, ketentuan dan privasi, atribusi data, penilaian aplikasi) dan Kelola akun (keluar, hapus). Penilaian aplikasi masih menampilkan keterangan belum adanya tautan Google Play resmi.
 
-Versi awal lokal tersedia: React Native + Expo + TypeScript, Supabase Auth/SQL, gateway Cloudflare. Demo multi-profil dan riwayat sintetis dapat dicoba pada preview web. Belum di-deploy, belum menjadi APK, belum diuji pada perangkat Android. Google dan Phone masih perlu konfigurasi provider; direktori area nyata, Maps key, serta layanan operasional belum tersedia.
+Versi awal lokal tersedia: React Native + Expo + TypeScript, Supabase Auth/SQL, gateway Cloudflare. Demo multi-profil dan riwayat sintetis dapat dicoba pada preview web. APK **Upahgo QA 0.1.0 arm64** berhasil dikompilasi pada 19 November, tersimpan lokal di `.cache/qa/upahgo-qa-0.1.0-arm64.apk` (33,65 MiB, Android 7.0/API24+). Package terpisah, build release bertanda tangan debug, layanan sintetis; pilih **Coba demo**. Ini bukan APK produksi. [Panduan uji mandiri](docs/QA-ACCEPTANCE.md), [bukti dan SHA-256](audits/2026-11-18-production/remediation/qa-001/evidence/apk-verification.json). Belum di-deploy atau diuji pada perangkat Android. Google dan Phone masih perlu konfigurasi provider; direktori area nyata, Maps key, serta layanan operasional belum tersedia.
 
 ```sh
 # Node 22.13+ seri 22

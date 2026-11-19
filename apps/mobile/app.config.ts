@@ -1,13 +1,17 @@
 import type { ExpoConfig } from "expo/config";
+const variant = process.env.UPAHGO_APP_VARIANT ?? "production";
+if (variant !== "production" && variant !== "qa")
+  throw new Error("INVALID_APP_VARIANT");
+const qa = variant === "qa";
 const config: ExpoConfig = {
-  name: "Upahgo",
+  name: qa ? "Upahgo QA" : "Upahgo",
   slug: "upahgo",
   version: "0.1.0",
-  scheme: "upahgo",
+  scheme: qa ? "upahgo-qa" : "upahgo",
   userInterfaceStyle: "light",
   icon: "../../assets/brand/exports/android/launcher-icon.png",
   android: {
-    package: "id.upahgo.app",
+    package: qa ? "id.upahgo.app.qa" : "id.upahgo.app",
     versionCode: 1,
     softwareKeyboardLayoutMode: "resize",
     adaptiveIcon: {

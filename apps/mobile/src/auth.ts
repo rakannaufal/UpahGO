@@ -3,6 +3,8 @@ import { createClient, processLock } from "@supabase/supabase-js";
 import * as SecureStore from "expo-secure-store";
 import * as WebBrowser from "expo-web-browser";
 import { Platform } from "react-native";
+import Constants from "expo-constants";
+import { nativeCallbackUrl } from "../../../shared/native-auth";
 WebBrowser.maybeCompleteAuthSession();
 const memory = new Map<string, string>();
 const chunkSize = 1800;
@@ -94,7 +96,7 @@ export const supabase =
 export function callbackUrl() {
   return Platform.OS === "web"
     ? `${window.location.origin}/auth/callback`
-    : "upahgo://auth/callback";
+    : nativeCallbackUrl(Constants.expoConfig?.scheme);
 }
 export function validateCallback(url: string) {
   const expected = new URL(callbackUrl());

@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: native callbacks use exact production or QA schemes
+ok 1 - native callbacks use exact production or QA schemes
+  ---
+  duration_ms: 13.778375
+  type: 'test'
+  ...
+# Subtest: QA package and callback stay separate; invalid build variants fail closed
+ok 2 - QA package and callback stay separate; invalid build variants fail closed
+  ---
+  duration_ms: 17.272542
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 643.77675

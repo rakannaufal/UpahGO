@@ -78,7 +78,7 @@ test("profile price edits, contact consent and negotiated agreement stay separat
     p.getByText("Anggaran pekerjaan", { exact: true }),
   ).toBeVisible();
   await expect(
-    p.getByTestId("page-Profil").getByText("Rp 120.000", { exact: true }),
+    p.getByTestId("page-Profil").getByText(/^Rp\s*120\.000$/),
   ).toBeVisible();
   for (const width of [320, 412, 1440]) {
     await p.setViewportSize({ width, height: 892 });
@@ -125,7 +125,7 @@ test("profile price edits, contact consent and negotiated agreement stay separat
   const dimas = p.getByRole("button", {
     name: /^Dimas Saputra, .*Lihat profil/,
   });
-  await expect(dimas).toContainText("Rp 135.000");
+  await expect(dimas.getByText(/^Rp\s*135\.000$/)).toBeVisible();
   await expect(dimas).toContainText("Bisa nego");
   for (const width of [320, 412, 1440]) {
     await p.setViewportSize({ width, height: 892 });
@@ -135,7 +135,7 @@ test("profile price edits, contact consent and negotiated agreement stay separat
   }
   await dimas.click();
   await expect(
-    p.getByTestId("page-Profil").getByText("Rp 135.000", { exact: true }),
+    p.getByTestId("page-Profil").getByText(/^Rp\s*135\.000$/),
   ).toBeVisible();
   await expect(p.getByText("Menyapu ruangan", { exact: true })).toBeVisible();
   for (const width of [320, 412, 1440]) {
@@ -184,7 +184,7 @@ test("profile price edits, contact consent and negotiated agreement stay separat
   }
   await button(p, "Tinjau usulan").click();
   await expect(
-    p.getByText("Rp 125.000", { exact: true }).filter({ visible: true }),
+    p.getByText(/^Rp\s*125\.000$/).filter({ visible: true }),
   ).toBeVisible();
   await expect(
     p.getByText("Usulan belum dikirim.", { exact: false }),
@@ -225,9 +225,7 @@ test("profile price edits, contact consent and negotiated agreement stay separat
   await button(p, "Pekerjaan").click();
   await p.getByRole("button", { name: /Sesi bersih ruang tamu/ }).click();
   await expect(
-    p
-      .getByTestId("page-Kesepakatan kerja")
-      .getByText("Rp 125.000", { exact: true }),
+    p.getByTestId("page-Kesepakatan kerja").getByText(/^Rp\s*125\.000$/),
   ).toBeVisible();
   await button(p, "Setujui pekerjaan").click();
   await button(p, "Konfirmasi").click();
@@ -246,9 +244,9 @@ test("profile price edits, contact consent and negotiated agreement stay separat
   await button(p, "Tutup").click();
   await actor(p, "Penyedia kerja demo");
   await p.setViewportSize({ width: 320, height: 892 });
-  await expect(dimas).toContainText("Rp 50.000.000");
+  await expect(dimas.getByText(/^Rp\s*50\.000\.000$/)).toBeVisible();
   await dimas.scrollIntoViewIfNeeded();
-  const maximumPrice = dimas.getByText("Rp 50.000.000", { exact: true });
+  const maximumPrice = dimas.getByText(/^Rp\s*50\.000\.000$/);
   expect((await maximumPrice.boundingBox())!.height).toBeLessThanOrEqual(25);
   await capture("maximum-price-320");
   await actor(p, "Buruh demo");
@@ -265,7 +263,7 @@ test("profile price edits, contact consent and negotiated agreement stay separat
   await button(p, "Tutup").click();
   await actor(p, "Penyedia kerja demo");
   await expect(dimas).toContainText("Harga belum diisi");
-  await expect(dimas).not.toContainText("Rp 50.000.000");
+  await expect(dimas.getByText(/^Rp\s*50\.000\.000$/)).toHaveCount(0);
   await dimas.click();
   await expect(button(p, "Tawar upah")).toHaveCount(0);
   await expect(

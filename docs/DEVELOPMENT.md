@@ -12,6 +12,8 @@ Status: implementasi awal lokal, 17 November 2026. Android adalah target utama. 
 
 `npm run android` membutuhkan Android SDK, JDK, emulator/perangkat, dan konfigurasi native. `npm run build:android` hanya mengekspor bundle JavaScript/Hermes ke `apps/mobile/dist-android`; bukan APK/AAB. Jangan menyerahkan bundle itu sebagai aplikasi siap dipasang.
 
+QA-001 menambah variant `UPAHGO_APP_VARIANT=qa`: package `id.upahgo.app.qa`, nama Upahgo QA dan callback `upahgo-qa://auth/callback`. Gunakan env yang sama saat prebuild dan Gradle bundling; default produksi tetap. [Build APK sintetis, matriks perangkat/staging dan kriteria penerimaan](QA-ACCEPTANCE.md). SDK/cache lokal `.cache` tidak masuk Git; APK debug-signed bukan artefak produksi.
+
 ## Mode live
 
 Tidak pernah beralih diam-diam ke demo saat jaringan gagal. Urutan konfigurasi: [SERVICES.md](SERVICES.md). API live membutuhkan migrasi, gateway secret, Worker, dan direktori area. Tanpa konfigurasi, backend menolak akses. Tujuan cakupan tetap seluruh Indonesia; server memerlukan polygon kota/area yang diprovisi dan fix foreground valid. Hanya Pekanbaru demo tersedia; tidak ada direktori live nasional.
@@ -51,7 +53,7 @@ Tes membuat shim `auth.users`, `auth.uid()` dan katalog `storage.objects`, role 
 - `npm run audit:dependencies` adalah gate CI: moderate atau lebih tinggi menolak, termasuk tooling/dev. Jangan memakai audit fix force atau mengabaikan registry error. Override minimatch hanya untuk `@expo/fingerprint@0.21.10`; tinjau/hapus saat upstream patched, re-resolve lockfile terarah lalu clean install/test/export. `npm test` memeriksa matcher dan hash fingerprint nyata pada fixture sementara. [Alasan dan bukti SEC-001](../audits/2026-11-18-production/remediation/sec-001/README.md).
 - `python3 assets/verify.py`, `python3 design/verify.py` untuk paket identitas.
 
-Playwright memakai Chrome macOS bila tersedia. Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE` untuk binary lain; pada Linux gunakan browser Playwright yang sudah dipasang. Tes browser memakai data sintetis dan tidak melakukan login Google atau SMS nyata.
+Playwright menjalankan Chromium, Firefox dan WebKit. Chromium memakai Chrome macOS bila tersedia; `PLAYWRIGHT_CHROMIUM_EXECUTABLE` hanya mempengaruhi project Chromium. Pasang runtime Firefox/WebKit yang sesuai versi lockfile; CI memasang ketiganya. `npm run test:web -- --project=chromium` memeriksa satu engine saja. Tes memakai data sintetis dan tidak melakukan login Google/SMS nyata. Batas runtime dan hasil aktual dicatat dalam [QA-001](../audits/2026-11-18-production/remediation/qa-001/README.md).
 
 ## Struktur
 

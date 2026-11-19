@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures";
 import { DemoApi } from "../../apps/mobile/src/demo";
 import type { ActionResults } from "../../shared/contracts";
 
