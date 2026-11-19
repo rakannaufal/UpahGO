@@ -1,0 +1,2 @@
+Existing loopback preview serves the newly exported dist/index.html exactly.
+SHA-256: 9456ee6e457e494b0f59e76fefa8c204ec08c3f72476c781d69aa8b37e208d0b

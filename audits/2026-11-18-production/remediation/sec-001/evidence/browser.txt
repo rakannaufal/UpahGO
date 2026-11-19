@@ -1,0 +1,32 @@
+
+> upahgo@0.1.0 test:web
+> playwright test
+
+
+Running 21 tests using 1 worker
+
+(node:63119) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (3.2s)
+  ✓   2 tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (2.6s)
+  ✓   3 tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (5.3s)
+  ✓   4 tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (21.9s)
+  ✓   5 tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (7.7s)
+  ✓   6 tests/web/core.spec.ts:118:1 › catalog search and private Other suggestion preserve deferred category boundaries (5.8s)
+  ✓   7 tests/web/core.spec.ts:154:1 › populated demo, two-column profile cards, city/radius/job filters and map (10.9s)
+  ✓   8 tests/web/core.spec.ts:308:1 › bilateral contact, separate COD, both participants rate completed work (17.1s)
+  ✓   9 tests/web/core.spec.ts:412:1 › profile validation, draft guard, role history and visibility (8.7s)
+  ✓  10 tests/web/core.spec.ts:474:1 › reporting, blocking, populated history, privacy and deletion (12.5s)
+  ✓  11 tests/web/core.spec.ts:546:1 › responsive rail, keyboard, reduced motion and invalid callback (5.7s)
+  ✓  12 tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (3.8s)
+  ✓  13 tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (3.9s)
+  ✓  14 tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (6.5s)
+  ✓  15 tests/web/location.spec.ts:69:1 › live GPS permission rejection, inaccurate fix and successful retry (1.9s)
+  ✓  16 tests/web/location.spec.ts:130:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (2.1s)
+  ✓  17 tests/web/location.spec.ts:170:1 › GPS outside supported city never falls back to a different location (1.8s)
+  ✓  18 tests/web/location.spec.ts:198:1 › map tile failure keeps approximate markers and list usable (4.5s)
+  ✓  19 tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (3.4s)
+  ✓  20 tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (18.9s)
+  ✓  21 tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (23.3s)
+
+  21 passed (2.9m)

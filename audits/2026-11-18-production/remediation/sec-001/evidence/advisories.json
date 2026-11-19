@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-11-19T00:03:00.867Z",
+  "records": [
+    {
+      "id": "GHSA-fc5q-39xc-vjpf",
+      "url": "https://github.com/advisories/GHSA-fc5q-39xc-vjpf",
+      "summary": "Withdrawn Advisory: picomatch vulnerable to ReDoS through single-branch repeated extglobs",
+      "severity": "high",
+      "publishedAt": "2026-10-19T18:32:12Z",
+      "updatedAt": "2026-11-18T15:38:58Z",
+      "withdrawnAt": "2026-11-18T15:38:56Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "picomatch"
+          },
+          "vulnerable_version_range": "<= 4.0.7",
+          "first_patched_version": null,
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "id": "GHSA-g3hv-75wg-m249",
+      "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+      "summary": "minimatch has potential denial of service via globparts amplification",
+      "severity": "medium",
+      "publishedAt": "2026-10-30T23:09:55Z",
+      "updatedAt": "2026-11-04T16:50:04Z",
+      "withdrawnAt": null,
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "minimatch"
+          },
+          "vulnerable_version_range": ">= 7.0.0, < 11.0.1",
+          "first_patched_version": "11.0.1",
+          "vulnerable_functions": []
+        }
+      ]
+    }
+  ]
+}

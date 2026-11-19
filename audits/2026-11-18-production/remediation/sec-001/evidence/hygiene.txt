@@ -1,0 +1,16 @@
+$ ./node_modules/.bin/prettier --check scripts/probe-glob-security.mjs tests/dependencies.test.ts package.json package-lock.json .github/workflows/checks.yml audits/2026-11-18-production/remediation/sec-001/README.md
+Checking formatting...
+All matched files use Prettier code style!
+exit=0
+
+$ git diff --check
+
+exit=0
+
+Lockfile version inventory: only minimatch 10.2.6 -> 11.0.9; duplicate minimatch 11.0.9 removed. No other version drift or added package paths.
+
+Supplemental credential pattern scan: 41 changed/untracked text files; no matches. Covers SEC evidence, root docs/manifests, CI and tests omitted by the repository scanner. Not exhaustive.
+
+SEC JSON evidence parses; report evidence links resolve.
+
+Final staged diff check: pass. Supplemental credential scan: 42 staged text files, no matching patterns. Not exhaustive.

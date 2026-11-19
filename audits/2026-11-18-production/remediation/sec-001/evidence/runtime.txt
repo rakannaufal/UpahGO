@@ -1,0 +1,5 @@
+
+> upahgo@0.1.0 test:ops-local
+> node scripts/test-ops-local.mjs
+
+{"runtime":"local Wrangler/workerd + SQLite Durable Object","upstream":"synthetic loopback","scenarios":4,"requestCorrelation":"pass","redaction":"pass","remoteDeployment":false}

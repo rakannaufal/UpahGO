@@ -1,0 +1,38 @@
+[
+  {
+    "name": "minimatch-default",
+    "timeout": false,
+    "status": 0,
+    "signal": null,
+    "result": {
+      "version": "10.2.6",
+      "parts": 1,
+      "durationMs": 14
+    }
+  },
+  {
+    "name": "minimatch-optimization2",
+    "timeout": false,
+    "status": 0,
+    "signal": null,
+    "result": {
+      "version": "10.2.6",
+      "parts": 8192,
+      "durationMs": 1248
+    }
+  },
+  {
+    "name": "picomatch4",
+    "timeout": true,
+    "status": null,
+    "signal": "SIGTERM",
+    "result": null
+  },
+  {
+    "name": "picomatch2",
+    "timeout": true,
+    "status": null,
+    "signal": "SIGTERM",
+    "result": null
+  }
+]

@@ -59,6 +59,8 @@ Implementasi UX lokal tersedia: Beranda dengan dua kartu per baris dari peran la
 
 `npm run typecheck`, `npm run lint`, `npm test`, `npm run test:db`, `npm run test:web`, `npm run build:web`, `npm run build:android`, `npm run worker:check`. DB perlu PostgreSQL disposable; browser memerlukan preview berjalan. `build:android` mengekspor bundle Hermes, bukan APK/AAB. Hasil serta batas cakupan dicatat di TESTING.md.
 
+`npm run audit:dependencies` menolak advisory moderate atau lebih tinggi pada CI. Remediasi SEC-001 menambal minimatch secara terbatas; audit online 19 November menghasilkan 0 temuan. Advisory picomatch lama ditarik upstream, pola tak tepercaya tetap dibatasi. [Disposition dan batas](audits/2026-11-18-production/remediation/sec-001/README.md); hasil scanner tidak menggantikan penerimaan Android/live.
+
 ## Slice GPS dan penilaian — 17 November 2026
 
 GPS foreground dan radius wajib setelah peran, profil opsional sesudahnya; hasil dibatasi kota GPS dan radius. Kartu dua kolom, filter kecamatan/jenis pekerjaan, peta OSM aktual dan penilaian bilateral tersedia. Demo Pekanbaru: 12 profil sintetis + `demo-me`, riwayat lengkap; batas kota OSM aktual. Niat nasional tetap, direktori live belum diprovisi. Aturan/default evaluasi: [prd.md](prd.md); privasi: [SECURITY.md](SECURITY.md); bukti: [TESTING.md](TESTING.md).

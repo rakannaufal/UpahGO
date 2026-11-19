@@ -1,0 +1,11 @@
+{
+  "package": "minimatch@10.2.6",
+  "integrity": "verified against baseline lockfile",
+  "pattern": "16 distinct xN/**/.. segments, then /z",
+  "heapMiB": 128,
+  "timeoutMs": 1500,
+  "timedOut": true,
+  "status": null,
+  "signal": "SIGTERM",
+  "result": ""
+}

@@ -48,6 +48,7 @@ Tes membuat shim `auth.users`, `auth.uid()` dan katalog `storage.objects`, role 
 - `npm run build:web`, `npm run preview`, `npm run test:web`.
 - `npm run build:android` untuk bundle; uji perangkat terpisah masih wajib.
 - `npm run worker:check`, `npm audit`, `npm run check:secrets`.
+- `npm run audit:dependencies` adalah gate CI: moderate atau lebih tinggi menolak, termasuk tooling/dev. Jangan memakai audit fix force atau mengabaikan registry error. Override minimatch hanya untuk `@expo/fingerprint@0.21.10`; tinjau/hapus saat upstream patched, re-resolve lockfile terarah lalu clean install/test/export. `npm test` memeriksa matcher dan hash fingerprint nyata pada fixture sementara. [Alasan dan bukti SEC-001](../audits/2026-11-18-production/remediation/sec-001/README.md).
 - `python3 assets/verify.py`, `python3 design/verify.py` untuk paket identitas.
 
 Playwright memakai Chrome macOS bila tersedia. Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE` untuk binary lain; pada Linux gunakan browser Playwright yang sudah dipasang. Tes browser memakai data sintetis dan tidak melakukan login Google atau SMS nyata.

@@ -1,0 +1,219 @@
+{
+  "version": "0.1.0",
+  "name": "upahgo",
+  "dependencies": {
+    "@upahgo/mobile": {
+      "version": "0.1.0",
+      "resolved": "file:../../apps/mobile",
+      "overridden": false,
+      "dependencies": {
+        "expo": {
+          "version": "58.0.25",
+          "resolved": "https://registry.npmjs.org/expo/-/expo-58.0.25.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@expo/cli": {
+              "version": "58.1.20",
+              "resolved": "https://registry.npmjs.org/@expo/cli/-/cli-58.1.20.tgz",
+              "overridden": false,
+              "dependencies": {
+                "@expo/metro-file-map": {
+                  "version": "58.0.6",
+                  "resolved": "https://registry.npmjs.org/@expo/metro-file-map/-/metro-file-map-58.0.6.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "jest-worker": {
+                      "version": "29.7.0",
+                      "resolved": "https://registry.npmjs.org/jest-worker/-/jest-worker-29.7.0.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "jest-util": {
+                          "version": "29.7.0",
+                          "resolved": "https://registry.npmjs.org/jest-util/-/jest-util-29.7.0.tgz",
+                          "overridden": false,
+                          "dependencies": {
+                            "picomatch": {
+                              "version": "2.3.2",
+                              "resolved": "https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz",
+                              "overridden": false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "picomatch": {
+                  "version": "4.0.7",
+                  "resolved": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.7.tgz",
+                  "overridden": false
+                }
+              }
+            },
+            "@expo/fingerprint": {
+              "version": "0.21.10",
+              "resolved": "https://registry.npmjs.org/@expo/fingerprint/-/fingerprint-0.21.10.tgz",
+              "overridden": false,
+              "dependencies": {
+                "minimatch": {
+                  "version": "10.2.6",
+                  "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-10.2.6.tgz",
+                  "overridden": false
+                }
+              }
+            },
+            "@expo/metro-config": {
+              "version": "58.0.22",
+              "resolved": "https://registry.npmjs.org/@expo/metro-config/-/metro-config-58.0.22.tgz",
+              "overridden": false,
+              "dependencies": {
+                "picomatch": {
+                  "version": "4.0.7"
+                }
+              }
+            },
+            "@expo/metro": {
+              "version": "58.0.0",
+              "resolved": "https://registry.npmjs.org/@expo/metro/-/metro-58.0.0.tgz",
+              "overridden": false,
+              "dependencies": {
+                "metro-file-map": {
+                  "version": "0.87.1",
+                  "resolved": "https://registry.npmjs.org/metro-file-map/-/metro-file-map-0.87.1.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "micromatch": {
+                      "version": "4.0.8",
+                      "resolved": "https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz",
+                      "overridden": false,
+                      "dependencies": {
+                        "picomatch": {
+                          "version": "2.3.2",
+                          "resolved": "https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz",
+                          "overridden": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "react-native": {
+          "version": "0.88.1",
+          "resolved": "https://registry.npmjs.org/react-native/-/react-native-0.88.1.tgz",
+          "overridden": false,
+          "dependencies": {
+            "tinyglobby": {
+              "version": "0.2.17",
+              "resolved": "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz",
+              "overridden": false,
+              "dependencies": {
+                "fdir": {
+                  "version": "6.5.0",
+                  "resolved": "https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz",
+                  "overridden": false,
+                  "dependencies": {
+                    "picomatch": {
+                      "version": "4.0.7"
+                    }
+                  }
+                },
+                "picomatch": {
+                  "version": "4.0.7"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "eslint-config-expo": {
+      "version": "58.0.4",
+      "resolved": "https://registry.npmjs.org/eslint-config-expo/-/eslint-config-expo-58.0.4.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@typescript-eslint/parser": {
+          "version": "8.73.0",
+          "resolved": "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.73.0.tgz",
+          "overridden": false,
+          "dependencies": {
+            "@typescript-eslint/typescript-estree": {
+              "version": "8.73.0",
+              "resolved": "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.73.0.tgz",
+              "overridden": false,
+              "dependencies": {
+                "minimatch": {
+                  "version": "11.0.9",
+                  "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-11.0.9.tgz",
+                  "overridden": false
+                }
+              }
+            }
+          }
+        },
+        "eslint-plugin-import": {
+          "version": "2.32.0",
+          "resolved": "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.32.0.tgz",
+          "overridden": false,
+          "dependencies": {
+            "minimatch": {
+              "version": "3.1.5",
+              "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+              "overridden": false
+            }
+          }
+        },
+        "eslint-plugin-react": {
+          "version": "7.37.5",
+          "resolved": "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.37.5.tgz",
+          "overridden": false,
+          "dependencies": {
+            "minimatch": {
+              "version": "3.1.5",
+              "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+              "overridden": false
+            }
+          }
+        }
+      }
+    },
+    "eslint": {
+      "version": "9.39.5",
+      "resolved": "https://registry.npmjs.org/eslint/-/eslint-9.39.5.tgz",
+      "overridden": false,
+      "dependencies": {
+        "@eslint/config-array": {
+          "version": "0.21.2",
+          "resolved": "https://registry.npmjs.org/@eslint/config-array/-/config-array-0.21.2.tgz",
+          "overridden": false,
+          "dependencies": {
+            "minimatch": {
+              "version": "3.1.5",
+              "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+              "overridden": false
+            }
+          }
+        },
+        "@eslint/eslintrc": {
+          "version": "3.3.7",
+          "resolved": "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-3.3.7.tgz",
+          "overridden": false,
+          "dependencies": {
+            "minimatch": {
+              "version": "3.1.5",
+              "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+              "overridden": false
+            }
+          }
+        },
+        "minimatch": {
+          "version": "3.1.5",
+          "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+          "overridden": false
+        }
+      }
+    }
+  }
+}

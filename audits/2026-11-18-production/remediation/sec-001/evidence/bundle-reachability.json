@@ -1,0 +1,20 @@
+{
+  "kind": "production export source-map module inventory",
+  "results": [
+    {
+      "platform": "web",
+      "maps": 29,
+      "uniqueSources": 1147,
+      "reactNativeSources": 201,
+      "globOrFingerprintModules": []
+    },
+    {
+      "platform": "android",
+      "maps": 1,
+      "uniqueSources": 1581,
+      "reactNativeSources": 461,
+      "globOrFingerprintModules": []
+    }
+  ],
+  "limitation": "does not inspect APK native libraries, remote updates or runtime device behavior"
+}

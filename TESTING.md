@@ -2,6 +2,12 @@
 
 18 November 2026. Lingkup: implementasi lokal, data sintetis. **Belum lulus rilis Android atau layanan live.** Tidak ada migrasi remote, deployment, login Google nyata, SMS, pesan WhatsApp atau pembayaran nyata dilakukan.
 
+## Remediasi SEC-001
+
+19 November: scoped override minimatch 11.0.9 pada fingerprint 0.21.10, Expo/RN tetap. Clean install lulus; audit online berubah dari 0 high/3 moderate menjadi **0 temuan**, tanpa exception. Picomatch high lama sudah withdrawn upstream, bukan diperbaiki proyek. **59 unit lulus**, termasuk 3 regresi fingerprint/matcher; typecheck/lint, export web/Hermes dan Worker dry-run/runtime lokal lulus. [Disposition, probe terisolasi, hasil browser dan batas](audits/2026-11-18-production/remediation/sec-001/README.md).
+
+Source map private web 29 map/1.147 source dan Android 1 map/1.581 source tidak memuat picomatch/minimatch/micromatch/fingerprint. Probe picomatch tetap timeout pada pola mahal; input build tetap harus tepercaya. CI menambah gate audit moderate dan timeout job. DB/Deno Edge/perangkat Android/staging tidak diulang, GitHub CI belum diterima. Rilis tetap **NO-GO** untuk gerbang lain yang terbuka.
+
 ## Remediasi OPS-001
 
 19 November: **56 unit,1 integrasi Edge dan4 skenario runtime Worker/SQLite Durable Object lokal lulus**. Meliputi UUID server/korelasi upstream, sentinel redaction, Auth/DB/limiter failure, timeout sintetis, malformed response, photo202, probe akun sintetis, alarm3 kegagalan/repeat/recovery, retry webhook idempoten dan filesystem state privat. Typecheck/lint dan Worker dry-run15.37 KiB/4.82 KiB gzip lulus. Uji runtime menemukan incompatibility redirect error workerd, lalu membuktikan sukses/Auth503/DB400/redirect302 ditolak setelah perbaikan manual. Tidak ada dependency/SQL/UI baru.
