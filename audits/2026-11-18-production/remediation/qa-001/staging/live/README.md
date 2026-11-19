@@ -1,6 +1,6 @@
 # QA-001: layanan staging nyata
 
-APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-256 `81cfc39a7ea530e56beb17d0d490fea0c260a38cb4bc8f9ad3055283375de7be`. Endpoint staging tertanam; APK demo lama tetap. Release build bertanda tangan debug, arm64/API24+, tanpa Maps key. Google/Phone belum aktif; APK belum dipasang/dijalankan pada Android. [Verifikasi APK](apk.json).
+APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-256 `81cfc39a7ea530e56beb17d0d490fea0c260a38cb4bc8f9ad3055283375de7be`. Endpoint staging tertanam; APK demo lama tetap. Release build bertanda tangan debug, arm64/API24+, tanpa Maps key. Google aktif di staging; Phone tetap nonaktif. Login Google lengkap dan APK pada Android belum diuji. [Verifikasi APK](apk.json).
 
 19 November 2026. Proyek khusus pengujian `aqzlgrahfxmbvtfwebsx`; source layanan `2715d87772c4a8bbc73cf8ecde0a6eb75cd7ddab`. Instruksi pengguna untuk melanjutkan sampai selesai mencakup penerapan rencana staging yang sudah ditinjau. Produksi, paket berbayar, SMS nyata dan publikasi aplikasi tidak diaktifkan.
 
@@ -15,7 +15,7 @@ APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-2
 | Alur inti | [core.json](core.json):30 assertion lulus, Auth/PostgREST/Worker nyata. Profil harga/nego, lokasi/discovery, kontak/consent bilateral, kesepakatan, completion/COD terpisah, concurrency, ulasan/notifikasi/laporan dan penolakan pihak ketiga |
 | Foto/blokir | [media.json](media.json):14 assertion lulus. JPEG diproses WASM dan disimpan privat; pending hanya pemilik; direct Storage ditolak; DELETE202 antrean, blokir menutup discovery/kontak, histori tetap tersedia, permintaan penghapusan membatasi akun |
 | Batas keamanan | [security.json](security.json):11 assertion lulus. Edge tanpa JWT401, JWT valid tanpa gateway403, helper service-only403, origin asing403, body besar413, signature JWT berubah401, public Storage ditolak, signed URL ditolak setelah TTL60detik |
-| OAuth | Google/Phone nonaktif; Client ID/secret Google belum terisi. Callback QA exact sudah dipasang. [Tindakan Google](../../../../../../docs/GOOGLE-STAGING.md) |
+| OAuth | Google aktif, client Web/secret pengganti terpasang; probe kredensial dan redirect302 lulus. Login Google/Android belum diuji; Phone nonaktif. [Bukti](google-oauth.json), [konfigurasi dan batas](../../../../../../docs/GOOGLE-STAGING.md) |
 
 Satu percobaan awal core berhenti karena skrip mengharapkan `FORBIDDEN` untuk pihak ketiga, sedangkan kontrak SQL sengaja memakai `UNAVAILABLE`. [core-initial.json](core-initial.json) dipertahankan. Ekspektasi diperbaiki berdasarkan SQL dan dilanjutkan dari checkpoint kontak yang sudah diterima; tidak melonggarkan hak akses/mengulang transaksi. Core final memuat assertion awal dan lanjutan, termasuk pengulangan pemeriksaan login. Angka assertion bukan jumlah skenario unik atau skor keamanan.
 

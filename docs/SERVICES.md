@@ -1,22 +1,22 @@
 # Konfigurasi layanan
 
-Staging sudah diterapkan pada 19 November 2026:10 migrasi, gateway Worker, Edge foto dan55 assertion layanan nyata. Google/Phone dan layanan operasional tetap nonaktif; produksi belum dirilis. Tidak membeli domain/paket berbayar. [Bukti dan batas](../audits/2026-11-18-production/remediation/qa-001/staging/live/README.md).
+Staging sudah diterapkan pada 19 November 2026:10 migrasi, gateway Worker, Edge foto dan55 assertion layanan nyata. Google staging kini aktif; Phone dan layanan operasional tetap nonaktif. Produksi belum dirilis. Tidak membeli domain/paket berbayar. [Bukti dan batas](../audits/2026-11-18-production/remediation/qa-001/staging/live/README.md).
 
 ## Supabase
 
-Proyek pengujian: `https://aqzlgrahfxmbvtfwebsx.supabase.co`. Pada 19 November pengguna mengonfirmasi proyek ini khusus pengujian dan belum berisi data nyata. [Konfigurasi, akses dan urutan staging](STAGING.md). Pemeriksaan dashboard 17 November 2026: Google dan Phone belum aktif. Status itu dapat berubah; periksa kembali sebelum pengujian live.
+Proyek pengujian: `https://aqzlgrahfxmbvtfwebsx.supabase.co`. Pada 19 November pengguna mengonfirmasi proyek ini khusus pengujian dan belum berisi data nyata. [Konfigurasi, akses dan urutan staging](STAGING.md). Pemeriksaan API 19 November 2026: Google aktif dengan client Web dan secret pengganti; Phone tetap nonaktif. Login Google lengkap/Android belum diuji; periksa kembali sebelum pengujian live.
 
 ### Login Google
 
 1. Di Google Cloud, buat/configure OAuth consent screen, audience, dan test users. Gunakan OAuth **Web application** untuk Supabase OAuth melalui browser eksternal.
 2. Authorized redirect URI Google: `https://aqzlgrahfxmbvtfwebsx.supabase.co/auth/v1/callback`.
 3. Masukkan Client ID dan Client Secret pada Supabase Authentication > Providers > Google, lalu aktifkan. Client Secret hanya di dashboard/server, tidak di `.env` aplikasi atau chat.
-4. Pada Supabase URL Configuration, izinkan tepat `upahgo://auth/callback` dan, untuk preview komputer, `http://localhost:8081/auth/callback`. Jika memakai port 8082, daftarkan URL itu terpisah. Jangan gunakan wildcard callback produksi. Site URL gunakan URL web yang benar jika web dipublikasikan nanti.
+4. Pada Supabase URL Configuration staging, izinkan tepat `upahgo-qa://auth/callback`. Callback produksi `upahgo://auth/callback` hanya untuk environment produksi terpisah. Preview web live belum diaktifkan; bila diperlukan nanti, daftarkan origin Worker dan callback localhost exact bersama. Jangan gunakan wildcard. Site URL gunakan URL web yang benar jika web dipublikasikan nanti.
 5. Buat development build Android, uji masuk/batal/kedaluwarsa, cold-start callback, background/foreground, logout dan pergantian akun. Expo Go bukan bukti callback scheme aplikasi mandiri.
 
 Native memakai browser eksternal dan PKCE milik Supabase. Callback harus cocok scheme/host/path. Web preview memakai popup dengan pemeriksaan `event.origin` dan `event.source`; PKCE verifier dan sesi tetap di memori jendela utama. Reload web mengakhiri sesi. Jangan ubah menjadi redirect penuh tanpa penyimpanan verifier yang sesuai.
 
-Build `UPAHGO_APP_VARIANT=qa` memakai package `id.upahgo.app.qa` dan callback **`upahgo-qa://auth/callback`**, terpisah dari produksi. Daftarkan callback QA exact hanya pada environment pengujian yang disetujui; jangan menambah wildcard. Key Maps QA juga harus dibatasi package/SHA-1 sertifikat QA. [Runbook QA](QA-ACCEPTANCE.md). Pemeriksaan 19 November menunjukkan Google/Phone nonaktif dan Client ID/secret Google kosong; callback QA exact kini sudah terpasang. [Tindakan konfigurasi Google](GOOGLE-STAGING.md). Akun admin fixture tidak membuktikan OTP/Google berhasil.
+Build `UPAHGO_APP_VARIANT=qa` memakai package `id.upahgo.app.qa` dan callback **`upahgo-qa://auth/callback`**, terpisah dari produksi. Daftarkan callback QA exact hanya pada environment pengujian yang disetujui; jangan menambah wildcard. Key Maps QA juga harus dibatasi package/SHA-1 sertifikat QA. [Runbook QA](QA-ACCEPTANCE.md). Konfigurasi 19 November: Google aktif dengan Client ID/secret pengganti; probe kredensial/redirect lulus dan callback QA exact terpasang. [Konfigurasi dan batas Google](GOOGLE-STAGING.md). Akun admin fixture tidak membuktikan OTP/Google berhasil.
 
 Domain sendiri belum diperlukan untuk alur native ini. Custom scheme belum memberikan jaminan verified App Links. Saat domain tersedia, evaluasi Android App Links dan tautan penghapusan akun publik; PKCE tetap diperlukan.
 

@@ -1,6 +1,6 @@
 # Upahgo
 
-APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-256 `81cfc39a7ea530e56beb17d0d490fea0c260a38cb4bc8f9ad3055283375de7be`. Endpoint staging tertanam; APK demo lama tetap. Release build bertanda tangan debug, arm64/API24+, tanpa Maps key. Google/Phone belum aktif; APK belum dipasang/dijalankan pada Android. [Verifikasi APK](audits/2026-11-18-production/remediation/qa-001/staging/live/apk.json).
+APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-256 `81cfc39a7ea530e56beb17d0d490fea0c260a38cb4bc8f9ad3055283375de7be`. Endpoint staging tertanam; APK demo lama tetap. Release build bertanda tangan debug, arm64/API24+, tanpa Maps key. Google aktif di staging; Phone tetap nonaktif. Login Google lengkap dan APK pada Android belum diuji. [Verifikasi APK](audits/2026-11-18-production/remediation/qa-001/staging/live/apk.json).
 
 Baseline tersimpan pada repository proyek mandiri [rakannaufal/UpahGO](https://github.com/rakannaufal/UpahGO), commit `9952922`. Status audit dan perbaikan: [remediasi 18 November 2026](audits/2026-11-18-production/remediation/README.md). Rilis produksi masih **NO-GO** sampai temuan terbuka dan penerimaan Android/live diselesaikan.
 
@@ -14,7 +14,7 @@ Desain **Upahgo Ceria** sudah diterapkan pada seluruh halaman existing: masuk Go
 
 Akun memiliki Lainnya (bantuan dan laporan, ketentuan dan privasi, atribusi data, penilaian aplikasi) dan Kelola akun (keluar, hapus). Penilaian aplikasi masih menampilkan keterangan belum adanya tautan Google Play resmi.
 
-Versi awal lokal tersedia: React Native + Expo + TypeScript, Supabase Auth/SQL, gateway Cloudflare. Demo multi-profil dan riwayat sintetis dapat dicoba pada preview web. APK **Upahgo QA 0.1.0 arm64** berhasil dikompilasi pada 19 November, tersimpan lokal di `.cache/qa/upahgo-qa-0.1.0-arm64.apk` (33,65 MiB, Android 7.0/API24+). Package terpisah, build release bertanda tangan debug, layanan sintetis; pilih **Coba demo**. Ini bukan APK produksi. [Panduan uji mandiri](docs/QA-ACCEPTANCE.md), [bukti dan SHA-256](audits/2026-11-18-production/remediation/qa-001/evidence/apk-verification.json). Belum di-deploy atau diuji pada perangkat Android. Google dan Phone masih perlu konfigurasi provider; direktori area nyata, Maps key, serta layanan operasional belum tersedia.
+Versi awal lokal tersedia: React Native + Expo + TypeScript, Supabase Auth/SQL, gateway Cloudflare. Demo multi-profil dan riwayat sintetis dapat dicoba pada preview web. APK **Upahgo QA 0.1.0 arm64** berhasil dikompilasi pada 19 November, tersimpan lokal di `.cache/qa/upahgo-qa-0.1.0-arm64.apk` (33,65 MiB, Android 7.0/API24+). Package terpisah, build release bertanda tangan debug, layanan sintetis; pilih **Coba demo**. Ini bukan APK produksi. [Panduan uji mandiri](docs/QA-ACCEPTANCE.md), [bukti dan SHA-256](audits/2026-11-18-production/remediation/qa-001/evidence/apk-verification.json). Belum di-deploy atau diuji pada perangkat Android. Google staging sudah dikonfigurasi; Phone masih nonaktif. Direktori area nyata, Maps key, serta layanan operasional belum tersedia.
 
 ```sh
 # Node 22.13+ seri 22

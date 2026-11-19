@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-11-19T14:55:20.301335+00:00",
+  "targetRef": "aqzlgrahfxmbvtfwebsx",
+  "googleProjectId": "upahgo",
+  "clientType": "web",
+  "clientId": "519463236471-390khtm851l6q7gb77v7k4irr8pr6p5t.apps.googleusercontent.com",
+  "googleEnabled": true,
+  "secretConfigured": true,
+  "clientCredentialProbe": {
+    "status": "passed",
+    "expectedError": "invalid_grant",
+    "validLoginClaimed": false,
+    "negativeControl": {
+      "replacement": {
+        "httpStatus": 400,
+        "error": "invalid_grant"
+      },
+      "invalidControl": {
+        "httpStatus": 401,
+        "error": "invalid_client"
+      }
+    }
+  },
+  "googleRedirectUri": "https://aqzlgrahfxmbvtfwebsx.supabase.co/auth/v1/callback",
+  "nativeRedirectUri": "upahgo-qa://auth/callback",
+  "otherAuthSettingsPreserved": [
+    "uri_allow_list",
+    "site_url",
+    "external_phone_enabled"
+  ],
+  "authorizeProbe": {
+    "status": "passed",
+    "providerHost": "accounts.google.com",
+    "clientMatches": true,
+    "callbackMatches": true,
+    "responseType": "code",
+    "statePresent": true,
+    "pkceRequest": "s256",
+    "scopes": [
+      "email",
+      "profile"
+    ]
+  },
+  "googleConsentLoginCompleted": false,
+  "androidDeviceTested": false,
+  "phoneEnabled": false,
+  "secretsInEvidence": false,
+  "productionModified": false,
+  "consoleVerification": {
+    "checkedAt": "2026-11-19T15:01:21.758286+00:00",
+    "audience": "External",
+    "publishingStatus": "Testing",
+    "testUserCount": 0,
+    "initialSecretStatus": "Disabled",
+    "replacementSecretStatus": "Enabled",
+    "initialSecretExposedInInternalInspection": true,
+    "replacementStoredPrivately": true,
+    "initialSecretPermanentlyDeleted": false,
+    "revocationPropagationMayBeDelayed": true,
+    "testUsersRequiredForObservedScopes": false,
+    "audiencePolicySource": "https://support.google.com/cloud/answer/15549945?hl=en"
+  },
+  "checksNotRun": [
+    "Google consent and complete Supabase code exchange",
+    "Android physical-device A09/A10",
+    "Production release acceptance"
+  ],
+  "runtimeCodeOrApkChanged": false,
+  "repositoryChecks": {
+    "versionedTextFilesScannedForOAuthSecret": 683,
+    "oauthSecretMatches": 0,
+    "privateCredentialIgnored": true,
+    "sourceSecretPatternCheckFiles": 123,
+    "localDocumentationLinksChecked": 76,
+    "gitDiffCheck": "passed",
+    "runtimeBuildTestsRepeated": false,
+    "reason": "Only provider configuration, documentation and redacted evidence changed; no application source or APK changed."
+  }
+}

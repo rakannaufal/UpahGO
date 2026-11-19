@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-19T13:47:12.897565+00:00",
+  "checkedAt": "2026-11-19T14:58:44.951451+00:00",
   "sourceCommit": "2715d87772c4a8bbc73cf8ecde0a6eb75cd7ddab",
   "workerUrl": "https://upahgo-api-staging.upahgo-dev-rakan.workers.dev",
   "worker": {
@@ -56,9 +56,9 @@
     "verify_jwt": true
   },
   "google": {
-    "enabled": false,
-    "clientIdConfigured": false,
-    "clientSecretConfigured": false,
+    "enabled": true,
+    "clientIdConfigured": true,
+    "clientSecretConfigured": true,
     "siteUrl": "http://localhost:3000",
     "redirectAllowList": "upahgo-qa://auth/callback",
     "phoneProviderEnabled": false,

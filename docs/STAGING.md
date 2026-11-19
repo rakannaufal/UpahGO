@@ -1,10 +1,10 @@
 # Staging Upahgo
 
-APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-256 `81cfc39a7ea530e56beb17d0d490fea0c260a38cb4bc8f9ad3055283375de7be`. Endpoint staging tertanam; APK demo lama tetap. Release build bertanda tangan debug, arm64/API24+, tanpa Maps key. Google/Phone belum aktif; APK belum dipasang/dijalankan pada Android. [Verifikasi APK](../audits/2026-11-18-production/remediation/qa-001/staging/live/apk.json).
+APK QA **staging** terbaru: `.cache/qa/upahgo-qa-staging-0.1.0-arm64.apk`, SHA-256 `81cfc39a7ea530e56beb17d0d490fea0c260a38cb4bc8f9ad3055283375de7be`. Endpoint staging tertanam; APK demo lama tetap. Release build bertanda tangan debug, arm64/API24+, tanpa Maps key. Google aktif di staging; Phone tetap nonaktif. Login Google lengkap dan APK pada Android belum diuji. [Verifikasi APK](../audits/2026-11-18-production/remediation/qa-001/staging/live/apk.json).
 
 19 November 2026. Pengguna mengonfirmasi proyek `aqzlgrahfxmbvtfwebsx` khusus pengujian dan belum berisi data nyata. Ini target staging, bukan target produksi. Konfirmasi tersebut bukan hasil inspeksi isi database. APK demo belum diuji pada Android fisik.
 
-Sepuluh migrasi, hash/secret gateway, Worker staging dan Edge foto sudah diterapkan sesudah otorisasi pengguna. Tiga akun sintetis diuji melalui layanan nyata: 55 assertion pada tiga phase lulus. Google/Phone, scheduler dan layanan berbayar tetap nonaktif. [Bukti deployment dan batas](../audits/2026-11-18-production/remediation/qa-001/staging/live/README.md).
+Sepuluh migrasi, hash/secret gateway, Worker staging dan Edge foto sudah diterapkan sesudah otorisasi pengguna. Tiga akun sintetis diuji melalui layanan nyata: 55 assertion pada tiga phase lulus. Google kini aktif dengan client Web dan secret pengganti; Phone, scheduler dan layanan berbayar tetap nonaktif. [Bukti deployment dan batas](../audits/2026-11-18-production/remediation/qa-001/staging/live/README.md).
 
 ## Target dan akses
 
