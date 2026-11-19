@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-11-19T13:18:20.339950+00:00",
+  "checkedFiles": 13,
+  "jsonParsed": 4,
+  "credentialPatternHits": [],
+  "brokenLocalLinks": [],
+  "runtimeCodeChanged": false,
+  "scope": "Documentation and filtered authentication/catalog/CI evidence only; tested source b47d79c unchanged. Pattern scan, JSON parse, local Markdown links and git diff --check; not exhaustive security validation.",
+  "shellCodeBlocksSyntax": "pass",
+  "testedSource": "b47d79cfe8324be94d3a565abfd3b672d13beb63",
+  "testedRun": 44528145983,
+  "sourceCredentialPatternCheck": {
+    "files": 120,
+    "matches": 0,
+    "command": "npm run check:secrets",
+    "excludes": "Env/build/dependencies; not exhaustive"
+  },
+  "runtimeTestConfigAndLockfileUnchanged": true
+}

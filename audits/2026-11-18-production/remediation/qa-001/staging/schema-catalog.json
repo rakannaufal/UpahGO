@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-11-19T13:14:48.663641+00:00",
+  "targetRef": "aqzlgrahfxmbvtfwebsx",
+  "method": "Single SELECT of pg_catalog and to_regclass metadata through Management API; no CLI connection preflight or temporary database login role.",
+  "httpStatus": 201,
+  "catalog": {
+    "private_schema_exists": false,
+    "migration_history_exists": false,
+    "storage_catalog_exists": true,
+    "public_upahgo_table_count": 0,
+    "private_table_count": 0,
+    "gateway_rpc_count": 0
+  },
+  "userRowsRead": false,
+  "remoteApplicationWrites": false,
+  "migrationVersionsInspected": false,
+  "storageBucketPolicyInspected": false
+}

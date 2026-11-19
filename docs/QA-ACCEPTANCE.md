@@ -51,7 +51,7 @@ A06 dan A08–A11 memerlukan layanan/perangkat terkonfigurasi; demo hanya memver
 
 ## Staging sebelum penerimaan live
 
-Pengguna mengonfirmasi proyek Supabase yang ditunjuk khusus pengujian dan belum berisi data nyata. Konfirmasi itu belum membuktikan schema/migrasi lengkap. [Persiapan staging](STAGING.md) menyediakan environment Worker terpisah dan manifest sepuluh migrasi; login Wrangler kini terverifikasi, target Supabase belum terlihat pada snapshot sesi CLI. Belum ada URL Worker dan tiga akun uji. Jangan memigrasikan proyek remote, mengaktifkan provider, mengirim SMS, mengubah data lama atau menjalankan fault/load/restore drill sebagai efek samping pemeriksaan ini.
+Pengguna mengonfirmasi proyek Supabase yang ditunjuk khusus pengujian dan belum berisi data nyata. Konfirmasi itu belum membuktikan schema/migrasi lengkap. [Persiapan staging](STAGING.md) menyediakan environment Worker terpisah dan manifest sepuluh migrasi; login Wrangler dan akses Supabase target kini terverifikasi dengan profil terisolasi. Belum ada URL Worker dan tiga akun uji. Jangan memigrasikan proyek remote, mengaktifkan provider, mengirim SMS, mengubah data lama atau menjalankan fault/load/restore drill sebagai efek samping pemeriksaan ini.
 
 1. Tetapkan lingkungan khusus pengujian, pemilik, izin perubahan, backup dan jendela uji. Review urutan migrasi/source Worker/Edge dari [SERVICES.md](SERVICES.md), [PRIV](ACCOUNT-DELETION.md), [MEDIA](MEDIA-CLEANUP.md), [OPS](OPERATIONS.md). Deploy/provisioning merupakan tindakan terpisah yang harus diotorisasi.
 2. Siapkan Worker HTTPS, Auth/PKCE, callback QA exact, direktori area yang ditinjau, bucket privat, Edge dan key Maps Android yang dibatasi package/SHA-1 sertifikat QA. Aktifkan Phone hanya dengan batas biaya/abuse dan nomor uji provider yang disetujui. Jangan menaruh service key dalam aplikasi.
@@ -73,7 +73,7 @@ Google/Phone nonaktif dan RPC tidak dapat ditemukan lewat probe anonim pada 19 N
 
 ## Browser dan keputusan
 
-CI Linux source `d38c4c8`, run [44451749849](https://github.com/rakannaufal/UpahGO/actions/runs/44451749849), lulus 63/63 browser (21 per engine) dalam 8,8 menit. Ini bukti browser sintetis; matriks Android/staging di atas tetap memerlukan hasil aktual. [Metadata dan log](../audits/2026-11-18-production/remediation/qa-001/README.md).
+CI Linux terbaru source `b47d79c`, run [44528145983](https://github.com/rakannaufal/UpahGO/actions/runs/44528145983), lulus 63/63 browser (21 per engine) dalam 9,3 menit. Unit63, SQL280, Edge1, Worker4, audit npm0, typecheck/lint, export web/Hermes dan kedua dry-run lulus. Ini bukti sintetis; matriks Android/staging di atas tetap memerlukan hasil aktual. [Metadata dan log](../audits/2026-11-18-production/remediation/qa-001/staging/README.md). Run QA sebelumnya tetap tercatat pada laporan historis.
 
 `npm run test:web` menjalankan Chromium, Firefox dan WebKit, tanpa retry suite otomatis. Pasang runtime yang cocok menggunakan `npx --no-install playwright install --with-deps chromium firefox webkit`; pada macOS tidak perlu `--with-deps`. Variabel `PLAYWRIGHT_BROWSERS_PATH` dapat mengisolasi unduhan. `--project=chromium` tersedia untuk pemeriksaan terbatas, bukan pengganti gate tiga browser.
 

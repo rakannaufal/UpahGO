@@ -24,7 +24,7 @@ Atau `npm run build:web`, `npm run preview`, buka http://localhost:8081. Pilih *
 
 Panduan lengkap: [Pengembangan](docs/DEVELOPMENT.md), [Konfigurasi Google/Supabase/Cloudflare/Maps](docs/SERVICES.md). Domain belum diperlukan untuk konfigurasi `workers.dev`; deployment belum dilakukan.
 
-Konfigurasi staging terpisah tersedia untuk proyek Supabase pengujian yang dikonfirmasi pengguna: `upahgo-api-staging`, binding limiter sendiri dan dry-run `npm run worker:check:staging`. URL Supabase produksi sengaja kosong. [Akses, manifest migrasi dan urutan deployment](docs/STAGING.md); belum ada deployment/migrasi remote. Login Wrangler terverifikasi; akses profil Supabase ke proyek yang benar masih diperlukan. CI staging pertama lulus62/63 browser; sinkronisasi tes foreground diperbaiki dan delapan kasus lokasi Chromium/WebKit lokal lulus. Penerimaan penuh source berikutnya masih menunggu CI.
+Konfigurasi staging terpisah tersedia untuk proyek Supabase pengujian yang dikonfirmasi pengguna: `upahgo-api-staging`, binding limiter sendiri dan dry-run `npm run worker:check:staging`. URL Supabase produksi sengaja kosong. [Akses, manifest migrasi dan urutan deployment](docs/STAGING.md); belum ada deployment/migrasi remote. Login Wrangler dan akses Supabase ke ref staging terverifikasi; profil Supabase memakai file serta direktori lokal terisolasi. MCP Cloudflare berhasil OAuth Minimal, pemakaian tool menunggu muat ulang Codex. CI source `b47d79c`, run [44528145983](https://github.com/rakannaufal/UpahGO/actions/runs/44528145983), sukses:63 unit,280 SQL,1 Edge,4 Worker,63 browser; audit npm0 dan kedua dry-run lulus. Penerimaan perangkat dan layanan staging tetap terbuka.
 
 ## Slice yang tersedia
 

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-19T12:12:06.213552+00:00",
+  "checkedAt": "2026-11-19T13:16:01.495312+00:00",
   "targetRef": "aqzlgrahfxmbvtfwebsx",
   "userConfirmation": {
     "testOnly": true,
@@ -13,19 +13,43 @@
     "identityAndCredentialsOmitted": true
   },
   "supabase": {
+    "checkedAt": "2026-11-19T13:10:10.708208+00:00",
+    "authenticated": true,
+    "targetVisibleToSession": true,
+    "parserCheckedAgainstRefField": true,
+    "profileName": "upahgo-staging",
+    "customProfileFile": ".cache/supabase-staging/profile.json",
+    "isolatedSupabaseHome": ".cache/supabase-staging",
+    "defaultProfileSelectorUnchanged": true,
+    "credentialsAndOtherProjectsOmitted": true,
     "sessionPresent": true,
-    "targetVisibleToSession": false,
-    "parserCheckedAgainstRefField": true
+    "tokenStoredInKeychain": true,
+    "sourceReviewedAtCliRevision": "3cb948c5a70d31fbcb0fd1dcc616ee196a125cd0"
   },
-  "remoteChangesPerformed": false,
-  "scope": "Read-only authentication/access snapshots and user-requested local agent tooling setup. No user rows, remote schema inspection, migrations, gateway secrets or deployment. Other account/project identity and credentials omitted.",
+  "scope": "Authentication/access snapshots, read-only staging schema catalog metadata and user-requested local agent tooling setup. No user rows, remote application/schema writes, migrations, gateway secrets, deployment, providers or paid services. Other account/project identity and credentials omitted.",
   "cloudflareTooling": {
     "skillsInstalled": 22,
     "source": "https://github.com/cloudflare/skills",
     "sourceSha": "5108325ecceabc899c761e07aa617b09c02445ee",
     "mcpConfigured": true,
-    "mcpOAuthStatus": "awaiting_user_consent",
+    "mcpOAuthStatus": "authenticated_minimal",
     "runtimeReloadRequired": true,
-    "betaCfCliInstalled": false
-  }
+    "betaCfCliInstalled": false,
+    "mcpCliAuthStatus": "o_auth",
+    "mcpOAuthCheckedAt": "2026-11-19T13:00:34.784223+00:00",
+    "mcpPermissions": [
+      "user:read",
+      "account:read",
+      "offline_access"
+    ],
+    "mcpRuntimeToolUseVerified": false
+  },
+  "previousSupabaseSessionSnapshot": {
+    "sessionPresent": true,
+    "targetVisibleToSession": false,
+    "parserCheckedAgainstRefField": true
+  },
+  "schemaCatalogEvidence": "schema-catalog.json",
+  "remoteApplicationChangesPerformed": false,
+  "authenticationChangesPerformed": true
 }

@@ -13,9 +13,11 @@ Konfigurasi dan dry-run tersedia lokal. Belum ada migrasi, deployment, secret re
 | Worker produksi  | Nama existing `upahgo-api`; URL Supabase sengaja kosong sampai proyek produksi terpisah ditentukan |
 | Klien Android QA | `UPAHGO_APP_VARIANT=qa`, package `id.upahgo.app.qa`, callback `upahgo-qa://auth/callback`          |
 | Cloudflare CLI   | Login Wrangler terverifikasi baca-saja; satu akun tersedia, identitas/kredensial tidak dicatat     |
-| Supabase CLI     | Sesi ada, tetapi proyek staging tidak muncul dalam daftar proyek sesi tersebut                     |
+| Supabase CLI     | Login profil terisolasi berhasil; ref staging muncul dalam daftar proyek, selector default tidak berubah |
 
 Status akses merupakan snapshot; periksa ulang setelah login atau perubahan izin. Jangan logout/menimpa sesi proyek lain secara otomatis. Pakai akun/profil yang memiliki akses ke target di atas. Jangan mengirim token, password, service key atau client secret melalui chat.
+
+Inspeksi katalog baca-saja 19 November: schema `upahgo_private`, tabel riwayat migrasi dan RPC `upahgo_action` belum ada; katalog Storage tersedia. [Bukti](../audits/2026-11-18-production/remediation/qa-001/staging/schema-catalog.json). Tidak membaca row pengguna atau kebijakan bucket; hasil ini tidak membuktikan seluruh database kosong. Pemeriksaan memakai satu SELECT melalui Management API, menghindari preflight `db query --linked` yang dapat membuat role login sementara.
 
 ## Login CLI
 
@@ -29,14 +31,36 @@ npx --no-install wrangler login --use-keyring
 
 Pilih akun Cloudflare staging pada browser dan tinjau izin OAuth sebelum menyetujuinya. `--use-keyring` memakai penyimpanan kredensial OS yang didukung CLI terpasang. Tidak melakukan deploy.
 
-Gunakan profil Supabase khusus agar sesi default proyek lain tetap terpisah:
+CLI Supabase 2.119.0 menafsirkan `--profile` sebagai nama bawaan atau path file profil, bukan nama akun baru. Perintah lama `--profile upahgo-staging` ditolak dengan `ProfileLoadError`; jangan menggunakannya. Nama bawaan `supabase-staging` menunjuk infrastruktur internal Supabase yang berbeda, bukan proyek pengujian ini.
+
+Gunakan file profil dengan nama kredensial tersendiri serta `SUPABASE_HOME` lokal agar selector dan fallback token tidak menimpa sesi default. Dari root proyek, pada shell yang sama:
 
 ```sh
-supabase login --profile upahgo-staging
-supabase projects list --profile upahgo-staging
+export SUPABASE_HOME="$PWD/.cache/supabase-staging"
+UPAHGO_SUPABASE_PROFILE="$SUPABASE_HOME/profile.json"
+unset SUPABASE_ACCESS_TOKEN
+mkdir -p "$SUPABASE_HOME"
+chmod 700 "$SUPABASE_HOME"
+if [ ! -e "$UPAHGO_SUPABASE_PROFILE" ]; then
+  (umask 077; cat > "$UPAHGO_SUPABASE_PROFILE" <<'JSON'
+{
+  "name": "upahgo-staging",
+  "api_url": "https://api.supabase.com",
+  "dashboard_url": "https://supabase.com/dashboard",
+  "docs_url": "https://supabase.com/docs",
+  "project_host": "supabase.co",
+  "pooler_host": "supabase.com"
+}
+JSON
+  )
+fi
+supabase login --profile "$UPAHGO_SUPABASE_PROFILE" --no-browser --name upahgo-staging --output-format text --agent no
+supabase projects list --profile "$UPAHGO_SUPABASE_PROFILE" --output json
 ```
 
-Masuk dengan akun yang dapat membuka proyek `aqzlgrahfxmbvtfwebsx`; kode login hanya dimasukkan pada alur resmi CLI/browser. Pastikan ref tersebut muncul di daftar. Jika tidak, periksa akun dan keanggotaan organisasi; login berhasil saja belum membuktikan akses target. Jangan menyalin token atau keluaran privat ke chat/Git. Semua perintah Supabase lanjutan pada runbook ini memakai profil tersebut dan ref eksplisit. Login tidak mengotorisasi migrasi, deployment, upgrade paket atau aktivasi provider.
+Periksa isi file existing sebelum memakainya; blok di atas tidak menimpanya. Profil berisi endpoint publik, bukan token. CLI menyimpan token pada entri Keychain `Supabase CLI` / `upahgo-staging`; jika Keychain tidak tersedia, fallback token berada dalam direktori privat di atas dengan mode 0600. `.cache` diabaikan Git. Blok menghapus `SUPABASE_ACCESS_TOKEN` hanya dari shell saat ini agar token lingkungan tidak mengalahkan profil; kredensial tersimpan tetap. `--output-format text --agent no` diperlukan agar deteksi agen tidak mengubah prompt interaktif menjadi JSON. Jangan menjalankan `logout` untuk memperbaiki akses, karena CLI juga menghapus kredensial legacy bersama.
+
+Masuk dengan akun yang dapat membuka proyek `aqzlgrahfxmbvtfwebsx`; URL dari `--no-browser` dibuka di browser Codex, kode login hanya dimasukkan pada alur resmi CLI. Pastikan ref tersebut muncul di daftar. Jika tidak, periksa akun dan keanggotaan organisasi; login berhasil saja belum membuktikan akses target. Pada 19 November, login dan daftar proyek dengan file profil ini berhasil; selector default dibandingkan sebelum/sesudah dan tidak berubah. [Snapshot akses](../audits/2026-11-18-production/remediation/qa-001/staging/access.json). Jangan menyalin token atau keluaran privat ke chat/Git. Semua perintah Supabase lanjutan memakai variabel profil dan `SUPABASE_HOME` dari shell di atas serta ref eksplisit. Login tidak mengotorisasi migrasi, deployment, upgrade paket atau aktivasi provider.
 
 Pada sesi ini, callback OAuth Wrangler pertama ditolak karena CSRF. Alur perangkat resmi berikut berhasil melalui browser Codex:
 
@@ -46,7 +70,7 @@ npx --no-install wrangler login --device --browser=false --use-keyring
 
 CLI memberikan URL/kode sementara untuk dimasukkan pada halaman Cloudflare. Jangan memakai kembali kode lama atau memasukkannya ke laporan. Pemeriksaan `whoami --json` disaring menjadi status/jumlah akun saja; tidak membuktikan paket, kuota atau izin deploy telah diterima.
 
-Atas permintaan pengguna, setup agen mengikuti [panduan resmi Cloudflare](https://developers.cloudflare.com/agent-setup/prompt.md): 22 skill dari `cloudflare/skills` revisi `5108325ecceabc899c761e07aa617b09c02445ee` dipasang ke direktori skill Codex dan diverifikasi terhadap unduhan yang ditinjau. MCP `https://mcp.cloudflare.com/mcp` didaftarkan pada konfigurasi Codex dengan backup privat dan pengaturan lain tetap. Persetujuan OAuth MCP masih menunggu pengguna; registrasi bukan autentikasi. Runtime perlu dimuat ulang untuk MCP baru; skill tersedia pada giliran berikutnya. CLI `cf` beta opsional tidak dipasang karena proyek memakai Wrangler. Setup tooling tidak mengubah layanan aplikasi atau memberi izin deployment.
+Atas permintaan pengguna, setup agen mengikuti [panduan resmi Cloudflare](https://developers.cloudflare.com/agent-setup/prompt.md): 22 skill dari `cloudflare/skills` revisi `5108325ecceabc899c761e07aa617b09c02445ee` dipasang ke direktori skill Codex dan diverifikasi terhadap unduhan yang ditinjau. MCP `https://mcp.cloudflare.com/mcp` didaftarkan pada konfigurasi Codex dengan backup privat dan pengaturan lain tetap. OAuth MCP berhasil dengan pilihan Minimal: `user:read`, `account:read`, `offline_access`; CLI mencatat `auth_status: o_auth`. Pemakaian tool MCP pada runtime belum diuji; muat ulang Codex agar server baru dimuat. Skill tersedia pada giliran berikutnya. CLI `cf` beta opsional tidak dipasang karena proyek memakai Wrangler. Setup tooling tidak mengubah layanan aplikasi atau memberi izin deployment.
 
 ## Batas konfigurasi
 
@@ -76,14 +100,14 @@ Langkah di bawah belum dijalankan. Cakupan perubahan yang harus disetujui: sepul
 3. Bandingkan file lokal dengan [manifest sepuluh migrasi dan SHA-256](../audits/2026-11-18-production/remediation/qa-001/staging/migration-plan.json). CLI terpasang menyediakan `--project-ref` sehingga tidak perlu mengandalkan proyek yang terakhir di-link. Setelah izin dan akses target tersedia, tinjau rencana terlebih dahulu:
 
    ```sh
-   supabase migration list --profile upahgo-staging --project-ref aqzlgrahfxmbvtfwebsx
-   supabase db push --profile upahgo-staging --project-ref aqzlgrahfxmbvtfwebsx --dry-run --skip-vault
+   supabase migration list --profile "$UPAHGO_SUPABASE_PROFILE" --project-ref aqzlgrahfxmbvtfwebsx
+   supabase db push --profile "$UPAHGO_SUPABASE_PROFILE" --project-ref aqzlgrahfxmbvtfwebsx --dry-run --skip-vault
    ```
 
    Jangan memakai `--include-all`, `--include-seed` atau `--include-roles` untuk memaksa riwayat cocok. Setelah rencana cocok dan disetujui, perintah penerapan adalah:
 
    ```sh
-   supabase db push --profile upahgo-staging --project-ref aqzlgrahfxmbvtfwebsx --skip-vault
+   supabase db push --profile "$UPAHGO_SUPABASE_PROFILE" --project-ref aqzlgrahfxmbvtfwebsx --skip-vault
    ```
 
    `--skip-vault` mencegah pembaruan Vault yang bukan cakupan migrasi. Jangan menaruh password database pada flag `--password`; gunakan mekanisme kredensial privat CLI yang ditinjau. Verifikasi urutan/hasil dan simpan bukti yang disaring. Schema `upahgo_private` tidak boleh diekspos PostgREST; bucket foto tetap privat.
@@ -93,7 +117,7 @@ Langkah di bawah belum dijalankan. Cakupan perubahan yang harus disetujui: sepul
 
    ```sh
    npm run photo:prepare
-   supabase functions deploy profile-photo --profile upahgo-staging --project-ref aqzlgrahfxmbvtfwebsx --use-api
+   supabase functions deploy profile-photo --profile "$UPAHGO_SUPABASE_PROFILE" --project-ref aqzlgrahfxmbvtfwebsx --use-api
    ```
 
    Pertahankan `verify_jwt = true`, static WASM dan bucket privat. Jangan memakai `--no-verify-jwt` atau `--prune`. Uji JWT/Auth/Storage sebenarnya; kegagalan autentikasi bukan alasan membuka function. Tunda write foto selama koordinasi migrasi/Edge sesuai [MEDIA-CLEANUP.md](MEDIA-CLEANUP.md).

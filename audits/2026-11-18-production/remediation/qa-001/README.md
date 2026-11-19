@@ -2,7 +2,7 @@
 
 19 November 2026. Baseline `9d40db1` (SEC-001), branch `codex/qa-001`. **QA-001 belum ditutup; rilis produksi tetap NO-GO.** Pengguna memberikan URL Supabase, menyatakan memiliki Android fisik, menyetujui instalasi SDK/lisensi Google, lalu memilih menguji APK sendiri. Worker staging dan tiga akun sintetis belum tersedia. Tidak ada deployment, migrasi remote, aktivasi provider, SMS, pembuatan akun cloud atau perubahan data pengguna.
 
-Tindak lanjut: pengguna mengonfirmasi Supabase khusus pengujian dan APK fisik belum diuji. [Persiapan staging terpisah](staging/README.md) tersedia pada `codex/staging-qa-001`; login Wrangler kini terverifikasi, akses profil Supabase target masih diperlukan. CI staging pertama62/63 browser; sinkronisasi foreground diperbaiki dan delapan kasus lokasi Chromium/WebKit lokal lulus. Run penuh sesudah koreksi belum diterima. Tidak ada deployment/migrasi remote. Bukti di bawah tetap mencatat run/source historis masing-masing.
+Tindak lanjut: pengguna mengonfirmasi Supabase khusus pengujian dan APK fisik belum diuji. [Persiapan staging terpisah](staging/README.md) tersedia pada `codex/staging-qa-001`; login Wrangler dan akses profil Supabase ke target terverifikasi. CI staging pertama62/63 browser; setelah sinkronisasi foreground diperbaiki, run [44528145983](https://github.com/rakannaufal/UpahGO/actions/runs/44528145983), source `b47d79c`, sukses:63 unit,280 SQL,1 Edge,4 Worker,63 browser, audit npm0 dan kedua dry-run. MCP Cloudflare berhasil OAuth Minimal; pemakaian tool runtime belum diuji. Tidak ada deployment/migrasi remote. Bukti di bawah tetap mencatat run/source historis masing-masing.
 
 ## Perubahan source
 
