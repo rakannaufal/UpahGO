@@ -73,6 +73,8 @@ Google/Phone nonaktif dan RPC tidak dapat ditemukan lewat probe anonim pada 19 N
 
 ## Browser dan keputusan
 
+CI Linux source `d38c4c8`, run [44451749849](https://github.com/rakannaufal/UpahGO/actions/runs/44451749849), lulus 63/63 browser (21 per engine) dalam 8,8 menit. Ini bukti browser sintetis; matriks Android/staging di atas tetap memerlukan hasil aktual. [Metadata dan log](../audits/2026-11-18-production/remediation/qa-001/README.md).
+
 `npm run test:web` menjalankan Chromium, Firefox dan WebKit, tanpa retry suite otomatis. Pasang runtime yang cocok menggunakan `npx --no-install playwright install --with-deps chromium firefox webkit`; pada macOS tidak perlu `--with-deps`. Variabel `PLAYWRIGHT_BROWSERS_PATH` dapat mengisolasi unduhan. `--project=chromium` tersedia untuk pemeriksaan terbatas, bukan pengganti gate tiga browser.
 
 Fixture WebKit menormalkan timestamp mikrodetik yang dikeluarkan override Playwright menjadi milidetik. Mock native Firefox menambahkan satu hari; fixture menghapus offset tersebut hanya pada objek native dan rentang yang diketahui. Validasi lokasi aplikasi tidak diubah; regresi menolak fix enam menit lalu serta dua menit di masa depan sebelum request server. Uji ring fokus mencapai Akun lewat Tab nyata, memeriksa outline solid2px dan Enter, tanpa memaksa modalitas keyboard melalui `.focus()`. Harga diperiksa pada elemen nominal dengan nilai tepat, sambil menerima perbedaan whitespace `Intl.NumberFormat` antar engine.

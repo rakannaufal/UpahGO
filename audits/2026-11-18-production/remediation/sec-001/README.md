@@ -75,4 +75,4 @@ Langkah berikut yang disarankan: QA-001, menyiapkan dan menjalankan matriks Andr
 
 ## Pemeriksaan ulang setelah QA-001
 
-Pengguna meminta SEC-001 dilanjutkan sesudah paket QA. [Pemeriksaan ulang source `9eb1570`](recheck-qa001/README.md): audit online tetap 0, override masih dibutuhkan upstream, probe minimatch lulus, picomatch tetap memiliki batas pola tidak tepercaya, dan graph bundle APK QA tidak memuat paket tooling yang diperiksa. Tidak ada dependency/source runtime diubah; penerimaan rilis keseluruhan tetap terpisah.
+Pengguna meminta SEC-001 dilanjutkan sesudah paket QA. [Pemeriksaan ulang source `9eb1570`](recheck-qa001/README.md): audit online tetap 0, override masih dibutuhkan upstream, probe minimatch lulus, picomatch tetap memiliki batas pola tidak tepercaya, dan graph bundle APK QA tidak memuat paket tooling yang diperiksa. CI QA final source `d38c4c8` sukses: audit 0, 61 unit dan 63 browser lulus, beserta gate SQL/Edge/Worker/export. Tidak ada dependency/source runtime diubah; penerimaan rilis keseluruhan tetap terpisah.

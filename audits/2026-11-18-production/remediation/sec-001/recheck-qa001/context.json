@@ -13,6 +13,16 @@
     "auditGate": "moderate and above; no continue-on-error"
   },
   "limitation": "No remote deployment, secrets/protection-branch inspection, live service acceptance, or device interaction. Source-level advisory disposition only.",
-  "runtimeUnchangedAtCommit": "f36fb6f6b56b2461438fd1a20636bcafc625b152",
-  "changesSinceSourceSnapshot": "Browser tests/fixtures, QA runbook and evidence only; no application, server or dependency changes."
+  "runtimeUnchangedAtCommit": "d38c4c8565bc43cbee453d8a32e6f28ba1ab4448",
+  "changesSinceSourceSnapshot": "Browser tests/fixtures, documentation and evidence only; no application, server or dependency changes.",
+  "ciAcceptance": {
+    "runId": 44451749849,
+    "runAttempt": 1,
+    "sourceCommit": "d38c4c8565bc43cbee453d8a32e6f28ba1ab4448",
+    "conclusion": "success",
+    "browserTestsPassed": 63,
+    "unitTestsPassed": 61,
+    "npmAuditVulnerabilities": 0,
+    "evidence": "../../qa-001/evidence/github-ci-final.json"
+  }
 }

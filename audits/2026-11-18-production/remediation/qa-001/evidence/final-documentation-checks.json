@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-11-19T03:42:41.216267+00:00",
+  "checkedFiles": 11,
+  "jsonParsed": 3,
+  "credentialPatternHits": [],
+  "brokenLocalLinks": [],
+  "runtimeCodeChanged": false,
+  "scope": "Final QA/SEC documentation and CI evidence only; executable source matches tested commit d38c4c8. Pattern scan, JSON parse, local Markdown links and git diff --check; not exhaustive security validation."
+}

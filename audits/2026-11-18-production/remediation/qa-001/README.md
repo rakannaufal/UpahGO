@@ -69,6 +69,14 @@ POST anonim `/rest/v1/rpc/upahgo_action` dengan `{p_operation:"bootstrap",p_args
 
 URL proyek yang tersedia belum membuktikan staging terpisah. Worker/accounts belum ada menurut pengguna. Auth Google/Phone, JWT lintas environment, PostgREST signed-in, object authorization, Storage bytes/expiry, Maps, runner PRIV/MEDIA, alarm, race/offline-after-commit dan 50 CCU tetap **belum diuji end-to-end**. Tidak ada kapasitas/RPO/RTO atau penerimaan live yang diklaim dari shim/404 ini.
 
+## CI final pada source yang diperbaiki
+
+Run [44451749849](https://github.com/rakannaufal/UpahGO/actions/runs/44451749849), percobaan pertama, source `d38c4c8565bc43cbee453d8a32e6f28ba1ab4448`, **sukses**. Suite browser penuh **63/63 lulus** dalam 8,8 menit: masing-masing 21 Chromium, Firefox dan WebKit. Kasus GPS stale/future, fokus keyboard dan foto Firefox termasuk dalam run tersebut. Tidak menambah retry, mengecualikan browser, melonggarkan assertion atau mengubah validasi aplikasi. [Metadata per langkah dan hash log](evidence/github-ci-final.json), [log browser](evidence/browser-ci-final.txt).
+
+Clean install, audit npm 0 temuan, typecheck/lint, 61 unit tanpa skip, 280 assertion PostgreSQL disposable dengan shim Auth, 1 integrasi Deno Edge, export web/Hermes serta Worker dry-run/4 skenario runtime juga lulus. [Ringkasan log](evidence/checks-ci-final.txt). Ini verifikasi source dan fixture sintetis; tidak membuktikan Google/Phone, PostgREST/Storage, alarm, kapasitas, pemulihan atau Android nyata. APK tidak dibangun ulang karena source aplikasi/native dan lockfile tetap sama; perubahan sesudah build hanya tes, dokumentasi dan bukti.
+
+Source pada CI di atas menjadi referensi penerimaan teknis. Commit lanjutan yang mencatat hasil ini hanya mengubah dokumentasi/bukti. Riwayat CI gagal dan instalasi yang dibatalkan tetap disimpan; tidak dinyatakan lulus secara retroaktif. QA-001 tetap terbuka sampai penerimaan perangkat/staging yang berlaku terpenuhi.
+
 ## Keputusan
 
 Focused review mencakup pembentukan callback, validasi target, pertukaran PKCE, konfigurasi package, caller, regresi identitas dan fixture browser. Tidak ditemukan defect baru pada source yang ditinjau. Identitas QA berasal dari konfigurasi build; tidak ada pelemahan pemeriksaan callback, validasi lokasi atau otorisasi server. Penerimaan perilaku terpasang tetap memerlukan perangkat, bukan kesimpulan review source.
