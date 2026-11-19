@@ -1,0 +1,43 @@
+
+> upahgo@0.1.0 test:web
+> playwright test tests/web/location.spec.ts --project=chromium --grep GPS bootstrap failure
+
+
+Running 1 test using 1 worker
+
+(node:79938) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (8.1s)
+
+
+  1) [chromium] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 4
+    Received:   4
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      195 |     document.dispatchEvent(new Event("visibilitychange"));
+      196 |   });
+    > 197 |   await expect.poll(() => writes.length).toBeGreaterThan(before);
+          |                                          ^
+      198 |   expect(writes.at(-1)?.radiusKm).toBe(3);
+      199 | });
+      200 | test("GPS outside supported city never falls back to a different location", async ({
+        at /Users/rakan/Documents/UpahGo/tests/web/location.spec.ts:197:42
+
+    Error Context: test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius

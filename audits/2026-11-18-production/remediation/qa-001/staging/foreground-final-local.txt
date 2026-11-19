@@ -1,0 +1,21 @@
+
+> upahgo@0.1.0 test:web
+> playwright test tests/web/location.spec.ts --project=chromium --project=webkit
+
+
+Running 8 tests using 1 worker
+
+(node:80463) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/web/location.spec.ts:72:1 › live GPS permission rejection, inaccurate fix and successful retry (2.8s)
+  ✓  2 [chromium] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (2.9s)
+  ✓  3 [chromium] › tests/web/location.spec.ts:206:1 › GPS outside supported city never falls back to a different location (1.8s)
+  ✓  4 [chromium] › tests/web/location.spec.ts:234:1 › map tile failure keeps approximate markers and list usable (4.6s)
+(node:80499) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [webkit] › tests/web/location.spec.ts:72:1 › live GPS permission rejection, inaccurate fix and successful retry (6.3s)
+  ✓  6 [webkit] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (4.2s)
+  ✓  7 [webkit] › tests/web/location.spec.ts:206:1 › GPS outside supported city never falls back to a different location (2.8s)
+  ✓  8 [webkit] › tests/web/location.spec.ts:234:1 › map tile failure keeps approximate markers and list usable (5.2s)
+
+  8 passed (34.7s)

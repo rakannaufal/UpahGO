@@ -1,0 +1,237 @@
+{
+  "id": 44522471306,
+  "head_sha": "a862e57ba4132bc1c65d868059517f98cd9bdbe3",
+  "status": "completed",
+  "conclusion": "failure",
+  "html_url": "https://github.com/rakannaufal/UpahGO/actions/runs/44522471306",
+  "run_attempt": 1,
+  "created_at": "2026-11-19T12:17:14Z",
+  "updated_at": "2026-11-19T12:30:10Z",
+  "jobs": [
+    {
+      "id": 135554331042,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-19T12:17:18Z",
+          "completed_at": "2026-11-19T12:17:19Z"
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-19T12:17:19Z",
+          "completed_at": "2026-11-19T12:17:31Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-19T12:17:31Z",
+          "completed_at": "2026-11-19T12:17:33Z"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-19T12:17:33Z",
+          "completed_at": "2026-11-19T12:17:34Z"
+        },
+        {
+          "name": "Run npm ci --ignore-scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-19T12:17:34Z",
+          "completed_at": "2026-11-19T12:17:51Z"
+        },
+        {
+          "name": "Run npm run audit:dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-19T12:17:51Z",
+          "completed_at": "2026-11-19T12:17:52Z"
+        },
+        {
+          "name": "Run npm run typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-19T12:17:52Z",
+          "completed_at": "2026-11-19T12:17:56Z"
+        },
+        {
+          "name": "Run npm run lint",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-19T12:17:56Z",
+          "completed_at": "2026-11-19T12:18:04Z"
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-19T12:18:04Z",
+          "completed_at": "2026-11-19T12:18:07Z"
+        },
+        {
+          "name": "Run denoland/setup-deno@v2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-19T12:18:07Z",
+          "completed_at": "2026-11-19T12:18:09Z"
+        },
+        {
+          "name": "Run npm run photo:prepare",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-19T12:18:09Z",
+          "completed_at": "2026-11-19T12:18:09Z"
+        },
+        {
+          "name": "Run npm run test:photo-edge",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-19T12:18:09Z",
+          "completed_at": "2026-11-19T12:18:12Z"
+        },
+        {
+          "name": "Run npm run check:secrets",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-19T12:18:12Z",
+          "completed_at": "2026-11-19T12:18:12Z"
+        },
+        {
+          "name": "Run npm run test:db",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-19T12:18:12Z",
+          "completed_at": "2026-11-19T12:18:14Z"
+        },
+        {
+          "name": "Run npm run build:web",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-19T12:18:14Z",
+          "completed_at": "2026-11-19T12:18:39Z"
+        },
+        {
+          "name": "Run npm run build:android",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-19T12:18:39Z",
+          "completed_at": "2026-11-19T12:19:05Z"
+        },
+        {
+          "name": "Run npm run worker:check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-19T12:19:05Z",
+          "completed_at": "2026-11-19T12:19:07Z"
+        },
+        {
+          "name": "Run npm run worker:check:staging",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-19T12:19:07Z",
+          "completed_at": "2026-11-19T12:19:08Z"
+        },
+        {
+          "name": "Run npm run test:ops-local",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-19T12:19:08Z",
+          "completed_at": "2026-11-19T12:19:15Z"
+        },
+        {
+          "name": "Run npx --no-install playwright install --with-deps chromium firefox webkit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-11-19T12:19:15Z",
+          "completed_at": "2026-11-19T12:20:35Z"
+        },
+        {
+          "name": "Run npm run test:web",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 21,
+          "started_at": "2026-11-19T12:20:35Z",
+          "completed_at": "2026-11-19T12:30:04Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-11-19T12:30:04Z",
+          "completed_at": "2026-11-19T12:30:05Z"
+        },
+        {
+          "name": "Post Run denoland/setup-deno@v2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 41,
+          "started_at": "2026-11-19T12:30:05Z",
+          "completed_at": "2026-11-19T12:30:06Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 42,
+          "started_at": "2026-11-19T12:30:06Z",
+          "completed_at": "2026-11-19T12:30:06Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 43,
+          "started_at": "2026-11-19T12:30:06Z",
+          "completed_at": "2026-11-19T12:30:06Z"
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 44,
+          "started_at": "2026-11-19T12:30:06Z",
+          "completed_at": "2026-11-19T12:30:06Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 45,
+          "started_at": "2026-11-19T12:30:06Z",
+          "completed_at": "2026-11-19T12:30:06Z"
+        }
+      ]
+    }
+  ],
+  "rawLogSha256": "e7941d37ff6eacc318aa383025f72bc09ad599aca47c63982d5d3af2c9b7e76b"
+}

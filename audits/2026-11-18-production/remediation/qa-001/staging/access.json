@@ -7,7 +7,10 @@
     "deviceAPKTested": false
   },
   "cloudflare": {
-    "authenticated": false
+    "authenticated": true,
+    "checkedAt": "2026-11-19T12:49:56.342805+00:00",
+    "accountCount": 1,
+    "identityAndCredentialsOmitted": true
   },
   "supabase": {
     "sessionPresent": true,
@@ -15,5 +18,14 @@
     "parserCheckedAgainstRefField": true
   },
   "remoteChangesPerformed": false,
-  "scope": "Authentication status and accessible-project metadata only; no user rows, schema inspection, migrations, secrets or deployment. Other account/project identity and credentials omitted."
+  "scope": "Read-only authentication/access snapshots and user-requested local agent tooling setup. No user rows, remote schema inspection, migrations, gateway secrets or deployment. Other account/project identity and credentials omitted.",
+  "cloudflareTooling": {
+    "skillsInstalled": 22,
+    "source": "https://github.com/cloudflare/skills",
+    "sourceSha": "5108325ecceabc899c761e07aa617b09c02445ee",
+    "mcpConfigured": true,
+    "mcpOAuthStatus": "awaiting_user_consent",
+    "runtimeReloadRequired": true,
+    "betaCfCliInstalled": false
+  }
 }

@@ -1,0 +1,126 @@
+> playwright test
+
+
+Running 63 tests using 1 worker
+
+  ✓   1 [chromium] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (2.6s)
+  ✓   2 [chromium] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (2.4s)
+  ✓   3 [chromium] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (5.6s)
+  ✓   4 [chromium] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (22.7s)
+  ✓   5 [chromium] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (7.9s)
+  ✓   6 [chromium] › tests/web/core.spec.ts:137:1 › catalog search and private Other suggestion preserve deferred category boundaries (6.4s)
+  ✓   7 [chromium] › tests/web/core.spec.ts:173:1 › populated demo, two-column profile cards, city/radius/job filters and map (11.6s)
+  ✓   8 [chromium] › tests/web/core.spec.ts:325:1 › bilateral contact, separate COD, both participants rate completed work (17.3s)
+  ✓   9 [chromium] › tests/web/core.spec.ts:429:1 › profile validation, draft guard, role history and visibility (9.1s)
+  ✓  10 [chromium] › tests/web/core.spec.ts:491:1 › reporting, blocking, populated history, privacy and deletion (13.1s)
+  ✓  11 [chromium] › tests/web/core.spec.ts:563:1 › responsive rail, keyboard, reduced motion and invalid callback (6.0s)
+  ✓  12 [chromium] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (4.0s)
+  ✓  13 [chromium] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (3.9s)
+  ✓  14 [chromium] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (6.5s)
+  ✓  15 [chromium] › tests/web/location.spec.ts:70:1 › live GPS permission rejection, inaccurate fix and successful retry (2.1s)
+  ✘  16 [chromium] › tests/web/location.spec.ts:157:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (7.2s)
+  ✓  17 [chromium] › tests/web/location.spec.ts:197:1 › GPS outside supported city never falls back to a different location (1.9s)
+  ✓  18 [chromium] › tests/web/location.spec.ts:225:1 › map tile failure keeps approximate markers and list usable (4.7s)
+  ✓  19 [chromium] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (3.4s)
+  ✓  20 [chromium] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (19.8s)
+  ✓  21 [chromium] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (25.2s)
+  ✓  22 [firefox] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (3.0s)
+  ✓  23 [firefox] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (2.6s)
+  ✓  24 [firefox] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (5.7s)
+  ✓  25 [firefox] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (19.5s)
+  ✓  26 [firefox] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (8.4s)
+  ✓  27 [firefox] › tests/web/core.spec.ts:137:1 › catalog search and private Other suggestion preserve deferred category boundaries (5.8s)
+  ✓  28 [firefox] › tests/web/core.spec.ts:173:1 › populated demo, two-column profile cards, city/radius/job filters and map (12.1s)
+  ✓  29 [firefox] › tests/web/core.spec.ts:325:1 › bilateral contact, separate COD, both participants rate completed work (18.9s)
+  ✓  30 [firefox] › tests/web/core.spec.ts:429:1 › profile validation, draft guard, role history and visibility (8.8s)
+  ✓  31 [firefox] › tests/web/core.spec.ts:491:1 › reporting, blocking, populated history, privacy and deletion (11.9s)
+  ✓  32 [firefox] › tests/web/core.spec.ts:563:1 › responsive rail, keyboard, reduced motion and invalid callback (6.0s)
+  ✓  33 [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (4.0s)
+  ✓  34 [firefox] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (4.1s)
+  ✓  35 [firefox] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (7.0s)
+  ✓  36 [firefox] › tests/web/location.spec.ts:70:1 › live GPS permission rejection, inaccurate fix and successful retry (3.6s)
+  ✓  37 [firefox] › tests/web/location.spec.ts:157:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (3.4s)
+  ✓  38 [firefox] › tests/web/location.spec.ts:197:1 › GPS outside supported city never falls back to a different location (2.8s)
+  ✓  39 [firefox] › tests/web/location.spec.ts:225:1 › map tile failure keeps approximate markers and list usable (4.9s)
+  ✓  40 [firefox] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (4.1s)
+  ✓  41 [firefox] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (23.0s)
+  ✓  42 [firefox] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (26.4s)
+  ✓  43 [webkit] › tests/web/auth-recovery.spec.ts:15:3 › contact bootstrap failure recovers without a blank screen (7.7s)
+  ✓  44 [webkit] › tests/web/auth-recovery.spec.ts:15:3 › agreement bootstrap failure recovers without a blank screen (3.2s)
+  ✓  45 [webkit] › tests/web/ceria.spec.ts:23:1 › maximum zoom separates overlapping profile pins; zooming out restores the group (6.5s)
+  ✓  46 [webkit] › tests/web/ceria.spec.ts:64:1 › Ceria route and state captures, narrow and expanded layouts (20.5s)
+  ✓  47 [webkit] › tests/web/core.spec.ts:59:1 › effort/search carry to map; role switch resets filters; optional photo stays private (8.5s)
+  ✓  48 [webkit] › tests/web/core.spec.ts:137:1 › catalog search and private Other suggestion preserve deferred category boundaries (6.1s)
+  ✓  49 [webkit] › tests/web/core.spec.ts:173:1 › populated demo, two-column profile cards, city/radius/job filters and map (12.0s)
+  ✓  50 [webkit] › tests/web/core.spec.ts:325:1 › bilateral contact, separate COD, both participants rate completed work (17.8s)
+  ✓  51 [webkit] › tests/web/core.spec.ts:429:1 › profile validation, draft guard, role history and visibility (9.4s)
+  ✓  52 [webkit] › tests/web/core.spec.ts:491:1 › reporting, blocking, populated history, privacy and deletion (13.4s)
+  ✓  53 [webkit] › tests/web/core.spec.ts:563:1 › responsive rail, keyboard, reduced motion and invalid callback (6.2s)
+  ✓  54 [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy disabled: honest copy, consent and retry (4.0s)
+  ✓  55 [webkit] › tests/web/deletion.spec.ts:5:3 › account erasure policy enabled: honest copy, consent and retry (3.5s)
+  ✓  56 [webkit] › tests/web/history.spec.ts:61:1 › history loads older records, retries in place, filters at server and ignores a stale page (6.4s)
+  ✓  57 [webkit] › tests/web/location.spec.ts:70:1 › live GPS permission rejection, inaccurate fix and successful retry (2.8s)
+  ✓  58 [webkit] › tests/web/location.spec.ts:157:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (3.7s)
+  ✓  59 [webkit] › tests/web/location.spec.ts:197:1 › GPS outside supported city never falls back to a different location (2.2s)
+  ✓  60 [webkit] › tests/web/location.spec.ts:225:1 › map tile failure keeps approximate markers and list usable (5.2s)
+  ✓  61 [webkit] › tests/web/media.spec.ts:5:1 › photo deletion distinguishes queued cleanup, retries and prevents duplicate submission (4.3s)
+  ✓  62 [webkit] › tests/web/prices.spec.ts:31:1 › profile price edits, contact consent and negotiated agreement stay separate (21.3s)
+  ✓  63 [webkit] › tests/web/ui-consistency.spec.ts:8:1 › five tabs stay reachable with filled selection and compact consistent controls (25.5s)
+
+
+  1) [chromium] › tests/web/location.spec.ts:157:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 4
+    Received:   4
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      192 |     document.dispatchEvent(new Event("visibilitychange"));
+      193 |   });
+    > 194 |   await expect.poll(() => writes.length).toBeGreaterThan(before);
+          |                                          ^
+      195 |   expect(writes.at(-1)?.radiusKm).toBe(3);
+      196 | });
+      197 | test("GPS outside supported city never falls back to a different location", async ({
+        at /home/runner/work/UpahGO/UpahGO/tests/web/location.spec.ts:194:42
+
+    Error Context: test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/web/location.spec.ts:157:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+  62 passed (9.5m)
+##[error]Process completed with exit code 1.
+##[group]Run actions/upload-artifact@v4
+with:
+  name: test-evidence
+  path: test-results/
+  if-no-files-found: warn
+  compression-level: 6
+  overwrite: false
+  include-hidden-files: false
+##[endgroup]
+(node:11951) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+With the provided path, there will be 2 files uploaded
+Artifact name is valid!
+Root directory input is valid!
+Beginning upload of artifact content to blob storage
+(node:11951) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Uploaded bytes 1660914
+Finished uploading artifact content to blob storage!
+SHA256 digest of uploaded artifact zip is d3190b7c8cf2538dee668544748aae3ba5c2d2e93a9f27d72dc8a7dde8970020
+Finalizing artifact upload
+Artifact test-evidence.zip successfully finalized. Artifact ID 14528928492
+Artifact test-evidence has been successfully uploaded! Final size is 1660914 bytes. Artifact ID is 14528928492
+Artifact download URL: https://github.com/rakannaufal/UpahGO/actions/runs/44522471306/artifacts/14528928492

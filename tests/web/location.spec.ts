@@ -8,7 +8,7 @@ async function installLiveFixture(page: Page, context: BrowserContext) {
   api.actor = "demo-worker";
   api.accounts[api.actor]!.location = null;
   const writes: Record<string, unknown>[] = [];
-  const failures = { nextBootstrap: false };
+  const failures = { nextBootstrap: false, slowBootstrap: false };
   const now = Math.floor(Date.now() / 1000);
   const token =
     [
@@ -56,6 +56,8 @@ async function installLiveFixture(page: Page, context: BrowserContext) {
       await route.fulfill({ status: 503, json: { error: "NETWORK_ERROR" } });
       return;
     }
+    if (operation === "bootstrap" && failures.slowBootstrap)
+      await new Promise((resolve) => setTimeout(resolve, 250));
     try {
       await route.fulfill({ json: { data: api.execute(operation, args) } });
     } catch (e) {
@@ -176,8 +178,15 @@ test("GPS bootstrap failure stays recoverable; foreground retains the changed ra
   await expect(page.getByTestId("page-Beranda")).toBeVisible();
   await button(page, "Lokasi dan radius").click();
   await page.getByRole("radio", { name: "3 km", exact: true }).check();
+  failures.slowBootstrap = true;
   await button(page, "Terapkan").click();
   await expect.poll(() => writes.at(-1)?.radiusKm).toBe(3);
+  // The GPS action becomes enabled only after the radius-triggered refresh finishes.
+  await button(page, "Lokasi dan radius").click();
+  await button(page, "Perbarui GPS").click();
+  await expect(button(page, "Aktifkan lokasi")).toBeEnabled();
+  await button(page, "Kembali").click();
+  await expect(page.getByTestId("page-Beranda")).toBeVisible();
   const before = writes.length;
   await page.evaluate(() => {
     Object.defineProperty(document, "visibilityState", {

@@ -1,0 +1,12 @@
+found 0 vulnerabilities
+found 0 vulnerabilities
+# tests 63
+# pass 63
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3268.586448
+ok | 1 passed | 0 failed (1s)
+DB: 280 assertions passed (local PostgreSQL, synthetic auth shim).
+{"runtime":"local Wrangler/workerd + SQLite Durable Object","upstream":"synthetic loopback","scenarios":4,"requestCorrelation":"pass","redaction":"pass","remoteDeployment":false}

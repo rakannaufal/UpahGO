@@ -12,10 +12,41 @@ Konfigurasi dan dry-run tersedia lokal. Belum ada migrasi, deployment, secret re
 | Worker staging   | Nama `upahgo-api-staging`; URL `workers.dev` belum tersedia, jangan ditebak                        |
 | Worker produksi  | Nama existing `upahgo-api`; URL Supabase sengaja kosong sampai proyek produksi terpisah ditentukan |
 | Klien Android QA | `UPAHGO_APP_VARIANT=qa`, package `id.upahgo.app.qa`, callback `upahgo-qa://auth/callback`          |
-| Cloudflare CLI   | Belum login pada pemeriksaan baca-saja                                                             |
+| Cloudflare CLI   | Login Wrangler terverifikasi baca-saja; satu akun tersedia, identitas/kredensial tidak dicatat     |
 | Supabase CLI     | Sesi ada, tetapi proyek staging tidak muncul dalam daftar proyek sesi tersebut                     |
 
 Status akses merupakan snapshot; periksa ulang setelah login atau perubahan izin. Jangan logout/menimpa sesi proyek lain secara otomatis. Pakai akun/profil yang memiliki akses ke target di atas. Jangan mengirim token, password, service key atau client secret melalui chat.
+
+## Login CLI
+
+Jalankan di Terminal Mac, berurutan. Node 22 sudah terpasang pada mesin pengujian ini; path Homebrew berikut khusus mesin tersebut.
+
+```sh
+cd /Users/rakan/Documents/UpahGo
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+npx --no-install wrangler login --use-keyring
+```
+
+Pilih akun Cloudflare staging pada browser dan tinjau izin OAuth sebelum menyetujuinya. `--use-keyring` memakai penyimpanan kredensial OS yang didukung CLI terpasang. Tidak melakukan deploy.
+
+Gunakan profil Supabase khusus agar sesi default proyek lain tetap terpisah:
+
+```sh
+supabase login --profile upahgo-staging
+supabase projects list --profile upahgo-staging
+```
+
+Masuk dengan akun yang dapat membuka proyek `aqzlgrahfxmbvtfwebsx`; kode login hanya dimasukkan pada alur resmi CLI/browser. Pastikan ref tersebut muncul di daftar. Jika tidak, periksa akun dan keanggotaan organisasi; login berhasil saja belum membuktikan akses target. Jangan menyalin token atau keluaran privat ke chat/Git. Semua perintah Supabase lanjutan pada runbook ini memakai profil tersebut dan ref eksplisit. Login tidak mengotorisasi migrasi, deployment, upgrade paket atau aktivasi provider.
+
+Pada sesi ini, callback OAuth Wrangler pertama ditolak karena CSRF. Alur perangkat resmi berikut berhasil melalui browser Codex:
+
+```sh
+npx --no-install wrangler login --device --browser=false --use-keyring
+```
+
+CLI memberikan URL/kode sementara untuk dimasukkan pada halaman Cloudflare. Jangan memakai kembali kode lama atau memasukkannya ke laporan. Pemeriksaan `whoami --json` disaring menjadi status/jumlah akun saja; tidak membuktikan paket, kuota atau izin deploy telah diterima.
+
+Atas permintaan pengguna, setup agen mengikuti [panduan resmi Cloudflare](https://developers.cloudflare.com/agent-setup/prompt.md): 22 skill dari `cloudflare/skills` revisi `5108325ecceabc899c761e07aa617b09c02445ee` dipasang ke direktori skill Codex dan diverifikasi terhadap unduhan yang ditinjau. MCP `https://mcp.cloudflare.com/mcp` didaftarkan pada konfigurasi Codex dengan backup privat dan pengaturan lain tetap. Persetujuan OAuth MCP masih menunggu pengguna; registrasi bukan autentikasi. Runtime perlu dimuat ulang untuk MCP baru; skill tersedia pada giliran berikutnya. CLI `cf` beta opsional tidak dipasang karena proyek memakai Wrangler. Setup tooling tidak mengubah layanan aplikasi atau memberi izin deployment.
 
 ## Batas konfigurasi
 
@@ -45,14 +76,14 @@ Langkah di bawah belum dijalankan. Cakupan perubahan yang harus disetujui: sepul
 3. Bandingkan file lokal dengan [manifest sepuluh migrasi dan SHA-256](../audits/2026-11-18-production/remediation/qa-001/staging/migration-plan.json). CLI terpasang menyediakan `--project-ref` sehingga tidak perlu mengandalkan proyek yang terakhir di-link. Setelah izin dan akses target tersedia, tinjau rencana terlebih dahulu:
 
    ```sh
-   supabase migration list --project-ref aqzlgrahfxmbvtfwebsx
-   supabase db push --project-ref aqzlgrahfxmbvtfwebsx --dry-run --skip-vault
+   supabase migration list --profile upahgo-staging --project-ref aqzlgrahfxmbvtfwebsx
+   supabase db push --profile upahgo-staging --project-ref aqzlgrahfxmbvtfwebsx --dry-run --skip-vault
    ```
 
    Jangan memakai `--include-all`, `--include-seed` atau `--include-roles` untuk memaksa riwayat cocok. Setelah rencana cocok dan disetujui, perintah penerapan adalah:
 
    ```sh
-   supabase db push --project-ref aqzlgrahfxmbvtfwebsx --skip-vault
+   supabase db push --profile upahgo-staging --project-ref aqzlgrahfxmbvtfwebsx --skip-vault
    ```
 
    `--skip-vault` mencegah pembaruan Vault yang bukan cakupan migrasi. Jangan menaruh password database pada flag `--password`; gunakan mekanisme kredensial privat CLI yang ditinjau. Verifikasi urutan/hasil dan simpan bukti yang disaring. Schema `upahgo_private` tidak boleh diekspos PostgREST; bucket foto tetap privat.
@@ -62,7 +93,7 @@ Langkah di bawah belum dijalankan. Cakupan perubahan yang harus disetujui: sepul
 
    ```sh
    npm run photo:prepare
-   supabase functions deploy profile-photo --project-ref aqzlgrahfxmbvtfwebsx --use-api
+   supabase functions deploy profile-photo --profile upahgo-staging --project-ref aqzlgrahfxmbvtfwebsx --use-api
    ```
 
    Pertahankan `verify_jwt = true`, static WASM dan bucket privat. Jangan memakai `--no-verify-jwt` atau `--prune`. Uji JWT/Auth/Storage sebenarnya; kegagalan autentikasi bukan alasan membuka function. Tunda write foto selama koordinasi migrasi/Edge sesuai [MEDIA-CLEANUP.md](MEDIA-CLEANUP.md).

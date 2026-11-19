@@ -1,0 +1,153 @@
+
+> upahgo@0.1.0 test:web
+> playwright test tests/web/location.spec.ts --project=chromium --project=webkit
+
+
+Running 8 tests using 1 worker
+
+(node:80069) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/web/location.spec.ts:72:1 › live GPS permission rejection, inaccurate fix and successful retry (2.7s)
+  ✘  2 [chromium] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (7.5s)
+(node:80108) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [chromium] › tests/web/location.spec.ts:202:1 › GPS outside supported city never falls back to a different location (2.1s)
+  ✓  4 [chromium] › tests/web/location.spec.ts:230:1 › map tile failure keeps approximate markers and list usable (4.6s)
+(node:80137) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [webkit] › tests/web/location.spec.ts:72:1 › live GPS permission rejection, inaccurate fix and successful retry (1ms)
+(node:80138) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 [webkit] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius (1ms)
+(node:80139) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  7 [webkit] › tests/web/location.spec.ts:202:1 › GPS outside supported city never falls back to a different location (2ms)
+(node:80142) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  8 [webkit] › tests/web/location.spec.ts:230:1 › map tile failure keeps approximate markers and list usable (1ms)
+
+
+  1) [chromium] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 4
+    Received:   4
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      197 |     document.dispatchEvent(new Event("visibilitychange"));
+      198 |   });
+    > 199 |   await expect.poll(() => writes.length).toBeGreaterThan(before);
+          |                                          ^
+      200 |   expect(writes.at(-1)?.radiusKm).toBe(3);
+      201 | });
+      202 | test("GPS outside supported city never falls back to a different location", async ({
+        at /Users/rakan/Documents/UpahGo/tests/web/location.spec.ts:199:42
+
+    Error Context: test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [webkit] › tests/web/location.spec.ts:72:1 › live GPS permission rejection, inaccurate fix and successful retry
+
+    Error: browserType.launch: Executable doesn't exist at /Users/rakan/Library/Caches/ms-playwright/webkit-2388/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/location-live-GPS-permissi-ffee0-te-fix-and-successful-retry-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-live-GPS-permissi-ffee0-te-fix-and-successful-retry-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-live-GPS-permissi-ffee0-te-fix-and-successful-retry-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [webkit] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+
+    Error: browserType.launch: Executable doesn't exist at /Users/rakan/Library/Caches/ms-playwright/webkit-2388/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-bootstrap-fai-21e81--retains-the-changed-radius-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [webkit] › tests/web/location.spec.ts:202:1 › GPS outside supported city never falls back to a different location
+
+    Error: browserType.launch: Executable doesn't exist at /Users/rakan/Library/Caches/ms-playwright/webkit-2388/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-GPS-outside-suppo-84f0f-ack-to-a-different-location-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [webkit] › tests/web/location.spec.ts:230:1 › map tile failure keeps approximate markers and list usable
+
+    Error: browserType.launch: Executable doesn't exist at /Users/rakan/Library/Caches/ms-playwright/webkit-2388/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/location-map-tile-failure--c5f5c-ate-markers-and-list-usable-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/location-map-tile-failure--c5f5c-ate-markers-and-list-usable-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/location-map-tile-failure--c5f5c-ate-markers-and-list-usable-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    [chromium] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+    [webkit] › tests/web/location.spec.ts:72:1 › live GPS permission rejection, inaccurate fix and successful retry
+    [webkit] › tests/web/location.spec.ts:159:1 › GPS bootstrap failure stays recoverable; foreground retains the changed radius
+    [webkit] › tests/web/location.spec.ts:202:1 › GPS outside supported city never falls back to a different location
+    [webkit] › tests/web/location.spec.ts:230:1 › map tile failure keeps approximate markers and list usable
+  3 passed (22.4s)
